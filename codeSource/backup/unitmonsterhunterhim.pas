@@ -11,13 +11,6 @@ Choix numéro 3 : Afficher les crédits
 Choix numéro 4 : Quitter}
 function menuIHM() : string;
 
-
-
-
-
-
-
-
 implementation
 uses
   Classes, SysUtils, unitMonsterHunterLogic;

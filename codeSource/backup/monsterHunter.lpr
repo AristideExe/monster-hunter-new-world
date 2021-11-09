@@ -1,6 +1,6 @@
 program monsterHunter;
 
-uses GestionEcran, unitMonsterHunterLogic;
+uses GestionEcran, unitMonsterHunterLogic, unitMonsterHunterHIM;
 
 begin
 end.
