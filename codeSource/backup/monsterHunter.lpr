@@ -1,9 +1,7 @@
 program monsterHunter;
 
-uses GestionEcran;
+uses GestionEcran, unitMonsterHunterLogic;
 
 begin
-  write('hello world');
-  readln;
 end.
 
