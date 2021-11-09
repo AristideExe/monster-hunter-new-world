@@ -20,7 +20,7 @@ function menuIHM() : string;
 
 implementation
 uses
-  Classes, SysUtils, unitMonsterHunterLogic;
+  Classes, SysUtils, unitMonsterHunterLogic,GestionEcran;
 
 
 

@@ -15,7 +15,7 @@ procedure menu();
 
 implementation
 uses
-  Classes, SysUtils,unitmonsterhunterhim;
+  Classes, SysUtils,unitmonsterhunterhim,GestionEcran;
 
 
 procedure creationPersonnage();
