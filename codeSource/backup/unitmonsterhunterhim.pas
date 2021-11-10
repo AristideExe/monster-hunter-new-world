@@ -46,7 +46,7 @@ begin
      effacerEcran();
      dessinerCadreXY(10,1,110,25,simple,White,Black);
      dessinerCadreXY(35,6,85,8,double,White,Black);
-     deplacerCurseurXY(37,7);write (' Bienvenue sur Monster Hunter : New World ');
+     deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
      deplacerCurseurXY(50,12);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,14);write ('2) Charger une partie');
      deplacerCurseurXY(50,16);write ('3) Afficher les credits');
@@ -96,6 +96,7 @@ function villeIHM() : string;
 begin
      effacerEcran();
      write('1 - Chambre, 2 - Forge, 3 - Marchand, 4 - Cantine, 5 - Demarrer un combat');
+     write(getNomPersonnage());
      readln(villeIHM);
 end;
 
