@@ -8,28 +8,37 @@ interface
 procedure menu();
 
 var
-     nomPersonnage : string;
-     taillePersonnage : string;
-     sexePersonnage : string;
+  nomPersonnage: string;
+  taillePersonnage: string;
+  sexePersonnage: string;
+
+// Renvoie le nom du personnage
+function getNomPersonnage() : string;
+
+
+
+
+
+
+
+
 
 
 implementation
+
 uses
-  Classes, SysUtils,unitmonsterhunterhim,GestionEcran;
+  Classes, SysUtils, unitmonsterhunterhim, GestionEcran;
 
 // Affiche le message lorsque l'on quitte
 procedure quitter();
 begin
-     quitterIHM();
+  quitterIHM();
 end;
 
 
 
 
-
-
-
-// -------------------------------- TOUTES LES PROCÉDURES DE LANCEMENT DU JEU --------------------------------
+// -------------------------------- TOUTES LES PROCÉDURES DE LA VILLE --------------------------------
 
 procedure choisirCombat();
 begin
@@ -56,19 +65,22 @@ end;
 // Ville du lobby
 procedure ville();
 var
-     choix : string;
+  choix: string;
 begin
-     choix := villeIHM();
-     if (choix = '1') then chambre()
-     else if (choix = '2') then forge()
-     else if (choix = '3') then marchand()
-     else if (choix = '4') then cantine()
-     else if (choix = '5') then choisirCombat()
-     else ville();
+  choix := villeIHM();
+  if (choix = '1') then
+    chambre()
+  else if (choix = '2') then
+    forge()
+  else if (choix = '3') then
+    marchand()
+  else if (choix = '4') then
+    cantine()
+  else if (choix = '5') then
+    choisirCombat()
+  else
+    ville();
 end;
-
-
-
 
 
 
@@ -76,9 +88,8 @@ end;
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
 begin
-    ville();
+  ville();
 end;
-
 
 
 
@@ -89,8 +100,8 @@ end;
 // Menu de création de personnage
 procedure creationPersonnage();
 begin
-     creationPersonnageIHM(nomPersonnage, taillePersonnage, sexePersonnage);
-     initialisationPersonnage();
+  creationPersonnageIHM(nomPersonnage, taillePersonnage, sexePersonnage);
+  initialisationPersonnage();
 end;
 
 // Affiche les différentes sauvegardes
@@ -101,8 +112,8 @@ end;
 // Affiche les crédits
 procedure credits();
 begin
-     creditsIHM();
-     menuIHM();
+  creditsIHM();
+  menuIHM();
 end;
 
 
@@ -110,13 +121,40 @@ end;
 // Menu principal
 procedure menu();
 var
-     choix : string;
+  choix: string;
 begin
-     choix := menuIHM();
-     if (choix = '1') then creationPersonnage()
-     else if (choix = '2') then choixSauvegarde()
-     else if (choix = '3') then credits()
-     else quitter();
+  choix := menuIHM();
+  if (choix = '1') then
+    creationPersonnage()
+  else if (choix = '2') then
+    choixSauvegarde()
+  else if (choix = '3') then
+    credits()
+  else
+    quitter();
 end;
+
+
+
+
+// -------------------------------- TOUTES LES FONCTIONS DE GET --------------------------------
+
+// Renvoie le nom du personnage
+function getNomPersonnage() : string;
+begin
+  getNomPersonnage := nomPersonnage;
+end;
+
+// Renvoie la taille du personnage
+function getTaillePersonnage() : string;
+begin
+  getTaillePersonnage := taillePersonnage;
+end;
+
+function getSexePersonnage() : string;
+begin
+  getSexePersonnage := sexePersonnage;
+end;
+
 end.
 

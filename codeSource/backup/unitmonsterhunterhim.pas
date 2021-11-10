@@ -45,7 +45,11 @@ function menuIHM() : string;
 begin
      effacerEcran();
      dessinerCadreXY(10,1,110,25,simple,White,Black);
+<<<<<<< HEAD
      dessinerCadreXY(35,8,85,6,double,White,Black);
+=======
+     dessinerCadreXY(35,6,85,8,double,White,Black);
+>>>>>>> bd3275eba90a07f06e098759986107f46c4b4432
      deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
      deplacerCurseurXY(50,12);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,14);write ('2) Charger une partie');
@@ -96,6 +100,7 @@ Choix numéro 5 : choisir un combat
 function villeIHM() : string;
 begin
      effacerEcran();
+<<<<<<< HEAD
      // Chambre du personage
      dessinerCadreXY(10,16,30,22,simple,White,Black);
      deplacerCurseurXY(17,19);write('1/Chambre');
@@ -148,6 +153,10 @@ begin
      //route centrale
      //dessinerCadreXY(70,5,70,15,simple,White,Black);
 
+=======
+     write('1 - Chambre, 2 - Forge, 3 - Marchand, 4 - Cantine, 5 - Demarrer un combat');
+     write(getNomPersonnage());
+>>>>>>> bd3275eba90a07f06e098759986107f46c4b4432
      readln(villeIHM);
 end;
 
