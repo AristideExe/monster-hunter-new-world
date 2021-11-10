@@ -7,13 +7,38 @@ interface
 // Menu principal
 procedure menu();
 
+
+// TYPES
+type
+  typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique,roche,acier);
+  typePieceArmure = (casque,torse,jambieres,bottes,gants);
+  typeArmure = record
+             nom : string;
+             pieceArmure : typePieceArmure;
+             element : typeElement;
+             durabilite : integer;
+             valeurDefense : real;
+             tauxEsquive : real;
+  end;
+
+
+
+// VARIABLES PERSONNAGE
 var
   nomPersonnage: string;
   taillePersonnage: string;
   sexePersonnage: string;
 
+
+
+
+// FONCTIONS POUR RETOURNER DES VALEURS SUR LE PERSONNAGE
 // Renvoie le nom du personnage
 function getNomPersonnage() : string;
+// Renvoie la taille du personnage
+function getTaillePersonnage() : string;
+// Renvoie le sexe du personnage
+function getSexePersonnage() : string;
 
 
 
@@ -27,7 +52,7 @@ function getNomPersonnage() : string;
 implementation
 
 uses
-  Classes, SysUtils, unitmonsterhunterhim, GestionEcran;
+  Classes, SysUtils, unitmonsterhunterhim;
 
 // Affiche le message lorsque l'on quitte
 procedure quitter();
@@ -88,7 +113,7 @@ end;
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
 begin
-  ville();
+     ville();
 end;
 
 
