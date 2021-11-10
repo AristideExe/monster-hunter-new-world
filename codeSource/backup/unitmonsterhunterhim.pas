@@ -44,13 +44,14 @@ Choix numéro 4 : Quitter}
 function menuIHM() : string;
 begin
      effacerEcran();
-     dessinerCadreXY(1,1,115,25,simple,White,Black);
-     dessinerCadreXY(42,6,87,8,simple,White,Black);
-     deplacerCurseurXY(44,7);write (' Bienvenue sur Monster Hunter : New World ');
+     dessinerCadreXY(10,1,110,25,simple,White,Black);
+     dessinerCadreXY(35,6,85,8,double,White,Black);
+     deplacerCurseurXY(37,7);write (' Bienvenue sur Monster Hunter : New World ');
      deplacerCurseurXY(50,12);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,14);write ('2) Charger une partie');
-     deplacerCurseurXY(50,16);write ('3) Afficher les crédits');
+     deplacerCurseurXY(50,16);write ('3) Afficher les credits');
      deplacerCurseurXY(50,18);write ('4) Quitter');
+     deplacerCurseurXY(50,20);write ('Votre choix : ');
      readln(menuIHM);
 end;
 
