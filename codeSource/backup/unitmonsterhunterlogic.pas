@@ -24,6 +24,7 @@ type
              nom : string;
              taille : string;
              sexe : string;
+             armurePortee = array [1..5] of typeArmure;
   end;
 
 
@@ -50,7 +51,7 @@ function getJoueur() : typePersonnage;
 implementation
 
 uses
-  Classes, SysUtils, unitmonsterhunterhim;
+  Classes, SysUtils, unitmonsterhunterIHM;
 
 // Affiche le message lorsque l'on quitte
 procedure quitter();
@@ -58,7 +59,15 @@ begin
   quitterIHM();
 end;
 
+// Procédure pour modifier les valeurs d'une armure plus facilement
+procedure modifierArmure(var armure : typeArmure; nom : string; pieceArmure : typePieceArmure; element : typeElement; durabilite : integer; valeurDefense, tauxEsquive : real);
+begin
+  armure.nom := nom;
+  armure.pieceArmure := pieceArmure;
+  armure.element := element;
+  armure.durabilite := durabilite;
 
+end;
 
 
 // -------------------------------- TOUTES LES PROCÉDURES DE LA VILLE --------------------------------
@@ -83,6 +92,7 @@ end;
 
 procedure chambre();
 begin
+  chambreIHM();
 end;
 
 // Ville du lobby

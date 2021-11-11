@@ -25,6 +25,8 @@ Choix numéro 4 : manger à la cantine
 Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
+// Chambre
+procedure chambreIHM();
 
 
 
@@ -154,6 +156,19 @@ begin
      readln(villeIHM);
 end;
 
+
+
+
+
+
+
+// Chambre
+procedure chambreIHM();
+begin
+     effacerEcran();
+     write('Chambre');
+     readln();
+end;
 
 end.
 
