@@ -36,10 +36,8 @@ var
 
 
 // FONCTIONS POUR RETOURNER DES VALEURS SUR LE PERSONNAGE
-// Renvoie le record du personnage
+// Renvoie le joueur
 function getJoueur() : typePersonnage;
-// Renvoie la taille du personnage
-
 
 
 
@@ -165,11 +163,13 @@ end;
 
 // -------------------------------- TOUTES LES FONCTIONS DE GET --------------------------------
 
-// Renvoie le record du personnage
+// Renvoie le joueur
 function getJoueur() : typePersonnage;
 begin
   getJoueur := joueur;
 end;
+
+
 
 end.
 

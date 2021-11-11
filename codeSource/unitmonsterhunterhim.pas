@@ -58,9 +58,6 @@ end;
 // Affiche un message lorsque l'on quitte
 procedure quitterIHM();
 begin
-     effacerEcran();
-     write('Menu quitter');
-     readln();
 end;
 
 // Affiche les crédits du jeu

@@ -58,6 +58,9 @@ end;
 // Affiche un message lorsque l'on quitte
 procedure quitterIHM();
 begin
+     effacerEcran();
+     write('Menu quitter');
+     readln();
 end;
 
 // Affiche les crédits du jeu
@@ -114,16 +117,12 @@ begin
      deplacerCurseurXY(60,1);write('|');
      deplacerCurseurXY(57,2);write('______');
      deplacerCurseurXY(60,2);write('|');
-<<<<<<< HEAD
-     deplacerCurseurXY(33,3);write('~~~~~~~~~~~~~~~~~~~~~~~~\____/~~~~~~~~~~~~~~~~~~~~~~~~');
-=======
      couleurTexte(Blue);
-     deplacerCurseurXY(34,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
+     deplacerCurseurXY(35,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
      couleurTexte(White);
-     deplacerCurseurXY(56,3);write('\____/');
+     deplacerCurseurXY(57,3);write('\____/');
      couleurTexte(Blue);
-     deplacerCurseurXY(62,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
->>>>>>> 26e70b4f498c83fda6ede6083661aa97918f056a
+     deplacerCurseurXY(63,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
      deplacerCurseurXY(32,4);write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
      couleurTexte(White);
      deplacerCurseurXY(57,5);write('5/Combats');
