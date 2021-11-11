@@ -94,16 +94,16 @@ function villeIHM() : string;
 begin
      effacerEcran();
      // Chambre du personage
-     dessinerCadreXY(10,16,30,22,simple,White,Black);
-     deplacerCurseurXY(17,19);write('1/Chambre');
+     dessinerCadreXY(10,16,29,22,simple,White,Black);
+     deplacerCurseurXY(15,19);write('1/Chambre');
 
      // Cantine du village
-     dessinerCadreXY(90,7,110,13,simple,White,Black);
-     deplacerCurseurXY(97,10);write('4/Cantine');
+     dessinerCadreXY(90,7,109,13,simple,White,Black);
+     deplacerCurseurXY(95,10);write('4/Cantine');
 
      // Marchand du village
      dessinerCadreXY(85,16,105,22,simple,White,Black);
-     deplacerCurseurXY(92,19);write('3/Marchand');
+     deplacerCurseurXY(90,19);write('3/Marchand');
 
      // Forge du village
      dessinerCadreXY(20,7,40,13,simple,White,Black);
@@ -114,8 +114,18 @@ begin
      deplacerCurseurXY(60,1);write('|');
      deplacerCurseurXY(57,2);write('______');
      deplacerCurseurXY(60,2);write('|');
+<<<<<<< HEAD
      deplacerCurseurXY(33,3);write('~~~~~~~~~~~~~~~~~~~~~~~~\____/~~~~~~~~~~~~~~~~~~~~~~~~');
+=======
+     couleurTexte(Blue);
+     deplacerCurseurXY(34,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
+     couleurTexte(White);
+     deplacerCurseurXY(56,3);write('\____/');
+     couleurTexte(Blue);
+     deplacerCurseurXY(62,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
+>>>>>>> 26e70b4f498c83fda6ede6083661aa97918f056a
      deplacerCurseurXY(32,4);write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+     couleurTexte(White);
      deplacerCurseurXY(57,5);write('5/Combats');
 
      // Proposition Chambre
