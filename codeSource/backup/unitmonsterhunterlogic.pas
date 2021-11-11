@@ -35,8 +35,7 @@ var
 
 
 
-// FONCTIONS POUR RETOURNER DES VALEURS SUR LE PERSONNAGE
-// Renvoie le joueur
+// FONCTIONS POUR RETOURNER LE JOUEUR
 function getJoueur() : typePersonnage;
 
 
@@ -148,14 +147,10 @@ var
   choix: string;
 begin
   choix := menuIHM();
-  if (choix = '1') then
-    creationPersonnage()
-  else if (choix = '2') then
-    choixSauvegarde()
-  else if (choix = '3') then
-    credits()
-  else
-    quitter();
+  if (choix = '1') then creationPersonnage()
+  else if (choix = '2') then choixSauvegarde()
+  else if (choix = '3') then credits()
+  else if (choix = '4') then quitter();
 end;
 
 
