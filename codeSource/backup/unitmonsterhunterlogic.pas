@@ -20,25 +20,26 @@ type
              valeurDefense : real;
              tauxEsquive : real;
   end;
+  typePersonnage = record
+             nom : string;
+             taille : string;
+             sexe : string;
+  end;
 
 
 
 // VARIABLES PERSONNAGE
 var
-  nomPersonnage: string;
-  taillePersonnage: string;
-  sexePersonnage: string;
+  joueur : typePersonnage;
 
 
 
 
 // FONCTIONS POUR RETOURNER DES VALEURS SUR LE PERSONNAGE
-// Renvoie le nom du personnage
-function getNomPersonnage() : string;
+// Renvoie le record du personnage
+function getJoueur() : typePersonnage;
 // Renvoie la taille du personnage
-function getTaillePersonnage() : string;
-// Renvoie le sexe du personnage
-function getSexePersonnage() : string;
+
 
 
 
@@ -52,7 +53,7 @@ function getSexePersonnage() : string;
 implementation
 
 uses
-  Classes, SysUtils, unitmonsterhunterhim, GestionEcran;
+  Classes, SysUtils, unitmonsterhunterhim;
 
 // Affiche le message lorsque l'on quitte
 procedure quitter();
@@ -125,7 +126,7 @@ end;
 // Menu de création de personnage
 procedure creationPersonnage();
 begin
-  creationPersonnageIHM(nomPersonnage, taillePersonnage, sexePersonnage);
+  creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
   initialisationPersonnage();
 end;
 
@@ -164,22 +165,10 @@ end;
 
 // -------------------------------- TOUTES LES FONCTIONS DE GET --------------------------------
 
-// Renvoie le nom du personnage
-function getNomPersonnage() : string;
+// Renvoie le record du personnage
+function getJoueur() : typePersonnage;
 begin
-  getNomPersonnage := nomPersonnage;
-end;
-
-// Renvoie la taille du personnage
-function getTaillePersonnage() : string;
-begin
-  getTaillePersonnage := taillePersonnage;
-end;
-
-// Renvoie le sexe du personnage
-function getSexePersonnage() : string;
-begin
-  getSexePersonnage := sexePersonnage;
+  getJoueur := joueur;
 end;
 
 end.

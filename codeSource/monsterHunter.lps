@@ -9,7 +9,7 @@
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="18" Y="3"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="63"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -18,9 +18,8 @@
         <UnitName Value="unitMonsterHunterLogic"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="107"/>
-        <CursorPos X="38" Y="121"/>
-        <UsageCount Value="34"/>
+        <CursorPos X="7" Y="22"/>
+        <UsageCount Value="63"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -28,26 +27,26 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitmonsterhunterIHM"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="63"/>
       </Unit2>
       <Unit3>
         <Filename Value="unitmonsterhunterhim.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterHIM"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="104" Y="22"/>
-        <UsageCount Value="34"/>
+        <CursorPos X="56" Y="107"/>
+        <UsageCount Value="63"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="GestionEcran.pas"/>
         <EditorIndex Value="3"/>
         <TopLine Value="62"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit4>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="25" HistoryIndex="24">
       <Position1>
         <Filename Value="unitmonsterhunterlogic.pas"/>
         <Caret Line="22" Column="41"/>
@@ -136,6 +135,18 @@
         <Filename Value="unitmonsterhunterlogic.pas"/>
         <Caret Line="122" Column="3" TopLine="93"/>
       </Position22>
+      <Position23>
+        <Filename Value="unitmonsterhunterlogic.pas"/>
+        <Caret Line="121" Column="84" TopLine="113"/>
+      </Position23>
+      <Position24>
+        <Filename Value="unitmonsterhunterlogic.pas"/>
+        <Caret Line="126" Column="50" TopLine="105"/>
+      </Position24>
+      <Position25>
+        <Filename Value="unitmonsterhunterlogic.pas"/>
+        <Caret Line="122" Column="55" TopLine="113"/>
+      </Position25>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
