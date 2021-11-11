@@ -1,4 +1,4 @@
-unit unitMonsterHunterHIM;
+unit unitMonsterHunterIHM;
 
 {$mode objfpc}{$H+}
 

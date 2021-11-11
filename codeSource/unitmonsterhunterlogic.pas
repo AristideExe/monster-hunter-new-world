@@ -50,7 +50,7 @@ function getJoueur() : typePersonnage;
 implementation
 
 uses
-  Classes, SysUtils, unitmonsterhunterhim;
+  Classes, SysUtils, unitmonsterhunterIHM;
 
 // Affiche le message lorsque l'on quitte
 procedure quitter();
