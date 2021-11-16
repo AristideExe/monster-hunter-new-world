@@ -141,7 +141,7 @@ end;
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
 begin
-  initialisationPersonnage();
+  creationPersonnage();
 end;
 
 

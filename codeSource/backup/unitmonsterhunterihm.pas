@@ -72,7 +72,6 @@ var i, n: integer;
 
 begin
      effacerEcran();
-<<<<<<< HEAD:codeSource/unitmonsterhunterhim.pas
      //---------TITRE--------------------------
      deplacerCurseurXY(1,1);write('Credits :');
 
@@ -107,10 +106,8 @@ begin
      deplacerCurseurXY(25,26);write ('=} MOREAU Leandre : ');
 
 
-=======
      write('Credits : ............');
      deplacerCurseurXY(50,18);write ('Appuyez sur entre pour revenir au menu');
->>>>>>> 67e195e717b439de4ca214d65b9d582ec3ea6fd2:codeSource/unitmonsterhunterihm.pas
      readln();
 end;
 
