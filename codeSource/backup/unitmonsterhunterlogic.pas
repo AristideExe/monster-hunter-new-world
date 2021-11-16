@@ -137,8 +137,9 @@ procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
 
-  while (joueur.sexe <> 'F' and (joueur.sexe <> 'M') do
+  while (joueur.sexe <> 'M') and (joueur.sexe <> 'F') do
         demanderSexeIHM(joueur.sexe);
+
   ville();
 end;
 
@@ -152,9 +153,7 @@ begin
   for i:=1 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'0',typePieceArmure(i),normal,-1,0,0);
   modifierArmure(joueur.armurePortee[1],'Plastron d''entrainement',typePieceArmure(1),normal,100,5,2);
 
-  write(joueur.armurePortee[1].pieceArmure);
-  readln;
-  //creationPersonnage();
+  creationPersonnage();
 end;
 
 
