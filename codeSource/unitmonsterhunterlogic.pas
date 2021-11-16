@@ -154,7 +154,7 @@ end;
 procedure credits();
 begin
   creditsIHM();
-  menuIHM();
+  menu();
 end;
 
 
