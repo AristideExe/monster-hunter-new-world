@@ -60,13 +60,10 @@ end;
 // Affiche un message lorsque l'on quitte
 procedure quitterIHM();
 begin
-<<<<<<< HEAD:codeSource/unitmonsterhunterhim.pas
      effacerEcran();
      dessinerCadreXY(44,14,69,16,double,White,Black);
      deplacerCurseurXY(47,15);write('A une prochaine fois');
      readln();
-=======
->>>>>>> 67e195e717b439de4ca214d65b9d582ec3ea6fd2:codeSource/unitmonsterhunterihm.pas
 end;
 
 // Affiche les crédits du jeu
@@ -75,7 +72,6 @@ var i, n: integer;
 
 begin
      effacerEcran();
-<<<<<<< HEAD:codeSource/unitmonsterhunterhim.pas
      //---------TITRE--------------------------
      deplacerCurseurXY(1,1);write('Credits :');
 
@@ -110,10 +106,8 @@ begin
      deplacerCurseurXY(25,26);write ('=} MOREAU Leandre : ');
 
 
-=======
      write('Credits : ............');
      deplacerCurseurXY(50,18);write ('Appuyez sur entre pour revenir au menu');
->>>>>>> 67e195e717b439de4ca214d65b9d582ec3ea6fd2:codeSource/unitmonsterhunterihm.pas
      readln();
 end;
 
