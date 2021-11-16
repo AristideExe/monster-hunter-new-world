@@ -134,6 +134,9 @@ end;
 procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
+
+  while (joueur.sexe <> 'F' and (joueur.sexe <> 'M') do
+        demanderSexeIHM(joueur.sexe);
   ville();
 end;
 
@@ -154,7 +157,7 @@ end;
 procedure credits();
 begin
   creditsIHM();
-  menuIHM();
+  menu();
 end;
 
 
@@ -180,7 +183,7 @@ end;
 // Renvoie le joueur
 function getJoueur() : typePersonnage;
 begin
-  getJoueur := joueur;
+  getJoueur := joueur
 end;
 
 

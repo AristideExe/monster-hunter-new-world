@@ -158,20 +158,35 @@ begin
      end;
 end;
 
+//Demande les informations nom et taille
+procedure demanderNomEtTailleIHM (var nom, taille : string);
+begin
+   //Information personnage nom et taille
+     dessinerCadreXY(14,10,37,16,simple,White,Black);
+     deplacerCurseurXY(15,12);write('nom : ');readln(nom);
+     deplacerCurseurXY(15,13);write('taille : ');readln(taille);
+
+end;
+
+//Demande l'information sexe
+procedure demanderSexeIHM (var sexe : string);
+begin
+     effacerEcran();
+     dessinerCadreXY(14,10,37,16,simple,White,Black);
+     deplacerCurseurXY(15,12);write('nom : ',getJoueur().nom);
+     deplacerCurseurXY(15,13);write('taille : ',getJoueur().taille);
+     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+end;
+
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 begin
      effacerEcran();
-
-     //Information personnage
-     dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,12);write('nom : ');readln(nom);
-     deplacerCurseurXY(15,13);write('taille : ');readln(taille);
-     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+     demanderNomEtTailleIHM(nom,taille);
+     demanderSexeIHM(sexe);
      afficherPersonnageIHM(sexe);
      readln();
 end;
-
 
 
 
