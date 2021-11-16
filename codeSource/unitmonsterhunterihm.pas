@@ -216,7 +216,7 @@ begin
 
      // Forge du village
      dessinerCadreXY(20,7,40,13,simple,White,Black);
-     deplacerCurseurXY(27,10);write('2/Forge');
+     deplacerCurseurXY(26,10);write('2/Forge');
 
      //Bateau d'attaque
      deplacerCurseurXY(61,1);write(')');
@@ -231,34 +231,41 @@ begin
      deplacerCurseurXY(63,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
      deplacerCurseurXY(32,4);write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
      couleurTexte(White);
-     deplacerCurseurXY(57,5);write('5/Combats');
-
-     // Proposition Chambre
-     //dessinerCadreXY(19,25,29,27,simple,White,Black);
-     //deplacerCurseurXY(20,26);write('1/Chambre');
-
-     // Proposition Forge
-     //dessinerCadreXY(30,25,38,27,simple,White,Black);
-     //deplacerCurseurXY(31,26);write('2/Forge');
-
-     // Proposition Marchand
-     //dessinerCadreXY(39,25,50,27,simple,White,Black);
-     //deplacerCurseurXY(40,26);write('3/Marchand');
-
-     // Proposition Cantine
-     //dessinerCadreXY(51,25,61,27,simple,White,Black);
-     //deplacerCurseurXY(52,26);write('4/Cantine');
-
-     // Proposition Demarrer un combat
-     //dessinerCadreXY(62,25,83,27,simple,White,Black);
-     //deplacerCurseurXY(63,26);write('5/Demarrer un combat');
+     deplacerCurseurXY(57,5);write('5/Expedition');
 
      // Insertion d'une proposition
      dessinerCadreXY(50,25,70,27,simple,White,Black);
      deplacerCurseurXY(53,26);write ('Votre choix : ');
 
      //route centrale
-     //dessinerCadreXY(70,5,70,15,simple,White,Black);
+     ColorierZone(Green,Cyan, 41,89,10);
+     ColorierZone(Green,Cyan, 30,84,20);
+     ColorierZone(Green,Cyan, 46,47,11);
+     ColorierZone(Green,Cyan, 46,47,12);
+     ColorierZone(Green,Cyan, 46,47,13);
+     ColorierZone(Green,Cyan, 46,47,14);
+     ColorierZone(Green,Cyan, 46,47,15);
+     ColorierZone(Green,Cyan, 46,47,16);
+     ColorierZone(Green,Cyan, 46,47,17);
+     ColorierZone(Green,Cyan, 46,47,18);
+     ColorierZone(Green,Cyan, 46,47,19);
+     ColorierZone(Green,Cyan, 75,76,11);
+     ColorierZone(Green,Cyan, 75,76,12);
+     ColorierZone(Green,Cyan, 75,76,13);
+     ColorierZone(Green,Cyan, 75,76,14);
+     ColorierZone(Green,Cyan, 75,76,15);
+     ColorierZone(Green,Cyan, 75,76,16);
+     ColorierZone(Green,Cyan, 75,76,17);
+     ColorierZone(Green,Cyan, 75,76,18);
+     ColorierZone(Green,Cyan, 75,76,19);
+
+     //arbre
+     deplacerCurseurXY(61,11);write ('/\');
+     deplacerCurseurXY(60,12);write ('/__\');
+     deplacerCurseurXY(59,13);write ('/ __ \');
+     deplacerCurseurXY(58,14);write ('/__--__\');
+     deplacerCurseurXY(61,15);write ('||');
+     deplacerCurseurXY(61,16);write ('||');
 
      readln(villeIHM);
 end;
