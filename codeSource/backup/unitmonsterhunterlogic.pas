@@ -32,10 +32,10 @@ type
              taille : string;
              sexe : string;
              // 5 éléments d'armure : casque, torse, jambières, bottes, gants
-             armurePortee : array [1..5] of typeArmure;
-             armurePosedees : array [1..100] of typeArmure;
+             armurePortee : array [0..4] of typeArmure;
+             armurePosedees : array [0..99] of typeArmure;
              armePortee : typeArme;
-             armesPosedees : array [1..25] of typeArme;
+             armesPosedees : array [0..24] of typeArme;
   end;
 
 
@@ -77,6 +77,8 @@ begin
   armure.pieceArmure := pieceArmure;
   armure.element := element;
   armure.durabilite := durabilite;
+  armure.valeurDefense := valeurDefense;
+  armure.tauxEsquive := tauxEsquive;
 end;
 
 
@@ -140,8 +142,16 @@ end;
 
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
+var
+  i : integer;
 begin
-  creationPersonnage();
+  // Initialisatin de l'armure portée avec un torse de départ
+  for i:=1 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'0',typePieceArmure(i),normal,-1,0,0);
+  modifierArmure(joueur.armurePortee[1],'Plastron d''entrainement',typePieceArmure(1),normal,100,5,2);
+
+  write(joueur.armurePortee[1].pieceArmure);
+  readln;
+  //creationPersonnage();
 end;
 
 
@@ -154,7 +164,7 @@ end;
 procedure credits();
 begin
   creditsIHM();
-  menuIHM();
+  menu();
 end;
 
 
@@ -180,7 +190,7 @@ end;
 // Renvoie le joueur
 function getJoueur() : typePersonnage;
 begin
-  getJoueur := joueur;
+  getJoueur := joueur
 end;
 
 
