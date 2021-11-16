@@ -35,7 +35,7 @@ type
              armurePortee : array [1..5] of typeArmure;
              armurePosedees : array [1..100] of typeArmure;
              armePortee : typeArme;
-             armesPosedees : array [1..25] of typeArme,
+             armesPosedees : array [1..25] of typeArme;
   end;
 
 
@@ -127,16 +127,6 @@ end;
 
 
 
-
-// Initialisation des stats du personnage à sa création
-procedure initialisationPersonnage();
-begin
-     ville();
-end;
-
-
-
-
 // -------------------------------- TOUTES LES PROCÉDURES DE LANCEMENT DU JEU --------------------------------
 
 
@@ -144,8 +134,16 @@ end;
 procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
+  ville();
+end;
+
+
+// Initialisation des stats du personnage à sa création
+procedure initialisationPersonnage();
+begin
   initialisationPersonnage();
 end;
+
 
 // Affiche les différentes sauvegardes
 procedure choixSauvegarde();
@@ -167,7 +165,7 @@ var
   choix: string;
 begin
   choix := menuIHM();
-  if (choix = '1') then creationPersonnage()
+  if (choix = '1') then initialisationPersonnage()
   else if (choix = '2') then choixSauvegarde()
   else if (choix = '3') then credits()
   else if (choix = '4') then quitter()
