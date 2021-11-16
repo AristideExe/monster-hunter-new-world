@@ -44,13 +44,40 @@ Choix numéro 4 : Quitter}
 function menuIHM() : string;
 begin
      effacerEcran();
-     dessinerCadreXY(10,1,110,25,simple,White,Black);
+     dessinerCadreXY(10,1,110,28,simple,White,Black);
      dessinerCadreXY(35,8,85,6,double,White,Black);
      deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
      deplacerCurseurXY(50,12);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,14);write ('2) Charger une partie');
      deplacerCurseurXY(50,16);write ('3) Afficher les credits');
      deplacerCurseurXY(50,18);write ('4) Quitter');
+
+     //épée gauche
+     deplacerCurseurXY(22,12);write ('.');
+     deplacerCurseurXY(21,13);write ('/ \');
+     deplacerCurseurXY(21,14);write ('| |');
+     deplacerCurseurXY(21,15);write ('| |');
+     deplacerCurseurXY(21,16);write ('|.|');
+     deplacerCurseurXY(21,17);write ('|.|');
+     deplacerCurseurXY(21,18);write ('|:|');
+     deplacerCurseurXY(21,19);write ('|:|');
+     deplacerCurseurXY(19,20);write ('`--8--'' ');
+     deplacerCurseurXY(22,21);write ('8');
+     deplacerCurseurXY(22,22);write ('0');
+
+      //épée droite
+     deplacerCurseurXY(98,12);write ('.');
+     deplacerCurseurXY(97,13);write ('/ \');
+     deplacerCurseurXY(97,14);write ('| |');
+     deplacerCurseurXY(97,15);write ('| |');
+     deplacerCurseurXY(97,16);write ('|.|');
+     deplacerCurseurXY(97,17);write ('|.|');
+     deplacerCurseurXY(97,18);write ('|:|');
+     deplacerCurseurXY(97,19);write ('|:|');
+     deplacerCurseurXY(95,20);write ('`--8--'' ');
+     deplacerCurseurXY(98,21);write ('8');
+     deplacerCurseurXY(98,22);write ('0');
+
      deplacerCurseurXY(50,20);write ('Votre choix : ');
      readln(menuIHM);
 end;
@@ -72,13 +99,38 @@ begin
      readln();
 end;
 
+procedure afficherPersonnageIHM(sexe : string);
+begin
+     if sexe ='F' then
+     begin
+          //Visage Femme
+          deplacerCurseurXY(50,12);write ('//||||\\');
+          deplacerCurseurXY(49,13);write ('//| o o|\\');
+          deplacerCurseurXY(51,14);write ('|  > |');
+          deplacerCurseurXY(52,15);write ('\__/');
+     end
+     else
+     begin
+     //Visage Homme
+     deplacerCurseurXY(50,12);write ('//||||\\');
+     deplacerCurseurXY(51,13);write ('| o o|');
+     deplacerCurseurXY(51,14);write ('|  > |');
+     deplacerCurseurXY(52,15);write ('\__/');
+     end;
+end;
+
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 begin
      effacerEcran();
-     write('nom : ');readln(nom);
-     write('taille : ');readln(taille);
-     write('sexe : ');readln(sexe);
+
+     //Information personnage
+     dessinerCadreXY(14,10,36,16,simple,White,Black);
+     deplacerCurseurXY(15,12);write('nom : ');readln(nom);
+     deplacerCurseurXY(15,13);write('taille : ');readln(taille);
+     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+     afficherPersonnageIHM(sexe);
+     readln();
 end;
 
 
@@ -118,11 +170,11 @@ begin
      deplacerCurseurXY(57,2);write('______');
      deplacerCurseurXY(60,2);write('|');
      couleurTexte(Blue);
-     deplacerCurseurXY(34,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
+     deplacerCurseurXY(35,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
      couleurTexte(White);
-     deplacerCurseurXY(56,3);write('\____/');
+     deplacerCurseurXY(57,3);write('\____/');
      couleurTexte(Blue);
-     deplacerCurseurXY(62,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
+     deplacerCurseurXY(63,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
      deplacerCurseurXY(32,4);write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
      couleurTexte(White);
      deplacerCurseurXY(57,5);write('5/Combats');
