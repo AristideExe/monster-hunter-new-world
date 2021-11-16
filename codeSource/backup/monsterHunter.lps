@@ -15,7 +15,7 @@
         <UsageCount Value="26"/>
 =======
         <CursorPos X="64" Y="3"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
 >>>>>>> 114956d560c363709194907e97e5507141bf689d
 >>>>>>> 84cd950ac87f67e7736dac919b45faaaec841d46
         <Loaded Value="True"/>
@@ -29,8 +29,8 @@
 =======
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="139"/>
-        <CursorPos X="43" Y="149"/>
+        <TopLine Value="130"/>
+        <CursorPos X="33" Y="152"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
 >>>>>>> 114956d560c363709194907e97e5507141bf689d
@@ -78,18 +78,14 @@
 =======
         <EditorIndex Value="-1"/>
         <CursorPos X="43" Y="63"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
 >>>>>>> 84cd950ac87f67e7736dac919b45faaaec841d46
       </Unit3>
     </Units>
 <<<<<<< HEAD
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="6" HistoryIndex="5">
 =======
-<<<<<<< HEAD
     <JumpHistory Count="23" HistoryIndex="22">
-=======
-    <JumpHistory Count="24" HistoryIndex="23">
->>>>>>> 9106beca37ba537d9a6a9c62ec5091f88cb4d9f7
 >>>>>>> 114956d560c363709194907e97e5507141bf689d
 >>>>>>> 84cd950ac87f67e7736dac919b45faaaec841d46
       <Position1>
@@ -121,12 +117,12 @@
         <Filename Value="unitmonsterhunterlogic.pas"/>
         <Caret Line="149" Column="46" TopLine="126"/>
       </Position5>
-<<<<<<< HEAD
-=======
       <Position6>
         <Filename Value="unitmonsterhunterlogic.pas"/>
-        <Caret Line="28" Column="18"/>
+        <Caret Line="152" Column="49" TopLine="139"/>
       </Position6>
+<<<<<<< HEAD
+=======
       <Position7>
         <Filename Value="unitmonsterhunterlogic.pas"/>
         <Caret Line="53" Column="6" TopLine="13"/>
@@ -195,13 +191,6 @@
         <Filename Value="unitmonsterhunterihm.pas"/>
         <Caret Line="168" Column="21"/>
       </Position23>
-<<<<<<< HEAD
-=======
-      <Position24>
-        <Filename Value="unitmonsterhunterihm.pas"/>
-        <Caret Line="69" Column="85" TopLine="91"/>
-      </Position24>
->>>>>>> 9106beca37ba537d9a6a9c62ec5091f88cb4d9f7
 >>>>>>> 114956d560c363709194907e97e5507141bf689d
 >>>>>>> 84cd950ac87f67e7736dac919b45faaaec841d46
     </JumpHistory>
