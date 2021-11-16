@@ -107,7 +107,11 @@ begin
 
 
      write('Credits : ............');
+<<<<<<< HEAD
      deplacerCurseurXY(45,1);write ('Appuyez sur entre pour revenir au menu');
+=======
+     deplacerCurseurXY(50,18);write ('Appuyez sur entre pour revenir au menu');
+>>>>>>> 9106beca37ba537d9a6a9c62ec5091f88cb4d9f7
      readln();
 end;
 

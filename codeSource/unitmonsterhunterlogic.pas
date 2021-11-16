@@ -67,7 +67,7 @@ uses
 // Affiche le message lorsque l'on quitte
 procedure quitter();
 begin
-  quitterIHM();
+  //quitterIHM();
 end;
 
 // Procédure pour modifier les valeurs d'une armure plus facilement
@@ -154,7 +154,7 @@ end;
 procedure credits();
 begin
   creditsIHM();
-  menuIHM();
+  menu();
 end;
 
 

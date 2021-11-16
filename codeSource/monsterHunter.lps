@@ -9,28 +9,40 @@
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="64" Y="3"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="unitmonsterhunterlogic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterLogic"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
+<<<<<<< HEAD
         <TopLine Value="145"/>
         <CursorPos X="22" Y="183"/>
         <UsageCount Value="82"/>
+=======
+        <TopLine Value="135"/>
+        <CursorPos X="39" Y="96"/>
+        <UsageCount Value="83"/>
+>>>>>>> 9106beca37ba537d9a6a9c62ec5091f88cb4d9f7
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="unitmonsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterIHM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
+<<<<<<< HEAD
         <TopLine Value="90"/>
         <CursorPos X="26" Y="110"/>
         <UsageCount Value="82"/>
+=======
+        <TopLine Value="100"/>
+        <CursorPos X="89" Y="185"/>
+        <UsageCount Value="83"/>
+>>>>>>> 9106beca37ba537d9a6a9c62ec5091f88cb4d9f7
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -39,7 +51,7 @@
         <UnitName Value="unitMonsterHunterHIM"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="43" Y="63"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
       </Unit3>
       <Unit4>
         <Filename Value="GestionEcran.pas"/>
