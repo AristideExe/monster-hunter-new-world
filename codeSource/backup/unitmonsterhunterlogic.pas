@@ -12,6 +12,7 @@ procedure menu();
 type
   typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique);
   typePieceArmure = (casque,torse,jambieres,bottes,gants);
+  typePieceArme = (epee,hache,couteau,marteau);
   typeArmure = record
              nom : string;
              pieceArmure : typePieceArmure;
@@ -22,6 +23,7 @@ type
   end;
   typeArme = record
              nom : string;
+             arme : typePieceArme;
              element : typeElement;
              durabilite : integer;
              valeurAttaque : real;
@@ -33,9 +35,9 @@ type
              sexe : string;
              // 5 éléments d'armure : casque, torse, jambières, bottes, gants
              armurePortee : array [0..4] of typeArmure;
-             armurePosedees : array [0..99] of typeArmure;
+             armurePossedees : array [0..99] of typeArmure;
              armePortee : typeArme;
-             armesPosedees : array [0..24] of typeArme;
+             armesPossedees : array [0..24] of typeArme;
   end;
 
 
@@ -81,6 +83,15 @@ begin
   armure.tauxEsquive := tauxEsquive;
 end;
 
+// Procédure pour modifier les valeurs d'une arme plus facilement
+procedure modifierArme(var arme : typeArme; nom :string; typeArme : typePieceArme; element : typeElement; durabilite : integer; valeurAttaque : real);
+begin
+  arme.nom := nom;
+  arme.arme := typeArme;
+  arme.element := element;
+  arme.durabilite := durabilite;
+  arme.valeurAttaque := valeurAttaque;
+end;
 
 // -------------------------------- TOUTES LES PROCÉDURES DE LA VILLE --------------------------------
 
@@ -143,14 +154,24 @@ end;
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
 var
-  i : integer;
+  i,j : integer;
 begin
   // Initialisatin de l'armure portée avec un torse de départ
-  for i:=1 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'0',typePieceArmure(i),normal,-1,0,0);
+  for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,-1,0,0);
   modifierArmure(joueur.armurePortee[1],'Plastron d''entrainement',typePieceArmure(1),normal,100,5,2);
 
-  write(joueur.armurePortee[1].pieceArmure);
-  readln;
+  // Modification de l'inventaire d'armures pour qu'il soit vide
+  for i:=0 to length(joueur.armurePossedees)-1 do modifierArmure(joueur.armurePossedees[i],'NULL',typePieceArmure(i mod 5),normal,-1,0,0);
+
+  // Initialisation de l'arme pour avoir une épée de base
+  modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,15);
+
+  // Modification de l'inventaire d'armes pour qu'il soit vide
+  for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,0);
+
+  writeln(joueur.armurePortee[1].nom);
+  writeln(joueur.armePortee.nom);
+  readln();
   //creationPersonnage();
 end;
 
