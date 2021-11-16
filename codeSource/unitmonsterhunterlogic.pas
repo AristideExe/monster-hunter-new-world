@@ -180,7 +180,7 @@ end;
 // Renvoie le joueur
 function getJoueur() : typePersonnage;
 begin
-  getJoueur := joueur;
+  getJoueur := joueur
 end;
 
 

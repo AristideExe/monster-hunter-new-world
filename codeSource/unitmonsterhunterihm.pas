@@ -107,7 +107,7 @@ begin
 
 
      write('Credits : ............');
-     deplacerCurseurXY(50,18);write ('Appuyez sur entre pour revenir au menu');
+     deplacerCurseurXY(43,1);write ('Appuyez sur entre pour revenir au menu');
      readln();
 end;
 
