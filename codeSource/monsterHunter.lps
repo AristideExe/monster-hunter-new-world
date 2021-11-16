@@ -16,8 +16,10 @@
         <Filename Value="unitmonsterhunterlogic.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterLogic"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="63" Y="58"/>
+        <TopLine Value="5"/>
+        <CursorPos X="83" Y="13"/>
         <UsageCount Value="81"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -25,9 +27,7 @@
         <Filename Value="unitmonsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterIHM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="132"/>
         <CursorPos X="21" Y="168"/>
         <UsageCount Value="81"/>
         <Loaded Value="True"/>

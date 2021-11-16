@@ -10,7 +10,7 @@ procedure menu();
 
 // TYPES
 type
-  typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique,roche,acier);
+  typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique);
   typePieceArmure = (casque,torse,jambieres,bottes,gants);
   typeArmure = record
              nom : string;
@@ -24,7 +24,9 @@ type
              nom : string;
              taille : string;
              sexe : string;
+             // 5 éléments d'armure : casque, torse, jambières, bottes, gants
              armurePortee : array [1..5] of typeArmure;
+             armurePosedee : array [1..100] of typeArmure;
   end;
 
 
@@ -66,7 +68,6 @@ begin
   armure.pieceArmure := pieceArmure;
   armure.element := element;
   armure.durabilite := durabilite;
-
 end;
 
 

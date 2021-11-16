@@ -24,7 +24,10 @@ type
              nom : string;
              taille : string;
              sexe : string;
-             armurePortee = array [1..5] of typeArmure;
+             // 5 éléments d'armure : casque, torse, jambières, bottes, gants
+             armurePortee : array [1..5] of typeArmure;
+             armurePosedee : array [1..50] of typeArmure;
+
   end;
 
 
@@ -66,7 +69,6 @@ begin
   armure.pieceArmure := pieceArmure;
   armure.element := element;
   armure.durabilite := durabilite;
-
 end;
 
 
