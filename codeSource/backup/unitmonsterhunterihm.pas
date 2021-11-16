@@ -31,7 +31,7 @@ Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
 // Chambre
-procedure chambreIHM();
+function chambreIHM();
 
 
 
@@ -181,12 +181,6 @@ end;
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 begin
      effacerEcran();
-<<<<<<< HEAD
-     demanderNomEtTailleIHM(nom,taille);
-     demanderSexeIHM(sexe);
-     afficherPersonnageIHM(sexe);
-     readln();
-=======
 
      //Information personnage (nom taille et sexe)
      dessinerCadreXY(14,10,37,16,simple,White,Black);
@@ -194,7 +188,6 @@ begin
      deplacerCurseurXY(15,13);write('taille : ');readln(taille);
      deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
 
->>>>>>> 0650bddba0db9541a051338a9f8db057822a5080
 end;
 
 
@@ -275,7 +268,6 @@ begin
      deplacerCurseurXY(58,14);write ('/__--__\');
      deplacerCurseurXY(61,15);write ('||');
      deplacerCurseurXY(61,16);write ('||');
-      deplacerCurseurXY(50,16);write ('±');
 
      readln(villeIHM);
 end;
@@ -287,7 +279,7 @@ end;
 
 
 // Chambre
-procedure chambreIHM();
+function chambreIHM() : string;
 var
   i : integer;
 begin
@@ -303,10 +295,10 @@ begin
           end
           else
           begin
-               write('Pas de ', typePieceArmure(i) , ' equipees.');
+               write('Pas de ', typePieceArmure(i) , ' equipe(es).');
           end;
      end;
-     readln();
+     readln(chambreIHM);
 end;
 
 end.

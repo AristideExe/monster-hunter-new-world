@@ -31,7 +31,7 @@ Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
 // Chambre
-procedure chambreIHM();
+function chambreIHM() : string;
 
 
 
@@ -279,7 +279,7 @@ end;
 
 
 // Chambre
-procedure chambreIHM();
+function chambreIHM() : string;
 var
   i : integer;
 begin
@@ -298,7 +298,7 @@ begin
                write('Pas de ', typePieceArmure(i) , ' equipe(es).');
           end;
      end;
-     readln();
+     readln(chambreIHM);
 end;
 
 end.
