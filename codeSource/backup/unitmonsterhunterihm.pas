@@ -31,7 +31,7 @@ Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
 // Chambre
-function chambreIHM();
+function chambreIHM() : string;
 
 
 
@@ -278,7 +278,10 @@ end;
 
 
 
-// Chambre
+{Chambre : 3 choix :
+- 1 : retourner à la ville
+- 2 : ouvrir l'armoire des armures
+- 3 : ouvrir le coffre des armes}
 function chambreIHM() : string;
 var
   i : integer;
@@ -287,17 +290,21 @@ begin
      for i:=0 to 4 do
      begin
           deplacerCurseurXY(10,i*5+1);
+          // Si le joueur ne porte pas de piece d'armure
           if (getJoueur.armurePortee[i].nom <> 'NULL') then
           begin
                write(typePieceArmure(i),' : ',getJoueur.armurePortee[i].nom);
                deplacerCurseurXY(10,i*5+2);
                write('Durabilite : ', getJoueur.armurePortee[i].durabilite, ' , Valeur de defense :',getJoueur.armurePortee[i].valeurDefense:6:2, ' , Taux d''esquive :', getJoueur.armurePortee[i].tauxEsquive:6:2);
           end
+          // Si le joueur porte une pièce d'armure
           else
           begin
                write('Pas de ', typePieceArmure(i) , ' equipe(es).');
           end;
      end;
+     deplacerCurseurXY(10,27); write('1/ Retourner à la ville,    2/ Ouvrir l''armoire à armures,    3/ Ouvrir la malle à armes');
+     deplacerCurseurXY(10,28); write('Votre choix : ');
      readln(chambreIHM);
 end;
 
