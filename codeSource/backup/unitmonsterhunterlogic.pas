@@ -10,7 +10,7 @@ procedure menu();
 
 // TYPES
 type
-  typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique,roche,acier);
+  typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique);
   typePieceArmure = (casque,torse,jambieres,bottes,gants);
   typeArmure = record
              nom : string;
@@ -20,14 +20,22 @@ type
              valeurDefense : real;
              tauxEsquive : real;
   end;
+  typeArme = record
+             nom : string;
+             element : typeElement;
+             durabilite : integer;
+             valeurAttaque : real;
+  end;
+
   typePersonnage = record
              nom : string;
              taille : string;
              sexe : string;
              // 5 éléments d'armure : casque, torse, jambières, bottes, gants
              armurePortee : array [1..5] of typeArmure;
-             armurePosedee : array [1..50] of typeArmure;
-
+             armurePosedees : array [1..100] of typeArmure;
+             armePortee : typeArme;
+             armesPosedees : array [1..25] of typeArme,
   end;
 
 

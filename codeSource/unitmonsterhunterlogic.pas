@@ -20,13 +20,22 @@ type
              valeurDefense : real;
              tauxEsquive : real;
   end;
+  typeArme = record
+             nom : string;
+             element : typeElement;
+             durabilite : integer;
+             valeurAttaque : real;
+  end;
+
   typePersonnage = record
              nom : string;
              taille : string;
              sexe : string;
              // 5 éléments d'armure : casque, torse, jambières, bottes, gants
              armurePortee : array [1..5] of typeArmure;
-             armurePosedee : array [1..100] of typeArmure;
+             armurePosedees : array [1..100] of typeArmure;
+             armePortee : typeArme;
+             armesPosedees : array [1..25] of typeArme;
   end;
 
 
