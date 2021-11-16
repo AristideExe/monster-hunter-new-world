@@ -14,8 +14,13 @@ function menuIHM() : string;
 procedure quitterIHM();
 // Affiche les crédits du jeu
 procedure creditsIHM();
+
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
+procedure demanderSexeIHM (var sexe : string);
+
+//Affichage du personnage
+procedure afficherPersonnageIHM(sexe : string);
 
 {Affiche la ville et renvoie le choix de l'utilisateur
 Choix numéro 1 : aller à la chambre
@@ -156,21 +161,15 @@ begin
      deplacerCurseurXY(51,14);write ('|  > |');
      deplacerCurseurXY(52,15);write ('\__/');
      end;
+
+     readln;  // Laisse afficher les visages a l'écran
 end;
 
-//Demande les informations nom et taille
-procedure demanderNomEtTailleIHM (var nom, taille : string);
-begin
-   //Information personnage nom et taille
-     dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,12);write('nom : ');readln(nom);
-     deplacerCurseurXY(15,13);write('taille : ');readln(taille);
-
-end;
-
-//Demande l'information sexe
+//Demande le sexe en fonction de la réponse précédente
 procedure demanderSexeIHM (var sexe : string);
 begin
+
+     //Efface l'écran et réaffiche nom et taille mais redemande le sexe
      effacerEcran();
      dessinerCadreXY(14,10,37,16,simple,White,Black);
      deplacerCurseurXY(15,12);write('nom : ',getJoueur().nom);
@@ -182,10 +181,13 @@ end;
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 begin
      effacerEcran();
-     demanderNomEtTailleIHM();
-     demanderSexeIHM();
-     afficherPersonnageIHM(sexe);
-     readln();
+
+     //Information personnage (nom taille et sexe)
+     dessinerCadreXY(14,10,37,16,simple,White,Black);
+     deplacerCurseurXY(15,12);write('nom : ');readln(nom);
+     deplacerCurseurXY(15,13);write('taille : ');readln(taille);
+     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+
 end;
 
 

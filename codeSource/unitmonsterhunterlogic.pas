@@ -147,6 +147,11 @@ end;
 procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
+
+  while (joueur.sexe <> 'M') and (joueur.sexe <> 'F') do
+        demanderSexeIHM(joueur.sexe);
+
+  afficherPersonnageIHM(joueur.sexe);
   ville();
 end;
 

@@ -147,6 +147,13 @@ end;
 procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
+<<<<<<< HEAD
+=======
+
+  while (joueur.sexe <> 'M') and (joueur.sexe <> 'F') do
+        demanderSexeIHM(joueur.sexe);
+
+>>>>>>> 61fdeaf0263f9b49d9ab05306f3a38c2dcb6b504
   ville();
 end;
 
@@ -160,6 +167,7 @@ begin
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,-1,0,0);
   modifierArmure(joueur.armurePortee[1],'Plastron d''entrainement',typePieceArmure(1),normal,100,5,2);
 
+<<<<<<< HEAD
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armurePossedees)-1 do modifierArmure(joueur.armurePossedees[i],'NULL',typePieceArmure(i mod 5),normal,-1,0,0);
 
@@ -173,6 +181,9 @@ begin
   writeln(joueur.armePortee.nom);
   readln();
   //creationPersonnage();
+=======
+  creationPersonnage();
+>>>>>>> 61fdeaf0263f9b49d9ab05306f3a38c2dcb6b504
 end;
 
 
