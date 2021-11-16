@@ -1,6 +1,6 @@
 program monsterHunter;
 
-uses GestionEcran, unitMonsterHunterLogic, unitMonsterHunterHIM;
+uses GestionEcran, unitMonsterHunterLogic, unitMonsterHunterIHM;
 
 begin
      menu();

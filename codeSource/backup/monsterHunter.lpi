@@ -39,7 +39,7 @@
       <Unit2>
         <Filename Value="unitmonsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unitmonsterhunterIHM"/>
+        <UnitName Value="unitMonsterHunterIHM"/>
       </Unit2>
       <Unit3>
         <Filename Value="unitmonsterhunterhim.pas"/>

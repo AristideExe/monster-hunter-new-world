@@ -1,0 +1,64 @@
+// Affiche les crédits du jeu
+procedure creditsIHM();
+
+begin
+     effacerEcran();
+     //---------TITRE--------------------------
+     deplacerCurseurXY(1,1);write('Credits :');
+
+     //--------AFFICHAGE MISE EN PAGE----------
+     deplacerCurseurXY(0,2);write('________________________________________________________________________________________________________________________');
+     deplacerCurseurXY(10,0);write('|');
+     deplacerCurseurXY(10,1);write('|');
+     deplacerCurseurXY(10,2);write('|');
+     deplacerCurseurXY(10,3);write('|');
+     deplacerCurseurXY(10,4);write('|');
+     deplacerCurseurXY(10,5);write('|');
+     deplacerCurseurXY(10,6);write('|');
+     deplacerCurseurXY(10,7);write('|');
+     deplacerCurseurXY(10,8);write('|');
+     deplacerCurseurXY(10,9);write('|');
+     deplacerCurseurXY(10,10);write('|');
+     deplacerCurseurXY(10,11);write('|');
+     deplacerCurseurXY(10,12);write('|');
+     deplacerCurseurXY(10,13);write('|');
+     deplacerCurseurXY(10,14);write('|');
+     deplacerCurseurXY(10,15);write('|');
+     deplacerCurseurXY(10,16);write('|');
+     deplacerCurseurXY(10,17);write('|');
+     deplacerCurseurXY(10,18);write('|');
+     deplacerCurseurXY(10,19);write('|');
+     deplacerCurseurXY(10,20);write('|');
+     deplacerCurseurXY(10,21);write('|');
+     deplacerCurseurXY(10,22);write('|');
+     deplacerCurseurXY(10,23);write('|');
+     deplacerCurseurXY(10,24);write('|');
+     deplacerCurseurXY(10,25);write('|');
+     deplacerCurseurXY(10,26);write('|');
+     deplacerCurseurXY(10,27);write('|');
+     deplacerCurseurXY(10,28);write('|');
+     deplacerCurseurXY(10,29);write('|');
+
+     //------------------Remerciement----------------------
+     dessinerCadreXY(38,6,89,8,double,White,Black);
+     deplacerCurseurXY(40,7);write ('On remercie nos developpeurs pour leur travail :');
+
+     //----------Placements des devellopeurs-------------
+     //----------------- QUENTIN ------------------------
+     deplacerCurseurXY(25,11);write ('=} BOUCHOT Quentin : ');
+
+
+     //------------------ HUGO --------------------------
+     deplacerCurseurXY(25,16);write ('=} RODRIGUES Hugo : ');
+
+
+     //----------------- ARISTIDE -----------------------
+     deplacerCurseurXY(25,21);write ('=} PRORIOL Aristide : ');
+
+
+     //----------------- LEANDRE ------------------------
+     deplacerCurseurXY(25,26);write ('=} MOREAU Leandre : ');
+
+
+     readln();
+end;
