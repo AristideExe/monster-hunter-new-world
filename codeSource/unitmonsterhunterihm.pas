@@ -235,10 +235,6 @@ begin
      couleurTexte(White);
      deplacerCurseurXY(57,5);write('5/Expedition');
 
-     // Insertion d'une proposition
-     dessinerCadreXY(50,25,70,27,simple,White,Black);
-     deplacerCurseurXY(53,26);write ('Votre choix : ');
-
      //route centrale
      ColorierZone(Green,Cyan, 41,89,10);
      ColorierZone(Green,Cyan, 30,84,20);
@@ -268,6 +264,11 @@ begin
      deplacerCurseurXY(58,14);write ('/__--__\');
      deplacerCurseurXY(61,15);write ('||');
      deplacerCurseurXY(61,16);write ('||');
+
+
+     // Insertion d'une proposition
+     dessinerCadreXY(50,25,70,27,simple,White,Black);
+     deplacerCurseurXY(53,26);write ('Votre choix : ');
 
      readln(villeIHM);
 end;

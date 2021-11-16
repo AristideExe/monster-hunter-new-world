@@ -235,10 +235,6 @@ begin
      couleurTexte(White);
      deplacerCurseurXY(57,5);write('5/Expedition');
 
-     // Insertion d'une proposition
-     dessinerCadreXY(50,25,70,27,simple,White,Black);
-     deplacerCurseurXY(53,26);write ('Votre choix : ');
-
      //route centrale
      ColorierZone(Green,Cyan, 41,89,10);
      ColorierZone(Green,Cyan, 30,84,20);
@@ -303,7 +299,7 @@ begin
                write('Pas de ', typePieceArmure(i) , ' equipe(es).');
           end;
      end;
-     deplacerCurseurXY(10,27); write('1/ Retourner à la ville,    2/ Ouvrir l''armoire à armures,    3/ Ouvrir la malle à armes');
+     deplacerCurseurXY(10,27); write('1/ Retourner a la ville,    2/ Ouvrir l''armoire a armures,    3/ Ouvrir la malle a armes');
      deplacerCurseurXY(10,28); write('Votre choix : ');
      readln(chambreIHM);
 end;
