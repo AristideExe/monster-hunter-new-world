@@ -280,9 +280,24 @@ end;
 
 // Chambre
 procedure chambreIHM();
+var
+  i : integer;
 begin
      effacerEcran();
-     write('Chambre');
+     for i:=0 to 4 do
+     begin
+          deplacerCurseurXY(10,i*5+1);
+          if (getJoueur.armurePortee[i].nom <> 'NULL') then
+          begin
+               write(typePieceArmure(i),' : ',getJoueur.armurePortee[i].nom);
+               deplacerCurseurXY(10,i*5+2);
+               write('Durabilite : ', getJoueur.armurePortee[i].durabilite, ' , Valeur de defense :',getJoueur.armurePortee[i].valeurDefense:6:2, ' , Taux d''esquive :', getJoueur.armurePortee[i].tauxEsquive:6:2);
+          end
+          else
+          begin
+               write('Pas de ', typePieceArmure(i) , ' equipe(es).');
+          end;
+     end;
      readln();
 end;
 
