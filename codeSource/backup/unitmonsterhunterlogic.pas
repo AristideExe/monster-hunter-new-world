@@ -35,7 +35,7 @@ type
              sexe : string;
              // 5 éléments d'armure : casque, torse, jambières, bottes, gants
              armurePortee : array [0..4] of typeArmure;
-             armurePossedees : array [0..99] of typeArmure;
+             armuresPossedees : array [0..99] of typeArmure;
              armePortee : typeArme;
              armesPossedees : array [0..24] of typeArme;
   end;
@@ -147,15 +147,17 @@ end;
 procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
-<<<<<<< HEAD
-=======
 
   while (joueur.sexe <> 'M') and (joueur.sexe <> 'F') do
         demanderSexeIHM(joueur.sexe);
 
->>>>>>> 61fdeaf0263f9b49d9ab05306f3a38c2dcb6b504
+  afficherPersonnageIHM(joueur.sexe);
   ville();
 end;
+
+
+
+
 
 
 // Initialisation des stats du personnage à sa création
@@ -167,9 +169,10 @@ begin
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,-1,0,0);
   modifierArmure(joueur.armurePortee[1],'Plastron d''entrainement',typePieceArmure(1),normal,100,5,2);
 
-<<<<<<< HEAD
   // Modification de l'inventaire d'armures pour qu'il soit vide
-  for i:=0 to length(joueur.armurePossedees)-1 do modifierArmure(joueur.armurePossedees[i],'NULL',typePieceArmure(i mod 5),normal,-1,0,0);
+  for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,-1,0,0);
+  //test ajout armure au pif
+  modifierArmure(joueur.armuresPossedees[32])
 
   // Initialisation de l'arme pour avoir une épée de base
   modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,15);
@@ -177,14 +180,13 @@ begin
   // Modification de l'inventaire d'armes pour qu'il soit vide
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,0);
 
-  writeln(joueur.armurePortee[1].nom);
-  writeln(joueur.armePortee.nom);
-  readln();
-  //creationPersonnage();
-=======
   creationPersonnage();
->>>>>>> 61fdeaf0263f9b49d9ab05306f3a38c2dcb6b504
 end;
+
+
+
+
+
 
 
 // Affiche les différentes sauvegardes
