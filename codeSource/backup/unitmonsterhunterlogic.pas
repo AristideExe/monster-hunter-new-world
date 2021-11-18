@@ -141,9 +141,29 @@ end;
 // --------------------------------- TOUTES LES PROCÉDURES DE LA CHAMBRE ---------------------------------
 
 procedure malle();
+var
+  choix : string;
+  choixIsInt : boolean;
+  choixInt : integer;
 begin
-  malleIHM();
+  choix := malleIHM();
+  choixInt := 0;
+  choixIsInt := TryStrToInt(choix,choixInt);
+
+  // Si on veut retourner à la chambre
+  if choix = '0' then chambre()
+
+  // Si le joueur a choisi une nouvelle arme
+  else if choixIsInt and (choixInt>0) and (choixInt < length(joueur.armesPossedees)) then
+  begin
+       // A faire
+  end
+
+
+  else malle();
 end;
+
+
 
 procedure armoire(armureAAfficher : integer;titre:string);
 var
@@ -151,13 +171,12 @@ var
   choixIsInt : boolean;
   choixInt : integer;
   pieceArmureChoisie : typePieceArmure;
-  arrayPieceArmureChoisie : arrayPieceArmure;
   i, compteurArmure : integer;
 begin
   choix := armoireIHM(armureAAfficher,titre);
   choixInt := 0;
   choixIsInt := TryStrToInt(choix,choixInt);
-  // Si on veut retourner au menu
+  // Si on veut retourner à la chambre
   if choix = '0' then chambre()
   // Si on veut afficher un autre type d'armure
   else if choix = '-1' then armoire(0,'Casques')
@@ -169,7 +188,7 @@ begin
 
 
   // Si on a choisit une armure
-  else if choixIsInt and (choixInt>0) and (choixInt < length(joueur.armesPossedees)) then
+  else if choixIsInt and (choixInt>0) and (choixInt < length(joueur.armuresPossedees)) then
   begin
        pieceArmureChoisie := typePieceArmure(armureAAfficher);
        compteurArmure := 0;
@@ -261,10 +280,11 @@ begin
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
   //test ajout armures au pif
-  for i:=0 to 99 do modifierArmure(joueur.armuresPossedees[i],'Armure' + IntToStr(random(500)),typePieceArmure(i mod 5),normal,random(50),i);
+  for i:=0 to 99 do modifierArmure(joueur.armuresPossedees[i],'Armure' + IntToStr(random(500)),typePieceArmure(i mod 5),normal,random(50),random(30));
 
   // Initialisation de l'arme pour avoir une épée de base
   modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,100,15);
+  for i:=0 to 24 do modifierArme(joueur.armesPossedees[i],'Arme'+IntToStr(random(500)),epee,normal,100,100,random(70));
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,-1,0);

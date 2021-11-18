@@ -360,7 +360,7 @@ begin
      deplacerCurseurXY(70,14); write(getJoueur.armePortee.arme,' : ',getJoueur.armePortee.nom);
      deplacerCurseurXY(70,15); write('Valeur d''attaque : ', getJoueur.armePortee.valeurAttaque:6:2);
 
-
+     // Affichage des choix
      deplacerCurseurXY(10,27); write('1/ Retourner a la ville,    2/ Ouvrir l''armoire a armures,    3/ Ouvrir la malle a armes');
      deplacerCurseurXY(10,28); write('Votre choix : ');
      readln(chambreIHM);
@@ -399,8 +399,10 @@ begin
 end;
 
 
-
-
+procedure afficherArmeIHM(numeroArme : integer; arme : typeArme);
+begin
+     write(numeroArme + 1, ' : ', arme.nom);
+end;
 
 // Afficher une seule armure
 procedure afficherArmureIHM(numeroArmure : integer; armure : typeArmure);
@@ -462,7 +464,7 @@ begin
 
 
 
-
+     // Affichage des choix
      deplacerCurseurXY(5,25); write('0/ Retourner a la chambre');
      deplacerCurseurXY(4,26); write('-1/ Afficher les casques     -2/ Afficher les plastrons       -3/ Afficher les jambieres');
      deplacerCurseurXY(4,27); write('-4/ Afficher les bottes      -5/ Afficher les gants');
@@ -472,11 +474,36 @@ begin
      readln(armoireIHM);
 end;
 
+
+
 // Malle à armes
 function malleIHM() : string;
+var
+  i,nombreArmes : integer;
+const
+  NB_COLONNES = 2;
 begin
      effacerEcran();
-     write('Malle');
+     // Ecriture du titre
+     deplacerCurseurXY(5,1); write('Malle - Selectionnez un numero pour choisir une arme');
+
+     // Affichage de toutes les armes
+     nombreArmes := 0;
+     for i:=0 to length(getJoueur.armesPossedees)-1 do
+     begin
+          if (joueur.armesPossedees[i].nom <> 'NULL') then
+          begin
+            deplacerCurseurXY((nombreArmes mod NB_COLONNES) * 50 +5, (nombreArmes div NB_COLONNES)+6);
+            afficherArmeIHM(nombreArmes,joueur.armesPossedees[i]);
+            nombreArmes := nombreArmes + 1;
+          end;
+     end;
+
+
+     // Affichage des choix
+     deplacerCurseurXY(5,27); write('0/ Retourner a la chambre');
+     deplacerCurseurXY(5,28); write('Votre choix : ');
+
      readln(malleIHM);
 end;
 
