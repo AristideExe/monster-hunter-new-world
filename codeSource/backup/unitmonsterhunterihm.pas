@@ -121,7 +121,7 @@ begin
      dessinerCadreXY(38,6,89,8,double,White,Black);
      deplacerCurseurXY(40,7);write ('On remercie nos developpeurs pour leur travail :');
 
-     //----------Placements des devellopeurs-------------
+     //----------Placements des developpeurs-------------
      //----------------- QUENTIN ------------------------
      deplacerCurseurXY(25,11);write ('=} BOUCHOT Quentin : ');
 
@@ -144,25 +144,55 @@ begin
 end;
 
 procedure afficherPersonnageIHM(sexe : string);
+//---------Création affichage du personnage Homme ou Femme------
 begin
      if sexe ='F' then
      begin
           //Visage Femme
-          deplacerCurseurXY(50,12);write ('//||||\\');
-          deplacerCurseurXY(49,13);write ('//| o o|\\');
-          deplacerCurseurXY(51,14);write ('|  > |');
-          deplacerCurseurXY(52,15);write ('\__/');
+          deplacerCurseurXY(70,5);write ('//||||\\');
+          deplacerCurseurXY(69,6);write ('//| o o|\\');
+          deplacerCurseurXY(69,7);write ('|||  > |||');
+          deplacerCurseurXY(69,8);write ('|| \__/ ||');
+          deplacerCurseurXY(69,9);write ('___/  \___');
+          deplacerCurseurXY(68,10);write ('/          \');
+          deplacerCurseurXY(67,11);write ('/ |        | \');
+          deplacerCurseurXY(66,12);write ('/ /|        |\ \');
+          deplacerCurseurXY(65,13);write ('/ /  \ ____ /  \ \');
+          deplacerCurseurXY(64,14);write ('/ /    |____|    \ \');
+          deplacerCurseurXY(63,15);write ('/_/    /      \    \_\');
+          deplacerCurseurXY(63,16);write ('\_/   /        \   \_/');
+          deplacerCurseurXY(68,17);write ('/__________\');
+          deplacerCurseurXY(67,18);write ('/------------\');
+          deplacerCurseurXY(71,19);write ('| | | |');
+          deplacerCurseurXY(71,20);write ('| | | |');
+          deplacerCurseurXY(71,21);write ('|_| |_|');
+          deplacerCurseurXY(70,22);write ('/__| |__\');
      end
      else
      begin
-     //Visage Homme
-     deplacerCurseurXY(50,12);write ('//||||\\');
-     deplacerCurseurXY(51,13);write ('| o o|');
-     deplacerCurseurXY(51,14);write ('|  > |');
-     deplacerCurseurXY(52,15);write ('\__/');
+          //Visage Homme
+     deplacerCurseurXY(70,5);write ('//||||\\');
+     deplacerCurseurXY(71,6);write ('| o o|');
+     deplacerCurseurXY(71,7);write ('|  > |');
+     deplacerCurseurXY(72,8);write ('\__/');
+     deplacerCurseurXY(67,9);write ('______/  \______');
+     deplacerCurseurXY(66,10);write ('/                \');
+     deplacerCurseurXY(65,11);write ('/  /            \  \');
+     deplacerCurseurXY(64,12);write ('/  /|            |\  \');
+     deplacerCurseurXY(63,13);write ('/  / |            | \  \');
+     deplacerCurseurXY(63,14);write ('|  |  \          /  |  |');
+     deplacerCurseurXY(63,15);write ('|__|   |________|   |__|');
+     deplacerCurseurXY(63,16);write ('\__/   |________|   \__/');
+     deplacerCurseurXY(70,17);write ('/   __   \');
+     deplacerCurseurXY(70,18);write ('|  |  |  |');
+     deplacerCurseurXY(70,19);write ('|  |  |  |');
+     deplacerCurseurXY(70,20);write ('|  |  |  |');
+     deplacerCurseurXY(70,21);write ('|  |  |  |');
+     deplacerCurseurXY(70,22);write ('|__|  |__|');
+     deplacerCurseurXY(69,23);write ('/___|  |___\');
      end;
 
-     readln;  // Laisse afficher les visages a l'écran
+     readln;  //Laisse afficher les visages a l'écran
 end;
 
 //Demande le sexe en fonction de la réponse précédente
@@ -172,9 +202,9 @@ begin
      //Efface l'écran et réaffiche nom et taille mais redemande le sexe
      effacerEcran();
      dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,12);write('nom : ',getJoueur().nom);
+     deplacerCurseurXY(15,11);write('nom : ',getJoueur().nom);
      deplacerCurseurXY(15,13);write('taille : ',getJoueur().taille);
-     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+     deplacerCurseurXY(15,15);write('sexe (''M'' ou ''F'') : ');readln(sexe);
 end;
 
 // Affiche le menu de création de personnage
@@ -184,9 +214,9 @@ begin
 
      //Information personnage (nom taille et sexe)
      dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,12);write('nom : ');readln(nom);
+     deplacerCurseurXY(15,11);write('nom : ');readln(nom);
      deplacerCurseurXY(15,13);write('taille : ');readln(taille);
-     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+     deplacerCurseurXY(15,15);write('sexe (''M'' ou ''F'') : ');readln(sexe);
 
 end;
 
