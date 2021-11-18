@@ -33,7 +33,11 @@ function villeIHM() : string;
 // Chambre
 procedure chambreIHM();
 
+//Bateau exploration
+procedure explorationIHM();
 
+//Cantine
+procedure cantineIHM();
 
 
 
@@ -148,18 +152,18 @@ begin
      if sexe ='F' then
      begin
           //Visage Femme
-          deplacerCurseurXY(50,12);write ('//||||\\');
-          deplacerCurseurXY(49,13);write ('//| o o|\\');
-          deplacerCurseurXY(51,14);write ('|  > |');
-          deplacerCurseurXY(52,15);write ('\__/');
+          deplacerCurseurXY(70,5);write ('//||||\\');
+          deplacerCurseurXY(69,6);write ('//| o o|\\');
+          deplacerCurseurXY(69,7);write ('|||  > |||');
+          deplacerCurseurXY(69,8);write ('|| \__/ ||');
      end
      else
      begin
      //Visage Homme
-     deplacerCurseurXY(50,12);write ('//||||\\');
-     deplacerCurseurXY(51,13);write ('| o o|');
-     deplacerCurseurXY(51,14);write ('|  > |');
-     deplacerCurseurXY(52,15);write ('\__/');
+     deplacerCurseurXY(70,5);write ('//||||\\');
+     deplacerCurseurXY(71,6);write ('| o o|');
+     deplacerCurseurXY(71,7);write ('|  > |');
+     deplacerCurseurXY(72,8);write ('\__/');
      end;
 
      readln;  //Laisse afficher les visages a l'écran
@@ -172,29 +176,22 @@ begin
      //Efface l'écran et réaffiche nom et taille mais redemande le sexe
      effacerEcran();
      dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,12);write('nom : ',getJoueur().nom);
+     deplacerCurseurXY(15,11);write('nom : ',getJoueur().nom);
      deplacerCurseurXY(15,13);write('taille : ',getJoueur().taille);
-     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+     deplacerCurseurXY(15,15);write('sexe (''M'' ou ''F'') : ');readln(sexe);
 end;
 
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 begin
      effacerEcran();
-<<<<<<< HEAD
-     demanderNomEtTailleIHM(nom,taille);
-     demanderSexeIHM(sexe);
-     afficherPersonnageIHM(sexe);
-     readln();
-=======
 
      //Information personnage (nom taille et sexe)
      dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,12);write('nom : ');readln(nom);
+     deplacerCurseurXY(15,11);write('nom : ');readln(nom);
      deplacerCurseurXY(15,13);write('taille : ');readln(taille);
-     deplacerCurseurXY(15,14);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+     deplacerCurseurXY(15,15);write('sexe (''M'' ou ''F'') : ');readln(sexe);
 
->>>>>>> 0650bddba0db9541a051338a9f8db057822a5080
 end;
 
 
@@ -209,6 +206,8 @@ Choix numéro 4 : manger à la cantine
 Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
+var
+  y,i : integer;
 begin
      effacerEcran();
      // Chambre du personage
@@ -227,7 +226,7 @@ begin
      dessinerCadreXY(20,7,40,13,simple,White,Black);
      deplacerCurseurXY(26,10);write('2/Forge');
 
-     //Bateau d'attaque
+     //Bateau d'exploration
      deplacerCurseurXY(61,1);write(')');
      deplacerCurseurXY(60,1);write('|');
      deplacerCurseurXY(57,2);write('______');
@@ -244,29 +243,25 @@ begin
 
      // Insertion d'une proposition
      dessinerCadreXY(50,25,70,27,simple,White,Black);
-     deplacerCurseurXY(53,26);write ('Votre choix : ');
 
-     //route centrale
+     //route Nord
      ColorierZone(Green,Cyan, 41,89,10);
+     //Route Sud
      ColorierZone(Green,Cyan, 30,84,20);
-     ColorierZone(Green,Cyan, 46,47,11);
-     ColorierZone(Green,Cyan, 46,47,12);
-     ColorierZone(Green,Cyan, 46,47,13);
-     ColorierZone(Green,Cyan, 46,47,14);
-     ColorierZone(Green,Cyan, 46,47,15);
-     ColorierZone(Green,Cyan, 46,47,16);
-     ColorierZone(Green,Cyan, 46,47,17);
-     ColorierZone(Green,Cyan, 46,47,18);
-     ColorierZone(Green,Cyan, 46,47,19);
-     ColorierZone(Green,Cyan, 75,76,11);
-     ColorierZone(Green,Cyan, 75,76,12);
-     ColorierZone(Green,Cyan, 75,76,13);
-     ColorierZone(Green,Cyan, 75,76,14);
-     ColorierZone(Green,Cyan, 75,76,15);
-     ColorierZone(Green,Cyan, 75,76,16);
-     ColorierZone(Green,Cyan, 75,76,17);
-     ColorierZone(Green,Cyan, 75,76,18);
-     ColorierZone(Green,Cyan, 75,76,19);
+     //Route Ouest
+      y:=11;
+      for i:=1 to 9 do
+      begin;
+            ColorierZone(Green,Cyan, 46,47,y);
+            y:=y+1
+      end;
+     //Route Est
+     y:=11;
+     for i:=1 to 9 do
+     begin;
+           ColorierZone(Green,Cyan, 75,76,y);
+           y:=y+1
+     end;
 
      //arbre
      deplacerCurseurXY(61,11);write ('/\');
@@ -275,7 +270,8 @@ begin
      deplacerCurseurXY(58,14);write ('/__--__\');
      deplacerCurseurXY(61,15);write ('||');
      deplacerCurseurXY(61,16);write ('||');
-      deplacerCurseurXY(50,16);write ('±');
+
+     deplacerCurseurXY(53,26);write ('Votre choix : ');
 
      readln(villeIHM);
 end;
@@ -303,10 +299,35 @@ begin
           end
           else
           begin
-               write('Pas de ', typePieceArmure(i) , ' equipees.');
+               write('Pas de ', typePieceArmure(i) , ' equipe(es).');
           end;
      end;
      readln();
+end;
+//Bateau exploration
+procedure explorationIHM();
+begin
+     effacerEcran();
+     dessinerCadreXY(45,4,74,6,simple,White,Black);
+     deplacerCurseurXY(47,5);write ('Vous partez en exploration');
+     deplacerCurseurXY(47,12);write ('Choix de la difficulte :');
+     deplacerCurseurXY(74,12);write ('1 : *');
+     deplacerCurseurXY(74,13);write ('2 : **');
+     deplacerCurseurXY(74,14);write ('3 : ***');
+     deplacerCurseurXY(74,15);write ('4 : ****');
+     deplacerCurseurXY(74,16);write ('5 : *****');
+     deplacerCurseurXY(47,14);write ('Votre choix :');
+     deplacerCurseurXY(47,25);write ('Retour : 0');
+     deplacerCurseurXY(61,14);
+     readln;
+end;
+
+procedure cantineIHM();
+begin
+     effacerEcran();
+     deplacerCurseurXY(57,5);write ('Cuisine');
+     deplacerCurseurXY(50,5);write ('Choisir les ingredients :');
+     readln;
 end;
 
 end.

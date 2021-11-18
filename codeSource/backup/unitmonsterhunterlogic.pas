@@ -97,6 +97,7 @@ end;
 
 procedure choisirCombat();
 begin
+  explorationIHM();
 end;
 
 
@@ -172,7 +173,7 @@ begin
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,-1,0,0);
   //test ajout armure au pif
-  modifierArmure(joueur.armuresPossedees[32])
+  modifierArmure(joueur.armuresPossedees[32],'Armure de la mort qui tue',torse,normal,1500,25,12);
 
   // Initialisation de l'arme pour avoir une épée de base
   modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,15);
