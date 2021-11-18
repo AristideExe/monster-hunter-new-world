@@ -116,6 +116,7 @@ end;
 
 procedure choisirCombat();
 begin
+  explorationIHM();
 end;
 
 
