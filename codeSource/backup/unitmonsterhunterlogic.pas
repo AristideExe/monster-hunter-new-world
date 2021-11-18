@@ -114,9 +114,27 @@ procedure forge();
 begin
 end;
 
-procedure chambre();
+
+procedure armoire();
 begin
-  chambreIHM();
+  write('armoire');
+  readln;
+end;
+
+procedure malle();
+begin
+  write('malle');
+  readln;
+end;
+
+procedure chambre();
+var choix : string;
+begin
+  choix := chambreIHM();
+  if choix = '1' then ville()
+  else if choix = '2' then armoire()
+  else if choix = '3' then malle()
+  else chambre();
 end;
 
 // Ville du lobby

@@ -31,7 +31,7 @@ Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
 // Chambre
-procedure chambreIHM();
+function chambreIHM() : string;
 
 //Bateau exploration
 procedure explorationIHM();
@@ -125,7 +125,7 @@ begin
      dessinerCadreXY(38,6,89,8,double,White,Black);
      deplacerCurseurXY(40,7);write ('On remercie nos developpeurs pour leur travail :');
 
-     //----------Placements des devellopeurs-------------
+     //----------Placements des developpeurs-------------
      //----------------- QUENTIN ------------------------
      deplacerCurseurXY(25,11);write ('=} BOUCHOT Quentin : ');
 
@@ -148,6 +148,7 @@ begin
 end;
 
 procedure afficherPersonnageIHM(sexe : string);
+//---------Création affichage du personnage Homme ou Femme------
 begin
      if sexe ='F' then
      begin
@@ -156,14 +157,53 @@ begin
           deplacerCurseurXY(69,6);write ('//| o o|\\');
           deplacerCurseurXY(69,7);write ('|||  > |||');
           deplacerCurseurXY(69,8);write ('|| \__/ ||');
+<<<<<<< HEAD
      end
      else
      begin
      //Visage Homme
+=======
+          deplacerCurseurXY(69,9);write ('___/  \___');
+          deplacerCurseurXY(68,10);write ('/          \');
+          deplacerCurseurXY(67,11);write ('/ |        | \');
+          deplacerCurseurXY(66,12);write ('/ /|        |\ \');
+          deplacerCurseurXY(65,13);write ('/ /  \ ____ /  \ \');
+          deplacerCurseurXY(64,14);write ('/ /    |____|    \ \');
+          deplacerCurseurXY(63,15);write ('/_/    /      \    \_\');
+          deplacerCurseurXY(63,16);write ('\_/   /        \   \_/');
+          deplacerCurseurXY(68,17);write ('/__________\');
+          deplacerCurseurXY(67,18);write ('/------------\');
+          deplacerCurseurXY(71,19);write ('| | | |');
+          deplacerCurseurXY(71,20);write ('| | | |');
+          deplacerCurseurXY(71,21);write ('|_| |_|');
+          deplacerCurseurXY(70,22);write ('/__| |__\');
+     end
+     else
+     begin
+          //Visage Homme
+>>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
      deplacerCurseurXY(70,5);write ('//||||\\');
      deplacerCurseurXY(71,6);write ('| o o|');
      deplacerCurseurXY(71,7);write ('|  > |');
      deplacerCurseurXY(72,8);write ('\__/');
+<<<<<<< HEAD
+=======
+     deplacerCurseurXY(67,9);write ('______/  \______');
+     deplacerCurseurXY(66,10);write ('/                \');
+     deplacerCurseurXY(65,11);write ('/  /            \  \');
+     deplacerCurseurXY(64,12);write ('/  /|            |\  \');
+     deplacerCurseurXY(63,13);write ('/  / |            | \  \');
+     deplacerCurseurXY(63,14);write ('|  |  \          /  |  |');
+     deplacerCurseurXY(63,15);write ('|__|   |________|   |__|');
+     deplacerCurseurXY(63,16);write ('\__/   |________|   \__/');
+     deplacerCurseurXY(70,17);write ('/   __   \');
+     deplacerCurseurXY(70,18);write ('|  |  |  |');
+     deplacerCurseurXY(70,19);write ('|  |  |  |');
+     deplacerCurseurXY(70,20);write ('|  |  |  |');
+     deplacerCurseurXY(70,21);write ('|  |  |  |');
+     deplacerCurseurXY(70,22);write ('|__|  |__|');
+     deplacerCurseurXY(69,23);write ('/___|  |___\');
+>>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
      end;
 
      readln;  //Laisse afficher les visages a l'écran
@@ -241,10 +281,14 @@ begin
      couleurTexte(White);
      deplacerCurseurXY(57,5);write('5/Expedition');
 
+<<<<<<< HEAD
      // Insertion d'une proposition
      dessinerCadreXY(50,25,70,27,simple,White,Black);
 
      //route Nord
+=======
+     //route centrale
+>>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
      ColorierZone(Green,Cyan, 41,89,10);
      //Route Sud
      ColorierZone(Green,Cyan, 30,84,20);
@@ -270,8 +314,11 @@ begin
      deplacerCurseurXY(58,14);write ('/__--__\');
      deplacerCurseurXY(61,15);write ('||');
      deplacerCurseurXY(61,16);write ('||');
+<<<<<<< HEAD
 
      deplacerCurseurXY(53,26);write ('Votre choix : ');
+=======
+>>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
 
      readln(villeIHM);
 end;
@@ -282,8 +329,11 @@ end;
 
 
 
-// Chambre
-procedure chambreIHM();
+{Chambre : 3 choix :
+- 1 : retourner à la ville
+- 2 : ouvrir l'armoire des armures
+- 3 : ouvrir le coffre des armes}
+function chambreIHM() : string;
 var
   i : integer;
 begin
@@ -291,18 +341,22 @@ begin
      for i:=0 to 4 do
      begin
           deplacerCurseurXY(10,i*5+1);
+          // Si le joueur ne porte pas de piece d'armure
           if (getJoueur.armurePortee[i].nom <> 'NULL') then
           begin
                write(typePieceArmure(i),' : ',getJoueur.armurePortee[i].nom);
                deplacerCurseurXY(10,i*5+2);
                write('Durabilite : ', getJoueur.armurePortee[i].durabilite, ' , Valeur de defense :',getJoueur.armurePortee[i].valeurDefense:6:2, ' , Taux d''esquive :', getJoueur.armurePortee[i].tauxEsquive:6:2);
           end
+          // Si le joueur porte une pièce d'armure
           else
           begin
                write('Pas de ', typePieceArmure(i) , ' equipe(es).');
           end;
      end;
-     readln();
+     deplacerCurseurXY(10,27); write('1/ Retourner a la ville,    2/ Ouvrir l''armoire a armures,    3/ Ouvrir la malle a armes');
+     deplacerCurseurXY(10,28); write('Votre choix : ');
+     readln(chambreIHM);
 end;
 //Bateau exploration
 procedure explorationIHM();
