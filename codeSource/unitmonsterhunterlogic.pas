@@ -6,6 +6,8 @@ interface
 
 // Menu principal
 procedure menu();
+// Ville du lobby
+procedure ville();
 
 
 // TYPES
@@ -35,7 +37,7 @@ type
              sexe : string;
              // 5 éléments d'armure : casque, torse, jambières, bottes, gants
              armurePortee : array [0..4] of typeArmure;
-             armurePossedees : array [0..99] of typeArmure;
+             armuresPossedees : array [0..99] of typeArmure;
              armePortee : typeArme;
              armesPossedees : array [0..24] of typeArme;
   end;
@@ -113,9 +115,27 @@ procedure forge();
 begin
 end;
 
-procedure chambre();
+
+procedure armoire();
 begin
-  chambreIHM();
+  write('armoire');
+  readln;
+end;
+
+procedure malle();
+begin
+  write('malle');
+  readln;
+end;
+
+procedure chambre();
+var choix : string;
+begin
+  choix := chambreIHM();
+  if choix = '1' then ville()
+  else if choix = '2' then armoire()
+  else if choix = '3' then malle()
+  else chambre();
 end;
 
 // Ville du lobby
@@ -156,6 +176,10 @@ begin
 end;
 
 
+
+
+
+
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
 var
@@ -166,7 +190,9 @@ begin
   modifierArmure(joueur.armurePortee[1],'Plastron d''entrainement',typePieceArmure(1),normal,100,5,2);
 
   // Modification de l'inventaire d'armures pour qu'il soit vide
-  for i:=0 to length(joueur.armurePossedees)-1 do modifierArmure(joueur.armurePossedees[i],'NULL',typePieceArmure(i mod 5),normal,-1,0,0);
+  for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,-1,0,0);
+  //test ajout armure au pif
+  modifierArmure(joueur.armuresPossedees[32],'Armure de la mort qui tue',torse,normal,1500,25,12);
 
   // Initialisation de l'arme pour avoir une épée de base
   modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,15);
@@ -176,6 +202,11 @@ begin
 
   creationPersonnage();
 end;
+
+
+
+
+
 
 
 // Affiche les différentes sauvegardes
