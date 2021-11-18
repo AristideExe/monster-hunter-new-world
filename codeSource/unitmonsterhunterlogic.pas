@@ -261,7 +261,7 @@ begin
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
   //test ajout armures au pif
-  for i:=0 to 55 do modifierArmure(joueur.armuresPossedees[i],'Armure' + IntToStr(i),typePieceArmure(i mod 5),normal,i,i);
+  for i:=0 to 99 do modifierArmure(joueur.armuresPossedees[i],'Armure' + IntToStr(random(500)),typePieceArmure(i mod 5),normal,random(50),random(30));
 
   // Initialisation de l'arme pour avoir une épée de base
   modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,100,15);

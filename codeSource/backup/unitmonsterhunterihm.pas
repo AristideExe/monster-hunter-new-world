@@ -156,7 +156,7 @@ procedure afficherPersonnageIHM(sexe : string);
 begin
      if sexe ='F' then
      begin
-     //Visage Femme
+     //Visage Homme
      deplacerCurseurXY(70,5);write ('//||||\\');
      deplacerCurseurXY(71,6);write ('| o o|');
      deplacerCurseurXY(71,7);write ('|  > |');
@@ -336,12 +336,11 @@ var
   i : integer;
 begin
      effacerEcran();
+     // Titre du menu
+     deplacerCurseurXY(5,1);write('Chambre');
+     // Affichage des armures
      for i:=0 to 4 do
      begin
-          // Titre du menu
-          deplacerCurseurXY(5,1);write('Chambre');
-
-
           deplacerCurseurXY(10,i*5+3);
           // Si le joueur porte une pièce d'armure
           if (getJoueur.armurePortee[i].nom <> 'NULL') then
@@ -356,10 +355,21 @@ begin
                write('Pas de ', typePieceArmure(i) , ' equipe(es).');
           end;
      end;
+
+     // Affichage des stats de l'arme
+     deplacerCurseurXY(70,14); write(getJoueur.armePortee.arme,' : ',getJoueur.armePortee.nom);
+     deplacerCurseurXY(70,15); write('Valeur d''attaque : ', getJoueur.armePortee.valeurAttaque);
+
+
      deplacerCurseurXY(10,27); write('1/ Retourner a la ville,    2/ Ouvrir l''armoire a armures,    3/ Ouvrir la malle a armes');
      deplacerCurseurXY(10,28); write('Votre choix : ');
      readln(chambreIHM);
 end;
+
+
+
+
+
 //Bateau exploration
 procedure explorationIHM();
 begin
@@ -443,6 +453,11 @@ begin
             afficherArmureIHM(nombreArmures,pieceArmureInventaire[i]);
             nombreArmures := nombreArmures + 1;
           end;
+     end;
+     // Si le joueur ne possède aucune armure de ce type
+     if nombreArmures = 0 then
+     begin
+       deplacerCurseurXY(10,5);write('Aucune armure de cette sorte');
      end;
 
 
