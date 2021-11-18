@@ -155,18 +155,12 @@ procedure afficherPersonnageIHM(sexe : string);
 //---------Création affichage du personnage Homme ou Femme------
 begin
      if sexe ='F' then
-     begin
-          //Visage Femme
-          deplacerCurseurXY(70,5);write ('//||||\\');
-          deplacerCurseurXY(69,6);write ('//| o o|\\');
-          deplacerCurseurXY(69,7);write ('|||  > |||');
-          deplacerCurseurXY(69,8);write ('|| \__/ ||');
-<<<<<<< HEAD
-     end
-     else
-     begin
      //Visage Homme
-=======
+     deplacerCurseurXY(70,5);write ('//||||\\');
+     deplacerCurseurXY(71,6);write ('| o o|');
+     deplacerCurseurXY(71,7);write ('|  > |');
+     deplacerCurseurXY(72,8);write ('\__/');
+
           deplacerCurseurXY(69,9);write ('___/  \___');
           deplacerCurseurXY(68,10);write ('/          \');
           deplacerCurseurXY(67,11);write ('/ |        | \');
@@ -185,13 +179,10 @@ begin
      else
      begin
           //Visage Homme
->>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
-     deplacerCurseurXY(70,5);write ('//||||\\');
-     deplacerCurseurXY(71,6);write ('| o o|');
-     deplacerCurseurXY(71,7);write ('|  > |');
-     deplacerCurseurXY(72,8);write ('\__/');
-<<<<<<< HEAD
-=======
+     deplacerCurseurXY(71,5);write ('//||||\\');
+     deplacerCurseurXY(72,6);write ('| o o|');
+     deplacerCurseurXY(72,7);write ('|  > |');
+     deplacerCurseurXY(73,8);write ('\__/');
      deplacerCurseurXY(67,9);write ('______/  \______');
      deplacerCurseurXY(66,10);write ('/                \');
      deplacerCurseurXY(65,11);write ('/  /            \  \');
@@ -207,7 +198,7 @@ begin
      deplacerCurseurXY(70,21);write ('|  |  |  |');
      deplacerCurseurXY(70,22);write ('|__|  |__|');
      deplacerCurseurXY(69,23);write ('/___|  |___\');
->>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
+
      end;
 
      readln;  //Laisse afficher les visages a l'écran
@@ -285,14 +276,14 @@ begin
      couleurTexte(White);
      deplacerCurseurXY(57,5);write('5/Expedition');
 
-<<<<<<< HEAD
+
      // Insertion d'une proposition
      dessinerCadreXY(50,25,70,27,simple,White,Black);
 
      //route Nord
-=======
+
      //route centrale
->>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
+
      ColorierZone(Green,Cyan, 41,89,10);
      //Route Sud
      ColorierZone(Green,Cyan, 30,84,20);
@@ -318,15 +309,12 @@ begin
      deplacerCurseurXY(58,14);write ('/__--__\');
      deplacerCurseurXY(61,15);write ('||');
      deplacerCurseurXY(61,16);write ('||');
-<<<<<<< HEAD
 
-     deplacerCurseurXY(53,26);write ('Votre choix : ');
-=======
->>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
 
 
      // Insertion d'une proposition
      dessinerCadreXY(50,25,70,27,simple,White,Black);
+
      deplacerCurseurXY(53,26);write ('Votre choix : ');
 
      readln(villeIHM);
@@ -359,7 +347,7 @@ begin
           begin
                write(typePieceArmure(i),' : ',getJoueur.armurePortee[i].nom);
                deplacerCurseurXY(10,i*5+4);
-               write(' , Valeur de defense :',getJoueur.armurePortee[i].valeurDefense:6:2, ' , Taux d''esquive :', getJoueur.armurePortee[i].tauxEsquive:6:2);
+               write('Valeur de defense :',getJoueur.armurePortee[i].valeurDefense:6:2, ' , Taux d''esquive :', getJoueur.armurePortee[i].tauxEsquive:6:2);
           end
           // Si le joueur ne porte pas de piece d'armure
           else
@@ -393,7 +381,9 @@ procedure cantineIHM();
 begin
      effacerEcran();
      deplacerCurseurXY(57,5);write ('Cuisine');
-     deplacerCurseurXY(50,5);write ('Choisir les ingredients :');
+     deplacerCurseurXY(50,8);write ('Choisir les ingredients :');
+     deplacerCurseurXY(20,25);write ('Faire cuire : 1');
+     deplacerCurseurXY(90,25);write ('Retour : 0');
      readln;
 end;
 
