@@ -113,6 +113,18 @@ begin
   armure2 := armureTemp;
 end;
 
+// Procédure pour échanger deux armes
+procedure echangerArmes(var arme1, arme2 : typeArme);
+var
+  armeTemp : typeArme;
+begin
+  armeTemp := arme1;
+  arme1 := arme2;
+  arme2 := armeTemp;
+end;
+
+
+
 
 procedure choisirCombat();
 begin
@@ -144,7 +156,7 @@ procedure malle();
 var
   choix : string;
   choixIsInt : boolean;
-  choixInt : integer;
+  choixInt, i, compteurArmes : integer;
 begin
   choix := malleIHM();
   choixInt := 0;
@@ -156,7 +168,13 @@ begin
   // Si le joueur a choisi une nouvelle arme
   else if choixIsInt and (choixInt>0) and (choixInt < length(joueur.armesPossedees)) then
   begin
-       // A faire
+       compteurArmes := 0;
+       for i:=0 to length(joueur.armesPossedees) do
+       begin
+            if (compteurArmes = choixInt - 1) then echangerArmes(joueur.armePortee,joueur.armesPossedees[i]);
+               compteurArmes := compteurArmes +1;
+       end;
+       chambre();
   end
 
 
@@ -164,7 +182,7 @@ begin
 end;
 
 
-
+// Armoire de la chambre
 procedure armoire(armureAAfficher : integer;titre:string);
 var
   choix : string;

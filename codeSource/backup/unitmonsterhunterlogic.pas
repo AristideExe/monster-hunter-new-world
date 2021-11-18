@@ -113,6 +113,18 @@ begin
   armure2 := armureTemp;
 end;
 
+// Procédure pour échanger deux armes
+procedure echangerArmes(var arme1, arme2 : typeArme);
+var
+  armeTemp : typeArme;
+begin
+  armeTemp := arme1;
+  arme1 := arme2;
+  arme2 := armeTemp;
+end;
+
+
+
 
 procedure choisirCombat();
 begin
@@ -144,7 +156,7 @@ procedure malle();
 var
   choix : string;
   choixIsInt : boolean;
-  choixInt : integer;
+  choixInt, i, compteurArmes : integer;
 begin
   choix := malleIHM();
   choixInt := 0;
@@ -156,7 +168,12 @@ begin
   // Si le joueur a choisi une nouvelle arme
   else if choixIsInt and (choixInt>0) and (choixInt < length(joueur.armesPossedees)) then
   begin
-       // A faire
+       compteurArmes := 0;
+       for i:=0 to length(joueur.armesPossedees) do
+       begin
+            if (compteurArmes = choixInt - 1) then echangerArmes(joueur.armePortee,joueur.armesPossedees[i]);
+               compteurArmes := compteurArmes +1;
+       end;
   end
 
 
@@ -164,7 +181,7 @@ begin
 end;
 
 
-
+// Armoire de la chambre
 procedure armoire(armureAAfficher : integer;titre:string);
 var
   choix : string;
@@ -284,10 +301,12 @@ begin
 
   // Initialisation de l'arme pour avoir une épée de base
   modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,100,15);
-  for i:=0 to 24 do modifierArme(joueur.armesPossedees[i],'Arme'+IntToStr(random(500)),epee,normal,100,100,random(70));
+
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,-1,0);
+  //test ajout armes au pif
+  for i:=0 to 24 do modifierArme(joueur.armesPossedees[i],'Arme'+IntToStr(random(500)),epee,normal,100,100,random(70));
 
   creationPersonnage();
 end;
