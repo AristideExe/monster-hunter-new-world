@@ -155,7 +155,8 @@ procedure afficherPersonnageIHM(sexe : string);
 //---------Création affichage du personnage Homme ou Femme------
 begin
      if sexe ='F' then
-     //Visage Homme
+     begin
+     //Visage Femme
      deplacerCurseurXY(70,5);write ('//||||\\');
      deplacerCurseurXY(71,6);write ('| o o|');
      deplacerCurseurXY(71,7);write ('|  > |');

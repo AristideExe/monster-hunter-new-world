@@ -150,7 +150,9 @@ var
   choix : string;
   choixIsInt : boolean;
   choixInt : integer;
-  i,compteurArmure : integer;
+  pieceArmureChoisie : typePieceArmure;
+  arrayPieceArmureChoisie : arrayPieceArmure;
+  i, compteurArmure : integer;
 begin
   choix := armoireIHM(armureAAfficher,titre);
   choixInt := 0;
@@ -163,25 +165,36 @@ begin
   else if choix = '-3' then armoire(2,'Jambieres')
   else if choix = '-4' then armoire(3,'Bottes')
   else if choix = '-5' then armoire(4,'Gants')
+
+
+
   // Si on a choisit une armure
   else if choixIsInt and (choixInt>0) and (choixInt < length(joueur.armesPossedees)) then
   begin
-       // Si l'armure qu'on choisit est un casque on échange avec le casque
-       //compteurArmure := 0;
-       //for i:= 0 to length(joueur.armuresPossedees) - 1 do
-       //begin
-       //    if joueur.armuresPossedees[i].pieceArmure = casque then
-       //    begin
-       //         if (compteurArmure = choixInt-1) then echangerArmures(joueur.armurePortee[i],joueur.armuresPossedees[choixInt-1]);
-       //         compteurArmure := compteurArmure + 1;
-       //    end;
-       //end;
-       //writeln(compteurArmure);
-       //readln();
-       //chambre();
+       pieceArmureChoisie := typePieceArmure(armureAAfficher);
+       compteurArmure := 0;
+       // On essaie de trouver à quelle armure le choix faisait référence
+       for i:=0 to length(joueur.armuresPossedees) do
+       begin
+           if (joueur.armuresPossedees[i].pieceArmure = pieceArmureChoisie) and (joueur.armuresPossedees[i].nom <> 'NULL') then
+           begin
+                if (compteurArmure = choixInt - 1) then echangerArmures(joueur.armurePortee[armureAAfficher],joueur.armuresPossedees[i]);
+                compteurArmure := compteurArmure +1;
+           end;
+       end;
+       chambre();
   end
+
+
+
+  // Si c'est un mauvais choix
   else armoire(armureAAfficher,titre);
 end;
+
+
+
+
+
 
 procedure chambre();
 var choix : string;
