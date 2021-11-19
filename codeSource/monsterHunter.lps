@@ -8,7 +8,7 @@
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -17,9 +17,9 @@
         <UnitName Value="MonsterHunterLogic"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="334"/>
-        <CursorPos X="12" Y="355"/>
-        <UsageCount Value="23"/>
+        <TopLine Value="378"/>
+        <CursorPos X="42" Y="394"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -29,17 +29,17 @@
         <EditorIndex Value="2"/>
         <TopLine Value="47"/>
         <CursorPos X="58" Y="68"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="gestionecran.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="GestionEcran"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="27"/>
       </Unit3>
     </Units>
-    <JumpHistory Count="3" HistoryIndex="2">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="monsterhunterihm.pas"/>
         <Caret Line="485" Column="23" TopLine="459"/>
@@ -52,6 +52,74 @@
         <Filename Value="monsterhunterlogic.pas"/>
         <Caret Line="39" Column="34" TopLine="22"/>
       </Position3>
+      <Position4>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="350" Column="28" TopLine="327"/>
+      </Position4>
+      <Position5>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="82" Column="30" TopLine="63"/>
+      </Position5>
+      <Position6>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="338" Column="22" TopLine="325"/>
+      </Position6>
+      <Position7>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="82" Column="29" TopLine="63"/>
+      </Position7>
+      <Position8>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="101" Column="102" TopLine="71"/>
+      </Position8>
+      <Position9>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="95" Column="9" TopLine="83"/>
+      </Position9>
+      <Position10>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="99" Column="17" TopLine="82"/>
+      </Position10>
+      <Position11>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="101" Column="48" TopLine="84"/>
+      </Position11>
+      <Position12>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="82" Column="38" TopLine="67"/>
+      </Position12>
+      <Position13>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="99" Column="16" TopLine="82"/>
+      </Position13>
+      <Position14>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="379" Column="52" TopLine="353"/>
+      </Position14>
+      <Position15>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="360" Column="29" TopLine="350"/>
+      </Position15>
+      <Position16>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="53" Column="24" TopLine="36"/>
+      </Position16>
+      <Position17>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="381" Column="42" TopLine="358"/>
+      </Position17>
+      <Position18>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="382" Column="44" TopLine="362"/>
+      </Position18>
+      <Position19>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="57" Column="26" TopLine="31"/>
+      </Position19>
+      <Position20>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="98" Column="43" TopLine="81"/>
+      </Position20>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
