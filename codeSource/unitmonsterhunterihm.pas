@@ -165,7 +165,6 @@ procedure afficherPersonnageIHM(sexe : string);
 begin
      if sexe ='F' then
      begin
-<<<<<<< HEAD
           //Visage Femme
           deplacerCurseurXY(80,7);write ('//||||\\');
           deplacerCurseurXY(79,8);write ('//| o o|\\');
@@ -185,7 +184,7 @@ begin
           deplacerCurseurXY(81,22);write ('| | | |');
           deplacerCurseurXY(81,23);write ('|_| |_|');
           deplacerCurseurXY(80,24);write ('/__| |__\');
-=======
+
      //Visage Homme
      deplacerCurseurXY(70,5);write ('//||||\\');
      deplacerCurseurXY(71,6);write ('| o o|');
@@ -206,12 +205,12 @@ begin
           deplacerCurseurXY(71,20);write ('| | | |');
           deplacerCurseurXY(71,21);write ('|_| |_|');
           deplacerCurseurXY(70,22);write ('/__| |__\');
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
+
      end
      else
      begin
           //Visage Homme
-<<<<<<< HEAD
+
      deplacerCurseurXY(80,7);write ('//||||\\');
      deplacerCurseurXY(81,8);write ('| o o|');
      deplacerCurseurXY(81,9);write ('|  > |');
@@ -231,7 +230,7 @@ begin
      deplacerCurseurXY(79,23);write ('|  |  |  |');
      deplacerCurseurXY(79,24);write ('|__|  |__|');
      deplacerCurseurXY(78,25);write ('/___|  |___\');
-=======
+
      deplacerCurseurXY(71,5);write ('//||||\\');
      deplacerCurseurXY(72,6);write ('| o o|');
      deplacerCurseurXY(72,7);write ('|  > |');
@@ -252,7 +251,7 @@ begin
      deplacerCurseurXY(70,22);write ('|__|  |__|');
      deplacerCurseurXY(69,23);write ('/___|  |___\');
 
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
+
      end;
 
      readln;  //Laisse afficher les visages a l'écran

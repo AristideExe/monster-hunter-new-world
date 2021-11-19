@@ -10,15 +10,14 @@
         <IsPartOfProject Value="True"/>
 <<<<<<< HEAD
         <CursorPos X="77" Y="8"/>
-        <UsageCount Value="93"/>
 =======
 <<<<<<< HEAD
         <UsageCount Value="31"/>
 =======
         <CursorPos X="89" Y="8"/>
-        <UsageCount Value="92"/>
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
 >>>>>>> 9525bc1f59d6b16e39f0e89b5d50ec9140206eed
+        <UsageCount Value="93"/>
+>>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -26,21 +25,18 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterLogic"/>
 <<<<<<< HEAD
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="44" Y="14"/>
-        <UsageCount Value="93"/>
 =======
 <<<<<<< HEAD
         <EditorIndex Value="2"/>
         <UsageCount Value="31"/>
 =======
-        <EditorIndex Value="1"/>
-        <TopLine Value="276"/>
-        <CursorPos X="118" Y="284"/>
-        <UsageCount Value="92"/>
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
+        <IsVisibleTab Value="True"/>
 >>>>>>> 9525bc1f59d6b16e39f0e89b5d50ec9140206eed
+        <EditorIndex Value="1"/>
+        <TopLine Value="242"/>
+        <CursorPos X="91" Y="23"/>
+        <UsageCount Value="93"/>
+>>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -48,24 +44,22 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterIHM"/>
 <<<<<<< HEAD
-        <EditorIndex Value="2"/>
-        <CursorPos X="41" Y="499"/>
-        <UsageCount Value="93"/>
-=======
         <IsVisibleTab Value="True"/>
+=======
 <<<<<<< HEAD
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="163"/>
-        <CursorPos X="26" Y="185"/>
+        <CursorPos X="73" Y="184"/>
         <FoldState Value=" TM hW110G2 T4e01 TLnU06]83nb0*]81j705051l"/>
         <UsageCount Value="31"/>
 =======
-        <EditorIndex Value="2"/>
-        <TopLine Value="469"/>
-        <CursorPos X="50" Y="491"/>
-        <UsageCount Value="92"/>
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
 >>>>>>> 9525bc1f59d6b16e39f0e89b5d50ec9140206eed
+        <EditorIndex Value="2"/>
+        <TopLine Value="382"/>
+        <CursorPos X="61" Y="385"/>
+        <UsageCount Value="93"/>
+>>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -73,14 +67,10 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitMonsterHunterHIM"/>
 <<<<<<< HEAD
-        <UsageCount Value="93"/>
-=======
-<<<<<<< HEAD
         <UsageCount Value="31"/>
 =======
-        <UsageCount Value="92"/>
+        <UsageCount Value="93"/>
 >>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
->>>>>>> 9525bc1f59d6b16e39f0e89b5d50ec9140206eed
       </Unit3>
       <Unit4>
         <Filename Value="GestionEcran.pas"/>

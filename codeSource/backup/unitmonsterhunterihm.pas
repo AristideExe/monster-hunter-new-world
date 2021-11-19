@@ -165,7 +165,6 @@ procedure afficherPersonnageIHM(sexe : string);
 begin
      if sexe ='F' then
      begin
-<<<<<<< HEAD
           //Visage Femme
           deplacerCurseurXY(80,7);write ('//||||\\');
           deplacerCurseurXY(79,8);write ('//| o o|\\');
@@ -214,7 +213,7 @@ begin
 <<<<<<< HEAD
      deplacerCurseurXY(80,7);write ('//||||\\');
      deplacerCurseurXY(81,8);write ('| o o|');
-     deplacerCurseurXY(82,9);write ('|  > |');
+     deplacerCurseurXY(81,9);write ('|  > |');
      deplacerCurseurXY(82,10);write ('\__/');
      deplacerCurseurXY(76,11);write ('______/  \______');
      deplacerCurseurXY(75,12);write ('/                \');
@@ -418,15 +417,10 @@ begin
      deplacerCurseurXY(61,16);write ('||');
 
 
-<<<<<<< HEAD
-     // Insertion d'une proposition
-     dessinerCadreXY(50,25,70,27,simple,White,Black);
-=======
 
      // Insertion d'une proposition
      dessinerCadreXY(50,25,70,27,simple,White,Black);
 
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
      deplacerCurseurXY(53,26);write ('Votre choix : ');
 
      readln(villeIHM);
@@ -599,7 +593,7 @@ begin
      deplacerCurseurXY(5,1); write('Malle - Selectionnez un numero pour choisir une arme');
 
      // Affichage de toutes les armes
-     nombresArmes := 0;
+     nombreArmes := 0;
      for i:=0 to length(getJoueur.armesPossedees)-1 do
      begin
           if (joueur.armesPossedees[i].nom <> 'NULL') then
