@@ -1,4 +1,4 @@
-unit unitMonsterHunterIHM;
+unit MonsterHunterIHM;
 
 {$mode objfpc}{$H+}
 
@@ -47,7 +47,7 @@ procedure cantineIHM();
 
 implementation
 uses
-  Classes, SysUtils, unitMonsterHunterLogic,GestionEcran;
+  Classes, SysUtils, MonsterHunterLogic,GestionEcran;
 
 
 

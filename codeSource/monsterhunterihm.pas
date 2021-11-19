@@ -1,4 +1,4 @@
-unit unitMonsterHunterIHM;
+unit MonsterHunterIHM;
 
 {$mode objfpc}{$H+}
 
@@ -15,7 +15,7 @@ procedure quitterIHM();
 // Affiche les crédits du jeu
 procedure creditsIHM();
 
-// Affiche le menu de création de personnage
+// Affiche le menu çde création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 procedure demanderSexeIHM (var sexe : string);
 
@@ -47,7 +47,7 @@ procedure cantineIHM();
 
 implementation
 uses
-  Classes, SysUtils, unitMonsterHunterLogic,GestionEcran;
+  Classes, SysUtils, MonsterHunterLogic,GestionEcran;
 
 
 
@@ -488,7 +488,7 @@ begin
      deplacerCurseurXY(5,1); write('Malle - Selectionnez un numero pour choisir une arme');
 
      // Affichage de toutes les armes
-     nombresArmes := 0;
+     nombreArmes := 0;
      for i:=0 to length(getJoueur.armesPossedees)-1 do
      begin
           if (joueur.armesPossedees[i].nom <> 'NULL') then

@@ -73,7 +73,7 @@ function getPiecesPossedees(piece : typePieceArmure) : arrayPieceArmure;
 implementation
 
 uses
-  Classes, SysUtils, unitmonsterhunterIHM;
+  Classes, SysUtils, monsterhunterIHM;
 
 // Affiche le message lorsque l'on quitte
 procedure quitter();

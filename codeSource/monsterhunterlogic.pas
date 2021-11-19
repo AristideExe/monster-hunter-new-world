@@ -1,4 +1,4 @@
-unit unitMonsterHunterLogic;
+unit MonsterHunterLogic;
 
 {$mode objfpc}{$H+}
 
@@ -73,7 +73,7 @@ function getPiecesPossedees(piece : typePieceArmure) : arrayPieceArmure;
 implementation
 
 uses
-  Classes, SysUtils, unitmonsterhunterIHM;
+  Classes, SysUtils, monsterhunterIHM;
 
 // Affiche le message lorsque l'on quitte
 procedure quitter();
@@ -174,6 +174,7 @@ begin
             if (compteurArmes = choixInt - 1) then echangerArmes(joueur.armePortee,joueur.armesPossedees[i]);
                compteurArmes := compteurArmes +1;
        end;
+       chambre();
   end
 
 

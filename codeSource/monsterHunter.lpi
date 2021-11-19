@@ -32,19 +32,19 @@
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="unitmonsterhunterlogic.pas"/>
+        <Filename Value="monsterhunterlogic.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unitMonsterHunterLogic"/>
+        <UnitName Value="MonsterHunterLogic"/>
       </Unit1>
       <Unit2>
-        <Filename Value="unitmonsterhunterihm.pas"/>
+        <Filename Value="monsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unitMonsterHunterIHM"/>
+        <UnitName Value="MonsterHunterIHM"/>
       </Unit2>
       <Unit3>
-        <Filename Value="unitmonsterhunterhim.pas"/>
+        <Filename Value="gestionecran.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unitMonsterHunterHIM"/>
+        <UnitName Value="GestionEcran"/>
       </Unit3>
     </Units>
   </ProjectOptions>
@@ -60,7 +60,7 @@
     </SearchPaths>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="5">
+    <Exceptions Count="3">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -70,12 +70,6 @@
       <Item3>
         <Name Value="EFOpenError"/>
       </Item3>
-      <Item4>
-        <Name Value="RunError(107)"/>
-      </Item4>
-      <Item5>
-        <Name Value="EInOutError"/>
-      </Item5>
     </Exceptions>
   </Debugging>
 </CONFIG>
