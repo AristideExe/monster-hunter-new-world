@@ -1,6 +1,7 @@
 unit MonsterHunterIHM;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 interface
 
@@ -64,7 +65,7 @@ begin
      deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
      deplacerCurseurXY(50,12);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,14);write ('2) Charger une partie');
-     deplacerCurseurXY(50,16);write ('3) Afficher les credits');
+     deplacerCurseurXY(50,16);write ('3) Afficher les crédits');
      deplacerCurseurXY(50,18);write ('4) Quitter');
 
      //épée gauche

@@ -1,6 +1,7 @@
 unit MonsterHunterIHM;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 interface
 
@@ -482,7 +483,7 @@ begin
      else
      begin
           couleurTexte(Red);
-          write(' D-',(getArmureJoueur(armure.pieceArmure).valeurDefense - armure.valeurDefense)):6:2);
+          write(' D-',(getArmureJoueur(armure.pieceArmure).valeurDefense - armure.valeurDefense):6:2);
           couleurTexte(White);
      end;
 

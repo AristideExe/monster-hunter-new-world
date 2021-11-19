@@ -1,4 +1,4 @@
-unit unitMonsterHunterLogic;
+unit MonsterHunterLogic;
 
 {$mode objfpc}{$H+}
 
@@ -13,6 +13,10 @@ procedure chambre();
 
 
 // TYPES
+
+const
+  NOMBRE_ARMURES_JEU = 100;
+
 type
   typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique);
   typePieceArmure = (casque,torse,jambieres,bottes,gants);
@@ -32,7 +36,7 @@ type
              emoussement: integer;
              valeurAttaque : real;
   end;
-  arrayPieceArmure = array [0..19] of typeArmure;
+  arrayPieceArmure = array [0..((NOMBRE_ARMURES_JEU div 5)-1)] of typeArmure;
 
 
   typePersonnage = record
@@ -41,10 +45,12 @@ type
              sexe : string;
              // 5 éléments d'armure : casque, torse, jambières, bottes, gants
              armurePortee : array [0..4] of typeArmure;
-             armuresPossedees : array [0..99] of typeArmure;
+             armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
              armePortee : typeArme;
              armesPossedees : array [0..24] of typeArme;
   end;
+
+  armuresDisponibles = array[0..99] of typeArmure;
 
 
 
@@ -268,6 +274,11 @@ end;
 
 
 
+
+
+
+
+
 // -------------------------------- TOUTES LES PROCÉDURES DE LANCEMENT DU JEU --------------------------------
 
 
@@ -282,6 +293,11 @@ begin
   afficherPersonnageIHM(joueur.sexe);
   ville();
 end;
+
+
+
+
+
 
 
 
@@ -314,6 +330,37 @@ end;
 
 
 
+// Remplir les armures  depuis le fichier texte
+procedure remplirArmures(fichier : string);
+var
+  fichierArmures : TextFile;
+  test : string;
+begin
+  assignFile(fichierArmures,fichier);
+  reset(fichierArmures);
+  // Lecture de la premiere ligne du fichier qui sert d'entête
+  readln(fichierArmures);
+  repeat
+        readln(fichierArmures,test);
+        writeln(test);
+  until(EOF(fichierArmures)) ;
+end;
+
+
+
+// Initialisation du jeu (remplissage de toutes les variables)
+procedure initialisationJeu();
+begin
+  remplirArmures('nomsStatsObjets/armures.csv');
+  readln;
+  initialisationPersonnage();
+end;
+
+
+
+
+
+
 
 
 
@@ -338,7 +385,7 @@ var
   choix: string;
 begin
   choix := menuIHM();
-  if (choix = '1') then initialisationPersonnage()
+  if (choix = '1') then initialisationJeu()
   else if (choix = '2') then choixSauvegarde()
   else if (choix = '3') then credits()
   else if (choix = '4') then quitter()
