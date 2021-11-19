@@ -25,8 +25,7 @@
         <UnitName Value="MonsterHunterIHM"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="254"/>
-        <CursorPos Y="254"/>
+        <CursorPos X="31" Y="570"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit2>

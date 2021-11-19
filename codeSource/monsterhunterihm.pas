@@ -476,13 +476,13 @@ begin
      if (armure.valeurDefense >= getArmureJoueur(armure.pieceArmure).valeurDefense) then
      begin
           couleurTexte(Green);
-          write(' D+',(getArmureJoueur(armure.pieceArmure).valeurDefense - armure.valeurDefense):6:2);
+          write(' D+',(armure.valeurDefense - getArmureJoueur(armure.pieceArmure).valeurDefense):6:2);
           couleurTexte(White);
      end
      else
      begin
           couleurTexte(Red);
-          write(' D-',(armure.valeurDefense - getArmureJoueur(armure.pieceArmure).valeurDefense):6:2);
+          write(' D-',(getArmureJoueur(armure.pieceArmure).valeurDefense - armure.valeurDefense):6:2);
           couleurTexte(White);
      end;
 
