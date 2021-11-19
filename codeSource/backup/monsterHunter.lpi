@@ -34,12 +34,12 @@
       <Unit1>
         <Filename Value="monsterhunterlogic.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unitMonsterHunterLogic"/>
+        <UnitName Value="MonsterHunterLogic"/>
       </Unit1>
       <Unit2>
         <Filename Value="monsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="unitMonsterHunterIHM"/>
+        <UnitName Value="MonsterHunterIHM"/>
       </Unit2>
       <Unit3>
         <Filename Value="gestionecran.pas"/>

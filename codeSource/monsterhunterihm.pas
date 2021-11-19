@@ -184,53 +184,12 @@ begin
           deplacerCurseurXY(81,22);write ('| | | |');
           deplacerCurseurXY(81,23);write ('|_| |_|');
           deplacerCurseurXY(80,24);write ('/__| |__\');
-=======
-     //Visage Homme
-     deplacerCurseurXY(70,5);write ('//||||\\');
-     deplacerCurseurXY(71,6);write ('| o o|');
-     deplacerCurseurXY(71,7);write ('|  > |');
-     deplacerCurseurXY(72,8);write ('\__/');
 
-          deplacerCurseurXY(69,9);write ('___/  \___');
-          deplacerCurseurXY(68,10);write ('/          \');
-          deplacerCurseurXY(67,11);write ('/ |        | \');
-          deplacerCurseurXY(66,12);write ('/ /|        |\ \');
-          deplacerCurseurXY(65,13);write ('/ /  \ ____ /  \ \');
-          deplacerCurseurXY(64,14);write ('/ /    |____|    \ \');
-          deplacerCurseurXY(63,15);write ('/_/    /      \    \_\');
-          deplacerCurseurXY(63,16);write ('\_/   /        \   \_/');
-          deplacerCurseurXY(68,17);write ('/__________\');
-          deplacerCurseurXY(67,18);write ('/------------\');
-          deplacerCurseurXY(71,19);write ('| | | |');
-          deplacerCurseurXY(71,20);write ('| | | |');
-          deplacerCurseurXY(71,21);write ('|_| |_|');
-          deplacerCurseurXY(70,22);write ('/__| |__\');
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
      end
      else
      begin
           //Visage Homme
-<<<<<<< HEAD
-     deplacerCurseurXY(80,7);write ('//||||\\');
-     deplacerCurseurXY(81,8);write ('| o o|');
-     deplacerCurseurXY(81,9);write ('|  > |');
-     deplacerCurseurXY(82,10);write ('\__/');
-     deplacerCurseurXY(76,11);write ('______/  \______');
-     deplacerCurseurXY(75,12);write ('/                \');
-     deplacerCurseurXY(74,13);write ('/  /            \  \');
-     deplacerCurseurXY(73,14);write ('/  /|            |\  \');
-     deplacerCurseurXY(72,15);write ('/  / |            | \  \');
-     deplacerCurseurXY(72,16);write ('|  |  \          /  |  |');
-     deplacerCurseurXY(72,17);write ('|__|   |________|   |__|');
-     deplacerCurseurXY(72,18);write ('\__/   |________|   \__/');
-     deplacerCurseurXY(79,19);write ('/   __   \');
-     deplacerCurseurXY(79,20);write ('|  |  |  |');
-     deplacerCurseurXY(79,21);write ('|  |  |  |');
-     deplacerCurseurXY(79,22);write ('|  |  |  |');
-     deplacerCurseurXY(79,23);write ('|  |  |  |');
-     deplacerCurseurXY(79,24);write ('|__|  |__|');
-     deplacerCurseurXY(78,25);write ('/___|  |___\');
-=======
+
      deplacerCurseurXY(71,5);write ('//||||\\');
      deplacerCurseurXY(72,6);write ('| o o|');
      deplacerCurseurXY(72,7);write ('|  > |');
@@ -251,7 +210,7 @@ begin
      deplacerCurseurXY(70,22);write ('|__|  |__|');
      deplacerCurseurXY(69,23);write ('/___|  |___\');
 
->>>>>>> 1853ed39c125ed6fe586809ffadeb5a5c3251a5c
+
      end;
 
      readln;  //Laisse afficher les visages a l'écran

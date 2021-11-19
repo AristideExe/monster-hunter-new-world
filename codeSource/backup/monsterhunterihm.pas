@@ -15,7 +15,7 @@ procedure quitterIHM();
 // Affiche les crédits du jeu
 procedure creditsIHM();
 
-// Affiche le menu de création de personnage
+// Affiche le menu çde création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 procedure demanderSexeIHM (var sexe : string);
 
