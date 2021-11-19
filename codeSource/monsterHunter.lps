@@ -8,7 +8,7 @@
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -17,9 +17,9 @@
         <UnitName Value="MonsterHunterLogic"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="378"/>
-        <CursorPos X="42" Y="394"/>
-        <UsageCount Value="27"/>
+        <TopLine Value="32"/>
+        <CursorPos X="59" Y="58"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -27,19 +27,19 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="MonsterHunterIHM"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="47"/>
-        <CursorPos X="58" Y="68"/>
-        <UsageCount Value="27"/>
+        <TopLine Value="14"/>
+        <CursorPos X="33" Y="34"/>
+        <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="gestionecran.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="GestionEcran"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="32"/>
       </Unit3>
     </Units>
-    <JumpHistory Count="20" HistoryIndex="19">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
         <Filename Value="monsterhunterihm.pas"/>
         <Caret Line="485" Column="23" TopLine="459"/>
@@ -120,6 +120,10 @@
         <Filename Value="monsterhunterlogic.pas"/>
         <Caret Line="98" Column="43" TopLine="81"/>
       </Position20>
+      <Position21>
+        <Filename Value="monsterhunterlogic.pas"/>
+        <Caret Line="443" Column="52" TopLine="411"/>
+      </Position21>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

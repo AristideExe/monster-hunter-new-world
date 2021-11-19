@@ -426,8 +426,8 @@ begin
      deplacerCurseurXY(70,15); write('Valeur d''attaque : ', getJoueur.armePortee.valeurAttaque:6:2);
 
      // Affichage des choix
-     deplacerCurseurXY(10,27); write('1/ Retourner a la ville,    2/ Ouvrir l''armoire a armures,    3/ Ouvrir la malle a armes');
-     deplacerCurseurXY(10,28); write('Votre choix : ');
+     deplacerCurseurXY(5,27); write('1/ Retourner a la ville,    2/ Ouvrir l''armoire a armures,    3/ Ouvrir la malle a armes');
+     deplacerCurseurXY(5,28); write('Votre choix : ');
      readln(chambreIHM);
 end;
 

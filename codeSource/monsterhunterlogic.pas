@@ -16,6 +16,7 @@ procedure chambre();
 
 const
   NOMBRE_ARMURES_JEU = 100;
+  NOMBRE_ARMES_JEU = 25;
 
 type
   typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique);
@@ -47,13 +48,14 @@ type
              armurePortee : array [0..4] of typeArmure;
              armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
              armePortee : typeArme;
-             armesPossedees : array [0..24] of typeArme;
+             armesPossedees : array [0..NOMBRE_ARMES_JEU-1] of typeArme;
   end;
 
 
 
 var
   armuresDisponibles : array[0..NOMBRE_ARMURES_JEU-1] of typeArmure;
+  armesDisponibles : array[0..NOMBRE_ARMES_JEU-1] of typeArme;
   // VARIABLES PERSONNAGE
   joueur : typePersonnage;
 
@@ -88,7 +90,16 @@ end;
 
 
 
-
+// Permet de trouver à quelle type d'arme correspond un string
+function trouverArme(arme : string) : typePieceArme;
+var
+  i : integer;
+begin
+  for i:=0 to ord(high(typePieceArme))-1 do
+  begin
+      if (arme = getEnumName(TypeInfo(typePieceArme),i)) then trouverArme := typePieceArme(i);
+  end;
+end;
 
 // Permet de trouver à quelle piece d'armure correspond un string
 function trouverPieceArmure(piece : string) : typePieceArmure;
@@ -391,6 +402,9 @@ begin
 
         // On modifie chaque armure
         modifierArmure(armuresDisponibles[compteur],nom,pieceArmure,element,valeurDefense,tauxEsquive);
+
+
+
         compteur := compteur + 1;
 
 
@@ -399,11 +413,62 @@ end;
 
 
 
+// Remplir les armes  depuis le fichier csv
+procedure remplirArmes(fichier : string);
+var
+  fichierArmes : TextFile;
+  ligne : string;
+  listeLigne : array of string;
+  // Stats de chaque armure
+  nom : string;
+  arme : typePieceArme;
+  element : typeElement;
+  emoussementDepart,emoussement : integer;
+  valeurAttaque : real;
+  compteur : integer;
+begin
+  compteur := 0;
+  assignFile(fichierArmes,fichier);
+  reset(fichierArmes);
+  // Lecture de la premiere ligne du fichier qui sert d'entête
+  readln(fichierArmes);
+  // On lit chaque ligne jusqu'à la fin du fichier
+  repeat
+        readln(fichierArmes,ligne);
+        // On transforme la ligne en une liste
+        listeLigne := splitString(ligne,';');
+
+        // On met chaque valeur dans une variable
+        nom := listeLigne[0];
+        arme := trouverArme(listeLigne[1]);
+        element := trouverElement(listeLigne[2]);
+        emoussementDepart := strToInt(listeLigne[3]);
+        emoussement := strToInt(listeLigne[4]);
+        valeurAttaque := strToFloat(listeLigne[5]);
+
+
+        // On modifie chaque armure
+        modifierArme(armesDisponibles[compteur],nom,arme,element,emoussementDepart,emoussement,valeurAttaque);
+
+
+
+        compteur := compteur + 1;
+
+
+  until(EOF(fichierArmes)) ;
+end;
+
+
+
+
+
+
 // Initialisation du jeu (remplissage de toutes les variables)
 procedure initialisationJeu();
 begin
   remplirArmures('nomsStatsObjets/armures.csv');
-  //remplirArmes('nomsStatsObjets/armes.csv');
+  remplirArmes('nomsStatsObjets/armes.csv');
+  readln();
   initialisationPersonnage();
 end;
 
