@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <Compiler Value="C:\lazarus\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1351327143"/>
+<<<<<<< HEAD
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\Quentin\OneDrive\Documents\cours BUT Info\SAE\S1.01 Monster Hunter new World\monsterHunter\codeSource\lib\x86_64-win64&quot; &quot;-FuC:\Users\Quentin\OneDrive\Documents\cours BUT Info\SAE\S1.01 Monster Hunter new World\monsterHunter\codeSource\&quot; &quot;-FUC:\Users\Quentin\OneDrive\Documents\cours BUT Info\SAE\S1.01 Monster Hunter new World\monsterHunter\codeSource\lib\x86_64-win64\&quot; &quot;-FEC:\Users\Quentin\OneDrive\Documents\cours BUT Info\SAE\S1.01 Monster Hunter new World\monsterHunter\codeSource\&quot; &quot;-oC:\Users\Quentin\OneDrive\Documents\cours BUT Info\SAE\S1.01 Monster Hunter new World\monsterHunter\codeSource\monsterHunter.exe&quot; monsterHunter.lpr"/>
+=======
   <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\rodri\OneDrive\Documents\IUT INFO\Semestre 1\SAE\S1.01\Monster Hunter\monsterHunter\monsterHunter\codeSource\lib\x86_64-win64&quot; &quot;-FuC:\Users\rodri\OneDrive\Documents\IUT INFO\Semestre 1\SAE\S1.01\Monster Hunter\monsterHunter\monsterHunter\codeSource\&quot; &quot;-FUC:\Users\rodri\OneDrive\Documents\IUT INFO\Semestre 1\SAE\S1.01\Monster Hunter\monsterHunter\monsterHunter\codeSource\lib\x86_64-win64\&quot; &quot;-FEC:\Users\rodri\OneDrive\Documents\IUT INFO\Semestre 1\SAE\S1.01\Monster Hunter\monsterHunter\monsterHunter\codeSource\&quot; &quot;-oC:\Users\rodri\OneDrive\Documents\IUT INFO\Semestre 1\SAE\S1.01\Monster Hunter\monsterHunter\monsterHunter\codeSource\monsterHunter.exe&quot; monsterHunter.lpr"/>
+>>>>>>> 22f4719f38164f6c727c6e3956c815678326be52
 </CONFIG>
