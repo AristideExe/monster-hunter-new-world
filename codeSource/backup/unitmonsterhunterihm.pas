@@ -104,11 +104,20 @@ var i, n: integer;
 
 begin
      effacerEcran();
-     //---------TITRE--------------------------
+     //---------Titre--------------------------
      deplacerCurseurXY(1,1);write('Credits :');
 
-     //--------AFFICHAGE MISE EN PAGE----------
-     deplacerCurseurXY(0,2); write('________________________________________________________________________________________________________________________');
+              //--------Affichage mise en page----------
+     //---Affichage ligne horizontale---
+     n:=0;
+     for i:= 0 to 119 DO
+
+         begin
+             deplacerCurseurXY(n+i,2);
+             write('_');
+         end;
+
+     //---Affichage ligne verticale---
      n:=0;
      for i:= 0 to 29 DO
 
@@ -117,9 +126,8 @@ begin
               write('|');
          end;
 
-     //------------------Remerciement----------------------
-     dessinerCadreXY(38,6,89,8,double,White,Black);
-     deplacerCurseurXY(40,7);write ('On remercie nos developpeurs pour leur travail :');
+     //-----------Affichage du texte pour revenir sur le menu--------------
+     deplacerCurseurXY(43,1);write ('Appuyez sur entre pour revenir au menu');
 
      //----------Placements des developpeurs-------------
      //----------------- QUENTIN ------------------------
@@ -137,11 +145,12 @@ begin
      //----------------- LEANDRE ------------------------
      deplacerCurseurXY(25,26);write ('=} MOREAU Leandre : ');
 
-
-     write('Credits : ............');
-     deplacerCurseurXY(43,1);write ('Appuyez sur entre pour revenir au menu');
+              //------------------Remerciement----------------------
+     dessinerCadreXY(38,6,89,8,double,White,Black);
+     deplacerCurseurXY(40,7);write ('On remercie nos developpeurs pour leur travail :');
      readln();
 end;
+
 
 procedure afficherPersonnageIHM(sexe : string);
 //---------Création affichage du personnage Homme ou Femme------
@@ -149,79 +158,132 @@ begin
      if sexe ='F' then
      begin
           //Visage Femme
-          deplacerCurseurXY(70,5);write ('//||||\\');
-          deplacerCurseurXY(69,6);write ('//| o o|\\');
-          deplacerCurseurXY(69,7);write ('|||  > |||');
-          deplacerCurseurXY(69,8);write ('|| \__/ ||');
-          deplacerCurseurXY(69,9);write ('___/  \___');
-          deplacerCurseurXY(68,10);write ('/          \');
-          deplacerCurseurXY(67,11);write ('/ |        | \');
-          deplacerCurseurXY(66,12);write ('/ /|        |\ \');
-          deplacerCurseurXY(65,13);write ('/ /  \ ____ /  \ \');
-          deplacerCurseurXY(64,14);write ('/ /    |____|    \ \');
-          deplacerCurseurXY(63,15);write ('/_/    /      \    \_\');
-          deplacerCurseurXY(63,16);write ('\_/   /        \   \_/');
-          deplacerCurseurXY(68,17);write ('/__________\');
-          deplacerCurseurXY(67,18);write ('/------------\');
-          deplacerCurseurXY(71,19);write ('| | | |');
-          deplacerCurseurXY(71,20);write ('| | | |');
-          deplacerCurseurXY(71,21);write ('|_| |_|');
-          deplacerCurseurXY(70,22);write ('/__| |__\');
+          deplacerCurseurXY(80,7);write ('//||||\\');
+          deplacerCurseurXY(79,8);write ('//| o o|\\');
+          deplacerCurseurXY(79,9);write ('|||  > |||');
+          deplacerCurseurXY(79,10);write ('|| \__/ ||');
+          deplacerCurseurXY(79,11);write ('___/  \___');
+          deplacerCurseurXY(78,12);write ('/          \');
+          deplacerCurseurXY(77,13);write ('/ |        | \');
+          deplacerCurseurXY(76,14);write ('/ /|        |\ \');
+          deplacerCurseurXY(75,15);write ('/ /  \ ____ /  \ \');
+          deplacerCurseurXY(74,16);write ('/ /    |____|    \ \');
+          deplacerCurseurXY(73,17);write ('/_/    /      \    \_\');
+          deplacerCurseurXY(73,18);write ('\_/   /        \   \_/');
+          deplacerCurseurXY(78,19);write ('/__________\');
+          deplacerCurseurXY(77,20);write ('/------------\');
+          deplacerCurseurXY(81,21);write ('| | | |');
+          deplacerCurseurXY(81,22);write ('| | | |');
+          deplacerCurseurXY(81,23);write ('|_| |_|');
+          deplacerCurseurXY(80,24);write ('/__| |__\');
      end
      else
      begin
           //Visage Homme
-     deplacerCurseurXY(70,5);write ('//||||\\');
-     deplacerCurseurXY(71,6);write ('| o o|');
-     deplacerCurseurXY(71,7);write ('|  > |');
-     deplacerCurseurXY(72,8);write ('\__/');
-     deplacerCurseurXY(67,9);write ('______/  \______');
-     deplacerCurseurXY(66,10);write ('/                \');
-     deplacerCurseurXY(65,11);write ('/  /            \  \');
-     deplacerCurseurXY(64,12);write ('/  /|            |\  \');
-     deplacerCurseurXY(63,13);write ('/  / |            | \  \');
-     deplacerCurseurXY(63,14);write ('|  |  \          /  |  |');
-     deplacerCurseurXY(63,15);write ('|__|   |________|   |__|');
-     deplacerCurseurXY(63,16);write ('\__/   |________|   \__/');
-     deplacerCurseurXY(70,17);write ('/   __   \');
-     deplacerCurseurXY(70,18);write ('|  |  |  |');
-     deplacerCurseurXY(70,19);write ('|  |  |  |');
-     deplacerCurseurXY(70,20);write ('|  |  |  |');
-     deplacerCurseurXY(70,21);write ('|  |  |  |');
-     deplacerCurseurXY(70,22);write ('|__|  |__|');
-     deplacerCurseurXY(69,23);write ('/___|  |___\');
+     deplacerCurseurXY(80,7);write ('//||||\\');
+     deplacerCurseurXY(81,8);write ('| o o|');
+     deplacerCurseurXY(82,9);write ('|  > |');
+     deplacerCurseurXY(82,10);write ('\__/');
+     deplacerCurseurXY(76,11);write ('______/  \______');
+     deplacerCurseurXY(75,12);write ('/                \');
+     deplacerCurseurXY(74,13);write ('/  /            \  \');
+     deplacerCurseurXY(73,14);write ('/  /|            |\  \');
+     deplacerCurseurXY(72,15);write ('/  / |            | \  \');
+     deplacerCurseurXY(72,16);write ('|  |  \          /  |  |');
+     deplacerCurseurXY(72,17);write ('|__|   |________|   |__|');
+     deplacerCurseurXY(72,18);write ('\__/   |________|   \__/');
+     deplacerCurseurXY(79,19);write ('/   __   \');
+     deplacerCurseurXY(79,20);write ('|  |  |  |');
+     deplacerCurseurXY(79,21);write ('|  |  |  |');
+     deplacerCurseurXY(79,22);write ('|  |  |  |');
+     deplacerCurseurXY(79,23);write ('|  |  |  |');
+     deplacerCurseurXY(79,24);write ('|__|  |__|');
+     deplacerCurseurXY(78,25);write ('/___|  |___\');
      end;
 
      readln;  //Laisse afficher les visages a l'écran
+end;
+
+//Décoration de la page de création de personnage
+procedure decorationPersoIHM(titre : string);
+begin
+
+     //---------Affichage cadre création du personnage---------
+     dessinerCadreXY(4,2,116,28,double,White,Black);
+     deplacerCurseurXY(40,0);write('______________________');
+     deplacerCurseurXY(39,1);write('/                      \');
+     deplacerCurseurXY(38,2);write('{ ',titre,' }');
+     deplacerCurseurXY(39,3);write('\______________________/');
+
+         //---Affichage décorations pour les questions-----
+     //-----Affichage cadre pour le Nom-----
+     deplacerCurseurXY(15,6);write('______________________');
+     deplacerCurseurXY(14,7);write('/                      \');
+     deplacerCurseurXY(13,8);write('{');
+     deplacerCurseurXY(38,8);write('}');
+     deplacerCurseurXY(14,9);write('\______________________/');
+
+     //-----Affichage cadre pour la Taille-----
+     deplacerCurseurXY(15,14);write('______________________');
+     deplacerCurseurXY(14,15);write('/                      \');
+     deplacerCurseurXY(13,16);write('{');
+     deplacerCurseurXY(38,16);write('}');
+     deplacerCurseurXY(14,17);write('\______________________/');
+
+
+
+     //-----Affichage cadre pour le Sexe-----
+     deplacerCurseurXY(15,22);write('______________________');
+     deplacerCurseurXY(14,23);write('/                      \');
+     deplacerCurseurXY(13,24);write('{');
+     deplacerCurseurXY(38,24);write('}');
+     deplacerCurseurXY(14,25);write('\______________________/');
+
 end;
 
 //Demande le sexe en fonction de la réponse précédente
 procedure demanderSexeIHM (var sexe : string);
 begin
 
-     //Efface l'écran et réaffiche nom et taille mais redemande le sexe
+     //Efface l'écran et réaffiche nom et taille et la décoration mais redemande le sexe
      effacerEcran();
-     dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,11);write('nom : ',getJoueur().nom);
-     deplacerCurseurXY(15,13);write('taille : ',getJoueur().taille);
-     deplacerCurseurXY(15,15);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+
+     decorationPersoIHM('Creation de personnage');
+
+     deplacerCurseurXY(15,8);write('Nom :',getJoueur().nom);
+
+
+     deplacerCurseurXY(15,16);write('Taille :',getJoueur().taille);
+
+
+     deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''):');
+
+     //-------Réponses aux questions-------
+     deplacerCurseurXY(33,24);write(' '); readln(sexe);
+
 end;
 
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 begin
      effacerEcran();
+     decorationPersoIHM('Creation de personnage');
 
      //Information personnage (nom taille et sexe)
-     dessinerCadreXY(14,10,37,16,simple,White,Black);
-     deplacerCurseurXY(15,11);write('nom : ');readln(nom);
-     deplacerCurseurXY(15,13);write('taille : ');readln(taille);
-     deplacerCurseurXY(15,15);write('sexe (''M'' ou ''F'') : ');readln(sexe);
+
+     deplacerCurseurXY(15,8);write('Nom :');
+
+     deplacerCurseurXY(15,16);write('Taille :');
+
+
+     deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''):');
+
+          //-------Réponses aux questions-------
+     deplacerCurseurXY(20,8);write(' '); readln(taille);
+     deplacerCurseurXY(23,16);write(' '); readln(nom);
+     deplacerCurseurXY(33,24);write(' '); readln(sexe);
 
 end;
-
-
-
 
 
 {Affiche la ville et renvoie le choix de l'utilisateur
@@ -294,6 +356,11 @@ begin
      deplacerCurseurXY(58,14);write ('/__--__\');
      deplacerCurseurXY(61,15);write ('||');
      deplacerCurseurXY(61,16);write ('||');
+
+
+     // Insertion d'une proposition
+     dessinerCadreXY(50,25,70,27,simple,White,Black);
+     deplacerCurseurXY(53,26);write ('Votre choix : ');
 
      readln(villeIHM);
 end;
