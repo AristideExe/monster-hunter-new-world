@@ -188,6 +188,12 @@ implementation
       SetConsoleCursorPosition(stdOutputHandle, cursorPos);
     end;
 
+    //procedure dessiner(cheminFichier : string, decalageX, decalageY);
+    //var
+    //
+    //begin
+    //end;
+
     procedure deplacerCurseur(position : coordonnees);
     var
       stdOutputHandle : Cardinal;

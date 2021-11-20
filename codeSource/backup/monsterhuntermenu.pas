@@ -8,7 +8,7 @@ uses
   Classes, SysUtils,monsterHunterIHM,monsterHunterJoueur, monsterHunterArmesEtArmures;
 
 
-// ------------------------------------------------- FONCTIONS ---------------------------------------------
+// ------------------------------------------------- PROCEDURES ---------------------------------------------
 // Initialisation du jeu au lancement
 procedure initialisationJeu();
 procedure menu();
@@ -60,7 +60,7 @@ end;
 procedure initialisationJeu();
 begin
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
-  remplirArmes('nomsStatsObjets/armes.csv');
+  remplirArmesDisponibles('nomsStatsObjets/armes.csv');
   menu();
 end;
 

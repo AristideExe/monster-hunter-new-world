@@ -43,7 +43,7 @@ procedure initialisationPersonnage();
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
-uses monsterHunterIHM
+uses monsterHunterIHM, monsterHunterMenuIHM;
 
 
 // Menu de création de personnage

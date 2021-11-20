@@ -5,10 +5,10 @@ unit monsterHunterMenu;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils,monsterHunterIHM,monsterHunterJoueur, monsterHunterArmesEtArmures;
+  Classes, SysUtils,monsterHunterMenuIHM,monsterHunterJoueur, monsterHunterArmesEtArmures;
 
 
-// ------------------------------------------------- FONCTIONS ---------------------------------------------
+// ------------------------------------------------- PROCEDURES ---------------------------------------------
 // Initialisation du jeu au lancement
 procedure initialisationJeu();
 procedure menu();
