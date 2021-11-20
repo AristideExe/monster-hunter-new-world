@@ -4,6 +4,8 @@ unit MonsterHunterIHM;
 {$codepage utf8}
 
 interface
+uses
+  Classes, SysUtils, GestionEcran;
 
 {Affiche le menu de lancement de jeu et renvoie le choix de l'utilisateur
 Choix numéro 1 : nouvelle partie
@@ -47,9 +49,7 @@ procedure cantineIHM();
 
 
 implementation
-uses
-  Classes, SysUtils, MonsterHunterLogic,GestionEcran;
-
+uses monsterHunterJoueur,monsterHunterArmesEtArmures;
 
 
 {Affiche le menu de lancement de jeu et renvoie le choix de l'utilisateur
@@ -263,10 +263,10 @@ begin
 
      decorationPersoIHM('Creation de personnage');
 
-     deplacerCurseurXY(15,8);write('Nom :',getJoueur().nom);
+     deplacerCurseurXY(15,8);write('Nom :',getJoueur.nom);
 
 
-     deplacerCurseurXY(15,16);write('Taille :',getJoueur().taille);
+     deplacerCurseurXY(15,16);write('Taille :',getJoueur.taille);
 
 
      deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''):');

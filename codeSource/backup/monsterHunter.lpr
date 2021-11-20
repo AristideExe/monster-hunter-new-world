@@ -1,8 +1,11 @@
 program monsterHunter;
 
-uses unitMonsterHunterLogic, unitMonsterHunterIHM, GestionEcran;
+uses MonsterHunterIHM, GestionEcran, monsterHunterJoueur,
+  monsterHunterMenu, monsterHunterArmesEtArmures, monsterHunterVille,
+  monsterHunterChambre, monsterHunterForge, monsterHunterCantine,
+  monsterHunterCombat, monsterHunterMarchand;
 
 begin
-     menu();
+     initialisationJeu();
 end.
 

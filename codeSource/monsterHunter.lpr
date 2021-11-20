@@ -1,8 +1,8 @@
 program monsterHunter;
 
-uses MonsterHunterLogic, MonsterHunterIHM, GestionEcran;
+uses monsterHunterMenu;
 
 begin
-     menu();
+     initialisationJeu();
 end.
 

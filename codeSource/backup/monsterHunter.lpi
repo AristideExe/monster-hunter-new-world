@@ -26,7 +26,7 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="4">
+    <Units Count="13">
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -34,7 +34,6 @@
       <Unit1>
         <Filename Value="monsterhunterlogic.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="MonsterHunterLogic"/>
       </Unit1>
       <Unit2>
         <Filename Value="monsterhunterihm.pas"/>
@@ -46,6 +45,51 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="GestionEcran"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="monsterhunterjoueur.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterJoueur"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="monsterhuntermenu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterMenu"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="monsterhunterarmesetarmures.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterArmesEtArmures"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="monsterhunterville.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterVille"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="monsterhunterchambre.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterChambre"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="monsterhunterforge.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterForge"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="monsterhuntercantine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterCantine"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="monsterhuntercombat.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterCombat"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="monsterhuntermarchand.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterMarchand"/>
+      </Unit12>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
