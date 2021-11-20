@@ -57,6 +57,8 @@ procedure echangerArmures(var armure1, armure2 : typeArmure);
 procedure echangerArmes(var arme1, arme2 : typeArme);
 // Procédure pour modifier les valeurs d'une armure plus facilement
 procedure modifierArmure(var armure : typeArmure; nom : string; pieceArmure : typePieceArmure; element : typeElement; valeurDefense, tauxEsquive : real);
+// Procédure pour modifier les valeurs d'une arme plus facilement
+procedure modifierArme(var arme : typeArme; nom :string; typeArme : typePieceArme; element : typeElement;emoussementDepart,emoussement : integer ; valeurAttaque : real);z
 
 
 

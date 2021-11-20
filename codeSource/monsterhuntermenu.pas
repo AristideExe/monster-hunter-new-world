@@ -62,6 +62,7 @@ begin
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
   menu();
+  readln;
 end;
 
 

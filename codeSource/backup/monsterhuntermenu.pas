@@ -5,7 +5,7 @@ unit monsterHunterMenu;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils,monsterHunterIHM,monsterHunterJoueur, monsterHunterArmesEtArmures;
+  Classes, SysUtils,monsterHunterMenuIHM,monsterHunterJoueur, monsterHunterArmesEtArmures;
 
 
 // ------------------------------------------------- PROCEDURES ---------------------------------------------
@@ -59,9 +59,10 @@ end;
 // Initialisation du jeu (remplissage des variables avec les données)
 procedure initialisationJeu();
 begin
-  remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
-  remplirArmesDisponibles('nomsStatsObjets/armes.csv');
-  menu();
+  //remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
+  //remplirArmesDisponibles('nomsStatsObjets/armes.csv');
+  //menu();
+  readln;
 end;
 
 

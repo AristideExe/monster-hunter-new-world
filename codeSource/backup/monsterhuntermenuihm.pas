@@ -22,8 +22,9 @@ procedure creditsIHM();
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 procedure afficherPersonnageIHM(sexe : string);
+procedure demanderSexeIHM (var sexe : string);
 
-
+procedure test();
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
@@ -281,6 +282,5 @@ begin
      deplacerCurseurXY(33,24);write(' '); readln(sexe);
 
 end;
-
 end.
 

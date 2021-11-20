@@ -25,8 +25,6 @@ procedure afficherPersonnageIHM(sexe : string);
 procedure demanderSexeIHM (var sexe : string);
 
 
-
-
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 
@@ -282,6 +280,5 @@ begin
      deplacerCurseurXY(33,24);write(' '); readln(sexe);
 
 end;
-
 end.
 

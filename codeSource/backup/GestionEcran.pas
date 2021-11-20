@@ -17,6 +17,9 @@ interface
     // de fond
     procedure effacerEcran;
 
+    // Procédure que l'on a rajouté pour dessiner avec un texte
+    procedure dessiner(cheminFichier : string; decalageX, decalageY : integer);
+
     // Change la taille de la fenetre
     procedure changerTailleConsole(largeur,hauteur : Integer);
 
@@ -188,13 +191,7 @@ implementation
       SetConsoleCursorPosition(stdOutputHandle, cursorPos);
     end;
 
-    procedure dessiner(cheminFichier : string, decalageX, decalageY);
-    var
-
-    begin
-    end;
-
-    procedure deplacerCurseur(position : coordonnees);
+        procedure deplacerCurseur(position : coordonnees);
     var
       stdOutputHandle : Cardinal;
       cursorPos       : TCoord;
@@ -211,6 +208,24 @@ implementation
       c.x := x;
       c.y := y;
       deplacerCurseur(c);
+    end;
+
+    // Procédure que l'on a rajouté
+    procedure dessiner(cheminFichier : string; decalageX, decalageY : integer);
+    var
+       fichier : textFile;
+       ligne : string;
+       compteurLigne : integer;
+    begin
+      assignFile(fichier, cheminFichier);
+      reset(fichier);
+      compteurLigne := 0
+      repeat
+        readln(fichier,ligne);
+        deplacerCurseurXY(decalageX,decalageY+compteurLigne);
+        write(ligne);
+        compteurLigne := compteurLigne +1
+      until(EOF(fichier));
     end;
 
     function positionCurseur() : coordonnees;
