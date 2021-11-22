@@ -219,13 +219,14 @@ implementation
     begin
       assignFile(fichier, cheminFichier);
       reset(fichier);
-      compteurLigne := 0
+      compteurLigne := 0;
       repeat
         readln(fichier,ligne);
         deplacerCurseurXY(decalageX,decalageY+compteurLigne);
         write(ligne);
         compteurLigne := compteurLigne +1
       until(EOF(fichier));
+      closeFile()
     end;
 
     function positionCurseur() : coordonnees;

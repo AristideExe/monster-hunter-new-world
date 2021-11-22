@@ -59,9 +59,9 @@ end;
 // Initialisation du jeu (remplissage des variables avec les données)
 procedure initialisationJeu();
 begin
-  //remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
-  //remplirArmesDisponibles('nomsStatsObjets/armes.csv');
-  //menu();
+  remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
+  remplirArmesDisponibles('nomsStatsObjets/armes.csv');
+  menu();
   readln;
 end;
 

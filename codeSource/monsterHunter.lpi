@@ -26,7 +26,7 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="14">
+    <Units Count="15">
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -41,9 +41,8 @@
         <UnitName Value="MonsterHunterIHM"/>
       </Unit2>
       <Unit3>
-        <Filename Value="gestionecran.pas"/>
+        <Filename Value="GestionEcran.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="GestionEcran"/>
       </Unit3>
       <Unit4>
         <Filename Value="monsterhunterjoueur.pas"/>
@@ -95,6 +94,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterMenuIHM"/>
       </Unit13>
+      <Unit14>
+        <Filename Value="monsterhunterforgeihm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterForgeIHM"/>
+      </Unit14>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

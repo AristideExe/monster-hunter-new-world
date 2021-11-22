@@ -25,7 +25,7 @@ begin
   if (choix = '1') then
     chambre()
   else if (choix = '2') then
-    forge()
+    choixItemForge()
   else if (choix = '3') then
     marchand()
   else if (choix = '4') then

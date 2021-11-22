@@ -1,6 +1,7 @@
 unit monsterHunterMenuIHM;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 // ============================================================================= INTERFACE ======================================================================================
 interface
@@ -44,31 +45,10 @@ begin
      deplacerCurseurXY(50,16);write ('3) Afficher les crédits');
      deplacerCurseurXY(50,18);write ('4) Quitter');
 
-     //épée gauche
-     deplacerCurseurXY(22,12);write ('.');
-     deplacerCurseurXY(21,13);write ('/ \');
-     deplacerCurseurXY(21,14);write ('| |');
-     deplacerCurseurXY(21,15);write ('| |');
-     deplacerCurseurXY(21,16);write ('|.|');
-     deplacerCurseurXY(21,17);write ('|.|');
-     deplacerCurseurXY(21,18);write ('|:|');
-     deplacerCurseurXY(21,19);write ('|:|');
-     deplacerCurseurXY(19,20);write ('`--8--'' ');
-     deplacerCurseurXY(22,21);write ('8');
-     deplacerCurseurXY(22,22);write ('0');
-
-      //épée droite
-     deplacerCurseurXY(98,12);write ('.');
-     deplacerCurseurXY(97,13);write ('/ \');
-     deplacerCurseurXY(97,14);write ('| |');
-     deplacerCurseurXY(97,15);write ('| |');
-     deplacerCurseurXY(97,16);write ('|.|');
-     deplacerCurseurXY(97,17);write ('|.|');
-     deplacerCurseurXY(97,18);write ('|:|');
-     deplacerCurseurXY(97,19);write ('|:|');
-     deplacerCurseurXY(95,20);write ('`--8--'' ');
-     deplacerCurseurXY(98,21);write ('8');
-     deplacerCurseurXY(98,22);write ('0');
+     // Épée gauche
+     dessiner('dessins/epeeMenu.txt',19,12);
+     // Épée droite
+     dessiner('dessins/epeeMenu.txt',95,12);
 
      deplacerCurseurXY(50,20);write ('Votre choix : ');
      readln(menuIHM);
@@ -139,7 +119,6 @@ begin
               //------------------Remerciement----------------------
      dessinerCadreXY(38,6,89,8,double,White,Black);
      deplacerCurseurXY(40,7);write ('On remercie nos developpeurs pour leur travail :');
-     readln();
 end;
 
 
@@ -147,56 +126,10 @@ end;
 procedure afficherPersonnageIHM(sexe : string);
 //---------Création affichage du personnage Homme ou Femme------
 begin
-     if sexe ='F' then
-     begin
-          //Visage Femme
-          deplacerCurseurXY(80,7);write ('//||||\\');
-          deplacerCurseurXY(79,8);write ('//| o o|\\');
-          deplacerCurseurXY(79,9);write ('|||  > |||');
-          deplacerCurseurXY(79,10);write ('|| \__/ ||');
-          deplacerCurseurXY(79,11);write ('___/  \___');
-          deplacerCurseurXY(78,12);write ('/          \');
-          deplacerCurseurXY(77,13);write ('/ |        | \');
-          deplacerCurseurXY(76,14);write ('/ /|        |\ \');
-          deplacerCurseurXY(75,15);write ('/ /  \ ____ /  \ \');
-          deplacerCurseurXY(74,16);write ('/ /    |____|    \ \');
-          deplacerCurseurXY(73,17);write ('/_/    /      \    \_\');
-          deplacerCurseurXY(73,18);write ('\_/   /        \   \_/');
-          deplacerCurseurXY(78,19);write ('/__________\');
-          deplacerCurseurXY(77,20);write ('/------------\');
-          deplacerCurseurXY(81,21);write ('| | | |');
-          deplacerCurseurXY(81,22);write ('| | | |');
-          deplacerCurseurXY(81,23);write ('|_| |_|');
-          deplacerCurseurXY(80,24);write ('/__| |__\');
-
-     end
-     else
-     begin
-          //Visage Homme
-
-     deplacerCurseurXY(71,5);write ('//||||\\');
-     deplacerCurseurXY(72,6);write ('| o o|');
-     deplacerCurseurXY(72,7);write ('|  > |');
-     deplacerCurseurXY(73,8);write ('\__/');
-     deplacerCurseurXY(67,9);write ('______/  \______');
-     deplacerCurseurXY(66,10);write ('/                \');
-     deplacerCurseurXY(65,11);write ('/  /            \  \');
-     deplacerCurseurXY(64,12);write ('/  /|            |\  \');
-     deplacerCurseurXY(63,13);write ('/  / |            | \  \');
-     deplacerCurseurXY(63,14);write ('|  |  \          /  |  |');
-     deplacerCurseurXY(63,15);write ('|__|   |________|   |__|');
-     deplacerCurseurXY(63,16);write ('\__/   |________|   \__/');
-     deplacerCurseurXY(70,17);write ('/   __   \');
-     deplacerCurseurXY(70,18);write ('|  |  |  |');
-     deplacerCurseurXY(70,19);write ('|  |  |  |');
-     deplacerCurseurXY(70,20);write ('|  |  |  |');
-     deplacerCurseurXY(70,21);write ('|  |  |  |');
-     deplacerCurseurXY(70,22);write ('|__|  |__|');
-     deplacerCurseurXY(69,23);write ('/___|  |___\');
-
-
-     end;
-
+     // Affichage de la femme
+     if sexe ='F' then dessiner('dessins/femme.txt',73,7)
+     // Affichage de l'homme
+     else dessiner('dessins/homme.txt',73,7);
      readln;  //Laisse afficher les visages a l'écran
 end;
 

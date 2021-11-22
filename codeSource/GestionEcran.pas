@@ -226,6 +226,7 @@ implementation
         write(ligne);
         compteurLigne := compteurLigne +1
       until(EOF(fichier));
+      closeFile(fichier);
     end;
 
     function positionCurseur() : coordonnees;

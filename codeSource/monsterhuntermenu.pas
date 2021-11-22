@@ -31,6 +31,7 @@ end;
 procedure credits();
 begin
   creditsIHM();
+  readln();
   menu();
 end;
 
