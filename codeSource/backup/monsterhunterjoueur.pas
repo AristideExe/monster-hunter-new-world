@@ -14,6 +14,8 @@ type
     nom : string;
     taille : string;
     sexe : string;
+    piecesOr : integer;
+    buffAttaque : real;
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
@@ -73,7 +75,7 @@ begin
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
 
   // On lui donne une épe de base pour commencer le jeu
-  modifierArme(joueur.armePortee,armesDisponibles[0].nom,armesDisponibles[0].arme,armesDisponibles[0].element,armesDisponibles[0].emoussementDepart,armesDisponibles[0].emoussement,15);
+  modifierArme(joueur.armePortee,armesDisponibles[0].nom,armesDisponibles[0].arme,armesDisponibles[0].element,armesDisponibles[0].emoussementDepart,armesDisponibles[0].emoussement,armesDisponibles[0].valeurAttaque);
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide

@@ -30,16 +30,14 @@ begin
   // AFFICHAGE DES CRAFTS
   for i:=0 to length(craftsArmesDisponibles) -1 do
   begin
-    writeln(craftsArmesDisponibles[i].nombreItemsDeCraft);
     // On récupère l'item auquel le craft fait référence
     arme := armesDisponibles[i];
     // On vérifie si l'item est déjà dans l'inventaire ou non
     armePossedee := false;
     for j:=0 to length(craftsArmesDisponibles) -1 do
-    begin
       if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
-    end;
-    //
+    // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
+
     if not armePossedee then afficherArmeForgeIHM(arme,true);
   end;
   readln;
