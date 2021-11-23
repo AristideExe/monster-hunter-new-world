@@ -46,7 +46,7 @@ begin
      deplacerCurseurXY(50,18);write ('4) Quitter');
 
      // Épée gauche
-     dessiner('dessins/epeeMen.txt',19,12);
+     dessiner('dessins/epeeMenu.txt',19,12);
      // Épée droite
      dessiner('dessins/epeeMenu.txt',95,12);
 
@@ -126,11 +126,23 @@ end;
 procedure afficherPersonnageIHM(sexe : string);
 //---------Création affichage du personnage Homme ou Femme------
 begin
-     // Affichage de la femme
-     if sexe ='F' then dessiner('dessins/femme.txt',73,7)
+     // Affichage de la femme et son nom
+     if sexe ='F' then
+     begin
+       dessiner('dessins/femme.txt',73,10);
+       deplacerCurseurXY(80-(length(getJoueur.nom) div 2),20);write(getJoueur.nom);
+     end
+
      // Affichage de l'homme
-     else dessiner('dessins/homme.txt',73,7);
-     readln;  //Laisse afficher les visages a l'écran
+     else
+     begin
+       dessiner('dessins/homme.txt',73,10);
+       deplacerCurseurXY(79-(length(getJoueur.nom) div 2),20);write(getJoueur.nom);
+     end;
+
+     //Indique a l'utilisateur d'appuyer sur entrer pour continuer
+
+     readln;  //Laisse afficher les visages et le nom a l'écran
 end;
 
 //Décoration de la page de création de personnage
@@ -208,8 +220,8 @@ begin
      deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''):');
 
           //-------Réponses aux questions-------
-     deplacerCurseurXY(20,8);write(' '); readln(taille);
-     deplacerCurseurXY(23,16);write(' '); readln(nom);
+     deplacerCurseurXY(20,8);write(' '); readln(nom);
+     deplacerCurseurXY(23,16);write(' '); readln(taille);
      deplacerCurseurXY(33,24);write(' '); readln(sexe);
 
 end;
