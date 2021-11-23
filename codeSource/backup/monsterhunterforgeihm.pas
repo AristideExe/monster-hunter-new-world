@@ -10,9 +10,9 @@ uses
 
 function choixItemForgeIHM() : string;
 // Affiche l'interface de la forge en général
-function forgeIHM() : string;
+procedure forgeIHM();
 // Afficher une arme en particulier
-procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean);
+procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean; ligne, colonne : integer);
 
 
 
@@ -20,18 +20,22 @@ procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean);
 implementation
 
 // Afficher une arme en particulier
-procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean);
+procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean; ligne, colonne : integer);
 begin
+  deplacerCurseurXY(colonne*2 + 50, ligne + 5);
+  if craftable then couleurTexte(green);
   write(arme.nom);
+  write(craftable);
+  couleurTexte(white);
 end;
 
 // Affiche l'interface de la forge en général
-function forgeIHM() : string;
+procedure forgeIHM();
 begin
   effacerEcran();
   deplacerCurseurXY(10,1); write('Forge');
   deplacerCurseurXY(10,28); write('0/ Retourner au menu de sélection de la forge');
-  deplacerCurseurXY(10,29); write('Votre choix : ');
+  deplacerCurseurXY(10,29); writeln('Votre choix : ');
 end;
 
 function choixItemForgeIHM() : string;

@@ -20,6 +20,8 @@ type
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
     armePortee : typeArme;
     armesPossedees : array [0..NOMBRE_ARMES_JEU-1] of typeArme;
+    // Liste dans lequel on met la quantité de chaque item
+    itemsPossedes : array [0..NOMBRE_ITEM_DE_CRAFT_JEU-1] of integer;
   end;
 
 
@@ -63,7 +65,7 @@ end;
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
 var
-  i,j : integer;
+  i,j, k : integer;
 begin
   // Initialisatin de l'armure pour que toutes les valeurs soient vides
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,0,0);
@@ -79,6 +81,13 @@ begin
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,-1,0);
+
+  // Modification de l'inventaire d'items pour avoir aucun item
+  for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
+  // Remplissage pour tester les crafts
+  joueur.itemsPossedes[0] := 5;
+  joueur.itemsPossedes[3] := 10;
+
 
   creationPersonnage();
 end;

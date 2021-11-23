@@ -13,6 +13,10 @@ const
   NOMBRE_ARMURES_JEU = 100;
   NOMBRE_ARMES_JEU = 25;
   NOMBRE_CRAFT_ARMES_JEU = 3;
+<<<<<<< HEAD
+=======
+  NOMBRE_ITEM_DE_CRAFT_JEU = 8
+>>>>>>> 80cd3a972133886fc852fa3db54ea7f76eea889a
 
 
   // ------------------------------------------------- TYPES -----------------------------------------------
