@@ -141,7 +141,7 @@ begin
      end;
 
      //Indique a l'utilisateur d'appuyer sur entrer pour continuer
-     deplacerCurseurXY(63,24);write('Appuyez sur Entrée pour continuer.');
+     deplacerCurseurXY(63,24);write('Appuyez sur Entrée pour continuer ');
      readln;  //Laisse afficher les visages et le nom a l'écran
 end;
 
