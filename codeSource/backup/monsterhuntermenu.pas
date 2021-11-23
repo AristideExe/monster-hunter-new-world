@@ -31,6 +31,7 @@ end;
 procedure credits();
 begin
   creditsIHM();
+  readln();
   menu();
 end;
 
@@ -58,11 +59,13 @@ end;
 
 // Initialisation du jeu (remplissage des variables avec les données)
 procedure initialisationJeu();
+var
+  i : integer;
 begin
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
+  remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
   menu();
-  readln;
 end;
 
 

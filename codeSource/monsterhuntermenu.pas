@@ -62,8 +62,8 @@ procedure initialisationJeu();
 begin
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
+  remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
   menu();
-  readln;
 end;
 
 

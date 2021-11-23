@@ -64,23 +64,20 @@ procedure initialisationPersonnage();
 var
   i,j : integer;
 begin
-  // Initialisatin de l'armure portée avec un torse de départ
+  // Initialisatin de l'armure pour que toutes les valeurs soient vides
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,0,0);
-  modifierArmure(joueur.armurePortee[1],'Plastron d''entrainement',typePieceArmure(1),normal,5,2);
+  // On lui donne une armure pour commencer le jeu
+  modifierArmure(joueur.armurePortee[1],armuresDisponibles[1].nom,armuresDisponibles[1].pieceArmure,armuresDisponibles[1].element,armuresDisponibles[1].valeurDefense,armuresDisponibles[1].tauxEsquive);
 
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
-  //test ajout armures au pif
-  for i:=0 to 99 do modifierArmure(joueur.armuresPossedees[i],'Armure' + IntToStr(random(500)),typePieceArmure(i mod 5),normal,random(50),random(30));
 
-  // Initialisation de l'arme pour avoir une épée de base
-  modifierArme(joueur.armePortee,'Epee d''entrainement',epee,normal,100,100,15);
+  // On lui donne une épe de base pour commencer le jeu
+  modifierArme(joueur.armePortee,armesDisponibles[0].nom,armesDisponibles[0].arme,armesDisponibles[0].element,armesDisponibles[0].emoussementDepart,armesDisponibles[0].emoussement,armesDisponibles[0].valeurAttaque);
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,-1,0);
-  //test ajout armes au pif
-  for i:=0 to 24 do modifierArme(joueur.armesPossedees[i],'Arme'+IntToStr(random(500)),epee,normal,100,100,random(70));
 
   creationPersonnage();
 end;

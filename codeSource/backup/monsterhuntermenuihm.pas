@@ -46,7 +46,7 @@ begin
      deplacerCurseurXY(50,18);write ('4) Quitter');
 
      // Épée gauche
-     dessiner('dessins/epeeMenu.txt',19,12);
+     dessiner('dessins/epeeMen.txt',19,12);
      // Épée droite
      dessiner('dessins/epeeMenu.txt',95,12);
 
@@ -129,7 +129,7 @@ begin
      // Affichage de la femme
      if sexe ='F' then dessiner('dessins/femme.txt',73,7)
      // Affichage de l'homme
-     else dessiner('dessins/femme.txt',73,7);
+     else dessiner('dessins/homme.txt',73,7);
      readln;  //Laisse afficher les visages a l'écran
 end;
 

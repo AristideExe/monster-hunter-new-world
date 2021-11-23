@@ -5,7 +5,7 @@ unit monsterHunterForge;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterForgeIHM;
+  Classes, SysUtils,monsterHunterArmesEtArmures, monsterHunterForgeIHM;
 
 procedure choixItemForge();
 
@@ -14,14 +14,35 @@ procedure choixItemForge();
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
-uses monsterHunterVille;
+uses monsterHunterVille, monsterHunterJoueur;
 
 procedure forgeArmure();
-
-
-procedure forgeArme();
 begin
 
+end;
+
+procedure forgeArme();
+var
+  i,j : integer;
+  arme : typeArme;
+  armePossedee : boolean;
+begin
+  // AFFICHAGE DES CRAFTS
+  for i:=0 to length(craftsArmesDisponibles) -1 do
+  begin
+    writeln(craftsArmesDisponibles[i].nombreItemsDeCraft);
+    // On récupère l'item auquel le craft fait référence
+    arme := armesDisponibles[i];
+    // On vérifie si l'item est déjà dans l'inventaire ou non
+    armePossedee := false;
+    for j:=0 to length(craftsArmesDisponibles) -1 do
+    begin
+      if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
+    end;
+    //
+    if not armePossedee then afficherArmeForgeIHM(arme,true);
+  end;
+  readln;
 end;
 
 // ------------------------------------------------- FORGE -----------------------------------------------
@@ -32,7 +53,7 @@ begin
 
   // On cherche à savoir si on doit s'occuper des armes ou des armures
   // Si on a choisit les armes
-  if itemAAfficher = '1' then forgeArme();
+  if itemAAfficher = '1' then forgeArme()
   // Si on a choisit les armures
   else forgeArmure();
 end;

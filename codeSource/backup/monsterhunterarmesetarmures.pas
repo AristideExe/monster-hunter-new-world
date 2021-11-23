@@ -11,13 +11,18 @@ uses
 const
   NOMBRE_ARMURES_JEU = 100;
   NOMBRE_ARMES_JEU = 25;
+  NOMBRE_CRAFT_ARMES_JEU = 25;
 
 
   // ------------------------------------------------- TYPES -----------------------------------------------
 type
+  // Enumération des éléments disponibles
   typeElement = (normal,feu,eau,glace,plante,tonerre,lumiere,tenebres,electrique);
+  // Enumération qui représente les parties d'armures disponibles
   typePieceArmure = (casque,torse,jambieres,bottes,gants);
+  // Enumération qui représente les différentes armes disponibles
   typePieceArme = (epee,hache,couteau,marteau);
+  // Type qui représente une armure
   typeArmure = record
              nom : string;
              pieceArmure : typePieceArmure;
@@ -25,6 +30,7 @@ type
              valeurDefense : real;
              tauxEsquive : real;
   end;
+  // Type qui représente une arme
   typeArme = record
              nom : string;
              arme : typePieceArme;
@@ -33,13 +39,29 @@ type
              emoussement: integer;
              valeurAttaque : real;
   end;
+  // Array qui représente une pièce d'armure en particulier
   arrayPieceArmure = array [0..((NOMBRE_ARMURES_JEU div 5)-1)] of typeArmure;
+  // Type qui représente un craft
+  typeCraft = record
+             nombreItemsDeCraft : integer;
+             item1 : integer;
+             quantiteItem1 : integer;
+             item2 : integer;
+             quantiteItem2 : integer;
+             item3 : integer;
+             quantiteItem3 : integer;
+             item4 : integer;
+             quantiteItem4 : integer;
+             item5 : integer;
+             quantiteItem5 : integer;
+  end;
 
 
   // ------------------------------------------------- VARIABLES ---------------------------------------------
 var
   armuresDisponibles : array[0..NOMBRE_ARMURES_JEU-1] of typeArmure;
   armesDisponibles : array[0..NOMBRE_ARMES_JEU-1] of typeArme;
+  craftsArmesDisponibles : array[0..NOMBRE_CRAFT_ARMES_JEU-1] of typeCraft;
 
 
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
@@ -51,6 +73,8 @@ function getPiecesPossedees(piece : typePieceArmure) : arrayPieceArmure;
 procedure remplirArmuresDisponibles(fichier : string);
 // Procédure qui remplie la variable des armes disponibles depuis le fichier csv
 procedure remplirArmesDisponibles(fichier : string);
+// Procédure qui remplie la variable des crafts disponibles depuis le fichier csv
+procedure remplirCraftArmesDisponibles(fichier : string);
 // Procédure pour échanger deux armures
 procedure echangerArmures(var armure1, armure2 : typeArmure);
 // Procédure pour échanger deux armes
@@ -58,7 +82,7 @@ procedure echangerArmes(var arme1, arme2 : typeArme);
 // Procédure pour modifier les valeurs d'une armure plus facilement
 procedure modifierArmure(var armure : typeArmure; nom : string; pieceArmure : typePieceArmure; element : typeElement; valeurDefense, tauxEsquive : real);
 // Procédure pour modifier les valeurs d'une arme plus facilement
-procedure modifierArme(var arme : typeArme; nom :string; typeArme : typePieceArme; element : typeElement;emoussementDepart,emoussement : integer ; valeurAttaque : real);z
+procedure modifierArme(var arme : typeArme; nom :string; typeArme : typePieceArme; element : typeElement;emoussementDepart,emoussement : integer ; valeurAttaque : real);
 
 
 
@@ -106,6 +130,9 @@ end;
 
 
 
+
+
+
 // ---------------------------------------------- PROCÉDURES D'ÉCHANGES D'ARMES ET ARMURES ----------------------------------------------
 // Procédure pour échanger deux armures
 procedure echangerArmures(var armure1, armure2 : typeArmure);
@@ -130,7 +157,7 @@ end;
 
 
 
-// ----------------------------- PROCÉDURES DE MODIFICATION D'ARMURES ET D'ARMES --------------------------------
+// ----------------------------- PROCÉDURES DE MODIFICATION D'ARMURES, D'ARMES ET DE CRAFT --------------------------------
 // Procédure pour modifier les valeurs d'une armure plus facilement
 procedure modifierArmure(var armure : typeArmure; nom : string; pieceArmure : typePieceArmure; element : typeElement; valeurDefense, tauxEsquive : real);
 begin
@@ -151,6 +178,57 @@ begin
   arme.emoussement := emoussement;
   arme.valeurAttaque := valeurAttaque;
 end;
+
+// Procédure pour modifier les valeurs d'un craft plus facilement
+procedure modifierCraft(var craft : typeCraft; nombreItemsDeCraft, item1, quantiteItem1, item2, quantiteItem2, item3, quantiteItem3, item4, quantiteItem4, item5, quantiteItem5 : integer);
+begin
+  craft.nombreItemsDeCraft := nombreItemsDeCraft;
+  craft.item1 := item1;
+  craft.quantiteItem1 := quantiteItem1;
+  craft.item2 := item2;
+  craft.quantiteItem2 := quantiteItem2;
+  craft.item3 := item3;
+  craft.quantiteItem3:= quantiteItem3;
+  craft.item4 := item4;
+  craft.quantiteItem4 := quantiteItem4;
+  craft.item5 := item5;
+  craft.quantiteItem5 := quantiteItem5;
+end;
+
+
+
+
+
+
+// ----------------------------- PROCÉDURES DE REMPLISSAGE DES ITEMS DE CRAFT ET DES CRAFTS SUIVANT LES FICHIERS CSV --------------------------------
+// Procédure qui remplie la variable des crafts disponibles depuis le fichier csv
+procedure remplirCraftArmesDisponibles(fichier : string);
+var
+  fichierCraft : TextFile;
+  ligne : string;
+  listeLigne : array of string;
+  compteur : integer;
+begin
+  assignFile(fichierCraft, fichier);
+  reset(fichierCraft);
+  // Lecture de la première ligne du fichier qui sert d'entête
+  readln(fichierCraft);
+  compteur := 0;
+  // On lit chaque ligne jusqu'à la fin du fichier
+  repeat
+        readln(fichierCraft,ligne);
+        // On transforme la ligne en une liste
+        listeLigne := splitString(ligne,';');
+
+        // On remplie la liste des crafts disponibles
+        modifierCraft(craftsArmesDisponibles[compteur],strToInt(listeLigne[0]),strToInt(listeLigne[1]),strToInt(listeLigne[2]),strToInt(listeLigne[3]),strToInt(listeLigne[4]),
+        strToInt(listeLigne[5]),strToInt(listeLigne[6]),strToInt(listeLigne[7]),strToInt(listeLigne[8]) ,strToInt(listeLigne[9]),strToInt(listeLigne[10]));
+        compteur := compteur +1;
+  until EOF(fichierCraft);
+end;
+
+
+
 
 
 
@@ -232,6 +310,10 @@ begin
         compteur := compteur + 1;
   until(EOF(fichierArmes)) ;
 end;
+
+
+
+
 
 
 // --------------------------------------------- FONCTIONS DE RENVOI -----------------------------------------
