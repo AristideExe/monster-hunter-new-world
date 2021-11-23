@@ -1,3 +1,9 @@
-nomItem;taux de drop minimum;taux de drop maximum;prix de vente
+nomItem;Drop minimum;Drop maximum;prix de vente
 Cuir de quentin;2;3;10
-cheveux de quentin;1;6;2
+Cheveux de quentin;1;6;2
+Dent de Hugo;5;32;2
+Lunettes de Léandre;0;1;50
+Téléphone de Chloé;0;2;28
+Passeport d'Aristide;0;1;25
+Ecaille de Dodogama;4;8;10
+Diamant de Dodogama;0;2;30

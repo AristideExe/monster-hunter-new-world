@@ -11,7 +11,8 @@ uses
 const
   NOMBRE_ARMURES_JEU = 100;
   NOMBRE_ARMES_JEU = 25;
-  NOMBRE_CRAFT_ARMES_JEU = 25;
+  NOMBRE_CRAFT_ARMES_JEU = 3;
+  NOMBRE_ITEMS_CRAFT_JEU = 8;
 
 
   // ------------------------------------------------- TYPES -----------------------------------------------
@@ -55,6 +56,13 @@ type
              item5 : integer;
              quantiteItem5 : integer;
   end;
+  // Type qui représente un item pour craft
+  typeItemDeCraft = record
+             nomItem : string;
+             dropMinimum : integer;
+             dropMaximum : integer;
+             prixVente : integer;
+  end;
 
 
   // ------------------------------------------------- VARIABLES ---------------------------------------------
@@ -62,6 +70,7 @@ var
   armuresDisponibles : array[0..NOMBRE_ARMURES_JEU-1] of typeArmure;
   armesDisponibles : array[0..NOMBRE_ARMES_JEU-1] of typeArme;
   craftsArmesDisponibles : array[0..NOMBRE_CRAFT_ARMES_JEU-1] of typeCraft;
+  itemsDeCraftDisponibles : array[0..NOMBRE_ITEMS_CRAFT_JEU-1] of typeItemDeCraft;
 
 
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
@@ -157,7 +166,7 @@ end;
 
 
 
-// ----------------------------- PROCÉDURES DE MODIFICATION D'ARMURES, D'ARMES ET DE CRAFT --------------------------------
+// ----------------------------- PROCÉDURES DE MODIFICATION D'ARMURES, D'ARMES, DE CRAFT ET D'ITEM DE CRAFT --------------------------------
 // Procédure pour modifier les valeurs d'une armure plus facilement
 procedure modifierArmure(var armure : typeArmure; nom : string; pieceArmure : typePieceArmure; element : typeElement; valeurDefense, tauxEsquive : real);
 begin
@@ -195,6 +204,14 @@ begin
   craft.quantiteItem5 := quantiteItem5;
 end;
 
+// Procédure pour modifier les valeurs d'un item de craft plus facilement
+procedure modifierItemDeCraft(var item : typeItemDeCraft; nom : string; dropMinimum, dropMaximum, prixVente : integer);
+begin
+  item.nomItem := nom;
+  item.dropMinimum := dropMinimum;
+  item.dropMaximum := dropMaximum;
+  item.prixVente := prixVente;
+end;
 
 
 
@@ -227,6 +244,29 @@ begin
   until EOF(fichierCraft);
 end;
 
+procedure remplirItemsDeCraftDisponibles(fichier : string);
+var
+  fichierItem : TextFile;
+  ligne : string;
+  listeLigne : array of string;
+  compteur : integer;
+begin
+  assignFile(fichierItem, fichier);
+  reset(fichierItem);
+  // Lecture de la première ligne du fichier qui sert d'entête
+  readln(fichierItem);
+  compteur := 0;
+  // On lit chaque ligne jusqu'à la fin du fichier
+  repeat
+        readln(fichierItem,ligne);
+        // On transforme la ligne en une liste
+        listeLigne := splitString(ligne,';');
+
+        // On remplie la liste des items disponibles
+        modifierItemDeCraft(itemsDeCraftDisponibles[compteur],listeLigne[0],strToInt(listeLigne[1]),strToInt(listeLigne[2]),strToInt(listeLigne[3]));
+        compteur := compteur +1;
+  until EOF(fichierItem);
+end;
 
 
 
