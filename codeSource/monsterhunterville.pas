@@ -1,11 +1,12 @@
 unit monsterHunterVille;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterIHM, monsterHunterMarchand, monsterHunterCantine, monsterHunterCombat, monsterHunterForge, monsterHunterChambre;
+  Classes, SysUtils, monsterHunterIHM, monsterHunterMarchand, monsterHunterCantine, monsterHunterForge, monsterHunterChambre;
 // Ville
 procedure ville();
 
@@ -13,7 +14,7 @@ procedure ville();
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
-
+uses monsterHunterCombat;
 
 
 // ------------------------------------------------- VILLE -----------------------------------------------

@@ -17,8 +17,11 @@ interface
     // de fond
     procedure effacerEcran;
 
-    // Procédure que l'on a rajouté pour dessiner avec un texte
+    // Procédure que l'on a rajouté pour dessiner avec un fichier texte avec les espaces
     procedure dessiner(cheminFichier : string; decalageX, decalageY : integer);
+
+    //Dessine à partir d'un fichier texte en ignorant les espaces
+     procedure dessinerSansEspace(cheminFichier : string; decalageX, decalageY : integer);
 
     // Change la taille de la fenetre
     procedure changerTailleConsole(largeur,hauteur : Integer);
@@ -210,7 +213,9 @@ implementation
       deplacerCurseur(c);
     end;
 
-    // Procédure que l'on a rajouté
+//---------------------------------------Ajouts---------------------------------------
+
+    //Dessine à partir d'un fichier texte avec les espaces
     procedure dessiner(cheminFichier : string; decalageX, decalageY : integer);
     var
        fichier : textFile;
@@ -228,6 +233,38 @@ implementation
       until(EOF(fichier));
       closeFile(fichier);
     end;
+
+    //Dessine à partir d'un fichier texte en ignorant les espaces
+     procedure dessinerSansEspace(cheminFichier : string; decalageX, decalageY : integer);
+    var
+       fichier : textFile;
+       ligne : string;
+       compteurLigne : integer;
+       caractere : integer;
+
+    begin
+      assignFile(fichier, cheminFichier);
+      reset(fichier);
+      compteurLigne := 0;
+      repeat
+        readln(fichier,ligne);
+        deplacerCurseurXY(decalageX,decalageY+compteurLigne);
+        for caractere:=1 to length(ligne) do
+        begin
+          if ligne[caractere] <> ' ' then
+            write(ligne[caractere]);
+
+          deplacerCurseurXY(decalageX+caractere,decalageY+compteurLigne);
+
+        end;
+
+        compteurLigne := compteurLigne +1
+
+      until(EOF(fichier));
+      closeFile(fichier);
+    end;
+
+//------------------------------------------------------------------------------------
 
     function positionCurseur() : coordonnees;
     var

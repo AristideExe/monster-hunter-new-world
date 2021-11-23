@@ -1,11 +1,12 @@
 unit monsterHunterArmesEtArmures;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, typInfo, strUtils;
+  Classes, typInfo, strUtils, SysUtils;
 
 // ------------------------------------------------- CONSTANTES ---------------------------------------------
 const
@@ -218,7 +219,7 @@ begin
   repeat
         readln(fichierCraft,ligne);
         // On transforme la ligne en une liste
-        listeLigne := splitString(ligne,';');
+        listeLigne:= ligne.Split(';'); //ligne.Split(';'); //splitString(ligne,';');
 
         // On remplie la liste des crafts disponibles
         modifierCraft(craftsArmesDisponibles[compteur],strToInt(listeLigne[0]),strToInt(listeLigne[1]),strToInt(listeLigne[2]),strToInt(listeLigne[3]),strToInt(listeLigne[4]),
@@ -255,7 +256,7 @@ begin
   repeat
         readln(fichierArmures,ligne);
         // On transforme la ligne en une liste
-        listeLigne := splitString(ligne,';');
+        listeLigne := ligne.Split(';'); //ligne.Split(';'); //splitString(ligne,';');
 
         // On met chaque valeur dans une variable
         nom := listeLigne[0];
@@ -294,7 +295,7 @@ begin
   repeat
         readln(fichierArmes,ligne);
         // On transforme la ligne en une liste
-        listeLigne := splitString(ligne,';');
+        listeLigne := ligne.Split(';'); //ligne.Split(';'); //splitString(ligne,';');
 
         // On met chaque valeur dans une variable
         nom := listeLigne[0];
