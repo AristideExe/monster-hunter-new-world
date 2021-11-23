@@ -130,18 +130,18 @@ begin
      if sexe ='F' then
      begin
        dessiner('dessins/femme.txt',73,10);
-       deplacerCurseurXY(80-(length(getJoueur.nom) div 2),20);write(getJoueur.nom);
+       deplacerCurseurXY(80-(length(getJoueur.nom) div 2),19);write(getJoueur.nom);
      end
 
      // Affichage de l'homme
      else
      begin
        dessiner('dessins/homme.txt',73,10);
-       deplacerCurseurXY(79-(length(getJoueur.nom) div 2),20);write(getJoueur.nom);
+       deplacerCurseurXY(79-(length(getJoueur.nom) div 2),19);write(getJoueur.nom);
      end;
 
      //Indique a l'utilisateur d'appuyer sur entrer pour continuer
-
+     deplacerCurseurXY(7,24);write('Appuyez sur Entrée pour continuer.', length('Appuyez sur Entrée pour continuer.'));
      readln;  //Laisse afficher les visages et le nom a l'écran
 end;
 

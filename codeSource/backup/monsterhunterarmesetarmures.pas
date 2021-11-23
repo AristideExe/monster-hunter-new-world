@@ -84,6 +84,7 @@ procedure remplirArmuresDisponibles(fichier : string);
 procedure remplirArmesDisponibles(fichier : string);
 // Procédure qui remplie la variable des crafts disponibles depuis le fichier csv
 procedure remplirCraftArmesDisponibles(fichier : string);
+procedure remplirItemsDeCraftDisponibles(fichier : string);
 // Procédure pour échanger deux armures
 procedure echangerArmures(var armure1, armure2 : typeArmure);
 // Procédure pour échanger deux armes
