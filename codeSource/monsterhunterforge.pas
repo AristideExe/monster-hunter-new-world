@@ -87,7 +87,7 @@ begin
   //choixInt := 0;
   //choixIsInt := TryStrToInt(choix,choixInt);
   //// Si on veut retourner au choix de sélection
-  //if choix = '0' then choixItemForge()
+  if choix = '0' then choixItemForge()
   //// Si on a choisit une armure
   //else if choixIsInt and (choixInt>0) and (choixInt <= compteurArme) then
   //begin
@@ -105,7 +105,7 @@ begin
   //  write(armeChoisie.nom);
   //  readln;
 
-  end
+  //end
   else forgeArme();
 
 

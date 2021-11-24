@@ -84,28 +84,28 @@ begin
 
 
   // ACTIONS PAR RAPPORT AU CHOIX
-  choixInt := 0;
-  choixIsInt := TryStrToInt(choix,choixInt);
-  // Si on veut retourner au choix de sélection
-  if choix = '0' then choixItemForge()
-  // Si on a choisit une armure
-  else if choixIsInt and (choixInt>0) and (choixInt <= compteurArme) then
-  begin
-    // On essaye de trouver à quelle arme fait référence le choix
-    armePossedee := false;
-    compteurArme := 0;
-    for i:=0 to length(craftsArmesDisponibles) -1 do
-    begin
-      for j:=0 to length(craftsArmesDisponibles) -1 do
-        if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
-      // Si le joueur ne possède pas l'arme alors on incrémente le compteur
-      if not armePossedee then compteurArme := compteurArme +1;
-      if choixInt = compteurArme then armeChoisie := armesDisponibles[i];
-    end;
-    write(armeChoisie.nom);
-    readln;
+  //choixInt := 0;
+  //choixIsInt := TryStrToInt(choix,choixInt);
+  //// Si on veut retourner au choix de sélection
+  //if choix = '0' then choixItemForge()
+  //// Si on a choisit une armure
+  //else if choixIsInt and (choixInt>0) and (choixInt <= compteurArme) then
+  //begin
+  //  // On essaye de trouver à quelle arme fait référence le choix
+  //  armePossedee := false;
+  //  compteurArme := 0;
+  //  for i:=0 to length(craftsArmesDisponibles) -1 do
+  //  begin
+  //    for j:=0 to length(craftsArmesDisponibles) -1 do
+  //      if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
+  //    // Si le joueur ne possède pas l'arme alors on incrémente le compteur
+  //    if not armePossedee then compteurArme := compteurArme +1;
+  //    if choixInt = compteurArme then armeChoisie := armesDisponibles[i];
+  //  end;
+  //  write(armeChoisie.nom);
+  //  readln;
 
-  end
+  //end
   else forgeArme();
 
 
