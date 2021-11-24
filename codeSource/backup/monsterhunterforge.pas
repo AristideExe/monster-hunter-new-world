@@ -25,6 +25,10 @@ begin
   forge(forgeDeRetour);
 end;
 
+
+
+
+// ------------------------------------------------- FORGE DES ARMURES-----------------------------------------------
 procedure forgeArmure();
 begin
 end;
@@ -88,7 +92,6 @@ var
 begin
   // AFFICHAGE DES CRAFTS
   // On affiche d'abord l'ihm de la forge
-  forgeIHM();
   enteteForgeArmeIHM();
 
   // On initialise le compteur des armes possédées en commançant à 1 (car l'affichage commence à 1)
@@ -137,8 +140,9 @@ begin
         compteurArme := compteurArme +1;
       end
     end;
+    forgeIHM();
     // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
-    if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie )
+    if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie)
     else nePeutPasForger('1');
 
 

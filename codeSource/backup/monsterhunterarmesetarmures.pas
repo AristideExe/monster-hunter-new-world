@@ -103,9 +103,7 @@ var
   i : integer;
 begin
   for i:=0 to ord(high(typePieceArme)) do
-  begin
       if (arme = getEnumName(TypeInfo(typePieceArme),i)) then trouverArme := typePieceArme(i);
-  end;
 end;
 
 // Fonction qui renvoit l'élément de l'énumération typePieceArme qui correspond au str passé en paramètre
@@ -113,10 +111,8 @@ function trouverPieceArmure(piece : string) : typePieceArmure;
 var
   i : integer;
 begin
-  for i:=0 to ord(high(typePieceArmure))-1 do
-  begin
+  for i:=0 to ord(high(typePieceArmure)) do
       if (piece = getEnumName(TypeInfo(typePieceArmure),i)) then trouverPieceArmure := typePieceArmure(i);
-  end;
 end;
 
 // Fonction qui renvoit l'élément de l'énumération typeElement qui correspond au str passé en paramètre

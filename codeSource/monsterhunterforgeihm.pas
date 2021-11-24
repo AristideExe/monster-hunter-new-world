@@ -65,6 +65,7 @@ end;
 // Affiche l'entête des colonnes pour la forge des armes
 procedure enteteForgeArmeIHM();
 begin
+  effacerEcran();
   // Entête du numéro
   deplacerCurseurXY(5,4);write('Numéro');
   // Entête du nom
@@ -80,10 +81,9 @@ end;
 // Affiche l'interface de la forge en général
 procedure forgeIHM();
 begin
-  effacerEcran();
   deplacerCurseurXY(10,1); write('Forge');
   deplacerCurseurXY(10,28); write('0/ Retourner au menu de sélection de la forge');
-  deplacerCurseurXY(10,29); writeln('Votre choix : ');
+  deplacerCurseurXY(10,29); write('Votre choix : ');
 end;
 
 function choixItemForgeIHM() : string;

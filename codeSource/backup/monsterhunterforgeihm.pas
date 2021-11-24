@@ -17,6 +17,8 @@ procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean;numeroArme :
 procedure enteteForgeArmeIHM();
 // Procédure qui s'affiche lorsque le joueur essaye de forger quelque chose qu'il ne peut pas
 procedure nePeutPasForgerIHM();
+// Procédure qui s'affiche lorsque le joueur a crafté un objet
+procedure afficherMessageCraftIHM(nomObjet : string);
 
 
 
@@ -63,6 +65,7 @@ end;
 // Affiche l'entête des colonnes pour la forge des armes
 procedure enteteForgeArmeIHM();
 begin
+  effacerEcran();
   // Entête du numéro
   deplacerCurseurXY(5,4);write('Numéro');
   // Entête du nom
@@ -78,7 +81,6 @@ end;
 // Affiche l'interface de la forge en général
 procedure forgeIHM();
 begin
-  effacerEcran();
   deplacerCurseurXY(10,1); write('Forge');
   deplacerCurseurXY(10,28); write('0/ Retourner au menu de sélection de la forge');
   deplacerCurseurXY(10,29); writeln('Votre choix : ');
