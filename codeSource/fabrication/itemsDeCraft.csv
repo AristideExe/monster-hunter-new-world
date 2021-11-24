@@ -1,9 +1,10 @@
 nomItem;Drop minimum;Drop maximum;prix de vente
-Cuir de quentin;2;3;10
-Cheveux de quentin;1;6;2
-Dent de Hugo;5;32;2
-Lunettes de Léandre;0;1;50
-Téléphone de Chloé;0;2;28
-Passeport d'Aristide;0;1;25
+Cuir ;3;19;2
+Bois;2;16;3
+Métal;5;32;10
+Plume de Phénix;1;5;50
+Corne de Tsepaskece;2;4;35
+Peau du Diplodocus;4;8;25
 Ecaille de Dodogama;4;8;10
-Diamant de Dodogama;0;2;30
+Diamant de Dodogama;1;3;70
+Griffe de Phénix;4;4;60

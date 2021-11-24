@@ -63,7 +63,8 @@ begin
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
   remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
-  remplirItemsDeCraftDisponibles('fabrication/itemsDeCraft.csv');
+  write(armesDisponibles[2].arme);
+  readln;
   menu();
 end;
 

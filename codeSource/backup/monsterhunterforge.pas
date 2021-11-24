@@ -8,6 +8,8 @@ uses
   Classes, SysUtils,monsterHunterArmesEtArmures, monsterHunterForgeIHM;
 
 procedure choixItemForge();
+// Procédure qui appelle qui appelle soit la forge à armes soit celle à armures
+procedure forge(itemAAfficher : string);
 
 
 
@@ -16,11 +18,26 @@ procedure choixItemForge();
 implementation
 uses monsterHunterVille, monsterHunterJoueur;
 
-procedure forgeArmure();
+// Procédure que l'on appelle si le joueur essaye de forger quelque chose qu'il ne peut pas forger
+procedure nePeutPasForger(forgeDeRetour : string);
 begin
-
+  nePeutPasForgerIHM();
+  forge(forgeDeRetour);
 end;
 
+
+
+
+// ------------------------------------------------- FORGE DES ARMURES-----------------------------------------------
+procedure forgeArmure();
+begin
+end;
+
+
+
+
+
+// ------------------------------------------------- FORGE DES ARMES-----------------------------------------------
 // Fonction qui renvoit si le joueur peut crafter ou non une arme
 function peutCrafterArme(positionArme : integer) : boolean;
 var
@@ -39,10 +56,25 @@ begin
   if (craft.nombreItemsDeCraft >= 5) and (getJoueur.itemsPossedes[craft.Item5] < craft.quantiteItem5) then peutCrafterArme := false;
 end;
 
-
-procedure forgerArme(craft : typeCraft);
+// Procédure pour forger une arme et l'ajouter à l'inventaire
+procedure forgerArme(positionArme : integer);
+var
+  craft : typeCraft;
 begin
-
+  // On récupère le craft de l'arme
+  craft := craftsArmesDisponibles[positionArme];
+  // On retire la bonne quantité d'item dans l'inventaire du joueur
+  retirerItem(craft.item1,craft.quantiteItem1);
+  if (craft.nombreItemsDeCraft >= 2) then retirerItem(craft.item2,craft.quantiteItem2);
+  if (craft.nombreItemsDeCraft >= 3) then retirerItem(craft.item3,craft.quantiteItem3);
+  if (craft.nombreItemsDeCraft >= 4) then retirerItem(craft.item4,craft.quantiteItem4);
+  if (craft.nombreItemsDeCraft >= 5) then retirerItem(craft.item5,craft.quantiteItem5);
+  // On ajoute l'arme dans l'inventaire du joueur
+  donnerArmeJoueur(positionArme,armesDisponibles[positionArme]);
+  afficherMessageCraftIHM(armesDisponibles[positionArme].nom);
+  readln;
+  // On retourne à la forge
+  forge('1');
 end;
 
 // Procédure pour la forge des armes
@@ -55,63 +87,77 @@ var
   choixIsInt : boolean;
   choixInt : integer;
   compteurArme : integer;
-  // L'arme que le joueur choisit de crafter
-  armeChoisie : typeArme;
-const
-  NOMBRE_COLONNES_AFFICHAGE = 2;
+  // Position de l'arme que le joueur choisit de crafter
+  positionArmeChoisie : integer;
 begin
   // AFFICHAGE DES CRAFTS
-  // On affiche d'abord l'ihm de la forge autour
-   forgeIHM();
+  // On affiche d'abord l'ihm de la forge
+  enteteForgeArmeIHM();
 
+  // On initialise le compteur des armes possédées en commançant à 1 (car l'affichage commence à 1)
+  compteurArme := 1;
   for i:=0 to length(craftsArmesDisponibles) -1 do
   begin
     // On récupère l'item auquel le craft fait référence
     arme := armesDisponibles[i];
     // On vérifie si l'item est déjà dans l'inventaire ou non
     armePossedee := false;
-    compteurArme := 1;
     for j:=0 to length(craftsArmesDisponibles) -1 do
       if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
     // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
     if not armePossedee then
     begin
-      afficherArmeForgeIHM(arme,peutCrafterArme(i),i mod NOMBRE_COLONNES_AFFICHAGE,i div NOMBRE_COLONNES_AFFICHAGE);
+      afficherArmeForgeIHM(arme,peutCrafterArme(i),compteurArme);
       compteurArme := compteurArme +1;
     end
   end;
+  // On récupère le choix de l'utilisateur qui peut être soit le choix d'une arme soit le choix pour retourner au menu de sélection
   readln(choix);
 
 
   // ACTIONS PAR RAPPORT AU CHOIX
-  //choixInt := 0;
-  //choixIsInt := TryStrToInt(choix,choixInt);
-  //// Si on veut retourner au choix de sélection
-  //if choix = '0' then choixItemForge()
-  //// Si on a choisit une armure
-  //else if choixIsInt and (choixInt>0) and (choixInt <= compteurArme) then
-  //begin
-  //  // On essaye de trouver à quelle arme fait référence le choix
-  //  armePossedee := false;
-  //  compteurArme := 0;
-  //  for i:=0 to length(craftsArmesDisponibles) -1 do
-  //  begin
-  //    for j:=0 to length(craftsArmesDisponibles) -1 do
-  //      if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
-  //    // Si le joueur ne possède pas l'arme alors on incrémente le compteur
-  //    if not armePossedee then compteurArme := compteurArme +1;
-  //    if choixInt = compteurArme then armeChoisie := armesDisponibles[i];
-  //  end;
-  //  write(armeChoisie.nom);
-  //  readln;
+  choixInt := 0;
+  choixIsInt := TryStrToInt(choix,choixInt);
+  // Si on veut retourner au choix de sélection
+  if choix = '0' then choixItemForge()
+  // Si on a choisit une arme
+  else if choixIsInt and (choixInt>0) and (choixInt <= compteurArme) then
+  begin
+    // On essaye de trouver à quelle arme fait référence le choix en refaisant la même boucle qu'à l'affichage
+    compteurArme := 1;
+    for i:=0 to length(craftsArmesDisponibles) -1 do
+    begin
+      // On récupère l'item auquel le craft fait référence
+      arme := armesDisponibles[i];
+      // On vérifie si l'item est déjà dans l'inventaire ou non
+      armePossedee := false;
+      for j:=0 to length(craftsArmesDisponibles) -1 do
+        if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
+      // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
+      if not armePossedee then
+      begin
+        if compteurArme = choixInt then positionArmeChoisie := i;
+        compteurArme := compteurArme +1;
+      end
+    end;
+    forgeIHM();
+    // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
+    if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie)
+    else nePeutPasForger('1');
 
-  //end
+
+  end
+  // Si l'utilisateur a mis un mauvais choix
   else forgeArme();
-
-
 end;
 
+
+
+
+
+
 // ------------------------------------------------- FORGE -----------------------------------------------
+// Procédure qui appelle qui appelle soit la forge à armes soit celle à armures
 procedure forge(itemAAfficher : string);
 begin
 
@@ -122,7 +168,7 @@ begin
   else forgeArmure();
 end;
 
-// Choix de l'iterm à afficher
+// Choix de l'item à afficher
 procedure choixItemForge();
 var
   choix : string;
