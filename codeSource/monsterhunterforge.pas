@@ -40,6 +40,10 @@ begin
 end;
 
 
+procedure forgerArme(craft : typeCraft);
+begin
+
+end;
 
 // Procédure pour la forge des armes
 procedure forgeArme();
@@ -47,7 +51,12 @@ var
   i,j : integer;
   arme : typeArme;
   armePossedee : boolean;
-  choix : integer;
+  choix : string;
+  choixIsInt : boolean;
+  choixInt : integer;
+  compteurArme : integer;
+  // L'arme que le joueur choisit de crafter
+  armeChoisie : typeArme;
 const
   NOMBRE_COLONNES_AFFICHAGE = 2;
 begin
@@ -61,14 +70,45 @@ begin
     arme := armesDisponibles[i];
     // On vérifie si l'item est déjà dans l'inventaire ou non
     armePossedee := false;
+    compteurArme := 1;
     for j:=0 to length(craftsArmesDisponibles) -1 do
       if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
     // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
-    if not armePossedee then afficherArmeForgeIHM(arme,peutCrafterArme(i),i mod NOMBRE_COLONNES_AFFICHAGE,i div NOMBRE_COLONNES_AFFICHAGE);
+    if not armePossedee then
+    begin
+      afficherArmeForgeIHM(arme,peutCrafterArme(i),i mod NOMBRE_COLONNES_AFFICHAGE,i div NOMBRE_COLONNES_AFFICHAGE);
+      compteurArme := compteurArme +1;
+    end
   end;
+  readln(choix);
 
 
-   readln(choix);
+  // ACTIONS PAR RAPPORT AU CHOIX
+  //choixInt := 0;
+  //choixIsInt := TryStrToInt(choix,choixInt);
+  //// Si on veut retourner au choix de sélection
+  //if choix = '0' then choixItemForge()
+  //// Si on a choisit une armure
+  //else if choixIsInt and (choixInt>0) and (choixInt <= compteurArme) then
+  //begin
+  //  // On essaye de trouver à quelle arme fait référence le choix
+  //  armePossedee := false;
+  //  compteurArme := 0;
+  //  for i:=0 to length(craftsArmesDisponibles) -1 do
+  //  begin
+  //    for j:=0 to length(craftsArmesDisponibles) -1 do
+  //      if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
+  //    // Si le joueur ne possède pas l'arme alors on incrémente le compteur
+  //    if not armePossedee then compteurArme := compteurArme +1;
+  //    if choixInt = compteurArme then armeChoisie := armesDisponibles[i];
+  //  end;
+  //  write(armeChoisie.nom);
+  //  readln;
+
+  end
+  else forgeArme();
+
+
 end;
 
 // ------------------------------------------------- FORGE -----------------------------------------------
