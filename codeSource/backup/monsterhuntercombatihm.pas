@@ -7,13 +7,10 @@ unit monsterHunterCombatIHM;
 interface
 
 uses
-  Classes, SysUtils, GestionEcran, monsterHunterJoueur;
+  Classes, SysUtils, GestionEcran, monsterHunterJoueur, monsterHunterMonstre, monsterHunterGestionCombatMonstre, monsterHunterGestionCombatJoueur;
 
 //Choix de la difficulté de l'éxpédition
 function menuChoixCombatIHM() : string;
-
-//Interface de combat Difficulté 5
-function Difficulte5IHM() : string;
 
 //Interface de combat Difficulté 4
 function Difficulte4IHM() : string;
@@ -49,54 +46,52 @@ begin
      //Difficulté 4*
      deplacerCurseurXY(51,16);write ('4. Difficulté * * * * ');
 
-     //Difficulté 5*
-     deplacerCurseurXY(51,18);write ('5. Difficulté * * * * * ');
+     //Retour en ville
+     deplacerCurseurXY(51,19);write ('0. Retour en ville');
 
      //Entrée du choix
      deplacerCurseurXY(39,24);write ('Votre choix : ');
+
+     test();
      readln(menuChoixCombatIHM);
 end;
 
-//-------------------------------------------------Difficulté 5-------------------------------------------------
+//-------------------------------------------------Difficulté 4-------------------------------------------------
 
 //Fond d'ambiance Volcanique
 procedure VolcaniqueIHM();
 begin
      effacerEcran();
+     changerTailleConsole(140,35);
 
 
      couleurTexte(7);//Gris clair
-     dessiner('dessins/Difficulte5/fumee.txt',3,0);  //Fumee du volcan
+     dessiner('dessins/Difficulte4/fumee.txt',3,0);  //Fumee du volcan
 
      couleurTexte(4);//Rouge
-     dessiner('dessins/Difficulte5/meteorite2.txt',83,0);  //Flammes rouges de la météorite
-     dessiner('dessins/Difficulte5/lave.txt',3,5);  //Lave du volcan
+     dessiner('dessins/Difficulte4/meteorite2.txt',103,0);  //Flammes rouges de la météorite
+     dessiner('dessins/Difficulte4/lave.txt',3,5);  //Lave du volcan
 
 
      couleurTexte(14);//Jaune
-     dessinerSansEspace('dessins/Difficulte5/meteorite3.txt',83,0);  //Flammes jaunes
+     dessinerSansEspace('dessins/Difficulte4/meteorite3.txt',103,0);  //Flammes jaunes
 
      couleurTexte(6);//Marron
-     dessiner('dessins/Difficulte5/meteorite1.txt',83,0);  //Météorite
-     //dessinerSansEspace('dessins/Difficulte5/montagne.txt',3,5);     //Montagne
+     dessiner('dessins/Difficulte4/meteorite1.txt',103,0);  //Météorite
+     dessinerSansEspace('dessins/Difficulte4/montagne.txt',3,5);     //Montagne
 
      couleurTexte(15);
 end;
 
-//Interface de combat Difficulté 5
-function Difficulte5IHM() : string;
-begin
-     VolcaniqueIHM();                 //Apelle la procédure d'ambiance volcanique
-     readln;
-     readln(Difficulte5IHM);
-end;
-
-//-------------------------------------------------Difficulté 4-------------------------------------------------
 //Interface de combat Difficulté 4
 function Difficulte4IHM() : string;
 begin
+     VolcaniqueIHM();                 //Apelle la procédure d'ambiance volcanique
+     readln;
+     readln(Difficulte4IHM);
 
 end;
+
 
 //-------------------------------------------------Difficulté 3-------------------------------------------------
 //Interface de combat Difficulté 3

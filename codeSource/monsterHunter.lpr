@@ -1,6 +1,7 @@
 program monsterHunter;
 
-uses monsterHunterMenu;
+uses monsterHunterMenu, monsterHunterGestionCombatMonstre,
+  monsterHunterGestionCombatJoueur, monsterHunterMonstre;
 
 begin
      initialisationJeu();

@@ -26,7 +26,7 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="15">
+    <Units Count="18">
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -99,6 +99,21 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForgeIHM"/>
       </Unit14>
+      <Unit15>
+        <Filename Value="monsterhuntergestioncombatmonstre.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterGestionCombatMonstre"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="monsterhuntergestioncombatjoueur.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterGestionCombatJoueur"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="monsterhuntermonstre.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="monsterHunterMonstre"/>
+      </Unit17>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

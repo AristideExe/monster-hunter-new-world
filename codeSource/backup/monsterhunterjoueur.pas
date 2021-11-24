@@ -1,6 +1,7 @@
 unit monsterHunterJoueur;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 // ============================================================================= INTERFACE ======================================================================================
 interface
@@ -14,12 +15,7 @@ type
     nom : string;
     taille : string;
     sexe : string;
-<<<<<<< HEAD
-=======
-    piecesOr : integer;
-    buffAttaque : real;
-    buffVitesse : real;
->>>>>>> 80cd3a972133886fc852fa3db54ea7f76eea889a
+    vitesse : integer;
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
@@ -88,10 +84,11 @@ begin
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,-1,0);
 
   // Modification de l'inventaire d'items pour avoir aucun item
-  for j:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[j] := 0;
+  for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
   // Remplissage pour tester les crafts
   joueur.itemsPossedes[0] := 5;
   joueur.itemsPossedes[3] := 10;
+  joueur.vitesse:=100;
 
 
   creationPersonnage();
