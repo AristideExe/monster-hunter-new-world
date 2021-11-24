@@ -1,6 +1,7 @@
 unit monsterHunterJoueur;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 // ============================================================================= INTERFACE ======================================================================================
 interface
@@ -14,12 +15,6 @@ type
     nom : string;
     taille : string;
     sexe : string;
-<<<<<<< HEAD
-=======
-    piecesOr : integer;
-    buffAttaque : real;
-    buffVitesse : real;
->>>>>>> 80cd3a972133886fc852fa3db54ea7f76eea889a
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
@@ -41,6 +36,10 @@ var
 function getJoueur() : typePersonnage;
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
+// Procédure pour retirer des items de craft de l'inventaire du joueur
+procedure retirerItem(positionItem, nombreItem : integer);
+// Procédure pour mettre une arme dans l'inventaire du personnage
+procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 
 
 
@@ -51,7 +50,7 @@ procedure initialisationPersonnage();
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
-uses monsterHunterIHM, monsterHunterMenuIHM;
+uses monsterHunterMenuIHM;
 
 
 // Menu de création de personnage
@@ -81,22 +80,40 @@ begin
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
 
   // On lui donne une épe de base pour commencer le jeu
-  modifierArme(joueur.armePortee,armesDisponibles[0].nom,armesDisponibles[0].arme,armesDisponibles[0].element,armesDisponibles[0].emoussementDepart,armesDisponibles[0].emoussement,armesDisponibles[0].valeurAttaque);
+  joueur.armePortee := armesDisponibles[4];
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,-1,0);
+  joueur.armesPossedees[5] := armesDisponibles[5];
+  joueur.armesPossedees[6] := armesDisponibles[6];
 
   // Modification de l'inventaire d'items pour avoir aucun item
-  for j:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[j] := 0;
+  for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
   // Remplissage pour tester les crafts
-  joueur.itemsPossedes[0] := 5;
-  joueur.itemsPossedes[3] := 10;
+  joueur.itemsPossedes[1] := 60;
+  joueur.itemsPossedes[2] := 56;
 
 
   creationPersonnage();
 end;
 
+
+
+
+
+// --------------------------------------------- FONCTIONS POUR MODIFIER LE JOUEUR -----------------------------------------
+// Procédure pour retirer des items de craft de l'inventaire du joueur
+procedure retirerItem(positionItem, nombreItem : integer);
+begin
+  joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] - nombreItem;
+end;
+
+// Procédure pour mettre une arme dans l'inventaire du personnage
+procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
+begin
+  armesPossedees[positionArme] := arme;
+end;
 
 
 // --------------------------------------------- FONCTIONS DE RENVOI -----------------------------------------

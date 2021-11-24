@@ -11,12 +11,9 @@ uses
 // ------------------------------------------------- CONSTANTES ---------------------------------------------
 const
   NOMBRE_ARMURES_JEU = 100;
-  NOMBRE_ARMES_JEU = 25;
-  NOMBRE_CRAFT_ARMES_JEU = 3;
-<<<<<<< HEAD
-=======
-  NOMBRE_ITEM_DE_CRAFT_JEU = 8
->>>>>>> 80cd3a972133886fc852fa3db54ea7f76eea889a
+  NOMBRE_ARMES_JEU = 17;
+  NOMBRE_CRAFT_ARMES_JEU = 17;
+  NOMBRE_ITEM_DE_CRAFT_JEU = 9;
 
 
   // ------------------------------------------------- TYPES -----------------------------------------------
@@ -26,7 +23,7 @@ type
   // Enumération qui représente les parties d'armures disponibles
   typePieceArmure = (casque,torse,jambieres,bottes,gants);
   // Enumération qui représente les différentes armes disponibles
-  typePieceArme = (epee,hache,couteau,marteau);
+  typePieceArme = (epee,hache,marteau,couteau);
   // Type qui représente une armure
   typeArmure = record
              nom : string;
@@ -45,7 +42,7 @@ type
              valeurAttaque : real;
   end;
   // Array qui représente une pièce d'armure en particulier
-  arrayPieceArmure = array [0..((NOMBRE_ARMURES_JEU div 5)-1)] of typeArmure;
+  arrayPieceArmure = array [0..4] of typeArmure;
   // Type qui représente un craft
   typeCraft = record
              nombreItemsDeCraft : integer;
@@ -105,7 +102,7 @@ function trouverArme(arme : string) : typePieceArme;
 var
   i : integer;
 begin
-  for i:=0 to ord(high(typePieceArme))-1 do
+  for i:=0 to ord(high(typePieceArme)) do
   begin
       if (arme = getEnumName(TypeInfo(typePieceArme),i)) then trouverArme := typePieceArme(i);
   end;
@@ -127,7 +124,7 @@ function trouverElement(element : string) : typeElement;
 var
   i : integer;
 begin
-  for i:=0 to ord(high(typeElement))-1 do
+  for i:=0 to ord(high(typeElement)) do
   begin
       if (element = getEnumName(TypeInfo(typeElement),i)) then trouverElement := typeElement(i);
   end;
@@ -225,7 +222,7 @@ begin
         // On transforme la ligne en une liste
         listeLigne:= ligne.Split(';'); //ligne.Split(';'); //splitString(ligne,';');
 
-        // On remplie la liste des crafts disponibles
+        // On remplie la liste des crafts disponibles avec tous les champs du csv
         modifierCraft(craftsArmesDisponibles[compteur],strToInt(listeLigne[0]),strToInt(listeLigne[1]),strToInt(listeLigne[2]),strToInt(listeLigne[3]),strToInt(listeLigne[4]),
         strToInt(listeLigne[5]),strToInt(listeLigne[6]),strToInt(listeLigne[7]),strToInt(listeLigne[8]) ,strToInt(listeLigne[9]),strToInt(listeLigne[10]));
         compteur := compteur +1;
@@ -299,7 +296,7 @@ begin
   repeat
         readln(fichierArmes,ligne);
         // On transforme la ligne en une liste
-        listeLigne := splitString(ligne,';');
+        listeLigne := ligne.Split(';'); //ligne.Split(';'); //splitString(ligne,';');
 
         // On met chaque valeur dans une variable
         nom := listeLigne[0];
