@@ -1,11 +1,12 @@
 unit monsterHunterCombat;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, monsterHunterCombatIHM, monsterHunterVille;
 
 procedure choisirCombat();
 
@@ -17,7 +18,17 @@ implementation
 
 // ------------------------------------------ CHOISIR COMBAT ---------------------------------------------
 procedure choisirCombat();
+var
+  choix: string;
+
 begin
+  choix := menuChoixCombatIHM();
+  if (choix = '1') then Difficulte1IHM()
+  else if (choix = '2') then Difficulte2IHM()
+  else if (choix = '3') then Difficulte3IHM()
+  else if (choix = '4') then Difficulte4IHM()
+  else if (choix = '5') then Difficulte5IHM()
+  else ville();
 
 end;
 

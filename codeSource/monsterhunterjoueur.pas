@@ -1,6 +1,7 @@
 unit monsterHunterJoueur;
 
 {$mode objfpc}{$H+}
+{$codepage utf8}
 
 // ============================================================================= INTERFACE ======================================================================================
 interface
@@ -14,9 +15,6 @@ type
     nom : string;
     taille : string;
     sexe : string;
-    piecesOr : integer;
-    buffAttaque : real;
-    buffVitesse : real;
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;

@@ -14,9 +14,12 @@ type
     nom : string;
     taille : string;
     sexe : string;
+<<<<<<< HEAD
+=======
     piecesOr : integer;
     buffAttaque : real;
     buffVitesse : real;
+>>>>>>> 80cd3a972133886fc852fa3db54ea7f76eea889a
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
