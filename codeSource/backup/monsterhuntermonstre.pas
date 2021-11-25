@@ -9,20 +9,29 @@ uses
   Classes, SysUtils;
 
 type
+  // Type qui représente les loots que peuvent donner un monstre
+  nombreLoot = record
+    nomLoot : string;
+    quantiteMinimum : integer;       //quantité de loot minimum d'un loot
+    quantiteMaximum : integer;       //quantité de loot maximum d'un loot
+
+  end;
+
   // Type qui représente un monstre
   typeMonstre = record
     nom : string;
     vie : integer;
     esquive : integer;
     vitesse : integer;
-    dmgAttaque : integer;         //attaque normale
-    dmgAttaqueSpe : integer;      //attque spéciale
+    dmgAttaque : integer;         //Attaque normale
+    dmgAttaqueSpe : integer;      //Attque spéciale
+    loot : nombreLoot;            //Fait un tableau contenant les loots du monstre en question ainsi
 
   end;
 
   // ------------------------------------------------- VARIABLES ---------------------------------------------
 var
-  monstres : array [0..7] of typeMonstre; //Cree un tableau comprenant tout les monstres
+  monstres : array [0..7] of typeMonstre; //Créé un tableau comprenant tout les monstres
 
   // ------------------------------------------ FONCTIONS ET PROCEDURES --------------------------------------
 
