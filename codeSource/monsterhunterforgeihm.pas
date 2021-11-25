@@ -56,7 +56,7 @@ begin
   deplacerCurseurXY(62,numeroArme +5); write(arme.arme);
   // Affichage de l'élément de l'arme
   deplacerCurseurXY(78,numeroArme +5); write(arme.element);
-  // Affichage de l'élément de l'arme
+  // Affichage du taux d'attaque de l'arme
   deplacerCurseurXY(100,numeroArme +5); write(arme.valeurAttaque:6:2);
 
   couleurTexte(white);

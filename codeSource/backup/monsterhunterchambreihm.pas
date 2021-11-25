@@ -50,14 +50,36 @@ procedure armoireIHM();
 begin
   effacerEcran();
   deplacerCurseurXY(5,1); write('Armoire à armure : sélectionnez un numéro pour porter l''armure');
-  deplacerCurseurXY(5,28); write('0/ Retourner à la chambre');
+  deplacerCurseurXY(5,28); write('0/ Retourner au menu de sélection des objets');
   deplacerCurseurXY(5,29); write('Votre choix : ');
 end;
 
 // Affichage d'une seule armure dans l'armoire
 procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
 begin
-  deplacerCurseurXY(10,numeroArmure +5);write(numeroArmure, ' : ',armure.nom);
+  // Affichage du numéro
+  deplacerCurseurXY(5,numeroArmure+5);
+  write(numeroArmure);
+  // Affichage du nom
+  deplacerCurseurXY(15,numeroArmure+5);
+  write(armure.nom);
+  // Affichage de l'élément de l'arme
+  deplacerCurseurXY(70,numeroArmure +5); write(armure.element);
+  // Affichage du taux d'attaque de l'arme en vert si c'est supérieur à l'arme que l'on porte et en rouge sinon
+  deplacerCurseurXY(85,numeroArmure +5);
+  if (armure.valeurDefense > getJoueur.armuresPortees) then
+  begin
+       couleurTexte(Green);
+       write('+', (arme.valeurAttaque - getJoueur.armePortee.valeurAttaque):6:2);
+  end
+  else if (arme.valeurAttaque < getJoueur.armePortee.valeurAttaque) then
+  begin
+       couleurTexte(Red);
+       write('-',(getJoueur.armePortee.valeurAttaque - arme.valeurAttaque):6:2);
+  end
+  else
+      write('+ 0');
+  couleurTexte(White);
   if derniereLigne then deplacerCurseurXY(18,29);
 end;
 
@@ -74,7 +96,31 @@ end;
 // Affichage d'une seule arme dans la malle
 procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
 begin
-  deplacerCurseurXY(10,numeroArme +5);write(numeroArme, ' : ',arme.nom);
+  // Affichage du numéro
+  deplacerCurseurXY(5,numeroArme+5);
+  write(numeroArme);
+  // Affichage du nom
+  deplacerCurseurXY(15,numeroArme+5);
+  write(arme.nom);
+  // Affichage du type d'arme
+  deplacerCurseurXY(55,numeroArme +5); write(arme.arme);
+  // Affichage de l'élément de l'arme
+  deplacerCurseurXY(70,numeroArme +5); write(arme.element);
+  // Affichage du taux d'attaque de l'arme en vert si c'est supérieur à l'arme que l'on porte et en rouge sinon
+  deplacerCurseurXY(85,numeroArme +5);
+  if (arme.valeurAttaque > getJoueur.armePortee.valeurAttaque) then
+  begin
+       couleurTexte(Green);
+       write('+', (arme.valeurAttaque - getJoueur.armePortee.valeurAttaque):6:2);
+  end
+  else if (arme.valeurAttaque < getJoueur.armePortee.valeurAttaque) then
+  begin
+       couleurTexte(Red);
+       write('-',(getJoueur.armePortee.valeurAttaque - arme.valeurAttaque):6:2);
+  end
+  else
+      write('+ 0');
+  couleurTexte(White);
   if derniereLigne then deplacerCurseurXY(18,29);
 end;
 
