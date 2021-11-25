@@ -15,6 +15,7 @@ type
     nom : string;
     taille : string;
     sexe : string;
+    vitesse : integer;
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
@@ -93,6 +94,9 @@ begin
   // Remplissage pour tester les crafts
   joueur.itemsPossedes[1] := 60;
   joueur.itemsPossedes[2] := 56;
+
+  //fixe la vitesse du joueur à 100
+  joueur.vitesse:=100;
 
 
   creationPersonnage();
