@@ -38,20 +38,20 @@ function menuIHM() : string;
 begin
      effacerEcran();
      dessinerCadreXY(10,1,110,28,simple,White,Black);
-     dessinerCadreXY(35,8,85,6,double,White,Black);
+     //dessinerCadreXY(35,8,85,6,double,White,Black);
      //deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
      dessiner('dessins/logo.txt',40,2);
-     deplacerCurseurXY(50,12);write ('1) Nouvelle partie');
-     deplacerCurseurXY(50,14);write ('2) Charger une partie');
-     deplacerCurseurXY(50,16);write ('3) Afficher les crédits');
-     deplacerCurseurXY(50,18);write ('4) Quitter');
+     deplacerCurseurXY(50,14);write ('1) Nouvelle partie');
+     deplacerCurseurXY(50,16);write ('2) Charger une partie');
+     deplacerCurseurXY(50,18);write ('3) Afficher les crédits');
+     deplacerCurseurXY(50,20);write ('4) Quitter');
 
      // Épée gauche
      dessiner('dessins/epeeMenu.txt',19,12);
      // Épée droite
      dessiner('dessins/epeeMenu.txt',95,12);
 
-     deplacerCurseurXY(50,20);write ('Votre choix : ');
+     deplacerCurseurXY(50,22);write ('Votre choix : ');
      readln(menuIHM);
 end;
 

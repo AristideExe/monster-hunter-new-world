@@ -4,11 +4,22 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
+<<<<<<< HEAD
     <Units Count="18">
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
         <UsageCount Value="20"/>
+=======
+    <Units Count="16">
+      <Unit0>
+        <Filename Value="monsterHunter.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="39" Y="9"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+>>>>>>> 0a177c5dbf882e0787a024976735a67d21dbb25f
       </Unit0>
       <Unit1>
         <Filename Value="monsterhunterlogic.pas"/>
@@ -98,6 +109,7 @@
         <UnitName Value="monsterHunterChambreIHM"/>
         <UsageCount Value="20"/>
       </Unit15>
+<<<<<<< HEAD
       <Unit16>
         <Filename Value="monsterhuntermonstre.pas"/>
         <UnitName Value="monsterHunterMonstre"/>
@@ -121,6 +133,10 @@
         <Caret Line="19" Column="57"/>
       </Position1>
     </JumpHistory>
+=======
+    </Units>
+    <JumpHistory HistoryIndex="-1"/>
+>>>>>>> 0a177c5dbf882e0787a024976735a67d21dbb25f
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>
