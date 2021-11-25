@@ -28,7 +28,7 @@ implementation
 procedure malleIHM();
 begin
   effacerEcran();
-  deplacerCurseurXY(5,1); write('Malle à armes');
+  deplacerCurseurXY(5,1); write('Malle à armes : sélectionnez un numéro pour porter l''arme');
   deplacerCurseurXY(5,28); write('0/ Retourner à la chambre');
   deplacerCurseurXY(5,29); write('Votre choix : ');
 end;
@@ -46,7 +46,7 @@ procedure chambreIHM();
 begin
   effacerEcran();
   deplacerCurseurXY(5,1); write('Chambre');
-  deplacerCurseurXY(5,28); write('0/ Retourner à la ville');
+  deplacerCurseurXY(5,28); write('0/ Retourner à la ville       1/ Ouvrir la malle à armes       2/ Ouvrir l''armoire à armures');
   deplacerCurseurXY(5,29); write('Votre choix : ');
 end;
 
@@ -55,6 +55,7 @@ end;
 procedure afficherArmeChambreIHM(arme : typeArme);
 begin
   deplacerCurseurXY(80,15); write(arme.nom);
+  deplacerCurseurXY(19,29);
 end;
 
 // Affiche une seule armure dans la chambre
