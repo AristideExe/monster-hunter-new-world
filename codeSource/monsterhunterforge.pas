@@ -53,7 +53,7 @@ begin
   if (craft.nombreItemsDeCraft >= 2) and (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then peutCrafterArme := false;
   if (craft.nombreItemsDeCraft >= 3) and (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then peutCrafterArme := false;
   if (craft.nombreItemsDeCraft >= 4) and (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then peutCrafterArme := false;
-  if (craft.nombreItemsDeCraft >= 5) and (getJoueur.itemsPossedes[craft.Item5] < craft.quantiteItem5) then peutCrafterArme := false;
+  //if (craft.nombreItemsDeCraft >= 5) and (getJoueur.itemsPossedes[craft.Item5] < craft.quantiteItem5) then peutCrafterArme := false;
 end;
 
 // Procédure pour forger une arme et l'ajouter à l'inventaire

@@ -8,8 +8,7 @@
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="17" Y="9"/>
+        <CursorPos X="21" Y="9"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -63,7 +62,12 @@
         <Filename Value="monsterhunterforge.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForge"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="41"/>
+        <CursorPos X="11" Y="58"/>
         <UsageCount Value="20"/>
+        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="monsterhuntercantine.pas"/>
@@ -102,7 +106,12 @@
         <UsageCount Value="20"/>
       </Unit15>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="monsterHunter.lpr"/>
+        <Caret Line="9" Column="21"/>
+      </Position1>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>

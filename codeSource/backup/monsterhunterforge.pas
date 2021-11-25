@@ -122,7 +122,7 @@ begin
   // Si on veut retourner au choix de sélection
   if choix = '0' then choixItemForge()
   // Si on a choisit une arme
-  else if choixIsInt and (choixInt>0) and (choixInt <= compteurArme) then
+  else if choixIsInt and (choixInt>0) and (choixInt < compteurArme) then
   begin
     // On essaye de trouver à quelle arme fait référence le choix en refaisant la même boucle qu'à l'affichage
     compteurArme := 1;
