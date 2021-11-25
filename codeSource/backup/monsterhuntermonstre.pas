@@ -95,7 +95,7 @@ end;
 //Initialisation des monstres
 procedure initialisationMonstres();
 begin
-  monstresAttributs('attributsMonstres/monstres.csv');
+  monstresAttributs('attributsMonstres/monstres.csv');    //Envoie le chemin du fichier csv a la procedure
 end;
 
 

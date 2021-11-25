@@ -22,7 +22,7 @@ type
 
   // ------------------------------------------------- VARIABLES ---------------------------------------------
 var
-  monstres : array [0..7] of typeMonstre; //Cree un tableau comprenant tout les monstres
+  monstres : array [0..7] of typeMonstre; //Créé un tableau comprenant tout les monstres
 
   // ------------------------------------------ FONCTIONS ET PROCEDURES --------------------------------------
 

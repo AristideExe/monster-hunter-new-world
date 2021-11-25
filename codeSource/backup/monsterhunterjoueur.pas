@@ -15,10 +15,7 @@ type
     nom : string;
     taille : string;
     sexe : string;
-<<<<<<< HEAD
     vitesse : integer;
-=======
->>>>>>> e8cc3ca061288b8218b40cce6437d414c9f677bb
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
@@ -54,7 +51,7 @@ procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
-uses monsterHunterMenuIHM;
+uses monsterHunterMenuIHM,monsterHunterVille;
 
 
 // Menu de création de personnage
@@ -95,14 +92,11 @@ begin
   // Modification de l'inventaire d'items pour avoir aucun item
   for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
   // Remplissage pour tester les crafts
-<<<<<<< HEAD
-  joueur.itemsPossedes[0] := 5;
-  joueur.itemsPossedes[3] := 10;
-  joueur.vitesse:=100;
-=======
   joueur.itemsPossedes[1] := 60;
   joueur.itemsPossedes[2] := 56;
->>>>>>> e8cc3ca061288b8218b40cce6437d414c9f677bb
+
+  //fixe la vitesse du joueur à 100
+  joueur.vitesse:=100;
 
 
   creationPersonnage();
