@@ -35,19 +35,26 @@ begin
      deplacerCurseurXY(40,5);write ('Choisissez votre niveau de difficulté ! ');
 
      //Difficulté 1*
-     deplacerCurseurXY(51,10);write ('1. Difficulté * ');
+     deplacerCurseurXY(50,10);write ('1. Difficulté * ');
 
      //Difficulté 2*
-     deplacerCurseurXY(51,12);write ('2. Difficulté * * ');
+     deplacerCurseurXY(50,12);write ('2. Difficulté * * ');
 
      //Difficulté 3*
-     deplacerCurseurXY(51,14);write ('3. Difficulté * * * ');
+     deplacerCurseurXY(50,14);write ('3. Difficulté * * * ');
 
      //Difficulté 4*
-     deplacerCurseurXY(51,16);write ('4. Difficulté * * * * ');
+     deplacerCurseurXY(50,16);write ('4. Difficulté * * * * ');
 
      //Retour en ville
-     deplacerCurseurXY(51,19);write ('0. Retour en ville');
+     deplacerCurseurXY(50,19);write ('0. Retour en ville');
+
+     //Décoration dragonets du menu de choix
+     couleurTexte(Red);
+     dessiner('dessins/dragonetGauche.txt',12,12); //Dragonet gauche
+
+     dessiner('dessins/dragonetDroite.txt',84,12); //Dragonet droite
+     couleurTexte(White);
 
      //Entrée du choix
      deplacerCurseurXY(39,24);write ('Votre choix : ');
