@@ -39,7 +39,8 @@ begin
      effacerEcran();
      dessinerCadreXY(10,1,110,28,simple,White,Black);
      dessinerCadreXY(35,8,85,6,double,White,Black);
-     deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
+     //deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
+     dessiner('dessins/logo.txt',40,2);
      deplacerCurseurXY(50,12);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,14);write ('2) Charger une partie');
      deplacerCurseurXY(50,16);write ('3) Afficher les crédits');
@@ -141,7 +142,7 @@ begin
      end;
 
      //Indique a l'utilisateur d'appuyer sur entrer pour continuer
-     deplacerCurseurXY(63,24);write('Appuyez sur Entrée pour continuer.');
+     deplacerCurseurXY(63,24);write('Appuyez sur Entrée pour continuer ');
      readln;  //Laisse afficher les visages et le nom a l'écran
 end;
 

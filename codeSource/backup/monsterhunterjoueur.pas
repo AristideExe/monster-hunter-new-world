@@ -86,8 +86,6 @@ begin
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
   for j:=0 to length(joueur.armesPossedees)-1 do modifierArme(joueur.armesPossedees[j],'NULL',typePieceArme(0),normal,-1,-1,0);
-  joueur.armesPossedees[5] := armesDisponibles[5];
-  joueur.armesPossedees[6] := armesDisponibles[6];
 
   // Modification de l'inventaire d'items pour avoir aucun item
   for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;

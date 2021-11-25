@@ -67,6 +67,8 @@ var
 
 
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
+// Renvoi le string pour une pièce d'armure
+function toStringPieceArmure(piece : typePieceArmure) : string;
 // Fonction qui renvoie l'armure portée par le joueur en fonction de la piece demandée
 function getArmureJoueur(armure : typePieceArmure) : typeArmure;
 // Fonction qui renvoie la liste des pièces d'armures possédées par le joueur en fonction de la pièce demandée
@@ -93,6 +95,20 @@ implementation
 uses monsterHunterJoueur;
 
 
+
+
+// ----------------------------------------- FONCTIONS DE RENVOI DE STRING D'ÉNUMÉRATIONS ---------------------------------------------
+// Renvoi le string pour une pièce d'armure
+function toStringPieceArmure(piece : typePieceArmure) : string;
+begin
+  case piece of
+  casque : toStringPieceArmure := 'casque';
+  torse : toStringPieceArmure := 'torse';
+  jambieres : toStringPieceArmure := 'jambières';
+  bottes : toStringPieceArmure := 'bottes';
+  gants : toStringPieceArmure := 'gants';
+  end;
+end;
 
 
 

@@ -21,8 +21,7 @@ function villeIHM() : string;
 //function chambreIHM() : string;
 // Armoire à armures
 function armoireIHM(NumeroArmureAAfficher : integer;titre : string) : string;
-// Malle à armes
-function malleIHM() : string;
+
 
 //Bateau exploration
 procedure explorationIHM();
@@ -52,20 +51,29 @@ var
 begin
      effacerEcran();
      // Chambre du personage
-     dessinerCadreXY(10,16,29,22,simple,White,Black);
-     deplacerCurseurXY(15,19);write('1/Chambre');
-
-     // Cantine du village
-     dessinerCadreXY(90,7,109,13,simple,White,Black);
-     deplacerCurseurXY(95,10);write('4/Cantine');
-
-     // Marchand du village
-     dessinerCadreXY(85,16,105,22,simple,White,Black);
-     deplacerCurseurXY(90,19);write('3/Marchand');
+     //dessinerCadreXY(10,16,29,22,simple,White,Black);
+     //deplacerCurseurXY(10,19);write('1/Chambre');
+     dessiner('dessins/maisonChambre.txt',3,18);
+     deplacerCurseurXY(10,27);write('1/ Chambre');
 
      // Forge du village
-     dessinerCadreXY(20,7,40,13,simple,White,Black);
-     deplacerCurseurXY(26,10);write('2/Forge');
+     //dessinerCadreXY(20,7,40,13,simple,White,Black);
+     //deplacerCurseurXY(26,10);write('2/Forge');
+     dessiner('dessins/maisonForge.txt',8,1);
+     deplacerCurseurXY(17,16);write('2/ Forge');
+
+     // Marchand du village
+     //dessinerCadreXY(90,7,109,13,simple,White,Black);
+     //deplacerCurseurXY(95,10);write('3/Marchand');
+     dessiner('dessins/maisonMarchand.txt',94,5);
+     deplacerCurseurXY(100,14);write('3/ Marchand');
+
+     // Cantine du village
+     //dessinerCadreXY(85,16,105,22,simple,White,Black);
+     //deplacerCurseurXY(90,19);write('3/Cantine');
+     dessiner('dessins/maisonCantine.txt',88,18);
+     deplacerCurseurXY(95,27);write('4/ Cantine');
+
 
      //Bateau d'exploration
      deplacerCurseurXY(61,1);write(')');
@@ -242,37 +250,5 @@ begin
      readln(armoireIHM);
 end;
 
-
-
-// Malle à armes
-function malleIHM() : string;
-var
-  i,nombreArmes : integer;
-const
-  NB_COLONNES = 2;
-begin
-     effacerEcran();
-     // Ecriture du titre
-     deplacerCurseurXY(5,1); write('Malle - Selectionnez un numero pour choisir une arme');
-
-     // Affichage de toutes les armes
-     nombreArmes := 0;
-     for i:=0 to length(getJoueur.armesPossedees)-1 do
-     begin
-          if (joueur.armesPossedees[i].nom <> 'NULL') then
-          begin
-            deplacerCurseurXY((nombreArmes mod NB_COLONNES) * 50 +5, (nombreArmes div NB_COLONNES)+6);
-            afficherArmeIHM(nombreArmes,joueur.armesPossedees[i]);
-            nombreArmes := nombreArmes + 1;
-          end;
-     end;
-
-
-     // Affichage des choix
-     deplacerCurseurXY(5,27); write('0/ Retourner a la chambre');
-     deplacerCurseurXY(5,28); write('Votre choix : ');
-
-     readln(malleIHM);
-end;
 
 end.
