@@ -1,10 +1,25 @@
 nomItem;Drop minimum;Drop maximum;prix de vente
-Cuir ;3;19;2
-Bois;2;16;3
-Métal;5;32;10
-Plume de Phénix;1;5;50
-Corne de Tsepaskece;2;4;35
-Peau du Diplodocus;4;8;25
-Ecaille de Dodogama;4;8;10
-Diamant de Dodogama;1;3;70
-Griffe de Phénix;4;4;60
+Tentacule;1;4;0
+Ombrelle de méduse;1;1;0
+Patte d'araignée;1;8;0
+Corne de rhinos;1;1;0
+Peau de tricératops;1;1;0
+Peau de stégausorus;1;1;0
+Ecaille de dodogama;1;12;0
+Plume de phénix;1;3;0
+Menteau de poulpe;1;1;0
+Filaments de méduse;1;6;0
+Œil d'arraignée;1;4;0
+Queue de rhinos;1;1;0
+Corne de tricératops;1;3;0
+Crète de stégausorus;1;8;0
+Diamant de dodogama;0;1;0
+Serres de phénix;1;2;0
+Ventouse de poulpe;1;4;0
+Tantacule;1;4;0
+Poil d'arraignée;1;7;0
+Kératine;1;14;0
+Kératine;1;14;0
+Kératine;1;14;0
+Basalte de dodogama;1;8;0
+Cœur de phénix;0;1;0
