@@ -83,7 +83,7 @@ procedure forgeIHM();
 begin
   deplacerCurseurXY(10,1); write('Forge');
   deplacerCurseurXY(10,28); write('0/ Retourner au menu de sélection de la forge');
-  deplacerCurseurXY(10,29); writeln('Votre choix : ');
+  deplacerCurseurXY(10,29); write('Votre choix : ');
 end;
 
 function choixItemForgeIHM() : string;
@@ -96,7 +96,7 @@ begin
   deplacerCurseurXY(50,13); write('4/ Afficher les jambières');
   deplacerCurseurXY(50,14); write('5/ Afficher les bottes');
   deplacerCurseurXY(50,15); write('6/ Afficher les gants');
-  deplacerCurseurXY(20,28); write('O/ Retourner à la ville');
+  deplacerCurseurXY(20,28); write('0/ Retourner à la ville');
   deplacerCurseurXY(20,29); write('Votre choix : ');
   readln(choixItemForgeIHM);
 end;

@@ -21,8 +21,7 @@ function villeIHM() : string;
 //function chambreIHM() : string;
 // Armoire à armures
 function armoireIHM(NumeroArmureAAfficher : integer;titre : string) : string;
-// Malle à armes
-function malleIHM() : string;
+
 
 //Bateau exploration
 procedure explorationIHM();
@@ -176,80 +175,6 @@ begin
 end;
 
 
-procedure afficherArmeIHM(numeroArme : integer; arme : typeArme);
-begin
-     write(numeroArme + 1, ' : ', arme.nom);
-end;
-
-// Afficher une seule armure
-procedure afficherArmureIHM(numeroArmure : integer; armure : typeArmure);
-begin
-     write(numeroArmure + 1, ' : ' ,armure.nom);
-     // Si la défense de l'armure est supérieur à celle que l'on possède alors on affiche un plus en vert
-     if (armure.valeurDefense >= getArmureJoueur(armure.pieceArmure).valeurDefense) then
-     begin
-          couleurTexte(Green);
-          write(' D+',(armure.valeurDefense - getArmureJoueur(armure.pieceArmure).valeurDefense):6:2);
-          couleurTexte(White);
-     end
-     else
-     begin
-          couleurTexte(Red);
-          write(' D-',(getArmureJoueur(armure.pieceArmure).valeurDefense - armure.valeurDefense):6:2);
-          couleurTexte(White);
-     end;
-
-end;
-
-// Armoire à armures
-function armoireIHM(NumeroArmureAAfficher : integer;titre : string) : string;
-var
-  pieceArmure : typePieceArmure;
-  pieceArmureInventaire : arrayPieceArmure;
-  i : integer;
-  nombreArmures : integer;
-const
-  NB_COLONNES = 2 ;
-begin
-     effacerEcran();
-     // Ecriture du titre
-     deplacerCurseurXY(5,1); write('Armoire - Selectionnez un numero pour choisir l''armure');
-     // Nombre à côté de chaque armure que l'on va afficher et que l'utilisateur va choisir
-     nombreArmures := 0;
-
-     // La pièce de l'armure que l'on veut afficher
-     pieceArmure := typePieceArmure(NumeroarmureAAfficher);
-     // L'array qui contient les pièces que l'on veut
-     pieceArmureInventaire := getPiecesPossedees(pieceArmure);
-
-
-     deplacerCurseurXY(10,4);write(titre, ' : ');
-     for i:=0 to length(pieceArmureInventaire)-1 do
-     begin
-          if (pieceArmureInventaire[i].nom <> 'NULL') then
-          begin
-            deplacerCurseurXY((nombreArmures mod NB_COLONNES) * 50 +5, (nombreArmures div NB_COLONNES)+6);
-            afficherArmureIHM(nombreArmures,pieceArmureInventaire[i]);
-            nombreArmures := nombreArmures + 1;
-          end;
-     end;
-     // Si le joueur ne possède aucune armure de ce type
-     if nombreArmures = 0 then
-     begin
-       deplacerCurseurXY(10,5);write('Aucune armure de cette sorte');
-     end;
-
-
-
-     // Affichage des choix
-     deplacerCurseurXY(5,25); write('0/ Retourner a la chambre');
-     deplacerCurseurXY(4,26); write('-1/ Afficher les casques     -2/ Afficher les plastrons       -3/ Afficher les jambieres');
-     deplacerCurseurXY(4,27); write('-4/ Afficher les bottes      -5/ Afficher les gants');
-     deplacerCurseurXY(5,28); write('Votre choix : ');
-
-
-     readln(armoireIHM);
-end;
 
 
 end.
