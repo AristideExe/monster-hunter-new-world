@@ -12,27 +12,66 @@ uses
 // IHM de la chambre
 procedure chambreIHM();
 // Affiche une seule armure dans la chambre
-procedure afficherArmureChambre(armure : typeArmure; ligne : integer);
+procedure afficherArmureChambreIHM(armure : typeArmure; ligne : integer);
+// Affiche l'arme portée dans la chambre
+procedure afficherArmeChambreIHM(arme : typeArme);
+// Affichage d'une seule arme dans la malle
+procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
+// IHM de la malle des armes
+procedure malleIHM();
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 
+// ----------------------------------------------------- MALLE ------------------------------------------------------
+// IHM de la malle des armes
+procedure malleIHM();
+begin
+  effacerEcran();
+  deplacerCurseurXY(5,1); write('Malle à armes');
+  deplacerCurseurXY(5,28); write('0/ Retourner à la chambre');
+  deplacerCurseurXY(5,29); write('Votre choix : ');
+end;
+
+// Affichage d'une seule arme dans la malle
+procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
+begin
+  deplacerCurseurXY(10,numeroArme +5);write(numeroArme, ' : ',arme.nom);
+  if derniereLigne then deplacerCurseurXY(,29);
+end;
+
+// ----------------------------------------------------- CHAMBRE ------------------------------------------------------
 // IHM de la chambre
 procedure chambreIHM();
 begin
   effacerEcran();
-  deplacerCurseurXY()
+  deplacerCurseurXY(5,1); write('Chambre');
+  deplacerCurseurXY(5,28); write('0/ Retourner à la ville');
+  deplacerCurseurXY(5,29); write('Votre choix : ');
+end;
+
+
+// Affiche l'arme portée dans la chambre
+procedure afficherArmeChambreIHM(arme : typeArme);
+begin
+  deplacerCurseurXY(80,15); write(arme.nom);
 end;
 
 // Affiche une seule armure dans la chambre
-procedure afficherArmureChambre(armure : typeArmure; ligne : integer);
+procedure afficherArmureChambreIHM(armure : typeArmure; ligne : integer);
 begin
+  // Si l'armure du joueur n'est pas nulle
   if armure.nom <> 'NULL' then
   begin
-  deplacerCurseurXY(ligne*5 + 5, 10); write(armure.nom);
+       deplacerCurseurXY(10,ligne*5 + 4);write(upCase(toStringPieceArmure(armure.pieceArmure)), ' : ',armure.nom);
+       deplacerCurseurXY(10,ligne*5 + 5);write('Valeur de défense : ',armure.valeurDefense:6:2);
+       deplacerCurseurXY(10,ligne*5 + 6);write('Taux d''esquive : ',armure.tauxEsquive:6:2);
   end
   else
-  deplacerCurseurXY(10,ligne*5 + 5); write('Vous ne possédez pas de ', armure.pieceArmure);
+  begin
+    deplacerCurseurXY(10,ligne*5 + 5);
+    write('Vous ne portez pas de ', toStringPieceArmure(armure.pieceArmure));
+  end;
 
 end;
 
