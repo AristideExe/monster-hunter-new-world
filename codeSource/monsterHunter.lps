@@ -9,13 +9,13 @@
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="21" Y="9"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="monsterhunterlogic.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit1>
       <Unit2>
         <Filename Value="monsterhunterihm.pas"/>
@@ -24,103 +24,99 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos Y="24"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit2>
       <Unit3>
         <Filename Value="GestionEcran.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="271"/>
         <CursorPos X="55" Y="30"/>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="31"/>
       </Unit3>
       <Unit4>
         <Filename Value="monsterhunterjoueur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterJoueur"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="70"/>
-        <CursorPos X="42" Y="84"/>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
+        <CursorPos X="31" Y="99"/>
+        <UsageCount Value="31"/>
       </Unit4>
       <Unit5>
         <Filename Value="monsterhuntermenu.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterMenu"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit5>
       <Unit6>
         <Filename Value="monsterhunterarmesetarmures.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterArmesEtArmures"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="145"/>
         <CursorPos X="36" Y="160"/>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="31"/>
       </Unit6>
       <Unit7>
         <Filename Value="monsterhunterville.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterVille"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit7>
       <Unit8>
         <Filename Value="monsterhunterchambre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterChambre"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
         <CursorPos X="113" Y="43"/>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="31"/>
       </Unit8>
       <Unit9>
         <Filename Value="monsterhunterforge.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForge"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="64"/>
-        <CursorPos X="70" Y="88"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="61"/>
+        <CursorPos X="39" Y="135"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
-          <WindowIndex Value="1"/>
-          <TopLine Value="61"/>
-          <CursorPos X="39" Y="135"/>
+          <TopLine Value="64"/>
+          <CursorPos X="70" Y="88"/>
         </ExtraEditor1>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="31"/>
       </Unit9>
       <Unit10>
         <Filename Value="monsterhuntercantine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterCantine"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit10>
       <Unit11>
         <Filename Value="monsterhuntercombat.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterCombat"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit11>
       <Unit12>
         <Filename Value="monsterhuntermarchand.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterMarchand"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit12>
       <Unit13>
         <Filename Value="monsterhuntermenuihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterMenuIHM"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="125"/>
-        <CursorPos X="100" Y="153"/>
-        <UsageCount Value="27"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="27"/>
+        <CursorPos X="40" Y="43"/>
+        <UsageCount Value="31"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="monsterhunterforgeihm.pas"/>
@@ -131,72 +127,23 @@
         <WindowIndex Value="1"/>
         <TopLine Value="25"/>
         <CursorPos X="73" Y="46"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="31"/>
       </Unit14>
       <Unit15>
         <Filename Value="monsterhunterchambreihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterChambreIHM"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="18"/>
         <CursorPos X="45" Y="40"/>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="31"/>
       </Unit15>
     </Units>
-    <JumpHistory Count="13" HistoryIndex="12">
+    <JumpHistory Count="1">
       <Position1>
         <Filename Value="monsterHunter.lpr"/>
         <Caret Line="9" Column="21"/>
       </Position1>
-      <Position2>
-        <Filename Value="monsterhunterchambreihm.pas"/>
-        <Caret Line="33" Column="28" TopLine="5"/>
-      </Position2>
-      <Position3>
-        <Filename Value="monsterhunterchambreihm.pas"/>
-        <Caret Line="35" Column="50" TopLine="13"/>
-      </Position3>
-      <Position4>
-        <Filename Value="monsterhunterchambre.pas"/>
-        <Caret Line="30" Column="44" TopLine="10"/>
-      </Position4>
-      <Position5>
-        <Filename Value="monsterhunterchambre.pas"/>
-        <Caret Line="21" Column="21" TopLine="10"/>
-      </Position5>
-      <Position6>
-        <Filename Value="monsterhunterchambreihm.pas"/>
-        <Caret Line="37" Column="32" TopLine="28"/>
-      </Position6>
-      <Position7>
-        <Filename Value="monsterhunterchambre.pas"/>
-        <Caret Line="28" TopLine="13"/>
-      </Position7>
-      <Position8>
-        <Filename Value="monsterhunterarmesetarmures.pas"/>
-        <Caret Line="71" Column="64" TopLine="55"/>
-      </Position8>
-      <Position9>
-        <Filename Value="monsterhunterchambre.pas"/>
-        <Caret Line="64" Column="80" TopLine="34"/>
-      </Position9>
-      <Position10>
-        <Filename Value="monsterhunterchambre.pas"/>
-        <Caret Line="58" Column="25" TopLine="38"/>
-      </Position10>
-      <Position11>
-        <Filename Value="monsterhunterchambre.pas"/>
-        <Caret Line="64" Column="84" TopLine="44"/>
-      </Position11>
-      <Position12>
-        <Filename Value="monsterhunterchambre.pas"/>
-        <Caret Line="36" Column="102" TopLine="20"/>
-      </Position12>
-      <Position13>
-        <Filename Value="monsterhunterchambreihm.pas"/>
-        <Caret Line="37" Column="66" TopLine="4"/>
-      </Position13>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

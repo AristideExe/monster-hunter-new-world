@@ -29,7 +29,7 @@
       <Unit3>
         <Filename Value="GestionEcran.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="271"/>
         <CursorPos X="55" Y="30"/>
         <UsageCount Value="27"/>
@@ -39,7 +39,12 @@
         <Filename Value="monsterhunterjoueur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterJoueur"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="70"/>
+        <CursorPos X="42" Y="84"/>
         <UsageCount Value="27"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="monsterhuntermenu.pas"/>
@@ -51,7 +56,7 @@
         <Filename Value="monsterhunterarmesetarmures.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterArmesEtArmures"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="145"/>
         <CursorPos X="36" Y="160"/>
         <UsageCount Value="27"/>
@@ -77,11 +82,12 @@
         <Filename Value="monsterhunterforge.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForge"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="64"/>
         <CursorPos X="70" Y="88"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
+          <EditorIndex Value="-1"/>
           <WindowIndex Value="1"/>
           <TopLine Value="61"/>
           <CursorPos X="39" Y="135"/>
@@ -121,18 +127,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForgeIHM"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <WindowIndex Value="1"/>
         <TopLine Value="25"/>
         <CursorPos X="73" Y="46"/>
         <UsageCount Value="27"/>
-        <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="monsterhunterchambreihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterChambreIHM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="18"/>
         <CursorPos X="45" Y="40"/>
