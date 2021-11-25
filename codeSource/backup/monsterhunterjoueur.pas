@@ -6,7 +6,7 @@ unit monsterHunterJoueur;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterArmesEtArmures, monsterHunterVille;
+  Classes, SysUtils, monsterHunterArmesEtArmures;
 
 // ------------------------------------------------- TYPES -----------------------------------------------
 type
@@ -112,7 +112,7 @@ end;
 // Procédure pour mettre une arme dans l'inventaire du personnage
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 begin
-  armesPossedees[positionArme] := arme;
+  joueur.armesPossedees[positionArme] := arme;
 end;
 
 

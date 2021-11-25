@@ -111,6 +111,7 @@ begin
       compteurArme := compteurArme +1;
     end
   end;
+  forgeIHM();
   // On récupère le choix de l'utilisateur qui peut être soit le choix d'une arme soit le choix pour retourner au menu de sélection
   readln(choix);
 
@@ -140,7 +141,6 @@ begin
         compteurArme := compteurArme +1;
       end
     end;
-    forgeIHM();
     // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
     if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie)
     else nePeutPasForger('1');

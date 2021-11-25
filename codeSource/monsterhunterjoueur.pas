@@ -6,7 +6,7 @@ unit monsterHunterJoueur;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterArmesEtArmures, monsterHunterVille;
+  Classes, SysUtils, monsterHunterArmesEtArmures;
 
 // ------------------------------------------------- TYPES -----------------------------------------------
 type
@@ -50,7 +50,7 @@ procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
-uses monsterHunterMenuIHM;
+uses monsterHunterMenuIHM,monsterHunterVille;
 
 
 // Menu de création de personnage
