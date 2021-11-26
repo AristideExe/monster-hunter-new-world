@@ -20,7 +20,6 @@ function villeIHM() : string;
 // Chambre
 //function chambreIHM() : string;
 // Armoire à armures
-function armoireIHM(NumeroArmureAAfficher : integer;titre : string) : string;
 
 
 //Bateau exploration

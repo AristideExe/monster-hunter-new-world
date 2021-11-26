@@ -13,8 +13,12 @@ function choixItemForgeIHM() : string;
 procedure forgeIHM();
 // Afficher une arme en particulier
 procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean;numeroArme : integer);
+// Afficher une arme en particulier
+procedure afficherArmureForgeIHM(armure : typeArmure; craftable : boolean;numeroArmure : integer);
 // Affiche l'entête des colonnes pour la forge des armes
 procedure enteteForgeArmeIHM();
+// Affiche l'entête des colonnes pour la forge des armures
+procedure enteteForgeArmureIHM();
 // Procédure qui s'affiche lorsque le joueur essaye de forger quelque chose qu'il ne peut pas
 procedure nePeutPasForgerIHM();
 // Procédure qui s'affiche lorsque le joueur a crafté un objet
@@ -40,6 +44,42 @@ begin
   deplacerCurseurXY(44,14);write('Vous ne pouvez pas forger ceci');
   deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
   readln;
+end;
+
+// Affiche l'entête des colonnes pour la forge des armures
+procedure enteteForgeArmureIHM();
+begin
+  effacerEcran();
+  // Entête du numéro
+  deplacerCurseurXY(5,4);write('Numéro');
+  // Entête du nom
+  deplacerCurseurXY(20,4); write('Nom');
+  // Entête du type d'arme
+  deplacerCurseurXY(62,4); write('Type');
+  // Entête de l'élément de l'arme
+  deplacerCurseurXY(78,4); write('Élément');
+  // Entête de la valeur d'attaque
+  deplacerCurseurXY(100,4); write('Valeur d''attaque');
+end;
+
+// Afficher une arme en particulier
+procedure afficherArmureForgeIHM(armure : typeArmure; craftable : boolean;numeroArmure : integer);
+begin
+  if craftable then couleurTexte(green);
+  // Affichage du numéro
+  deplacerCurseurXY(5,numeroArmure+5);
+  write(numeroArmure);
+  // Affichage du nom
+  deplacerCurseurXY(20,numeroArmure+5);
+  write(armure.nom);
+  // Affichage du type d'arme
+  //deplacerCurseurXY(62,numeroArmure +5); write(armure.arme);
+  // Affichage de l'élément de l'arme
+  deplacerCurseurXY(78,numeroArmure +5); write(armure.element);
+  // Affichage du taux d'attaque de l'arme
+  //deplacerCurseurXY(100,numeroArmure +5); write(armure.valeurAttaque:6:2);
+
+  couleurTexte(white);
 end;
 
 // Afficher une arme en particulier

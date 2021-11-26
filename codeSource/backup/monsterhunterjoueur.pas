@@ -41,6 +41,8 @@ procedure initialisationPersonnage();
 procedure retirerItem(positionItem, nombreItem : integer);
 // Procédure pour mettre une arme dans l'inventaire du personnage
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
+// Procédure pour mettre une armure dans l'inventaire du personnage
+procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
 
 
 
@@ -90,8 +92,10 @@ begin
   // Modification de l'inventaire d'items pour avoir aucun item
   for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
   // Remplissage pour tester les crafts
+  joueur.itemsPossedes[0] := 30;
   joueur.itemsPossedes[1] := 60;
   joueur.itemsPossedes[2] := 56;
+  joueur.itemsPossedes[16] := 12
 
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;
@@ -115,6 +119,12 @@ end;
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 begin
   joueur.armesPossedees[positionArme] := arme;
+end;
+
+// Procédure pour mettre une armure dans l'inventaire du personnage
+procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
+begin
+  joueur.armuresPossedees[positionArmure] := armure;
 end;
 
 

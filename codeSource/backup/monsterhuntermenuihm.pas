@@ -34,13 +34,13 @@ Choix numéro 1 : nouvelle partie
 Choix numéro 2 : charger une partie
 Choix numéro 3 : Afficher les crédits
 Choix numéro 4 : Quitter}
-function menuIHM() : string;
+function menuIHM() : string;                                                                                                                                                                                                                                                                                                                                                                                                                          .
 begin
      effacerEcran();
      dessinerCadreXY(10,1,110,28,simple,White,Black);
      //dessinerCadreXY(35,8,85,6,double,White,Black);
      //deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
-     dessiner('dessins/logo.txt',40,2);
+     dessiner('dessins/logo.txt',40,3);
      deplacerCurseurXY(50,14);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,16);write ('2) Charger une partie');
      deplacerCurseurXY(50,18);write ('3) Afficher les crédits');
