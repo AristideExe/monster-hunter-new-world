@@ -18,7 +18,7 @@ Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
 // Chambre
-function chambreIHM() : string;
+//function chambreIHM() : string;
 // Armoire à armures
 function armoireIHM(NumeroArmureAAfficher : integer;titre : string) : string;
 // Malle à armes
@@ -56,6 +56,8 @@ begin
      deplacerCurseurXY(15,19);write('1/Chambre');
 
      // Cantine du village
+     dessinerCadreXY(92,5,111,11,simple,White,Black);
+     deplacerCurseurXY(91,6);write ('/');
      dessinerCadreXY(90,7,109,13,simple,White,Black);
      deplacerCurseurXY(95,10);write('4/Cantine');
 

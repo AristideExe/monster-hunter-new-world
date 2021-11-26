@@ -56,6 +56,7 @@ begin
      deplacerCurseurXY(15,19);write('1/Chambre');
 
      // Cantine du village
+
      dessinerCadreXY(90,7,109,13,simple,White,Black);
      deplacerCurseurXY(95,10);write('4/Cantine');
 

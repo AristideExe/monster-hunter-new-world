@@ -141,7 +141,7 @@ begin
      end;
 
      //Indique a l'utilisateur d'appuyer sur entrer pour continuer
-     deplacerCurseurXY(63,24);write('Appuyez sur Entrée pour continuer.');
+     deplacerCurseurXY(63,24);write('Appuyez sur Entrée pour continuer ');
      readln;  //Laisse afficher les visages et le nom a l'écran
 end;
 
@@ -150,11 +150,11 @@ procedure decorationPersoIHM(titre : string);
 begin
 
      //---------Affichage cadre création du personnage---------
-     dessinerCadreXY(4,2,116,28,double,White,Black);
-     deplacerCurseurXY(40,0);write('______________________');
-     deplacerCurseurXY(39,1);write('/                      \');
-     deplacerCurseurXY(38,2);write('{ ',titre,' }');
-     deplacerCurseurXY(39,3);write('\______________________/');
+      CadrePrincipal(titre);                                                         //dessinerCadreXY(4,2,116,28,double,White,Black);
+                                                               //deplacerCurseurXY(40,0);write('______________________');
+                                                               //deplacerCurseurXY(39,1);write('/                      \');
+                                                               //deplacerCurseurXY(38,2);write('{ ',titre,' }');
+                                                               //deplacerCurseurXY(39,3);write('\______________________/');
 
          //---Affichage décorations pour les questions-----
      //-----Affichage cadre pour le Nom-----

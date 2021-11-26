@@ -53,7 +53,7 @@ begin
   if (craft.nombreItemsDeCraft >= 2) and (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then peutCrafterArme := false;
   if (craft.nombreItemsDeCraft >= 3) and (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then peutCrafterArme := false;
   if (craft.nombreItemsDeCraft >= 4) and (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then peutCrafterArme := false;
-  if (craft.nombreItemsDeCraft >= 5) and (getJoueur.itemsPossedes[craft.Item5] < craft.quantiteItem5) then peutCrafterArme := false;
+  //if (craft.nombreItemsDeCraft >= 5) and (getJoueur.itemsPossedes[craft.Item5] < craft.quantiteItem5) then peutCrafterArme := false;
 end;
 
 // Procédure pour forger une arme et l'ajouter à l'inventaire
@@ -92,6 +92,7 @@ var
 begin
   // AFFICHAGE DES CRAFTS
   // On affiche d'abord l'ihm de la forge
+  forgeIHM();
   enteteForgeArmeIHM();
 
   // On initialise le compteur des armes possédées en commançant à 1 (car l'affichage commence à 1)
@@ -107,11 +108,10 @@ begin
     // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
     if not armePossedee then
     begin
-      afficherArmeForgeIHM(arme,peutCrafterArme(i),compteurArme);
+      afficherArmeForgeIHM(arme,peutCrafterArme(i),compteurArme, i = );
       compteurArme := compteurArme +1;
     end
   end;
-  forgeIHM();
   // On récupère le choix de l'utilisateur qui peut être soit le choix d'une arme soit le choix pour retourner au menu de sélection
   readln(choix);
 
