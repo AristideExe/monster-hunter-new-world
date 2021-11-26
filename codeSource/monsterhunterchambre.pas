@@ -145,8 +145,7 @@ var
   choix : string;
 begin
   chambreIHM();
-  // On affiche les armures si le joueur possède l'armure
-  for i:=0 to 4 do afficherArmureChambreIHM(getJoueur.armurePortee[i],i);
+
   // On affiche l'arme du joueur
   afficherArmeChambreIHM(getJoueur.armePortee);
 

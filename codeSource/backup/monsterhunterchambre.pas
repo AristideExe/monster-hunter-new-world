@@ -6,7 +6,7 @@ unit monsterHunterChambre;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterIHM, monsterHunterArmesEtArmures, monsterHunterChambreIHM;
+  Classes, SysUtils, monsterHunterArmesEtArmures, monsterHunterChambreIHM;
 
 procedure chambre();
 // Permet d'afficher le menu pour sélectionner si on veut accéder aux casques, aux plastrons, aux jambieres, aux bottes ou aux gants

@@ -11,8 +11,6 @@ uses
 
 // IHM de la chambre
 procedure chambreIHM();
-// Affiche une seule armure dans la chambre
-procedure afficherArmureChambreIHM(armure : typeArmure; ligne : integer);
 // Affiche l'arme portée dans la chambre
 procedure afficherArmeChambreIHM(arme : typeArme);
 // IHM de l'armoire à armures
@@ -130,35 +128,86 @@ procedure chambreIHM();
 begin
   effacerEcran();
   deplacerCurseurXY(5,1); write('Chambre');
+
+  // On affiche un personnage au milieu qui porte chaque partie d'armure ou non
+  // Torse
+  if getJoueur.armurePortee[1]. nom = 'NULL' then
+  begin
+       // Torse dépend du sexe
+       if getJoueur.sexe = 'M' then dessinerSansEspace('dessins/personnagesEnGrand/homme/torseHomme.txt',49,8)
+       else dessinerSansEspace('dessins/personnagesEnGrand/femme/torseFemme.txt',49,8);
+       // Si le joueur ne porte pas le type d'armure on affiche un message
+       deplacerCurseurXY(80,11); write('Vous ne portez pas de plastron');
+  end
+  // Si le joueur porte un plastron
+  else
+  begin
+       dessinerSansEspace('dessins/personnagesEnGrand/chevalier/plastronChevalier.txt',49,8);
+       deplacerCurseurXY(80,11); write('Torse : ', getJoueur.armurePortee[1].nom);
+  end;
+
+
+  // Tête
+  if getJoueur.armurePortee[0]. nom = 'NULL' then
+  begin
+       // Tête dépend du sexe
+       if getJoueur.sexe = 'M' then dessinerSansEspace('dessins/personnagesEnGrand/homme/teteHomme.txt',55,3)
+       else dessinerSansEspace('dessins/personnagesEnGrand/femme/teteFemme.txt',55,3);
+       deplacerCurseurXY(80,5); write('Vous ne portez pas de casque');
+  end
+  // Si le joueur porte un casque
+  else
+  begin
+       dessinerSansEspace('dessins/personnagesEnGrand/chevalier/casqueChevalier.txt',55,3);
+       deplacerCurseurXY(80,5); write('Casque : ', getJoueur.armurePortee[0].nom);
+  end;
+
+
+  // Jambières
+  if getJoueur.armurePortee[2]. nom = 'NULL' then
+  begin
+       dessinerSansEspace('dessins/personnagesEnGrand/homme/jambesHomme.txt',56,14);
+       deplacerCurseurXY(80,16); write('Vous ne portez pas de jambières');
+  end
+  else
+  begin
+       dessinerSansEspace('dessins/personnagesEnGrand/chevalier/jambieresChevalier.txt',56,14);
+  end;
+
+
+  // Bottes
+  if getJoueur.armurePortee[3]. nom = 'NULL' then
+  begin
+       dessinerSansEspace('dessins/personnagesEnGrand/homme/piedsHomme.txt',55,21);
+       deplacerCurseurXY(80,22); write('Vous ne portez pas de bottes');
+  end
+  else
+  begin
+    dessinerSansEspace('dessins/personnagesEnGrand/chevalier/bottesChevalier.txt',55,21);
+  end;
+
+
+  // Gants
+  if getJoueur.armurePortee[4]. nom = 'NULL' then
+  begin
+       dessinerSansEspace('dessins/personnagesEnGrand/homme/mainsHomme.txt',47,10);
+       deplacerCurseurXY(10,16); write('Vous ne portez pas de gants');
+  end
+  else
+  begin
+    dessinerSansEspace('dessins/personnagesEnGrand/chevalier/gantsChevalier.txt',47,10);
+  end;
+
+
   deplacerCurseurXY(5,28); write('0/ Retourner à la ville       1/ Ouvrir la malle à armes       2/ Ouvrir l''armoire à armures');
   deplacerCurseurXY(5,29); write('Votre choix : ');
 end;
 
 
-
-// Affiche une seule armure dans la chambre
-procedure afficherArmureChambreIHM(armure : typeArmure; ligne : integer);
-begin
-  // Si l'armure du joueur n'est pas nulle
-  if armure.nom <> 'NULL' then
-  begin
-       deplacerCurseurXY(10,ligne*5 + 4);write(upCase(toStringPieceArmure(armure.pieceArmure)), ' : ',armure.nom);
-       deplacerCurseurXY(10,ligne*5 + 5);write('Valeur de défense : ',armure.valeurDefense:6:2);
-       deplacerCurseurXY(10,ligne*5 + 6);write('Taux d''esquive : ',armure.tauxEsquive:6:2);
-  end
-  else
-  begin
-    deplacerCurseurXY(10,ligne*5 + 5);
-    write('Vous ne portez pas de ', toStringPieceArmure(armure.pieceArmure));
-  end;
-end;
-
-
-
 // Affiche l'arme portée dans la chambre
 procedure afficherArmeChambreIHM(arme : typeArme);
 begin
-  deplacerCurseurXY(80,15); write(arme.nom);
+  //deplacerCurseurXY(80,15); write(arme.nom);
   deplacerCurseurXY(19,29);
 end;
 
