@@ -35,8 +35,8 @@ var
   craft : typeCraft;
 begin
   //// On récupère le craft en question
-  //craft := craftsArmuresDisponibles[positionArmure];
-  ////On suppose que le joueur peut crafter l'item de base
+  craft := craftsArmuresDisponibles[positionArmure];
+  //On suppose que le joueur peut crafter l'item de base
   peutCrafterArmure := true;
   // On teste pour chaque item si le joueur a assez de quantité de chaque
   // Je n'ai pas trouvé de moyen de le compacter ...
@@ -102,7 +102,6 @@ begin
       compteurArmure := compteurArmure +1;
     end
   end;
-  forgeIHM();
   // On récupère le choix de l'utilisateur qui peut être soit le choix d'une arme soit le choix pour retourner au menu de sélection
   readln(choix);
 
@@ -201,6 +200,7 @@ var
 begin
   // AFFICHAGE DES CRAFTS
   // On affiche d'abord l'ihm de la forge
+  forgeIHM();
   enteteForgeArmeIHM();
 
   // On initialise le compteur des armes possédées en commançant à 1 (car l'affichage commence à 1)
@@ -216,11 +216,10 @@ begin
     // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
     if not armePossedee then
     begin
-      afficherArmeForgeIHM(arme,peutCrafterArme(i),compteurArme);
+      afficherArmeForgeIHM(arme,peutCrafterArme(i),compteurArme, i = length(craftsArmesDisponibles) -1);
       compteurArme := compteurArme +1;
     end
   end;
-  forgeIHM();
   // On récupère le choix de l'utilisateur qui peut être soit le choix d'une arme soit le choix pour retourner au menu de sélection
   readln(choix);
 

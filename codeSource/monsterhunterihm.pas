@@ -55,11 +55,18 @@ begin
      dessiner('dessins/maisonChambre.txt',3,18);
      deplacerCurseurXY(10,27);write('1/ Chambre');
 
+
+     // Cantine du village
+
+     //dessinerCadreXY(90,7,109,13,simple,White,Black);
+     //deplacerCurseurXY(95,10);write('4/Cantine');
+
      // Forge du village
      //dessinerCadreXY(20,7,40,13,simple,White,Black);
      //deplacerCurseurXY(26,10);write('2/Forge');
      dessiner('dessins/maisonForge.txt',8,1);
      deplacerCurseurXY(17,16);write('2/ Forge');
+
 
      // Marchand du village
      //dessinerCadreXY(90,7,109,13,simple,White,Black);

@@ -151,11 +151,11 @@ procedure decorationPersoIHM(titre : string);
 begin
 
      //---------Affichage cadre création du personnage---------
-     dessinerCadreXY(4,2,116,28,double,White,Black);
-     deplacerCurseurXY(40,0);write('______________________');
-     deplacerCurseurXY(39,1);write('/                      \');
-     deplacerCurseurXY(38,2);write('{ ',titre,' }');
-     deplacerCurseurXY(39,3);write('\______________________/');
+      CadrePrincipal(titre);                                                         //dessinerCadreXY(4,2,116,28,double,White,Black);
+                                                               //deplacerCurseurXY(40,0);write('______________________');
+                                                               //deplacerCurseurXY(39,1);write('/                      \');
+                                                               //deplacerCurseurXY(38,2);write('{ ',titre,' }');
+                                                               //deplacerCurseurXY(39,3);write('\______________________/');
 
          //---Affichage décorations pour les questions-----
      //-----Affichage cadre pour le Nom-----
