@@ -162,6 +162,8 @@ begin
      effacerEcran();
      changerTailleConsole(140,41);
 
+     couleurTexte(6);//Marron
+     dessiner('dessins/Difficulte4/sol.txt',40,15);//Sol
 
      couleurTexte(7);//Gris clair
      dessiner('dessins/Difficulte4/fumee.txt',9,0);  //Fumee du volcan

@@ -162,9 +162,11 @@ begin
      effacerEcran();
      changerTailleConsole(140,41);
 
+     couleurTexte(6);//Marron
+     dessiner('dessins/Difficulte4/sol.txt',40,16);//Sol
 
      couleurTexte(7);//Gris clair
-     dessiner('dessins/Difficulte4/fumee.txt',8,0);  //Fumee du volcan
+     dessiner('dessins/Difficulte4/fumee.txt',9,0);  //Fumee du volcan
 
      couleurTexte(4);//Rouge
      dessiner('dessins/Difficulte4/meteorite2.txt',103,0);  //Flammes rouges de la météorite

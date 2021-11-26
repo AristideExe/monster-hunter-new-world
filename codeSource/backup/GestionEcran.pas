@@ -254,7 +254,11 @@ implementation
         deplacerCurseurXY(decalageX,decalageY+compteurLigne);
         for caractere:=1 to length(ligne) do
         begin
-          if ligne[caractere] <> ' ' then
+
+          if ligne[caractere] = '¤' then
+            write(' ')
+
+          else if ligne[caractere] <> ' ' then
             write(ligne[caractere]);
 
           deplacerCurseurXY(decalageX+caractere,decalageY+compteurLigne);
@@ -406,8 +410,8 @@ implementation
               deplacerCurseurXY(decalage+i,0);write('_');
               deplacerCurseurXY(decalage+i,3);write('_');
          end;
-         deplacerCurseurXY(decalage+(length(titre)-1),1);write('\');
-         deplacerCurseurXY(decalage+(length(titre)-1),3);write('/');
+         deplacerCurseurXY(decalage+length(titre),1);write('\');
+         deplacerCurseurXY(decalage+length(titre),3);write('/');
     end;
 
 end.
