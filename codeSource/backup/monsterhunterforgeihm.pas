@@ -55,9 +55,12 @@ begin
   // Affichage du type d'arme
   deplacerCurseurXY(62,numeroArme +7); write(arme.arme);
   // Affichage de l'élément de l'arme
+
   deplacerCurseurXY(78,numeroArme +7); write(arme.element);
   // Affichage de l'élément de l'arme
   deplacerCurseurXY(100,numeroArme +7); write(arme.valeurAttaque:6:2);
+
+
 
   couleurTexte(white);
 
@@ -84,7 +87,6 @@ procedure forgeIHM();
 begin
   effacerEcran();
   CadrePrincipal('Forge : armes');
-  deplacerCurseurXY(10,1); write('Forge');
   deplacerCurseurXY(10,28); write(' 0/ Retourner au menu de sélection de la forge ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
@@ -101,8 +103,10 @@ begin
   deplacerCurseurXY(50,14); write('5/ Afficher les bottes');
   deplacerCurseurXY(50,15); write('6/ Afficher les gants');
 
+
   deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :  ');
+
   readln(choixItemForgeIHM);
 end;
 
