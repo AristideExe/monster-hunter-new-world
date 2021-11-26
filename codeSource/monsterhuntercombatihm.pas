@@ -164,11 +164,11 @@ begin
 
 
      couleurTexte(7);//Gris clair
-     dessiner('dessins/Difficulte4/fumee.txt',3,0);  //Fumee du volcan
+     dessiner('dessins/Difficulte4/fumee.txt',9,0);  //Fumee du volcan
 
      couleurTexte(4);//Rouge
      dessiner('dessins/Difficulte4/meteorite2.txt',103,0);  //Flammes rouges de la météorite
-     dessiner('dessins/Difficulte4/lave.txt',3,5);  //Lave du volcan
+     dessiner('dessins/Difficulte4/lave.txt',3,7);  //Lave du volcan
 
 
      couleurTexte(14);//Jaune
@@ -176,7 +176,7 @@ begin
 
      couleurTexte(6);//Marron
      dessiner('dessins/Difficulte4/meteorite1.txt',103,0);  //Météorite
-     dessinerSansEspace('dessins/Difficulte4/montagne.txt',3,5);     //Montagne
+     dessinerSansEspace('dessins/Difficulte4/montagne.txt',3,7);     //Montagne
 
      couleurTexte(15);//Blanc
 
@@ -189,7 +189,6 @@ end;
 function Difficulte4IHM() : string;
 begin
      VolcaniqueIHM();                 //Apelle la procédure d'ambiance volcanique
-     readln;
      readln(Difficulte4IHM);
 
 end;
