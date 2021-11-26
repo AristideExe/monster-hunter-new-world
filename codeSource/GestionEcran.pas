@@ -254,7 +254,11 @@ implementation
         deplacerCurseurXY(decalageX,decalageY+compteurLigne);
         for caractere:=1 to length(ligne) do
         begin
-          if ligne[caractere] <> ' ' then
+
+          if ligne[caractere] = '#' then
+            write(' ')
+
+          else if ligne[caractere] <> ' ' then
             write(ligne[caractere]);
 
           deplacerCurseurXY(decalageX+caractere,decalageY+compteurLigne);

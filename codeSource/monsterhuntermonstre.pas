@@ -10,14 +10,14 @@ uses
 
 type
   // Type qui représente les loots que peuvent donner un monstre
-  nombreLoot = record
+  monstreLoot = record
     nomLoot : string;
     quantiteMinimum : integer;       //quantité de loot minimum d'un loot
     quantiteMaximum : integer;       //quantité de loot maximum d'un loot
 
   end;
 
-  // Type qui représente un monstre
+  //Type qui représente un monstre
   typeMonstre = record
     nom : string;
     vie : integer;
@@ -25,21 +25,33 @@ type
     vitesse : integer;
     dmgAttaque : integer;         //Attaque normale
     dmgAttaqueSpe : integer;      //Attque spéciale
-    //loot : nombreLoot;            //Fait un tableau contenant les loots du monstre en question ainsi
+    loot : array [0..2] of monstreLoot;            //Fait un tableau contenant les 3 loots du monstre en question ainsi que la quantité de loot
 
   end;
 
+  //Type qui représente la liste des monstres
+  listMonstre = array [0..7] of typeMonstre;
+
   // ------------------------------------------------- VARIABLES ---------------------------------------------
 var
-  monstres : array [0..7] of typeMonstre; //Créé un tableau comprenant tout les monstres
+  monstres : listMonstre; //Créé un tableau comprenant tout les monstres
 
   // ------------------------------------------ FONCTIONS ET PROCEDURES --------------------------------------
 
 //Initialisation des monstres
 procedure initialisationMonstres();
 
+//Obtient les monstres
+function getMonstres():listMonstre;
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
+
+//Obtient les monstres
+function getMonstres(): listMonstre; //test
+begin
+    getMonstres := monstres;
+end;
 
 //Modifie les stats d'un monstre
 procedure modifierStatsMonstre(var monster : typeMonstre; nomMonstre:string ; vieMonstre, esquiveMonstre, vitesseMonstre, dmgAttaqueMonstre, dmgAttaqueSpeMonstre : integer);
@@ -53,6 +65,13 @@ begin
      monster.dmgAttaqueSpe:=dmgAttaqueSpeMonstre;
 end;
 
+//Modifie les loots du monstre
+procedure modifierLootMonstre(var monster : typeMonstre; lootMonstre : array of monstreLoot);
+begin
+     //Le loot du monstre est modifié
+     monster.loot := lootMonstre;
+end;
+
 //Génération des attributs des monstres
 procedure monstresAttributs(fichier : string);
 var
@@ -61,6 +80,8 @@ var
   listeLigne : array of string;    //Tableau de chaque case
   compteur : integer;              //compte les lignes parcourues
 
+  i: integer; //Variable de boucle
+
   //Attributs
   nom : string;
   vie : integer;
@@ -68,6 +89,7 @@ var
   vitesse : integer;
   dmgAttaque : integer;
   dmgAttaqueSpe : integer;
+  loot : array [0..2] of monstreLoot;
 
 begin
   compteur:=0;
@@ -92,8 +114,19 @@ begin
         dmgAttaque:=strToInt(listeLigne[4]);
         dmgAttaqueSpe:=strToInt(listeLigne[5]);
 
+        //On rempli le tableau des loots (pour chaque loot du monstre)
+        for i:=0 to 2 do
+        begin
+
+             loot[i].nomLoot := listeLigne[6+3*i];                    //Nom du loot
+             loot[i].quantiteMinimum := strToInt(listeLigne[7+3*i]);  //Quantité de drop minimum du loot
+             loot[i].quantiteMaximum := strToInt(listeLigne[8+3*i]); //Quantité de drop maximum du loot
+
+        end;
+
         //On change les Stats
         modifierStatsMonstre(monstres[compteur], nom,vie,esquive,vitesse,dmgAttaque,dmgAttaqueSpe);
+        modifierLootMonstre(monstres[compteur], loot);
 
         compteur := compteur + 1;
 
