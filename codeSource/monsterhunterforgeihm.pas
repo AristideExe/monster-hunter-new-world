@@ -96,16 +96,29 @@ begin
   effacerEcran();
   CadrePrincipal('Forge : Voici les différents type d''item');
 
-  deplacerCurseurXY(50,10); write('1/ Afficher les armes');
-  deplacerCurseurXY(50,11); write('2/ Afficher les casques');
-  deplacerCurseurXY(50,12); write('3/ Afficher les plastrons');
-  deplacerCurseurXY(50,13); write('4/ Afficher les jambières');
-  deplacerCurseurXY(50,14); write('5/ Afficher les bottes');
-  deplacerCurseurXY(50,15); write('6/ Afficher les gants');
+  dessinerCadreXY(42,8,112,15,simple,White,Black);
+  dessinerCadreXY(42,15,112,23,simple,White,Black);
+
+  dessinerSansEspace('dessins/Chevalier.txt',6,6);
+
+  dessinerCadreXY(46,7,73,9,simple,White,Black);
+  dessinerCadreXY(82,7,108,9,simple,White,Black);
+  dessinerCadreXY(45,14,73,16,simple,White,Black);
+  dessinerCadreXY(81,14,108,16,simple,White,Black);
+  dessinerCadreXY(46,22,71,24,simple,White,Black);
+  dessinerCadreXY(83,22,108,24,simple,White,Black);
+
+  deplacerCurseurXY(48,8); write('1/ Afficher les armes');
+  deplacerCurseurXY(84,8); write('2/ Afficher les casques');
+  deplacerCurseurXY(47,15); write('3/ Afficher les plastrons');
+  deplacerCurseurXY(83,15); write('4/ Afficher les jambières');
+  deplacerCurseurXY(48,23); write('5/ Afficher les bottes');
+  deplacerCurseurXY(85,23); write('6/ Afficher les gants');
 
 
   deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
-  deplacerCurseurXY(85,28); write(' Votre choix : ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+  deplacerCurseurXY(100,28);
 
   readln(choixItemForgeIHM);
 end;

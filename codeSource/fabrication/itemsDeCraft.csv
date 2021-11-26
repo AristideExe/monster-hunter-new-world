@@ -1,22 +1,24 @@
 nomItem;Drop minimum;Drop maximum;prix de vente
-Tentacule;1;4;0
-Ombrelle de méduse;1;1;0
-Patte d'araignée;1;8;0
-Corne de rhinos;1;1;0
-Peau de tricératops;1;1;0
-Peau de stégausorus;1;1;0
-Ecaille de dodogama;1;12;0
-Plume de phénix;1;3;0
-Menteau de poulpe;1;1;0
-Filaments de méduse;1;6;0
-Œil d'arraignée;1;4;0
-Queue de rhinos;1;1;0
-Corne de tricératops;1;3;0
-Crète de stégausorus;1;8;0
-Diamant de dodogama;0;1;0
-Serres de phénix;1;2;0
-Ventouse de poulpe;1;4;0
-Poil d'arraignée;1;7;0
-Kératine;1;14;0
-Basalte de dodogama;1;8;0
-Cœur de phénix;0;1;0
+Tentacule;1;4;4
+Ombrelle de méduse;1;1;8
+Patte d'araignée;1;8;4
+Corne de rhinos;1;1;12
+Peau de tricératops;1;1;15
+Peau de stégausorus;1;1;20
+Ecaille de dodogama;1;12;3
+Plume de phénix;1;3;50
+Menteau de poulpe;1;1;10
+Filaments de méduse;1;6;3
+Œil d'arraignée;1;4;1
+Queue de rhinos;1;1;6
+Corne de tricératops;1;3;8
+Crète de stégausorus;1;8;20
+Diamant de dodogama;0;1;150
+Serres de phénix;1;2;25
+Ventouse de poulpe;1;4;4
+Poil d'arraignée;1;7;1
+Kératine;1;14;2
+Basalte de dodogama;1;8;10
+Cœur de phénix;0;1;100
+Bois;0;0;1
+Fer;0;0;2
