@@ -13,8 +13,8 @@ const
   NOMBRE_ARMURES_JEU = 100;
   NOMBRE_ARMES_JEU = 17;
   NOMBRE_CRAFT_ARMES_JEU = 17;
-  NOMBRE_CRAFT_ARMURES_JEU = 10;
-  NOMBRE_ITEM_DE_CRAFT_JEU = 9;
+  NOMBRE_CRAFT_ARMURES_JEU = 30;
+  NOMBRE_ITEM_DE_CRAFT_JEU = 23;
 
 
   // ------------------------------------------------- TYPES -----------------------------------------------
