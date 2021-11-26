@@ -95,7 +95,7 @@ begin
   joueur.itemsPossedes[0] := 30;
   joueur.itemsPossedes[1] := 60;
   joueur.itemsPossedes[2] := 56;
-  joueur.itemsPossedes[16] := 12
+  joueur.itemsPossedes[16] := 12;
 
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;

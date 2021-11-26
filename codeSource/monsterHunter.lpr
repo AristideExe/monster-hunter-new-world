@@ -1,9 +1,9 @@
 program monsterHunter;
 
 
-uses monsterHunterMenu;
+uses
+  monsterHunterMenu;
 
 begin
-     initialisationJeu();
+  initialisationJeu();
 end.
-

@@ -81,6 +81,7 @@ begin
 
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
+  joueur.armuresPossedees[5] := armuresDisponibles[5];
 
   // On lui donne une épe de base pour commencer le jeu
   joueur.armePortee := armesDisponibles[0];
