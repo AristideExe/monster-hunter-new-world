@@ -70,6 +70,9 @@ interface
 	// Change la couleur de la zone
     procedure ColorierZone(couleur : Byte ;couleurT : Byte; xStart,xEnd,y:Integer);
 
+    //Affiche un cadre avec une zone de text
+    procedure CadrePrincipal(titre :String);
+
     const
       // Codes des couleurs
       Black        = 0;
@@ -254,7 +257,7 @@ implementation
           if ligne[caractere] <> ' ' then
             write(ligne[caractere]);
 
-          deplacerCurseurXY(decalageX+(caractere-1),decalageY+compteurLigne);
+          deplacerCurseurXY(decalageX+caractere,decalageY+compteurLigne);
 
         end;
 
@@ -388,5 +391,24 @@ implementation
       TextAttr := (LastMode and $0F) or ((couleur shl 4) and $F0);
       SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), TextAttr);
     end;
+
+    procedure CadrePrincipal(titre :String);
+    var
+        decalage,i:integer;
+    begin
+         decalage:=40;
+         dessinerCadreXY(4,2,116,28,double,White,Black);
+         deplacerCurseurXY(38,2);write('{ ',titre,' }');
+         deplacerCurseurXY(39,1);write('/');
+         deplacerCurseurXY(39,3);write('\');
+         for i:=0 to length(titre)-1 do
+         begin
+              deplacerCurseurXY(decalage+i,0);write('_');
+              deplacerCurseurXY(decalage+i,3);write('_');
+         end;
+         deplacerCurseurXY(decalage+(length(titre)-1),1);write('\');
+         deplacerCurseurXY(decalage+(length(titre)-1),3);write('/');
+    end;
+
 end.
 

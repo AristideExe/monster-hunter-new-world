@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Nom du monstre;Vie;Esquive;Vitesse;Dégats attaque de base;Dégats attaque spéciale;
 Poulpe;-1;16;80;-1;-1;-1
 Méduse;-1;16;80;-1;-1;-1
@@ -7,3 +8,14 @@ Phénix;-1;20;110;-1;-1;-1
 Tricératops;-1;11;110;-1;-1;-1
 Stégausorus;-1;11;70;-1;-1;-1
 Dodogama;10000;6;60;-1;-1;-1
+=======
+Nom du monstre;Vie;Esquive;Vitesse;Dégats attaque de base;Dégats attaque spéciale;;nomDrop1;dropMini;dropMaxi;nomDrop3;dropMini;dropMaxi;nomDrop3;dropMini;dropMaxi
+Poulpe;-1;16;80;-1;-1;-1;Tentacule;1;4;Menteau de poulpe;1;1;Ventouse de poulpe;1;4
+Méduse;-1;16;80;-1;-1;-1;Ombrelle de méduse;1;1;Filaments de méduse;1;6;Tentacule;1;4
+Araignée;-1;18;120;-1;-1;-1;Patte d'araignée;1;8;Œil d'arraignée;1;4;Poil d'arraignée;1;7
+Rhinos;-1;10;120;-1;-1;-1;Corne de rhinos;1;1;Queue de rhinos;1;1;Kératine;1;14
+Tricératops;-1;11;110;-1;-1;-1;Peau de tricératops;1;1;Corne de tricératops;1;3;Kératine;1;14
+Stégausorus;-1;11;70;-1;-1;-1;Peau de stégausorus;1;1;Crète de stégausorus;1;8;Kératine;1;14
+Dodogama;10000;6;60;-1;-1;-1;Ecaille de dodogama;1;12;Diamant de dodogama;0;1;Basalte de dodogama;1;8
+Phénix;-1;20;110;-1;-1;-1;Plume de phénix;1;3;Serres de phénix;1;2;Cœur de phénix;0;1
+>>>>>>> f5fad09cedc5a357fb0bfc63b2107fe950821aba

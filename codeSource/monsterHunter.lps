@@ -8,9 +8,15 @@
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD
         <EditorIndex Value="-1"/>
         <CursorPos X="21" Y="9"/>
         <UsageCount Value="32"/>
+=======
+        <CursorPos X="28" Y="9"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+>>>>>>> f5fad09cedc5a357fb0bfc63b2107fe950821aba
       </Unit0>
       <Unit1>
         <Filename Value="monsterhunterlogic.pas"/>
@@ -21,10 +27,18 @@
         <Filename Value="monsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="MonsterHunterIHM"/>
+<<<<<<< HEAD
         <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
         <CursorPos Y="35"/>
         <UsageCount Value="32"/>
+=======
+        <EditorIndex Value="1"/>
+        <TopLine Value="124"/>
+        <CursorPos X="30" Y="47"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+>>>>>>> f5fad09cedc5a357fb0bfc63b2107fe950821aba
       </Unit2>
       <Unit3>
         <Filename Value="GestionEcran.pas"/>
@@ -71,10 +85,17 @@
         <Filename Value="monsterhunterforge.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForge"/>
+<<<<<<< HEAD
         <EditorIndex Value="-1"/>
         <TopLine Value="41"/>
         <CursorPos X="11" Y="58"/>
         <UsageCount Value="32"/>
+=======
+        <EditorIndex Value="3"/>
+        <TopLine Value="121"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+>>>>>>> f5fad09cedc5a357fb0bfc63b2107fe950821aba
       </Unit9>
       <Unit10>
         <Filename Value="monsterhuntercantine.pas"/>
@@ -107,7 +128,16 @@
         <Filename Value="monsterhunterforgeihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForgeIHM"/>
+<<<<<<< HEAD
         <UsageCount Value="32"/>
+=======
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="50"/>
+        <CursorPos X="62" Y="63"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+>>>>>>> f5fad09cedc5a357fb0bfc63b2107fe950821aba
       </Unit14>
       <Unit15>
         <Filename Value="monsterhunterchambreihm.pas"/>
@@ -125,6 +155,7 @@
         <Loaded Value="True"/>
       </Unit16>
     </Units>
+<<<<<<< HEAD
     <JumpHistory Count="17" HistoryIndex="16">
       <Position1>
         <Filename Value="monsterhuntercombatihm.pas"/>
@@ -194,6 +225,17 @@
         <Filename Value="monsterhuntercombatihm.pas"/>
         <Caret Line="69" Column="6" TopLine="55"/>
       </Position17>
+=======
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="monsterHunter.lpr"/>
+        <Caret Line="9" Column="28"/>
+      </Position1>
+      <Position2>
+        <Filename Value="monsterhunterihm.pas"/>
+        <Caret Line="134" Column="5" TopLine="156"/>
+      </Position2>
+>>>>>>> f5fad09cedc5a357fb0bfc63b2107fe950821aba
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -67,6 +67,8 @@ var
 
 
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
+// Renvoi le string pour une armure
+function toStringArmure(armure : typeArmure) : string;
 // Fonction qui renvoie l'armure portée par le joueur en fonction de la piece demandée
 function getArmureJoueur(armure : typePieceArmure) : typeArmure;
 // Fonction qui renvoie la liste des pièces d'armures possédées par le joueur en fonction de la pièce demandée
@@ -95,6 +97,20 @@ uses monsterHunterJoueur;
 
 
 
+// ----------------------------------------- FONCTIONS DE RENVOI DE STRING D'ÉNUMÉRATIONS ---------------------------------------------
+// Renvoi le string pour une pièce d'armure
+function toStringPieceArmure(piece : typePieceArmure) : string;
+begin
+  case piece of
+  casque : toStringPieceArmure := 'casque';
+  torse : toStringPieceArmure := 'torse';
+  jambieres : toStringPieceArmure := 'jambières';
+  bottes : toStringPieceArmure := 'bottes';
+  gants : toStringPieceArmure := 'gants';
+  end;
+end;
+
+
 
 // ----------------------------------------- FONCTIONS DE RENVOIE D'ÉLÉMENTS D'ÉNUMÉRATIONS ---------------------------------------------
 // Fonction qui renvoit l'élément de l'énumération typeArme qui correspond au str passé en paramètre
@@ -121,9 +137,7 @@ var
   i : integer;
 begin
   for i:=0 to ord(high(typeElement)) do
-  begin
       if (element = getEnumName(TypeInfo(typeElement),i)) then trouverElement := typeElement(i);
-  end;
 end;
 
 

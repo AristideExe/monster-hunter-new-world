@@ -81,7 +81,7 @@ begin
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
 
   // On lui donne une épe de base pour commencer le jeu
-  joueur.armePortee := armesDisponibles[4];
+  joueur.armePortee := armesDisponibles[0];
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
@@ -90,6 +90,7 @@ begin
   // Modification de l'inventaire d'items pour avoir aucun item
   for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
   // Remplissage pour tester les crafts
+  joueur.itemsPossedes[0] := 30;
   joueur.itemsPossedes[1] := 60;
   joueur.itemsPossedes[2] := 56;
 
