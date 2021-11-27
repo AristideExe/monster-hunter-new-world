@@ -36,8 +36,10 @@
         <Filename Value="monsterhunterjoueur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterJoueur"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos Y="4"/>
+        <TopLine Value="43"/>
+        <CursorPos X="38" Y="71"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -120,10 +122,9 @@
       <Unit16>
         <Filename Value="monsterhuntercombatihm.pas"/>
         <UnitName Value="monsterHunterCombatIHM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <TopLine Value="97"/>
-        <CursorPos X="31" Y="115"/>
+        <CursorPos X="47" Y="117"/>
         <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit16>

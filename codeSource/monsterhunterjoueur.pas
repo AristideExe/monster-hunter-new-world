@@ -26,7 +26,7 @@ type
     itemsPossedes : array [0..NOMBRE_ITEM_DE_CRAFT_JEU-1] of integer;
     // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
     objetsPossedes : array[0..2] of integer;
-    objetsPortes : array[0..2];
+    objetsPortes : array[0..2] of integer;
   end;
 
 

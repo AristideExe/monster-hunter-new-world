@@ -122,18 +122,18 @@
         <UnitName Value="monsterHunterCombatIHM"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="94"/>
-        <CursorPos X="41" Y="112"/>
-        <UsageCount Value="13"/>
+        <TopLine Value="97"/>
+        <CursorPos X="31" Y="115"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="monsterhuntergestioncombatmonstre.pas"/>
         <UnitName Value="monsterHunterGestionCombatMonstre"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="10"/>
-        <CursorPos X="31" Y="28"/>
-        <UsageCount Value="13"/>
+        <TopLine Value="24"/>
+        <CursorPos X="26" Y="42"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit17>
       <Unit18>
@@ -142,7 +142,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="80"/>
         <CursorPos X="46" Y="97"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="14"/>
         <Loaded Value="True"/>
       </Unit18>
     </Units>

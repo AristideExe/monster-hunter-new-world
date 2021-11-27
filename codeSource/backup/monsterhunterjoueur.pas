@@ -16,6 +16,7 @@ type
     taille : string;
     sexe : string;
     vitesse : integer;
+    argent : integer;
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
