@@ -2,7 +2,7 @@ program monsterHunter;
 
 
 uses
-  monsterHunterMenu;
+  monsterHunterMenu, monsterHunterMarchandIHM;
 
 begin
   initialisationJeu();

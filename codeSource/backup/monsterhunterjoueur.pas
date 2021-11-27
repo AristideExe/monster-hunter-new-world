@@ -26,7 +26,7 @@ type
     itemsPossedes : array [0..NOMBRE_ITEM_DE_CRAFT_JEU-1] of integer;
     // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
     objetsPossedes : array[0..2] of integer;
-    objetsPortes : array[0..2];
+    objetsPortes : array[0..2] of integer;
   end;
 
 
@@ -80,8 +80,6 @@ var
 begin
   // Initialisatin de l'armure pour que toutes les valeurs soient vides
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,0,0);
-  // On lui donne une armure pour commencer le jeu
-  //modifierArmure(joueur.armurePortee[1],armuresDisponibles[1].nom,armuresDisponibles[1].pieceArmure,armuresDisponibles[1].element,armuresDisponibles[1].valeurDefense,armuresDisponibles[1].tauxEsquive);
 
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
