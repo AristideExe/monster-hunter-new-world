@@ -23,6 +23,9 @@ type
     armesPossedees : array [0..NOMBRE_ARMES_JEU-1] of typeArme;
     // Liste dans lequel on met la quantité de chaque item
     itemsPossedes : array [0..NOMBRE_ITEM_DE_CRAFT_JEU-1] of integer;
+    // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
+    objetsPossedes : array[0..2] of integer;
+    objetsPortes : array[0..2];
   end;
 
 
@@ -82,10 +85,10 @@ begin
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
   joueur.armuresPossedees[0] := armuresDisponibles[0];
-  joueur.armuresPossedees[0] := armuresDisponibles[0];
-  joueur.armuresPossedees[0] := armuresDisponibles[0];
-  joueur.armuresPossedees[0] := armuresDisponibles[0];
-  joueur.armuresPossedees[0] := armuresDisponibles[0];
+  joueur.armuresPossedees[1] := armuresDisponibles[1];
+  joueur.armuresPossedees[2] := armuresDisponibles[2];
+  joueur.armuresPossedees[3] := armuresDisponibles[3];
+  joueur.armuresPossedees[4] := armuresDisponibles[4];
 
   // On lui donne une épe de base pour commencer le jeu
   joueur.armePortee := armesDisponibles[0];
@@ -97,10 +100,11 @@ begin
   // Modification de l'inventaire d'items pour avoir aucun item
   for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
   // Remplissage pour tester les crafts
-  joueur.itemsPossedes[0] := 30;
-  joueur.itemsPossedes[1] := 60;
-  joueur.itemsPossedes[2] := 56;
-  joueur.itemsPossedes[16] := 12;
+  joueur.itemsPossedes[7] := 30;
+  joueur.itemsPossedes[22] := 160;
+  joueur.itemsPossedes[20] := 56;
+  joueur.itemsPossedes[19] := 12;
+  joueur.itemsPossedes[15] := 12;
 
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;

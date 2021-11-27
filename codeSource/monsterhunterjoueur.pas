@@ -16,6 +16,7 @@ type
     taille : string;
     sexe : string;
     vitesse : integer;
+    argent : integer;
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
     armurePortee : array [0..4] of typeArmure;
     armuresPossedees : array [0..NOMBRE_ARMURES_JEU-1] of typeArmure;
@@ -23,6 +24,9 @@ type
     armesPossedees : array [0..NOMBRE_ARMES_JEU-1] of typeArme;
     // Liste dans lequel on met la quantité de chaque item
     itemsPossedes : array [0..NOMBRE_ITEM_DE_CRAFT_JEU-1] of integer;
+    // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
+    objetsPossedes : array[0..2] of integer;
+    objetsPortes : array[0..2];
   end;
 
 
