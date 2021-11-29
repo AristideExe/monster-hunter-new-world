@@ -15,6 +15,7 @@ type
     nom : string;
     taille : string;
     sexe : string;
+    vie : integer;
     vitesse : integer;
     argent : integer;
     // 5 éléments d'armure : casque, torse, jambières, bottes, gants
@@ -80,6 +81,8 @@ var
 begin
   // Initialisatin de l'armure pour que toutes les valeurs soient vides
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,0,0);
+  // On lui donne une armure pour commencer le jeu
+  //modifierArmure(joueur.armurePortee[1],armuresDisponibles[1].nom,armuresDisponibles[1].pieceArmure,armuresDisponibles[1].element,armuresDisponibles[1].valeurDefense,armuresDisponibles[1].tauxEsquive);
 
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
@@ -108,8 +111,11 @@ begin
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;
 
-  joueur.argent := 0;
+  //fixe les pv du joueur à 100
+  joueur.vie:=100;
 
+  //Fixe l'argent du joueur à 100 Simonnaie
+  joueur.argent:=100;
 
   creationPersonnage();
 end;

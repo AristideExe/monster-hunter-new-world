@@ -6,7 +6,7 @@ unit monsterHunterForgeIHM;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, GestionEcran, monsterHunterArmesEtArmures;
+  Classes, SysUtils, GestionEcran, monsterHunterArmesEtArmures, monsterHunterJoueur;
 
 function choixItemForgeIHM() : string;
 // Affiche l'interface de la forge en général
@@ -24,7 +24,7 @@ procedure enteteForgeArmeIHM();
 // Affiche l'entête des colonnes pour la forge des armures
 procedure enteteForgeArmureIHM();
 // Procédure qui s'affiche lorsque le joueur essaye de forger quelque chose qu'il ne peut pas
-procedure nePeutPasForgerIHM();
+procedure nePeutPasForgerIHM(craft : typeCraft);
 // Procédure qui s'affiche lorsque le joueur a crafté un objet
 procedure afficherMessageCraftIHM(nomObjet : string);
 
@@ -42,11 +42,36 @@ begin
 end;
 
 // Procédure qui s'affiche lorsque le joueur essaye de forger quelque chose qu'il ne peut pas
-procedure nePeutPasForgerIHM();
+procedure nePeutPasForgerIHM(craft : typeCraft);
+var
+  itemsManquants : string;
+  listeItemsManquants : array of string;
 begin
-  dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(44,14);write('Vous ne pouvez pas forger ceci');
-  deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
+  itemsManquants := '';
+  // On essaye de trouver ce qu'il mangue au joueur pour crafter l'objet
+  if (getJoueur.itemsPossedes[craft.Item1] < craft.quantiteItem1) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem1 - getJoueur.itemsPossedes[craft.quantiteItem1]) + 'x ' + itemsDeCraftsDisponibles[craft.item1].nom ;
+  if (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem2 - getJoueur.itemsPossedes[craft.quantiteItem2]) + 'x ' + itemsDeCraftsDisponibles[craft.item2].nom ;
+  if (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem3 - getJoueur.itemsPossedes[craft.quantiteItem3]) + 'x ' + itemsDeCraftsDisponibles[craft.item3].nom ;
+  if (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem4 - getJoueur.itemsPossedes[craft.quantiteItem4]) + 'x ' + itemsDeCraftsDisponibles[craft.item4].nom ;
+  // On retire la première virgule
+  itemsManquants := itemsManquants.substring(1);
+
+  dessinerCadreXY(20,12,100,18,double,White,Black);
+  deplacerCurseurXY(44,13);write('Vous ne pouvez pas forger ceci');
+  // Si les items qui manques tiennent sur une ligne alors on laisse sur une ligne
+  //if length(itemsManquants)< 50 then
+  //begin
+    deplacerCurseurXY(50-(length(itemsManquants) div 2),14);write('Il vous manque : ',itemsManquants);
+  //end
+  // Sinon on affiche sur deux lignes en reprenant la liste d'items
+  //else
+  //begin
+  //  listeItemsManquants := itemsManquants.split(',');
+  //  // On affiche les deux premiers sur une ligne puis les 3 suivants sur la deuxieme ligne
+  //  deplacerCurseurXY(10-(length(listeItemsManquants[0]) + length(listeItemsManquants[1]),14);
+  //  write ('Il vous manque : ', listeItemsManquants[0] ,', ', listeItemsManquants[1],',');
+  //end;
+  deplacerCurseurXY(42,17);write('Appuyez sur entrée pour continuer ');
   readln;
 end;
 

@@ -19,9 +19,9 @@ implementation
 uses monsterHunterVille, monsterHunterJoueur;
 
 // Procédure que l'on appelle si le joueur essaye de forger quelque chose qu'il ne peut pas forger
-procedure nePeutPasForger(forgeDeRetour : string);
+procedure nePeutPasForger(forgeDeRetour : string; craft : typeCraft);
 begin
-  nePeutPasForgerIHM();
+  nePeutPasForgerIHM(craft);
   forge(forgeDeRetour);
 end;
 
@@ -134,7 +134,7 @@ begin
     end;
     // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
     if peutCrafterArmure(positionArmureChoisie) then forgerArmure(positionArmureChoisie)
-    else nePeutPasForger(intToStr(ord(piece) +2));
+    else nePeutPasForger(intToStr(ord(piece) +2),craftsArmuresDisponibles[positionArmureChoisie]);
 
 
   end
@@ -252,7 +252,7 @@ begin
     end;
     // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
     if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie)
-    else nePeutPasForger('1');
+    else nePeutPasForger('1',craftsArmesDisponibles[positionArmeChoisie]);
 
 
   end

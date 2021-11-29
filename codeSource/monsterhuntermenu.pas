@@ -60,10 +60,12 @@ end;
 // Initialisation du jeu (remplissage des variables avec les données)
 procedure initialisationJeu();
 begin
+  Randomize;
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
   remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
   remplirCraftArmuresDisponibles('fabrication/craftArmures.csv');
+  remplirItemsDeCraftDisponibles('fabrication/itemsDeCraft.csv');
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
   menu();
 end;

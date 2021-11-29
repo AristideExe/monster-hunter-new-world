@@ -7,7 +7,9 @@ unit monsterHunterCombatIHM;
 interface
 
 uses
-  Classes, SysUtils, GestionEcran, monsterHunterJoueur, monsterHunterMonstre, monsterHunterGestionCombatMonstre, monsterHunterGestionCombatJoueur;
+  Classes, SysUtils, GestionEcran, monsterHunterJoueur, monsterHunterMonstre, monsterHunterGestionCombatMonstre;
+
+// ------------------------------------------ FONCTIONS ET PROCEDURES --------------------------------------
 
 //Choix de la difficulté de l'éxpédition
 function menuChoixCombatIHM() : string;
@@ -24,9 +26,15 @@ function Difficulte2IHM() : string;
 //Interface de combat Difficulté 1
 function Difficulte1IHM() : string;
 
+//Procedure créant le cadre pour les options de combats
+procedure cadreCombatIHM(mot: string);
+
+//procedure qui affiche les loots du monstre vaincu
+procedure lootMonstreMortIHM (quantite:typeLootMonstre);
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
-uses monsterHunterCombat;
+uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
 
 //Choix de la difficulté de l'éxpédition
 function menuChoixCombatIHM() : string;
@@ -63,6 +71,83 @@ begin
 end;
 
 //-------------------------------------------------Interface combat-------------------------------------------------
+
+//Procédure qui affiche les stats du monstre
+procedure afficherStatsMonstreIHM();
+var
+  couleurVie : Byte;
+  ratioPV : Real;
+
+begin
+     ratioPV:= monstreCombat.vie  / getMonstreCombatPVMax();                   //On initialise la ratio PV courants/pv Max
+
+     //On change la couleur de la barre de vie en fonction des pv restants
+     if ratioPV >= 0.75 then couleurVie:= Green               //Couleur vert
+     else if ratioPV >= 0.5 then couleurVie := LightGreen     //Couleur vert clair
+     else if ratioPV >= 0.25 then couleurVie:= Yellow         //Couleur Jaune
+     else if ratioPV >= 0 then couleurVie:= red;              //Couleur rouge
+
+     //Indicateurs d'une barre de vie pleine
+     couleurTexte(DarkGray);
+     deplacerCurseurXY(71,26); write('▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒');
+     deplacerCurseurXY(71,27); write('▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒');
+
+     //On regarde le ratio de pv pour gérer les 2 barres de vie
+     if (ratioPV <= 0.5) and (ratioPV > 0) then
+     begin
+        dessinerCadreXY(71,26,round(71+40*(ratioPV)*2),26,simple,couleurVie,couleurVie);                //Première partie de la barre de vie du monstre
+     end
+
+     else if (ratioPV > 0.5) then
+     begin
+        dessinerCadreXY(71,26,111,26,simple,couleurVie,couleurVie);                     //Première partie de la barre de vie du monstre
+        dessinerCadreXY(71,27,round(71+40*(ratioPV-0.5)*2),27,simple,couleurVie,couleurVie);                //Deuxième partie de sa vie
+     end;
+
+     couleurTexte(White);         //On réinitialise les paramètres de couleur
+     couleurFond(Black);          //On réinitialise les paramètres de couleur
+
+     deplacerCurseurXY(115,26);                                       //115,26
+     write('hp : ',monstreCombat.vie,' / ',getMonstreCombatPVMax());
+
+end;
+
+//Procédure qui affiche les stats du Joueur
+procedure afficherStatsJoueurIHM();
+var
+  couleurVie : Byte;
+  ratioPV : Real;
+  pvMax : integer;
+
+begin
+     if round(getJoueur().vie) > 100 then pvMax := 150
+     else pvMax:=100;
+
+     ratioPV:= round(getJoueur().vie)  / pvMax;                      //On initialise la ratio PV courants/pv Max
+
+     //On change la couleur de la barre de vie en fonction des pv restants
+     if ratioPV > 1 then couleurVie:= Blue                    //couleur bleu (si le joueur a un buff pv)
+     else if ratioPV >= 0.75 then couleurVie:= Green          //Couleur vert
+     else if ratioPV >= 0.5 then couleurVie := LightGreen     //Couleur vert clair
+     else if ratioPV >= 0.25 then couleurVie:= Yellow         //Couleur Jaune
+     else if ratioPV >= 0 then couleurVie:= red;              //Couleur rouge
+
+     //Indicateurs d'une barre de vie pleine
+     couleurTexte(DarkGray);
+     deplacerCurseurXY(71,35); write('▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒');
+
+     //On regarde le ratio de pv pour gérer la barre de vie
+     if (ratioPV > 0) and (ratioPV <= 1) then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie)      //Barre de vie du Joeur
+     else if ratioPV > 1 then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie);                       //Barre de vie du Joeur si il possède un buff d pv
+
+     couleurTexte(White);         //On réinitialise les paramètres de couleur
+     couleurFond(Black);          //On réinitialise les paramètres de couleur
+
+     deplacerCurseurXY(115,35);                                       //115,26
+     write('hp : ',round(getJoueur().vie),' / ',pvMax);
+
+end;
+
 //Procedure créant le cadre pour les options de combats
 procedure cadreCombatIHM(mot: string);
 begin
@@ -104,20 +189,6 @@ begin
 
 end;
 
-//Procédure qui affiche les stats du monstre
-procedure afficherStatsMonstreIHM();
-begin
-     dessinerCadreXY(71,26,111,27,simple,Green,Green);                //Première partie d ela barre de vie du monstre
-     dessinerCadreXY(71,26,111,27,simple,Green,Green);                //Deuxième partie de sa vie
-
-     couleurTexte(White);
-     couleurFond(Black);
-
-     deplacerCurseurXY(115,26);                                       //115,26
-     write('hp : ',getMonstreCombatPVMax(),' /▒ ',monstreCombat.vie);
-
-end;
-
 //Procedure créant le cadre pour les infos du monstre
 procedure infoMonstreIHM(nom: string);
 begin
@@ -140,6 +211,7 @@ begin
      couleurTexte(15);//Blanc
      deplacerCurseurXY(84-(length(nom)div 2),32);
      write(nom);
+     afficherStatsJoueurIHM();
 end;
 
 //Affichage du Versus
@@ -179,7 +251,7 @@ end;
 
 //-------------------------------------------------Difficulté 4-------------------------------------------------
 
-//Fond d'ambiance Volcanique
+//Fond d'ambiance de la difficulté 4
 procedure decor4IHM();
 begin
      effacerEcran();
@@ -206,36 +278,108 @@ begin
      couleurTexte(15);//Blanc
 
      spawnMonstreIHM();
-     interfaceCombatIHM();
 end;
 
 //Interface de combat Difficulté 4
 function Difficulte4IHM() : string;
 begin
-     decor4IHM();                 //Apelle la procédure d'ambiance volcanique
-     readln(Difficulte4IHM);
-
+     decor4IHM();                                   //Apelle la procédure d'ambiance volcanique
+     Difficulte4IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
 end;
 
 
 //-------------------------------------------------Difficulté 3-------------------------------------------------
+
+//Fond d'ambiance de la difficulté 3
+procedure decor3IHM();
+begin
+     effacerEcran();
+     changerTailleConsole(140,41);
+
+     //Ton décor
+
+     spawnMonstreIHM();
+end;
+
 //Interface de combat Difficulté 3
 function Difficulte3IHM() : string;
 begin
-
+     decor3IHM();
+     Difficulte3IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
 end;
 
 //-------------------------------------------------Difficulté 2-------------------------------------------------
+
+//Fond d'ambiance de la difficulté 2
+procedure decor2IHM();
+begin
+     effacerEcran();
+     changerTailleConsole(140,41);
+
+     //Ton décor
+
+     spawnMonstreIHM();
+end;
+
 //Interface de combat Difficulté 2
 function Difficulte2IHM() : string;
 begin
+     decor2IHM();
+     Difficulte2IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
 
 end;
 
 //-------------------------------------------------Difficulté 1-------------------------------------------------
+
+//Fond d'ambiance de la difficulté 1
+procedure decor1IHM();
+begin
+     effacerEcran();
+     changerTailleConsole(140,41);
+
+     //Ton décor
+
+     spawnMonstreIHM();
+end;
+
 //Interface de combat Difficulté 1
 function Difficulte1IHM() : string;
 begin
+     decor1IHM();
+     Difficulte1IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
+
+end;
+
+//-------------------------------------------------Autre-------------------------------------------------
+
+//procedure qui affiche les loots du monstre vaincu
+procedure lootMonstreMortIHM (quantite : typeLootMonstre);
+begin
+     //On affiche le loot drop par le monstre
+     cadreCombatIHM('Loot');
+     deplacerCurseurXY(70-(length('Bravo, vous venez de vaincre un(e) ' + getMonstreCombat.nom + ' !') div 2),24);
+     write('Bravo, vous venez de vaincre un(e) ' + getMonstreCombat.nom + ' !');
+     deplacerCurseurXY(70-(length('En dépeçant le monstre vous avez obtenu :') div 2),25);
+     write('En dépeçant le monstre vous avez obtenu :');
+
+     //Affichage des loots
+     deplacerCurseurXY(70-(length(IntToStr(quantite[0]) + ' ' + getMonstreCombat.loot[0].nomLoot) div 2),27);
+     write(IntToStr(quantite[0]) + ' ' + getMonstreCombat.loot[0].nomLoot);
+     deplacerCurseurXY(70-(length(IntToStr(quantite[1]) + ' ' + getMonstreCombat.loot[1].nomLoot) div 2),28);
+     write(IntToStr(quantite[1]) + ' ' + getMonstreCombat.loot[1].nomLoot);
+     deplacerCurseurXY(70-(length(IntToStr(quantite[2]) + ' ' + getMonstreCombat.loot[2].nomLoot) div 2),29);
+     write(IntToStr(quantite[2]) + ' ' + getMonstreCombat.loot[2].nomLoot);
+
+     //Indiaction avant de retourner en ville
+     deplacerCurseurXY(70-(length('Appyez sur entree pour retourner en ville') div 2),34);
+     Write('Appuyez sur entree pour retourner en ville');
+
+     //On attends qu'il appuie sur entree
+     readln;
+
+     //On change la taille de la fenêtre et on retourne en ville
+     changerTailleConsole(120,30);
+
 
 end;
 

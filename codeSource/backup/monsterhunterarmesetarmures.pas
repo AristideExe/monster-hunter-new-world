@@ -11,7 +11,7 @@ uses
 // ------------------------------------------------- CONSTANTES ---------------------------------------------
 const
   NOMBRE_ARMURES_JEU = 100;
-  NOMBRE_ARMES_JEU = 17;
+  NOMBRE_ARMES_JEU = 30;
   NOMBRE_CRAFT_ARMES_JEU = 17;
   NOMBRE_CRAFT_ARMURES_JEU = 30;
   NOMBRE_ITEM_DE_CRAFT_JEU = 23;
@@ -58,6 +58,12 @@ type
              item5 : integer;
              quantiteItem5 : integer;
   end;
+  typeItemDeCraft = record
+             nom : string;
+             dropMinimum : integer;
+             dropMaximum : integer;
+             prixVente : integer;
+  end;
 
 
   // ------------------------------------------------- VARIABLES ---------------------------------------------
@@ -66,6 +72,7 @@ var
   armesDisponibles : array[0..NOMBRE_ARMES_JEU-1] of typeArme;
   craftsArmesDisponibles : array[0..NOMBRE_CRAFT_ARMES_JEU-1] of typeCraft;
   craftsArmuresDisponibles : array[0..NOMBRE_CRAFT_ARMURES_JEU-1] of typeCraft;
+  itemsDeCraftsDisponibles : array[0..NOMBRE_ITEM_DE_CRAFT_JEU-1] of typeItemDeCraft;
 
 
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
@@ -79,6 +86,8 @@ function getPiecesPossedees(piece : typePieceArmure) : arrayPieceArmure;
 procedure remplirArmuresDisponibles(fichier : string);
 // Procédure qui remplie la variable des armes disponibles depuis le fichier csv
 procedure remplirArmesDisponibles(fichier : string);
+// Procédure qui remplie la variable des items de craft disponibles depuis le fichier csv
+procedure remplirItemsDeCraftDisponibles(fichier : string);
 // Procédure qui remplie la variable des crafts disponibles depuis le fichier csv
 procedure remplirCraftArmesDisponibles(fichier : string);
 // Procédure qui remplie la variable des crafts d'armures disponibles depuis le fichier csv
@@ -265,6 +274,34 @@ begin
         // On remplie la liste des crafts disponibles avec tous les champs du csv
         modifierCraft(craftsArmuresDisponibles[compteur],strToInt(listeLigne[0]),strToInt(listeLigne[1]),strToInt(listeLigne[2]),strToInt(listeLigne[3]),strToInt(listeLigne[4]),
         strToInt(listeLigne[5]),strToInt(listeLigne[6]),strToInt(listeLigne[7]),strToInt(listeLigne[8]) ,strToInt(listeLigne[9]),strToInt(listeLigne[10]));
+        compteur := compteur +1;
+  until EOF(fichierCraft);
+end;
+
+// Procédure qui remplie la variable des items de craft disponibles depuis le fichier csv
+procedure remplirItemsDeCraftDisponibles(fichier : string);
+var
+  fichierItem : TextFile;
+  ligne : string;
+  listeLigne : array of string;
+  compteur : integer;
+begin
+  assignFile(fichierItem, fichier);
+  reset(fichierItem);
+  // Lecture de la première ligne du fichier qui sert d'entête
+  readln(fichierItem);
+  compteur := 0;
+  // On lit chaque ligne jusqu'à la fin du fichier
+  repeat
+        readln(fichierItem,ligne);
+        // On transforme la ligne en une liste
+        listeLigne:= ligne.Split(';'); //ligne.Split(';'); //splitString(ligne,';');
+
+        // On remplie la liste des items disponibles avec tous les champs du csv
+        itemsDeCraftsDisponibles[compteur].nom := listeLigne[0];
+        itemsDeCraftsDisponibles[compteur].dropMinimum := strToInt(listeLigne[1]);
+        itemsDeCraftsDisponibles[compteur].dropMaximum := strToInt(listeLigne[2]);
+        itemsDeCraftsDisponibles[compteur].prixVente := strToInt(listeLigne[3]);
         compteur := compteur +1;
   until EOF(fichierCraft);
 end;
