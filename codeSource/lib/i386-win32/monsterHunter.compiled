@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\FPC\3.2.2\bin\i386-Win32\fpc.exe" Date="1387231527"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\arist\OneDrive - Université de Bourgogne\Bureau\SAE 01\monsterHunter\codeSource\lib\i386-win32&quot; &quot;-FuC:\Users\arist\OneDrive - Université de Bourgogne\Bureau\SAE 01\monsterHunter\codeSource\&quot; &quot;-FUC:\Users\arist\OneDrive - Université de Bourgogne\Bureau\SAE 01\monsterHunter\codeSource\lib\i386-win32\&quot; &quot;-FEC:\Users\arist\OneDrive - Université de Bourgogne\Bureau\SAE 01\monsterHunter\codeSource\&quot; &quot;-oC:\Users\arist\OneDrive - Université de Bourgogne\Bureau\SAE 01\monsterHunter\codeSource\monsterHunter.exe&quot; monsterHunter.lpr"/>
+</CONFIG>
