@@ -32,6 +32,9 @@ uses
   //Procédure qui met des dégats au monstre
   procedure degatsCombatMonstre(degats : integer);
 
+  //Procedure qui donne les loots une fois le monstre tué
+  function lootMortMonstre ():typeLootMonstre;
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 
@@ -73,8 +76,7 @@ var
    quantiteLoot1 : integer;
    quantiteLoot2 : integer;
    quantiteLoot3 : integer;
-   i : integer;
-   numMonstre : integer;
+
 
 begin
   Randomize;
@@ -83,16 +85,11 @@ begin
   quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum) + getMonstreCombat.loot[1].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
   quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum) + getMonstreCombat.loot[2].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
 
-  //On récupère le numéro du monstre
-  for i := 0 to length(monstres) do
-      if getMonstreCombat.nom = monstres[i].nom then numMonstre:=i;
-
   //On donne le loot au joueur
   ajouterItemJoueur(getMonstreCombat.loot[0].numeroLoot,quantiteLoot1);
-  ajouterItemJoueur(getMonstreCombat.loot[0].numeroLoot,quantiteLoot1);
-  ajouterItemJoueur(getMonstreCombat.loot[0].numeroLoot,quantiteLoot1);
-  //joueur.itemsPossedes[numMonstre + 2 + 8] := joueur.itemsPossedes[numMonstre + 2 + 8] + quantiteLoot2;     //Loot 2
-  //joueur.itemsPossedes[numMonstre + 2 + 16] := joueur.itemsPossedes[numMonstre + 2 + 16] + quantiteLoot3;     //Loot 3
+  ajouterItemJoueur(getMonstreCombat.loot[1].numeroLoot,quantiteLoot2);
+  ajouterItemJoueur(getMonstreCombat.loot[2].numeroLoot,quantiteLoot3);
+
 
   //On affiche le tout
   lootMortMonstre[0] := quantiteLoot1;
@@ -111,10 +108,6 @@ begin
     if (getMonstreCombat.vie - degats) < 0 then
     begin
       monstreCombat.vie := 0; //On tue le monstre
-      lootMonstreMortIHM(lootMortMonstre);
-
-      //On retourne en ville
-      ville();
 
     end
 

@@ -30,7 +30,14 @@ begin
     degatsCombatMonstre(round(getJoueur().armePortee.valeurAttaque)); //On inflige des dégats équivalents a l'attaque de l'arme
 
     if getMonstreCombat.vie <> 0 then
-       combatDifficulte(difficulte);
+       combatDifficulte(difficulte)
+
+    else
+      begin
+        lootMonstreMortIHM(lootMortMonstre);
+        //On retourne en ville
+        ville();
+      end;
   end
 
   else combatDifficulte(difficulte);
