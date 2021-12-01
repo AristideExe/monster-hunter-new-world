@@ -50,6 +50,8 @@ procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 // Procédure pour mettre une armure dans l'inventaire du personnage
 procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
+// Procédure pour retirer de l'argent au joueur
+procedure retirerArgentJoueur(quantite : integer);
 
 
 
@@ -88,11 +90,6 @@ begin
 
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
-  joueur.armuresPossedees[0] := armuresDisponibles[0];
-  joueur.armuresPossedees[1] := armuresDisponibles[1];
-  joueur.armuresPossedees[2] := armuresDisponibles[2];
-  joueur.armuresPossedees[3] := armuresDisponibles[3];
-  joueur.armuresPossedees[4] := armuresDisponibles[4];
 
   // On lui donne une épe de base pour commencer le jeu
   joueur.armePortee := armesDisponibles[3];

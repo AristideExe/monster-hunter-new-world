@@ -35,9 +35,10 @@
         <Filename Value="monsterhunterjoueur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterJoueur"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="21"/>
-        <CursorPos X="51" Y="54"/>
+        <TopLine Value="75"/>
+        <CursorPos X="42" Y="95"/>
         <UsageCount Value="116"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -105,8 +106,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterMarchand"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="50"/>
-        <CursorPos X="85" Y="52"/>
+        <TopLine Value="10"/>
+        <CursorPos X="29" Y="43"/>
         <UsageCount Value="116"/>
         <Loaded Value="True"/>
       </Unit12>
@@ -129,10 +130,9 @@
         <Filename Value="monsterhunterchambreihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterChambreIHM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="186"/>
-        <CursorPos X="78" Y="220"/>
+        <CursorPos X="60" Y="200"/>
         <UsageCount Value="116"/>
         <Loaded Value="True"/>
       </Unit15>
@@ -183,14 +183,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="98"/>
         <CursorPos X="34" Y="119"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit21>
       <Unit22>
         <Filename Value="..\..\..\..\Documents\Test\monsterHunter\codeSource\monsterhuntermarchand.pas"/>
         <UnitName Value="monsterHunterMarchand"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="24" Y="24"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit22>
       <Unit23>
         <Filename Value="..\..\..\..\Documents\Test\monsterHunter\codeSource\monsterhunterville.pas"/>
@@ -198,14 +198,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="5"/>
         <CursorPos X="13" Y="31"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit23>
       <Unit24>
         <Filename Value="..\..\..\..\Desktop\Test marchand\monsterHunter-0ed63f9d0ff329d12c5c3d60d6e94f7a7f1158a7\monsterHunterNewWorld\codeSource\monsterhuntergestioncombatmonstre.pas"/>
         <UnitName Value="monsterHunterGestionCombatMonstre"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="90"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
       </Unit24>
     </Units>
     <JumpHistory Count="9" HistoryIndex="8">
