@@ -52,6 +52,7 @@ begin
   deplacerCurseurXY(44,11);write('Vous ne pouvez pas forger ceci');
 
   // On essaye de trouver ce qu'il mangue au joueur pour crafter l'objet
+
   // On affiche tous les items manquants ligne par ligne
   deplacerCurseurXY(50,12);write('Il vous manque : ');
   // Item 1
@@ -80,9 +81,6 @@ begin
     deplacerCurseurXY(50,compteurItemsManquants + 13); write('- ', (craft.quantiteItem5 - getJoueur.itemsPossedes[craft.Item5]), 'x ' ,itemsDeCraftsDisponibles[craft.item5].nom);
     compteurItemsManquants := compteurItemsManquants + 1;
   end;
-
-
-
 
 
   deplacerCurseurXY(42,19);write('Appuyez sur entrée pour continuer ');
