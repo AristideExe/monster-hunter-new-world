@@ -44,6 +44,8 @@ function getJoueur() : typePersonnage;
 procedure initialisationPersonnage();
 // Procédure pour retirer des items de craft de l'inventaire du joueur
 procedure retirerItem(positionItem, nombreItem : integer);
+// Procédure pour donner des items au joueur
+procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 // Procédure pour mettre une arme dans l'inventaire du personnage
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 // Procédure pour mettre une armure dans l'inventaire du personnage
@@ -93,7 +95,7 @@ begin
   joueur.armuresPossedees[4] := armuresDisponibles[4];
 
   // On lui donne une épe de base pour commencer le jeu
-  joueur.armePortee := armesDisponibles[2];
+  joueur.armePortee := armesDisponibles[3];
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
@@ -124,6 +126,12 @@ end;
 procedure retirerItem(positionItem, nombreItem : integer);
 begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] - nombreItem;
+end;
+
+// Procédure pour donner des items au joueur
+procedure ajouterItem(positionItem, nombreItem : integer);
+begin
+  joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] + nombreItem;
 end;
 
 // Procédure pour mettre une arme dans l'inventaire du personnage

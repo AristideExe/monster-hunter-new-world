@@ -88,9 +88,11 @@ begin
       if getMonstreCombat.nom = monstres[i].nom then numMonstre:=i;
 
   //On donne le loot au joueur
-  joueur.itemsPossedes[numMonstre + 2] := joueur.itemsPossedes[numMonstre + 2] + quantiteLoot1;             //Loot 1
-  joueur.itemsPossedes[numMonstre + 2 + 8] := joueur.itemsPossedes[numMonstre + 2 + 8] + quantiteLoot2;     //Loot 2
-  joueur.itemsPossedes[numMonstre + 2 + 16] := joueur.itemsPossedes[numMonstre + 2 + 16] + quantiteLoot3;     //Loot 3
+  ajouterItemJoueur(getMonstreCombat.loot[0].numeroLoot,quantiteLoot1);
+  ajouterItemJoueur(getMonstreCombat.loot[1].numeroLoot,quantiteLoot2);
+  ajouterItemJoueur(getMonstreCombat.loot[02].numeroLoot,quantiteLoot3);
+  //joueur.itemsPossedes[numMonstre + 2 + 8] := joueur.itemsPossedes[numMonstre + 2 + 8] + quantiteLoot2;     //Loot 2
+  //joueur.itemsPossedes[numMonstre + 2 + 16] := joueur.itemsPossedes[numMonstre + 2 + 16] + quantiteLoot3;     //Loot 3
 
   //On affiche le tout
   lootMortMonstre[0] := quantiteLoot1;

@@ -60,8 +60,6 @@ type
   end;
   typeItemDeCraft = record
              nom : string;
-             dropMinimum : integer;
-             dropMaximum : integer;
              prixVente : integer;
   end;
 
@@ -299,9 +297,7 @@ begin
 
         // On remplie la liste des items disponibles avec tous les champs du csv
         itemsDeCraftsDisponibles[compteur].nom := listeLigne[0];
-        itemsDeCraftsDisponibles[compteur].dropMinimum := strToInt(listeLigne[1]);
-        itemsDeCraftsDisponibles[compteur].dropMaximum := strToInt(listeLigne[2]);
-        itemsDeCraftsDisponibles[compteur].prixVente := strToInt(listeLigne[3]);
+        itemsDeCraftsDisponibles[compteur].prixVente := strToInt(listeLigne[1]);
         compteur := compteur +1;
   until EOF(fichierItem);
 end;

@@ -7,7 +7,7 @@ unit monsterHunterCombatIHM;
 interface
 
 uses
-  Classes, SysUtils, GestionEcran, monsterHunterJoueur, monsterHunterMonstre, monsterHunterGestionCombatMonstre;
+  Classes, SysUtils, GestionEcran, monsterHunterJoueur, monsterHunterMonstre, monsterHunterGestionCombatMonstre, monsterHunterArmesEtArmures;
 
 // ------------------------------------------ FONCTIONS ET PROCEDURES --------------------------------------
 
@@ -363,12 +363,12 @@ begin
      write('En dépeçant le monstre vous avez obtenu :');
 
      //Affichage des loots
-     deplacerCurseurXY(70-(length(IntToStr(quantite[0]) + ' ' + getMonstreCombat.loot[0].nomLoot) div 2),27);
-     write(IntToStr(quantite[0]) + ' ' + getMonstreCombat.loot[0].nomLoot);
-     deplacerCurseurXY(70-(length(IntToStr(quantite[1]) + ' ' + getMonstreCombat.loot[1].nomLoot) div 2),28);
-     write(IntToStr(quantite[1]) + ' ' + getMonstreCombat.loot[1].nomLoot);
-     deplacerCurseurXY(70-(length(IntToStr(quantite[2]) + ' ' + getMonstreCombat.loot[2].nomLoot) div 2),29);
-     write(IntToStr(quantite[2]) + ' ' + getMonstreCombat.loot[2].nomLoot);
+     deplacerCurseurXY(70-(length(IntToStr(quantite[0]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[0].numeroLoot].nom) div 2),27);
+     write(IntToStr(quantite[0]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[0].numeroLoot].nom);
+     deplacerCurseurXY(70-(length(IntToStr(quantite[1]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[1].numeroLoot].nom) div 2),28);
+     write(IntToStr(quantite[1]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[1].numeroLoot].nom);
+     deplacerCurseurXY(70-(length(IntToStr(quantite[2]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[2].numeroLoot].nom) div 2),29);
+     write(IntToStr(quantite[2]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[2].numeroLoot].nom);
 
      //Indiaction avant de retourner en ville
      deplacerCurseurXY(70-(length('Appyez sur entree pour retourner en ville') div 2),34);

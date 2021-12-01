@@ -118,7 +118,7 @@ begin
         for i:=0 to 2 do
         begin
 
-             loot[i].numeroLoot := strToInt(listeLigne[6+3*i]);                    //Nom du loot
+             loot[i].numeroLoot := listeLigne[6+3*i];                    //Nom du loot
              loot[i].quantiteMinimum := strToInt(listeLigne[7+3*i]);  //Quantité de drop minimum du loot
              loot[i].quantiteMaximum := strToInt(listeLigne[8+3*i]); //Quantité de drop maximum du loot
 

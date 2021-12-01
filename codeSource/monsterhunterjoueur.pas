@@ -44,6 +44,8 @@ function getJoueur() : typePersonnage;
 procedure initialisationPersonnage();
 // Procédure pour retirer des items de craft de l'inventaire du joueur
 procedure retirerItem(positionItem, nombreItem : integer);
+// Procédure pour donner des items au joueur
+procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 // Procédure pour mettre une arme dans l'inventaire du personnage
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 // Procédure pour mettre une armure dans l'inventaire du personnage
@@ -124,6 +126,12 @@ end;
 procedure retirerItem(positionItem, nombreItem : integer);
 begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] - nombreItem;
+end;
+
+// Procédure pour donner des items au joueur
+procedure ajouterItemJoueur(positionItem, nombreItem : integer);
+begin
+  joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] + nombreItem;
 end;
 
 // Procédure pour mettre une arme dans l'inventaire du personnage
