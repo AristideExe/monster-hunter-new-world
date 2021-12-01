@@ -93,7 +93,7 @@ begin
   joueur.armuresPossedees[4] := armuresDisponibles[4];
 
   // On lui donne une épe de base pour commencer le jeu
-  joueur.armePortee := armesDisponibles[3];
+  joueur.armePortee := armesDisponibles[2];
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide

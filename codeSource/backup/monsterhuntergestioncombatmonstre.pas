@@ -96,10 +96,6 @@ begin
   lootMortMonstre[0] := quantiteLoot1;
   lootMortMonstre[1] := quantiteLoot2;
   lootMortMonstre[2] := quantiteLoot3;
-  quantiteLoot1,quantiteLoot2,quantiteLoot3
-
-
-
 
 end;
 

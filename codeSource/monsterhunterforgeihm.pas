@@ -44,34 +44,48 @@ end;
 // Procédure qui s'affiche lorsque le joueur essaye de forger quelque chose qu'il ne peut pas
 procedure nePeutPasForgerIHM(craft : typeCraft);
 var
-  itemsManquants : string;
-  listeItemsManquants : array of string;
+  compteurItemsManquants : integer;
 begin
-  itemsManquants := '';
-  // On essaye de trouver ce qu'il mangue au joueur pour crafter l'objet
-  if (getJoueur.itemsPossedes[craft.Item1] < craft.quantiteItem1) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem1 - getJoueur.itemsPossedes[craft.quantiteItem1]) + 'x ' + itemsDeCraftsDisponibles[craft.item1].nom ;
-  if (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem2 - getJoueur.itemsPossedes[craft.quantiteItem2]) + 'x ' + itemsDeCraftsDisponibles[craft.item2].nom ;
-  if (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem3 - getJoueur.itemsPossedes[craft.quantiteItem3]) + 'x ' + itemsDeCraftsDisponibles[craft.item3].nom ;
-  if (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem4 - getJoueur.itemsPossedes[craft.quantiteItem4]) + 'x ' + itemsDeCraftsDisponibles[craft.item4].nom ;
-  // On retire la première virgule
-  itemsManquants := itemsManquants.substring(1);
+  compteurItemsManquants := 0;
 
-  dessinerCadreXY(20,12,100,18,double,White,Black);
-  deplacerCurseurXY(44,13);write('Vous ne pouvez pas forger ceci');
-  // Si les items qui manques tiennent sur une ligne alors on laisse sur une ligne
-  //if length(itemsManquants)< 50 then
-  //begin
-    deplacerCurseurXY(50-(length(itemsManquants) div 2),14);write('Il vous manque : ',itemsManquants);
-  //end
-  // Sinon on affiche sur deux lignes en reprenant la liste d'items
-  //else
-  //begin
-  //  listeItemsManquants := itemsManquants.split(',');
-  //  // On affiche les deux premiers sur une ligne puis les 3 suivants sur la deuxieme ligne
-  //  deplacerCurseurXY(10-(length(listeItemsManquants[0]) + length(listeItemsManquants[1]),14);
-  //  write ('Il vous manque : ', listeItemsManquants[0] ,', ', listeItemsManquants[1],',');
-  //end;
-  deplacerCurseurXY(42,17);write('Appuyez sur entrée pour continuer ');
+  dessinerCadreXY(20,10,100,20,double,White,Black);
+  deplacerCurseurXY(44,11);write('Vous ne pouvez pas forger ceci');
+
+  // On essaye de trouver ce qu'il mangue au joueur pour crafter l'objet
+  // On affiche tous les items manquants ligne par ligne
+  deplacerCurseurXY(50,12);write('Il vous manque : ');
+  // Item 1
+  if (getJoueur.itemsPossedes[craft.Item1] < craft.quantiteItem1) then
+  begin
+    deplacerCurseurXY(50,compteurItemsManquants + 13); write('- ', (craft.quantiteItem1 - getJoueur.itemsPossedes[craft.Item1]), 'x ' ,itemsDeCraftsDisponibles[craft.item1].nom);
+    compteurItemsManquants := compteurItemsManquants + 1;
+  end;
+  if (craft.item2 <> -1 ) and (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then
+  begin
+    deplacerCurseurXY(50,compteurItemsManquants + 13); write('- ', (craft.quantiteItem2 - getJoueur.itemsPossedes[craft.Item2]), 'x ' ,itemsDeCraftsDisponibles[craft.item2].nom);
+    compteurItemsManquants := compteurItemsManquants + 1;
+  end;
+  if (craft.item3 <> -1 ) and (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then
+  begin
+    deplacerCurseurXY(50,compteurItemsManquants + 13); write('- ', (craft.quantiteItem3 - getJoueur.itemsPossedes[craft.Item3]), 'x ' ,itemsDeCraftsDisponibles[craft.item3].nom);
+    compteurItemsManquants := compteurItemsManquants + 1;
+  end;
+  if (craft.item4 <> -1 ) and (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then
+  begin
+    deplacerCurseurXY(50,compteurItemsManquants + 13); write('- ', (craft.quantiteItem4 - getJoueur.itemsPossedes[craft.Item4]), 'x ' ,itemsDeCraftsDisponibles[craft.item4].nom);
+    compteurItemsManquants := compteurItemsManquants + 1;
+  end;
+  if (craft.item5 <> -1 ) and (getJoueur.itemsPossedes[craft.Item5] < craft.quantiteItem5) then
+  begin
+    deplacerCurseurXY(50,compteurItemsManquants + 13); write('- ', (craft.quantiteItem5 - getJoueur.itemsPossedes[craft.Item5]), 'x ' ,itemsDeCraftsDisponibles[craft.item5].nom);
+    compteurItemsManquants := compteurItemsManquants + 1;
+  end;
+
+
+
+
+
+  deplacerCurseurXY(42,19);write('Appuyez sur entrée pour continuer ');
   readln;
 end;
 

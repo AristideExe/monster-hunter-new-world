@@ -144,7 +144,10 @@ var
   i : integer;
   choix : string;
 begin
-  choix := chambreIHM();
+  chambreIHM();
+
+
+  readln(choix);
   if choix = '0' then ville()
   else if choix = '1' then malle()
   else if choix = '2' then selectionArmureArmoire()
