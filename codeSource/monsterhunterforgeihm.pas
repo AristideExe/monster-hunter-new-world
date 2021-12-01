@@ -50,9 +50,9 @@ begin
   itemsManquants := '';
   // On essaye de trouver ce qu'il mangue au joueur pour crafter l'objet
   if (getJoueur.itemsPossedes[craft.Item1] < craft.quantiteItem1) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem1 - getJoueur.itemsPossedes[craft.quantiteItem1]) + 'x ' + itemsDeCraftsDisponibles[craft.item1].nom ;
-  if (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem2 - getJoueur.itemsPossedes[craft.quantiteItem2]) + 'x ' + itemsDeCraftsDisponibles[craft.item2].nom ;
-  if (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem3 - getJoueur.itemsPossedes[craft.quantiteItem3]) + 'x ' + itemsDeCraftsDisponibles[craft.item3].nom ;
-  if (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem4 - getJoueur.itemsPossedes[craft.quantiteItem4]) + 'x ' + itemsDeCraftsDisponibles[craft.item4].nom ;
+  if (craft.item2 <> -1 ) and (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem2 - getJoueur.itemsPossedes[craft.quantiteItem2]) + 'x ' + itemsDeCraftsDisponibles[craft.item2].nom ;
+  if (craft.item3 <> -1 ) and (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem3 - getJoueur.itemsPossedes[craft.quantiteItem3]) + 'x ' + itemsDeCraftsDisponibles[craft.item3].nom ;
+  if (craft.item4 <> -1) and (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem4 - getJoueur.itemsPossedes[craft.quantiteItem4]) + 'x ' + itemsDeCraftsDisponibles[craft.item4].nom ;
   // On retire la première virgule
   itemsManquants := itemsManquants.substring(1);
 
