@@ -144,7 +144,7 @@ begin
 
   couleurTexte(white);
 
-  if derniereLigne then deplacerCurseurXY(99, 28);
+  if derniereLigne then deplacerCurseurXY(100, 28);
 end;
 
 // Affiche l'entête des colonnes pour la forge des armes
@@ -166,7 +166,7 @@ end;
 procedure forgeIHM();
 begin
   effacerEcran();
-  CadrePrincipal('Forge : armes');
+  CadrePrincipal('Forge : sélectionnez un numéro pour forger l''objet ');
   deplacerCurseurXY(10,28); write(' 0/ Retourner au menu de sélection de la forge ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
@@ -196,7 +196,7 @@ begin
   deplacerCurseurXY(85,23); write('6/ Afficher les gants');
 
 
-  deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
+  deplacerCurseurXY(20,28); write(' 0/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
   deplacerCurseurXY(100,28);
 

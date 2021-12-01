@@ -16,6 +16,10 @@ function achatComposantsIHM() : string;
 procedure nePeutPasAcheterIHM();
 // Demande la quantité que souhaite acheter ou vendre le joueur
 function choisirQuantiteIHM() : string;
+procedure venteComposantsIHM();
+procedure enteteVenteComposantsIHM();
+// Affichage d'un composant dans la vente
+procedure afficherComposantIHM(compteurComposant, positionItem : integer);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -85,13 +89,13 @@ begin
   // Affichage du bois
   deplacerCurseurXY(10,7);write('1');
   deplacerCurseurXY(25,7); write('Bois');
-  deplacerCurseurXY(48,7); write('5 Simmonaie');
+  deplacerCurseurXY(48,7); write('5 Simonnaie');
   deplacerCurseurXY(80,7); write(getJoueur.itemsPossedes[positionBois]);
 
   // Affichage du fer
   deplacerCurseurXY(10,8);write('2');
   deplacerCurseurXY(25,8); write('Fer');
-  deplacerCurseurXY(48,8); write('15 Simmonaie');
+  deplacerCurseurXY(48,8); write('15 Simonnaie');
   deplacerCurseurXY(80,8); write(getJoueur.itemsPossedes[positionFer]);
 
   // Affichage des choix
@@ -99,6 +103,45 @@ begin
   deplacerCurseurXY(85,28); write(' Votre choix :   '); deplacerCurseurXY(100,28);
 
   readln(achatComposantsIHM);
+end;
+
+
+
+
+
+// ------------------------------------------------- VENTE DE COMPOSANTS -----------------------------------------------
+
+// Affichage du menu de vente de composants
+procedure venteComposantsIHM();
+begin
+  effacerEcran();
+  cadrePrincipal('Vente de composants');
+end;
+
+// Affichage de l'entête de vente de composants
+procedure enteteVenteComposantsIHM();
+begin
+  // Entête du numéro
+  deplacerCurseurXY(20,6);write('Numéro');
+  // Entête du nom
+  deplacerCurseurXY(35,6); write('Nom');
+  // Entête du prix de vente
+  deplacerCurseurXY(56,6); write('Prix de vente');
+  // Entete de la quantité possédée
+  deplacerCurseurXY(75,6); write('Quantité possédée');
+end;
+
+// Affichage d'un composant dans la vente
+procedure afficherComposantIHM(compteurComposant, positionItem : integer);
+begin
+  // Entête du numéro
+  deplacerCurseurXY(20,compteurComposant + 7);write(compteurComposant);
+  // Entête du nom
+  deplacerCurseurXY(35,compteurComposant + 7); write(itemsDeCraftsDisponibles[positionItem].nom);
+  // Entête du prix de vente
+  deplacerCurseurXY(56,compteurComposant + 7); write(itemsDeCraftsDisponibles[positionItem].prixVente);
+  // Entete de la quantité possédée
+  deplacerCurseurXY(75,compteurComposant + 7); write(getJoueur.itemsPossedes[positionItem]);
 end;
 
 end.

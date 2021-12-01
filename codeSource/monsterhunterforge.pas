@@ -262,9 +262,6 @@ end;
 
 
 
-
-
-
 // ------------------------------------------------- FORGE -----------------------------------------------
 // Procédure qui appelle qui appelle soit la forge à armes soit celle à armures
 procedure forge(itemAAfficher : string);

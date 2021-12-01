@@ -252,7 +252,7 @@ begin
     end;
     // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
     if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie)
-    else nePeutPasForger('1',craftsArmesDisponibles[positionArmureChoisie]);
+    else nePeutPasForger('1',craftsArmesDisponibles[positionArmeChoisie]);
 
 
   end
@@ -261,7 +261,10 @@ begin
 end;
 
 
+procedure venteComposantsIHM();
+begin
 
+end;
 
 
 

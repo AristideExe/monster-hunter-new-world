@@ -86,6 +86,34 @@ begin
   else achatComposants();
 end;
 
+
+
+
+// Procédure pour vendre ses composants
+procedure venteComposants();
+var
+  compteurComposant : integer;
+  i :integer;
+begin
+  venteComposantsIHM();
+  enteteVenteComposantsIHM();
+
+  // On initialise le compteur des composants possédées en commançant à 1 (car l'affichage commence à 1)
+  compteurComposant := 1;
+  // On parcours tout l'inventaire de composants du joueur
+  for i:=0 to NOMBRE_ITEM_DE_CRAFT_JEU-1 do
+  begin
+    // Si le joueur possède au moins 1 exemplaire du composant on l'affiche
+    if (getJoueur.itemsPossedes[i] >= 1) then
+    begin
+         afficherComposantIHM(compteurComposant, i);
+         compteurComposant := compteurComposant +1;
+    end;
+  end;
+  readln;
+end;
+
+
 // ------------------------------------------------- MARCHAND -----------------------------------------------
 procedure marchand();
 var
@@ -94,6 +122,7 @@ begin
   choix := marchandIHM();
   if choix = '0' then ville()
   else if choix = '2' then achatComposants()
+  else if choix = '4' then venteComposants()
   else marchand();
 end;
 
