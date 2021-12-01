@@ -85,13 +85,13 @@ begin
   // Affichage du bois
   deplacerCurseurXY(10,7);write('1');
   deplacerCurseurXY(25,7); write('Bois');
-  deplacerCurseurXY(48,7); write('5 Simonnaie');
+  deplacerCurseurXY(48,7); write('5 Simmonaie');
   deplacerCurseurXY(80,7); write(getJoueur.itemsPossedes[positionBois]);
 
   // Affichage du fer
   deplacerCurseurXY(10,8);write('2');
   deplacerCurseurXY(25,8); write('Fer');
-  deplacerCurseurXY(48,8); write('15 Simonnaie');
+  deplacerCurseurXY(48,8); write('15 Simmonaie');
   deplacerCurseurXY(80,8); write(getJoueur.itemsPossedes[positionFer]);
 
   // Affichage des choix

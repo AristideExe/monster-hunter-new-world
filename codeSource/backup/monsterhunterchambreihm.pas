@@ -217,7 +217,7 @@ begin
 
 
   deplacerCurseurXY(7,28); write(' 0/ Retourner à la ville   1/ Ouvrir la malle  2/ Ouvrir l''armoire ');
-  deplacerCurseurXY(,28); write(' Votre choix :   '); deplacerCurseurXY(104,28);
+  deplacerCurseurXY(92,28); write(' Votre choix :   '); deplacerCurseurXY(106,28);
   readln(chambreIHM);
 end;
 

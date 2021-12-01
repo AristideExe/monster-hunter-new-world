@@ -50,6 +50,8 @@ procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 // Procédure pour mettre une armure dans l'inventaire du personnage
 procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
+// Procédure pour retirer de l'argent au joueur
+procedure retirerArgentJoueur(quantite : integer);
 
 
 
@@ -132,6 +134,12 @@ end;
 procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] + nombreItem;
+end;
+
+// Procédure pour retirer de l'argent au joueur
+procedure retirerArgentJoueur(quantite : integer);
+begin
+  joueur.argent := joueur.argent - quantite;
 end;
 
 // Procédure pour mettre une arme dans l'inventaire du personnage

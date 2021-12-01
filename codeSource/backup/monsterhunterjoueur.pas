@@ -129,9 +129,15 @@ begin
 end;
 
 // Procédure pour donner des items au joueur
-procedure ajouterItem(positionItem, nombreItem : integer);
+procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] + nombreItem;
+end;
+
+// Procédure pour retirer de l'argent au joueur
+procedure retirerArgentJoueur(quantite : integer);
+begin
+  joueur.argent := joueur.argent - quantite;
 end;
 
 // Procédure pour mettre une arme dans l'inventaire du personnage
