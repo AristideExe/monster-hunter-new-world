@@ -30,8 +30,6 @@ var
   positionArmureChoisie : integer;
 begin
   armoireIHM();
-  enteteAmoireIHM();
-
   // AFFICHAGE DES ARMURES POSSEDEES
   compteurArmure := 1;
   // On affiche toutes les armures qui sont la bonne pièce sauf celles dont le nom est 'NULL'
@@ -39,7 +37,7 @@ begin
   begin
     if (getJoueur.armuresPossedees[i].nom <> 'NULL') and (getJoueur.armuresPossedees[i].pieceArmure = pieceArmure) then
     begin
-      afficherArmureIHM(getJoueur.armuresPossedees[i], compteurArmure);
+      afficherArmureIHM(getJoueur.armuresPossedees[i], compteurArmure, i = length(getJoueur.armuresPossedees) -1);
       compteurArmure := compteurArmure + 1;
     end;
   end;
@@ -98,7 +96,7 @@ var
   positionArmeChoisie : integer;
 begin
   malleIHM();
-  enteteMalleIHM();
+  enteteMalleArmeIHM();
 
 
 
@@ -109,7 +107,7 @@ begin
   begin
     if getJoueur.armesPossedees[i].nom <> 'NULL' then
     begin
-      afficherArmeIHM(getJoueur.armesPossedees[i], compteurArme);
+      afficherArmeIHM(getJoueur.armesPossedees[i], compteurArme, i = length(getJoueur.armesPossedees) -1);
       compteurArme := compteurArme + 1;
     end;
   end;

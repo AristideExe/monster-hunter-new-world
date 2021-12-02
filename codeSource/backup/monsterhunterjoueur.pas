@@ -114,11 +114,6 @@ begin
   // Modification de l'inventaire d'items pour avoir aucun item
   for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
   // Remplissage pour tester les crafts
-  joueur.armuresPossedees[0] := armuresDisponibles[0];
-  joueur.armurePortee[1] := armuresDisponibles[1];
-  joueur.armurePortee[2] := armuresDisponibles[2];
-  joueur.armurePortee[3] := armuresDisponibles[3];
-  joueur.armurePortee[4] := armuresDisponibles[4];
 
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;

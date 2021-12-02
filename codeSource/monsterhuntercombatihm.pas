@@ -15,16 +15,16 @@ uses
 function menuChoixCombatIHM() : string;
 
 //Interface de combat Difficulté 4
-function Difficulte4IHM() : string;
+procedure Difficulte4IHM();
 
 //Interface de combat Difficulté 3
-function Difficulte3IHM() : string;
+procedure Difficulte3IHM();
 
 //Interface de combat Difficulté 2
-function Difficulte2IHM() : string;
+procedure Difficulte2IHM();
 
 //Interface de combat Difficulté 1
-function Difficulte1IHM() : string;
+procedure Difficulte1IHM();
 
 //Procedure créant le cadre pour les options de combats
 procedure cadreCombatIHM(mot: string);
@@ -37,6 +37,18 @@ procedure afficherStatsMonstreIHM();
 
 //Procédure qui affiche les stats du Joueur
 procedure afficherStatsJoueurIHM();
+
+//Affichage cadre du choix et demande un retour du choix
+function cadreChoixActionsIHM():string;
+
+//Fonction de l'interface de combat
+procedure interfaceCombatIHM();
+
+//procedure qui dit que la fuite est impossible
+procedure fuiteImpossibleIHM ();
+
+//procédure qui indique que le joueur fuis
+procedure fuiteDuCombatIHM ();
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -114,8 +126,9 @@ begin
      couleurTexte(White);         //On réinitialise les paramètres de couleur
      couleurFond(Black);          //On réinitialise les paramètres de couleur
 
-     deplacerCurseurXY(115,26);                                       //115,26
-     write('hp : ',monstreCombat.vie,' / ',getMonstreCombatPVMax());
+     //On affiche le spv
+     deplacerCurseurXY(115,26);
+     write('hp : ' + IntToStr(round(monstreCombat.vie)) + ' / ' + IntToStr(getMonstreCombatPVMax()) + '  ');
 
 end;
 
@@ -151,7 +164,7 @@ begin
      couleurFond(Black);          //On réinitialise les paramètres de couleur
 
      deplacerCurseurXY(115,35);                                       //115,26
-     write('hp : ',round(getJoueur().vie),' / ',pvMax);
+     write('hp : ' + IntToStr(round(getJoueur().vie)) + ' / ' + IntToStr(pvMax) + '  ');
 
 end;
 
@@ -229,24 +242,23 @@ begin
      couleurTexte(15);//Blanc
 end;
 
-//Affichage cadre du choix
-procedure cadreChoixActionsIHM();
+//Affichage cadre du choix et demande un retour du choix
+function cadreChoixActionsIHM():string;
 begin
      dessinerCadreXY(40,37,61,39,simple,White,Black);
      deplacerCurseurXY(50-(length('Choix: ')div 2),38);
      write('Choix: ');
+     readln(cadreChoixActionsIHM);
 end;
 
 //Fonction de l'interface de combat
-function interfaceCombatIHM(): string;
+procedure interfaceCombatIHM();
 begin
      cadreCombatIHM('COMBAT');
      actionCombatIHM('ACTIONS');
      infoMonstreIHM(getMonstreCombat().nom);
      infoJoueurIHM(getJoueur().nom);
      versusIHM();
-     cadreChoixActionsIHM();
-     readln(interfaceCombatIHM);
 end;
 
 //Procedure qui dessine le monstre en question
@@ -288,10 +300,10 @@ begin
 end;
 
 //Interface de combat Difficulté 4
-function Difficulte4IHM() : string;
+procedure Difficulte4IHM();
 begin
-     decor4IHM();                                   //Apelle la procédure d'ambiance volcanique
-     Difficulte4IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
+     decor4IHM();                                   //Apelle la procédure de décor
+     interfaceCombatIHM();                          //On affiche l'interface de combat
 end;
 
 
@@ -303,16 +315,17 @@ begin
      effacerEcran();
      changerTailleConsole(140,41);
 
-     //Ton décor
+     dessinCouleurSansEspaces('dessins/Difficulte3/foretGauche.txt',1,2);
+     dessinCouleurSansEspaces('dessins/Difficulte3/foretDroite.txt',88,1);
 
      spawnMonstreIHM();
 end;
 
 //Interface de combat Difficulté 3
-function Difficulte3IHM() : string;
+procedure Difficulte3IHM();
 begin
      decor3IHM();
-     Difficulte3IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
+     interfaceCombatIHM();        //On affiche l'interface de combat
 end;
 
 //-------------------------------------------------Difficulté 2-------------------------------------------------
@@ -323,16 +336,16 @@ begin
      effacerEcran();
      changerTailleConsole(140,41);
 
-     //Ton décor
+     dessinCouleurSansEspaces('dessins/Difficulte2/plaine.txt',1,1);
 
      spawnMonstreIHM();
 end;
 
 //Interface de combat Difficulté 2
-function Difficulte2IHM() : string;
+procedure Difficulte2IHM();
 begin
      decor2IHM();
-     Difficulte2IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
+     interfaceCombatIHM();        //On affiche l'interface de combat
 
 end;
 
@@ -344,16 +357,16 @@ begin
      effacerEcran();
      changerTailleConsole(140,41);
 
-     //Ton décor
+     dessinCouleurSansEspaces('dessins/Difficulte1/ocean.txt',0,0);
 
      spawnMonstreIHM();
 end;
 
 //Interface de combat Difficulté 1
-function Difficulte1IHM() : string;
+procedure Difficulte1IHM();
 begin
      decor1IHM();
-     Difficulte1IHM := interfaceCombatIHM();        //On affiche l'interface de combat (Et on lis l'entrée utilisateur)
+     interfaceCombatIHM();        //On affiche l'interface de combat
 
 end;
 
@@ -387,6 +400,47 @@ begin
      //On change la taille de la fenêtre et on retourne en ville
      changerTailleConsole(120,30);
 
+end;
+
+//procedure qui dit que la fuite est impossible
+procedure fuiteImpossibleIHM ();
+var
+  message1 : string;
+  message2 : string;
+  message3 : string;
+
+begin
+     message1 := 'Vous êtes trop pauvre pour demander une extraction';
+     message2 := 'Le coût d''une extraction est : 100 simonnaie or vous en avez ' + IntToStr(getJoueur().argent);
+     message3 := 'Appuyez sur entree pour continuer';
+
+     //Grand cadre du bas
+     cadreCombatIHM('Fuite');
+     deplacerCurseurXY(70 - round(length(message1)/2),27); write(message1);
+     deplacerCurseurXY(70 - round(length(message2)/2),29); write(message2);
+     deplacerCurseurXY(70 - round(length(message3)/2),33); write(message3);
+
+     readln;
+end;
+
+//procédure qui indique que le joueur fuis
+procedure fuiteDuCombatIHM ();
+var
+  message1 : string;
+  message2 : string;
+  message3 : string;
+
+begin
+     message1 := 'Vous avez fuis devant l''adversité :';
+     message2 := 'Votre récupération vous a coûté 100 simonnaie';
+     message3 := 'Appuyez sur entree pour continuer';
+
+     //Grand cadre du bas
+     cadreCombatIHM('Fuite');
+     deplacerCurseurXY(70 - round(length(message1)/2),27); write(message1);
+     deplacerCurseurXY(70 - round(length(message2)/2),29); write(message2);
+     deplacerCurseurXY(70 - round(length(message3)/2),33); write(message3);
+     readln;
 
 end;
 

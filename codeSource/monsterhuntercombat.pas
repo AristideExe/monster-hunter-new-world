@@ -16,21 +16,24 @@ procedure choisirCombat();
 procedure combatDifficulte (difficulte:integer);
 
 //Procedure qui execute l'action fuir/attaquer ou ouvrir l'inventaire
-procedure choixCombatJoueur(choix:string; difficulte: integer);
+procedure choixCombatJoueur(choix:string);
 
 //Procedure des attaques
-procedure attaquantCombat(attaquant : integer; difficulte : integer);
+procedure attaquantCombat(attaquant : integer);
+
+//Procedure qui refais un choix
+procedure choixActionJoueur ();
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 // ------------------------------------------ COMBAT ------------------------------------------
 
 //Procedure de check de la mort
-procedure checkMortCombat(difficulte : integer);
+procedure checkMortCombat();
 begin
      if ((getMonstreCombat.vie <> 0) and (getJoueur.vie <> 0)) then
      //On réattaque
-     combatDifficulte(difficulte)
+     choixActionJoueur()
 
      else
      //On regarde si le monstre est mort
@@ -39,7 +42,7 @@ begin
 end;
 
 //Procedure des attaques
-procedure attaquantCombat(attaquant : integer; difficulte : integer);
+procedure attaquantCombat(attaquant : integer);
 var
   degats : integer;
 begin
@@ -53,8 +56,7 @@ begin
 
     //On inflige les dégats au monstre
     degatsCombatMonstre(degats); //On inflige des dégats équivalents a l'attaque de l'arme
-    afficherStatsJoueurIHM();
-
+    afficherStatsMonstreIHM();
   end
 
   //------------------------------ Monstre attaque ------------------------------
@@ -67,10 +69,9 @@ begin
     if degats > 0 then
     begin
 
-    //On inflige les dégats au joueur
-    degatsCombatJoueur(degats);
-    afficherStatsMonstreIHM();
-
+      //On inflige les dégats au joueur
+      degatsCombatJoueur(degats);
+      afficherStatsJoueurIHM();
     end;
 
   end;
@@ -80,24 +81,25 @@ begin
 
 end;
 
-//Procedure qui execute l'action fuir/attaquer ou ouvrir l'inventaire
-procedure choixCombatJoueur(choix:string; difficulte: integer);
+//Détermine qui commence a attaquer et lance l'attaque
+procedure choixAttaquantCombat();
 begin
-  if choix = '1' then
-  begin
 
     //Si le joueur est plus rapide il commence a attaquer
     if (getJoueur().vitesse >= getMonstreCombat().vitesse) then
     begin
 
       //Le joueur attaque
-      attaquantCombat(1,difficulte);
+      attaquantCombat(1);
 
-      //Le monstre attaque
-      attaquantCombat(2,difficulte);
+      //On vérifie que le monstre n'est pas mort
+      if getMonstreCombat().vie <> 0 then
+      begin
 
-      //On check si il y a des morts
-      checkMortCombat(difficulte);
+        //Le monstre attaque
+        attaquantCombat(2);
+
+      end;
 
     end
 
@@ -106,29 +108,90 @@ begin
     begin
 
       //Le monstre attaque
-      attaquantCombat(2,difficulte);
+      attaquantCombat(2);
 
-      //Le joueur attaque
-      attaquantCombat(1,difficulte);
+      //On vérifie que le monstre n'est pas mort
+      if getJoueur().vie <> 0 then
+      begin
 
-      //On check si il y a des morts
-      checkMortCombat(difficulte);
+        //Le joueur attaque
+        attaquantCombat(1);
+
+      end;
 
     end;
 
+    //On check si il y a des morts
+    checkMortCombat();
+end;
+
+//Test Fuite possible
+procedure testFuiteCombat();
+begin
+    if (getJoueur.argent >= 100) then
+    begin
+      fuiteJoueur();
+      fuiteDuCombatIHM();
+      ville();
+    end
+
+    else
+    begin
+      fuiteImpossibleIHM();
+      interfaceCombatIHM();
+      choixActionJoueur();
+    end;
+end;
+
+//Procedure qui execute l'action fuir/attaquer ou ouvrir l'inventaire
+procedure choixCombatJoueur(choix:string);
+begin
+  if choix = '1' then
+  begin
+     choixAttaquantCombat();
   end
 
-  else combatDifficulte(difficulte);
+  else if choix = '3' then
+  begin
+     testFuiteCombat();
+  end
+
+  else choixActionJoueur();
 
 end;
 
-//Procedure qui permet de lancer/actualiser la fenètre de combat en fonction de la difficulté
+//Procedure qui refais un choix
+procedure choixActionJoueur ();
+begin
+    choixCombatJoueur(cadreChoixActionsIHM);
+end;
+
+//Procedure qui permet de lancer la fenètre de combat en fonction de la difficulté
 procedure combatDifficulte (difficulte:integer);
 begin
-  if difficulte = 1 then choixCombatJoueur(Difficulte1IHM(),difficulte)         //Difficulté1
-  else if difficulte = 2 then choixCombatJoueur(Difficulte2IHM(),difficulte)    //Difficulté2
-  else if difficulte = 3 then choixCombatJoueur(Difficulte3IHM(),difficulte)    //Difficulté3
-  else if difficulte = 4 then choixCombatJoueur(Difficulte4IHM(),difficulte)    //Difficulté4
+  if difficulte = 1 then
+  begin
+    Difficulte1IHM();
+    choixCombatJoueur(cadreChoixActionsIHM);         //Difficulté1
+  end
+
+  else if difficulte = 2 then
+  begin
+    Difficulte2IHM();
+    choixCombatJoueur(cadreChoixActionsIHM);    //Difficulté2
+  end
+
+  else if difficulte = 3 then
+  begin
+    Difficulte3IHM();
+    choixCombatJoueur(cadreChoixActionsIHM);    //Difficulté3
+  end
+
+  else if difficulte = 4 then
+  begin
+    Difficulte4IHM();
+    choixCombatJoueur(cadreChoixActionsIHM);    //Difficulté4
+  end;
 
 end;
 
