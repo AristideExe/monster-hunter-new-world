@@ -60,9 +60,7 @@ type
   end;
   typeItemDeCraft = record
              nom : string;
-             dropMinimum : integer;
-             dropMaximum : integer;
-             prixVente : integer;
+             , ' Simonnaie'prixVente : integer;
   end;
 
 

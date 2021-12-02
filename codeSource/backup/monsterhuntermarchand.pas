@@ -16,6 +16,8 @@ procedure marchand();
 implementation
 uses monsterHunterVille;
 
+
+// ------------------------------------------------- ACHAT COMPOSANTS -----------------------------------------------
 procedure achatComposants();
 var
   choix : string;
@@ -88,7 +90,7 @@ end;
 
 
 
-
+// ------------------------------------------------- VENTE COMPOSANTS -----------------------------------------------
 // Procédure pour vendre ses composants
 procedure venteComposants();
 var
@@ -147,9 +149,11 @@ begin
       else if quantiteInt <= getJoueur.itemsPossedes[positionComposantChoisi] then
       begin
           retirerItemJoueur(positionComposantChoisi, quantiteInt);
-          ajouterArgentJoueur(itemsDeCraftsDisponibles[positionComposantChoisi].prixVente);
+          ajouterArgentJoueur(quantiteInt * itemsDeCraftsDisponibles[positionComposantChoisi].prixVente);
+          venduComposantsIHM(itemsDeCraftsDisponibles[positionComposantChoisi], quantite);
           venteComposants();
       end
+      // Si le joueur ne met pas une quantité valide
       else
       begin
         nePeutPasVendreIHM();

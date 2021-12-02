@@ -22,6 +22,8 @@ procedure venteComposantsIHM();
 procedure enteteVenteComposantsIHM();
 // Affichage d'un composant dans la vente
 procedure afficherComposantIHM(compteurComposant, positionItem : integer);
+// IHM qui s'affiche lorsqu'on a vendu des composants
+procedure venduComposantsIHM(item : typeItemDeCraft; quantite : integer);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -30,9 +32,9 @@ implementation
 function choisirQuantiteIHM() : string;
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(40,14);write('Sélectionnez la quantité');
-  deplacerCurseurXY(39,15);write('0 / Annuler la transaction');
-  deplacerCurseurXY(37,16);write('Quantité : ');
+  deplacerCurseurXY(49,13);write('Sélectionnez la quantité');
+  deplacerCurseurXY(48,14);write('0 / Annuler la transaction');
+  deplacerCurseurXY(55,16);write('Quantité : ');
   readln(choisirQuantiteIHM);
 end;
 
@@ -49,7 +51,7 @@ end;
 procedure nePeutPasVendreIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(40,14);write('Vous ne pouvez pas vendre autant');
+  deplacerCurseurXY(40,14);write('Vous ne pouvez pas vendre cette quantité');
   deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
   readln;
 end;
@@ -122,11 +124,22 @@ end;
 
 // ------------------------------------------------- VENTE DE COMPOSANTS -----------------------------------------------
 
+// IHM qui s'affiche lorsqu'on a vendu des composants
+procedure venduComposantsIHM(item : typeItemDeCraft; quantite : integer);
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(42-(length(item.nom) div 2),14);write('Vous avez vendu ', quantite, 'x ', item.nom, ' pour ', item.prixVente*quantite, ' Simonnaie');
+  deplacerCurseurXY(43,16);write('Appuyez sur entrée pour continuer ');
+  readln;
+end;
+
 // Affichage du menu de vente de composants
 procedure venteComposantsIHM();
 begin
   effacerEcran();
   cadrePrincipal('Vente de composants');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 
 // Affichage de l'entête de vente de composants
@@ -150,9 +163,13 @@ begin
   // Entête du nom
   deplacerCurseurXY(35,compteurComposant + 7); write(itemsDeCraftsDisponibles[positionItem].nom);
   // Entête du prix de vente
-  deplacerCurseurXY(60,compteurComposant + 7); write(itemsDeCraftsDisponibles[positionItem].prixVente);
+  deplacerCurseurXY(60,compteurComposant + 7); write(itemsDeCraftsDisponibles[positionItem].prixVente, ' Simonnaie');
   // Entete de la quantité possédée
   deplacerCurseurXY(85,compteurComposant + 7); write(getJoueur.itemsPossedes[positionItem]);
+
+
+
+  deplacerCurseurXY(100,28);
 end;
 
 end.
