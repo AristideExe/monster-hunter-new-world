@@ -6,7 +6,7 @@ unit monsterHunterJoueur;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterArmesEtArmures;
+  Classes, SysUtils, monsterHunterArmesEtArmures, monsterHunterCantine;
 
 // ------------------------------------------------- TYPES -----------------------------------------------
 type

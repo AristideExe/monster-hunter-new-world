@@ -57,10 +57,10 @@ begin
         listeLigne:= ligne.Split(';'); //ligne.Split(';'); //splitString(ligne,';');
 
         // On remplie la liste des crafts disponibles avec tous les champs du csv
-        nourrituresDisponibles[compteur].nom := listeLigne[0];
-        nourrituresDisponibles[compteur].prixAchat := strToInt(listeLigne[1]);
-        nourrituresDisponibles[compteur].bonusVie := strToInt(listeLigne[2]);
-        nourrituresDisponibles[compteur].bonusVitesse := strToInt(listeLigne[3]);
+        nourrituresDisponibles[compteur].nom := ligneLigne[0];
+        nourrituresDisponibles[compteur].prixAchat := trToInt(slisteLigne[1]);
+        nourrituresDisponibles[compteur].bonusVie := trToInt(slisteLigne[2]);
+        nourrituresDisponibles[compteur].bonusVitesse := trToInt(slisteLigne[3]);
         compteur := compteur +1;
   until EOF(fichierNourriture);
 end;

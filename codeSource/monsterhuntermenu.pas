@@ -5,7 +5,7 @@ unit monsterHunterMenu;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils,monsterHunterMenuIHM,monsterHunterJoueur, monsterHunterArmesEtArmures,monsterHunterMonstre;
+  Classes, SysUtils,monsterHunterMenuIHM,monsterHunterJoueur, monsterHunterArmesEtArmures,monsterHunterMonstre,monsterHunterCantine;
 
 
 // ------------------------------------------------- PROCEDURES ---------------------------------------------
@@ -66,6 +66,7 @@ begin
   remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
   remplirCraftArmuresDisponibles('fabrication/craftArmures.csv');
   remplirItemsDeCraftDisponibles('fabrication/itemsDeCraft.csv');
+  remplirNourrituresDisponibles('nomsStatsObjets/nourritures.csv');
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
   affichageLogo();
   menu();
