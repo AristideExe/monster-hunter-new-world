@@ -8,7 +8,7 @@
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="154" Y="9"/>
+        <CursorPos X="96" Y="9"/>
         <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -66,7 +66,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterChambre"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="88"/>
+        <TopLine Value="100"/>
         <CursorPos X="14" Y="99"/>
         <UsageCount Value="50"/>
         <Loaded Value="True"/>
@@ -123,8 +123,8 @@
         <UnitName Value="monsterHunterChambreIHM"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="66"/>
-        <CursorPos X="56" Y="91"/>
+        <TopLine Value="75"/>
+        <CursorPos X="62" Y="90"/>
         <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit15>

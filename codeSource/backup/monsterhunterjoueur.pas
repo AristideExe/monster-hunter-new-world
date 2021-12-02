@@ -52,11 +52,16 @@ procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
 // Procédure pour retirer de l'argent au joueur
 procedure retirerArgentJoueur(quantite : integer);
+<<<<<<< HEAD
+//Procedure qui modifie les pv du joueur
+procedure modifierVieJoueur (nouvelleVie:integer);
+=======
 // Procédure pour ajouter de l'argent au joueur
 procedure ajouterArgentJoueur(quantite : integer);
 
 
 
+>>>>>>> 35570c0113c3d197b5b1a98264fb770178451af5
 
 
 
@@ -122,7 +127,7 @@ end;
 
 // --------------------------------------------- FONCTIONS POUR MODIFIER LE JOUEUR -----------------------------------------
 // Procédure pour retirer des items de craft de l'inventaire du joueur
-procedure retirerItem(positionItem, nombreItem : integer);
+procedure retirerItemJoueur(positionItem, nombreItem : integer);
 begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] - nombreItem;
 end;
@@ -157,6 +162,11 @@ begin
   joueur.armuresPossedees[positionArmure] := armure;
 end;
 
+//Procedure qui modifie les pv du joueur
+procedure modifierVieJoueur (nouvelleVie:integer);
+begin
+  joueur.vie := nouvelleVie;
+end;
 
 // --------------------------------------------- FONCTIONS DE RENVOI -----------------------------------------
 // Renvoie le joueur

@@ -48,7 +48,7 @@ function villeIHM() : string;
 var
   y,i : integer;
 begin
-     changerTailleConsole(120,30);
+     changerTailleConsole();
      effacerEcran();
      // Chambre du personage
      //dessinerCadreXY(10,16,29,22,simple,White,Black);

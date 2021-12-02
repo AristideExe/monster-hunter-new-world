@@ -87,7 +87,7 @@ procedure malleIHM();
 begin
   effacerEcran();
   cadrePrincipal('Malle à armes');
-  deplacerCurseurXY(10,28); write(' 0/ Retourner au menu de sélection de la forge ');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la chambre ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 

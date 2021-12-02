@@ -52,8 +52,13 @@ procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
 // Procédure pour retirer de l'argent au joueur
 procedure retirerArgentJoueur(quantite : integer);
+
+//Procedure qui modifie les pv du joueur
+procedure modifierVieJoueur (nouvelleVie:integer);
+
 // Procédure pour ajouter de l'argent au joueur
 procedure ajouterArgentJoueur(quantite : integer);
+
 
 
 
@@ -157,6 +162,11 @@ begin
   joueur.armuresPossedees[positionArmure] := armure;
 end;
 
+//Procedure qui modifie les pv du joueur
+procedure modifierVieJoueur (nouvelleVie:integer);
+begin
+  joueur.vie := nouvelleVie;
+end;
 
 // --------------------------------------------- FONCTIONS DE RENVOI -----------------------------------------
 // Renvoie le joueur
