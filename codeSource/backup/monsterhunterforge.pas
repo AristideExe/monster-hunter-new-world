@@ -55,11 +55,11 @@ begin
   // On récupère le craft de l'armure
   craft := craftsArmuresDisponibles[positionArmure];
   // On retire la bonne quantité d'item dans l'inventaire du joueur
-  retirerItem(craft.item1,craft.quantiteItem1);
-  if (craft.nombreItemsDeCraft >= 2) then retirerItem(craft.item2,craft.quantiteItem2);
-  if (craft.nombreItemsDeCraft >= 3) then retirerItem(craft.item3,craft.quantiteItem3);
-  if (craft.nombreItemsDeCraft >= 4) then retirerItem(craft.item4,craft.quantiteItem4);
-  if (craft.nombreItemsDeCraft >= 5) then retirerItem(craft.item5,craft.quantiteItem5);
+  retirerItemJoueur(craft.item1,craft.quantiteItem1);
+  if (craft.nombreItemsDeCraft >= 2) then retirerItemJoueur(craft.item2,craft.quantiteItem2);
+  if (craft.nombreItemsDeCraft >= 3) then retirerItemJoueur(craft.item3,craft.quantiteItem3);
+  if (craft.nombreItemsDeCraft >= 4) then retirerItemJoueur(craft.item4,craft.quantiteItem4);
+  if (craft.nombreItemsDeCraft >= 5) then retirerItemJoueur(craft.item5,craft.quantiteItem5);
   // On ajoute l'arme dans l'inventaire du joueur
   donnerArmureJoueur(positionArmure,armuresDisponibles[positionArmure]);
   afficherMessageCraftIHM(armuresDisponibles[positionArmure].nom);
@@ -252,16 +252,13 @@ begin
     end;
     // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
     if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie)
-    else nePeutPasForger('1',craftsArmesDisponibles[positionArmureChoisie]);
+    else nePeutPasForger('1',craftsArmesDisponibles[positionArmeChoisie]);
 
 
   end
   // Si l'utilisateur a mis un mauvais choix
   else forgeArme();
 end;
-
-
-
 
 
 

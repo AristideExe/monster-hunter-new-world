@@ -14,8 +14,16 @@ function marchandIHM() : string;
 function achatComposantsIHM() : string;
 // IHM qui s'affiche lorsque le joueur essaye d'acheter quelque chose sans en avoir les moyens
 procedure nePeutPasAcheterIHM();
+// IHM qui s'affiche lorsque le joueur essaye de vendre quelque chose en trop grande quantité
+procedure nePeutPasVendreIHM();
 // Demande la quantité que souhaite acheter ou vendre le joueur
 function choisirQuantiteIHM() : string;
+procedure venteComposantsIHM();
+procedure enteteVenteComposantsIHM();
+// Affichage d'un composant dans la vente
+procedure afficherComposantIHM(compteurComposant, positionItem : integer);
+// IHM qui s'affiche lorsqu'on a vendu des composants
+procedure venduComposantsIHM(item : typeItemDeCraft; quantite : integer);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -24,9 +32,9 @@ implementation
 function choisirQuantiteIHM() : string;
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(40,14);write('Sélectionnez la quantité');
-  deplacerCurseurXY(39,15);write('0 / Annuler la transaction');
-  deplacerCurseurXY(37,16);write('Quantité : ');
+  deplacerCurseurXY(49,13);write('Sélectionnez la quantité');
+  deplacerCurseurXY(48,14);write('0 / Annuler la transaction');
+  deplacerCurseurXY(55,16);write('Quantité : ');
   readln(choisirQuantiteIHM);
 end;
 
@@ -35,6 +43,15 @@ procedure nePeutPasAcheterIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
   deplacerCurseurXY(40,14);write('Vous ne pouvez pas acheter ceci');
+  deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
+  readln;
+end;
+
+// IHM qui s'affiche lorsque le joueur essaye de vendre quelque chose en trop grande quantité
+procedure nePeutPasVendreIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(40,14);write('Vous ne pouvez pas vendre cette quantité');
   deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
   readln;
 end;
@@ -99,6 +116,62 @@ begin
   deplacerCurseurXY(85,28); write(' Votre choix :   '); deplacerCurseurXY(100,28);
 
   readln(achatComposantsIHM);
+end;
+
+
+
+
+
+// ------------------------------------------------- VENTE DE COMPOSANTS -----------------------------------------------
+
+// IHM qui s'affiche lorsqu'on a vendu des composants
+procedure venduComposantsIHM(item : typeItemDeCraft; quantite : integer);
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(42-(length(item.nom) div 2),14);write('Vous avez vendu ', quantite, 'x ', item.nom, ' pour ', item.prixVente*quantite, ' Simonnaie');
+  deplacerCurseurXY(43,16);write('Appuyez sur entrée pour continuer ');
+  readln;
+end;
+
+// Affichage du menu de vente de composants
+procedure venteComposantsIHM();
+begin
+  effacerEcran();
+  cadrePrincipal('Vente de composants');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+end;
+
+// Affichage de l'entête de vente de composants
+procedure enteteVenteComposantsIHM();
+begin
+  // Entête du numéro
+  deplacerCurseurXY(20,6);write('Numéro');
+  // Entête du nom
+  deplacerCurseurXY(35,6); write('Nom');
+  // Entête du prix de vente
+  deplacerCurseurXY(60,6); write('Prix de vente');
+  // Entete de la quantité possédée
+  deplacerCurseurXY(85,6); write('Quantité possédée');
+
+  deplacerCurseurXY(100,28);
+end;
+
+// Affichage d'un composant dans la vente
+procedure afficherComposantIHM(compteurComposant, positionItem : integer);
+begin
+  // Entête du numéro
+  deplacerCurseurXY(20,compteurComposant + 7);write(compteurComposant);
+  // Entête du nom
+  deplacerCurseurXY(35,compteurComposant + 7); write(itemsDeCraftsDisponibles[positionItem].nom);
+  // Entête du prix de vente
+  deplacerCurseurXY(60,compteurComposant + 7); write(itemsDeCraftsDisponibles[positionItem].prixVente, ' Simonnaie');
+  // Entete de la quantité possédée
+  deplacerCurseurXY(85,compteurComposant + 7); write(getJoueur.itemsPossedes[positionItem]);
+
+
+
+  deplacerCurseurXY(100,28);
 end;
 
 end.

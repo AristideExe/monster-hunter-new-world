@@ -60,7 +60,11 @@ type
   end;
   typeItemDeCraft = record
              nom : string;
+<<<<<<< HEAD
              prixVente : integer;
+=======
+             , ' Simonnaie'prixVente : integer;
+>>>>>>> 35570c0113c3d197b5b1a98264fb770178451af5
   end;
 
 

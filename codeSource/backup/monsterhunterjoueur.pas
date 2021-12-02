@@ -43,7 +43,7 @@ function getJoueur() : typePersonnage;
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
 // Procédure pour retirer des items de craft de l'inventaire du joueur
-procedure retirerItem(positionItem, nombreItem : integer);
+procedure retirerItemJoueur(positionItem, nombreItem : integer);
 // Procédure pour donner des items au joueur
 procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 // Procédure pour mettre une arme dans l'inventaire du personnage
@@ -52,10 +52,16 @@ procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
 // Procédure pour retirer de l'argent au joueur
 procedure retirerArgentJoueur(quantite : integer);
+<<<<<<< HEAD
 //Procedure qui modifie les pv du joueur
 procedure modifierVieJoueur (nouvelleVie:integer);
+=======
+// Procédure pour ajouter de l'argent au joueur
+procedure ajouterArgentJoueur(quantite : integer);
 
 
+
+>>>>>>> 35570c0113c3d197b5b1a98264fb770178451af5
 
 
 
@@ -121,7 +127,7 @@ end;
 
 // --------------------------------------------- FONCTIONS POUR MODIFIER LE JOUEUR -----------------------------------------
 // Procédure pour retirer des items de craft de l'inventaire du joueur
-procedure retirerItem(positionItem, nombreItem : integer);
+procedure retirerItemJoueur(positionItem, nombreItem : integer);
 begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] - nombreItem;
 end;
@@ -136,6 +142,12 @@ end;
 procedure retirerArgentJoueur(quantite : integer);
 begin
   joueur.argent := joueur.argent - quantite;
+end;
+
+// Procédure pour ajouter de l'argent au joueur
+procedure ajouterArgentJoueur(quantite : integer);
+begin
+  joueur.argent := joueur.argent + quantite;
 end;
 
 // Procédure pour mettre une arme dans l'inventaire du personnage

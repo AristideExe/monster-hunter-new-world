@@ -16,6 +16,8 @@ procedure marchand();
 implementation
 uses monsterHunterVille;
 
+
+// ------------------------------------------------- ACHAT COMPOSANTS -----------------------------------------------
 procedure achatComposants();
 var
   choix : string;
@@ -86,6 +88,86 @@ begin
   else achatComposants();
 end;
 
+
+
+// ------------------------------------------------- VENTE COMPOSANTS -----------------------------------------------
+// Procédure pour vendre ses composants
+procedure venteComposants();
+var
+  compteurComposant : integer;
+  i :integer;
+  choix : string;
+  choixInt, quantiteInt : integer;
+  choixIsInt, quantiteIsInt : boolean;
+  positionComposantChoisi : integer;
+begin
+  venteComposantsIHM();
+  enteteVenteComposantsIHM();
+
+  // On initialise le compteur des composants possédées en commançant à 1 (car l'affichage commence à 1)
+  compteurComposant := 1;
+  // On parcours tout l'inventaire de composants du joueur
+  for i:=0 to NOMBRE_ITEM_DE_CRAFT_JEU-1 do
+  begin
+    // Si le joueur possède au moins 1 exemplaire du composant on l'affiche
+    if (getJoueur.itemsPossedes[i] >= 1) then
+    begin
+         afficherComposantIHM(compteurComposant, i);
+         compteurComposant := compteurComposant +1;
+    end;
+  end;
+
+  // Choix du joueur
+  readln(choix);
+
+  //REPONSE EN FONCTION DU CHOIX
+  choixIsInt := TryStrToInt(choix, choixInt);
+  if choix = '0' then marchand()
+
+
+  else if (choixIsInt) and (choixInt >= 1) and (choixInt < compteurComposant) then
+  begin
+       // On essaye de trouver à quoi le choix du joueur faisait référence en refaisant la boucle
+       compteurComposant := 1;
+      // On parcours tout l'inventaire de composants du joueur
+      for i:=0 to NOMBRE_ITEM_DE_CRAFT_JEU-1 do
+      begin
+        // Si le joueur possède au moins 1 exemplaire du composant on l'affiche
+        if (getJoueur.itemsPossedes[i] >= 1) then
+        begin
+             if (compteurComposant = choixInt) then positionComposantChoisi := i;
+             compteurComposant := compteurComposant +1;
+        end;
+      end;
+
+      // On demande la quantité que le joueur veut vendre
+      quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+      while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+      // Si le joueur souhaite annuler la transaction
+      if quantiteInt = 0 then venteComposants()
+      // Si le joueur vend une quantité valide
+      else if quantiteInt <= getJoueur.itemsPossedes[positionComposantChoisi] then
+      begin
+          retirerItemJoueur(positionComposantChoisi, quantiteInt);
+          ajouterArgentJoueur(quantiteInt * itemsDeCraftsDisponibles[positionComposantChoisi].prixVente);
+          venduComposantsIHM(itemsDeCraftsDisponibles[positionComposantChoisi], quantiteInt);
+          venteComposants();
+      end
+      // Si le joueur ne met pas une quantité valide
+      else
+      begin
+        nePeutPasVendreIHM();
+        venteComposants();
+      end;
+
+  end
+
+
+
+  else venteComposants();
+end;
+
+
 // ------------------------------------------------- MARCHAND -----------------------------------------------
 procedure marchand();
 var
@@ -94,6 +176,7 @@ begin
   choix := marchandIHM();
   if choix = '0' then ville()
   else if choix = '2' then achatComposants()
+  else if choix = '4' then venteComposants()
   else marchand();
 end;
 
