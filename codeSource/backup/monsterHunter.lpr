@@ -5,6 +5,5 @@ uses
   monsterHunterMenu;
 
 begin
-  affichageLogo();
   initialisationJeu();
 end.

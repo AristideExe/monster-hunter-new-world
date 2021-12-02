@@ -50,6 +50,12 @@ procedure retirerItemJoueur(positionItem, nombreItem : integer);
 // Procédure pour donner des items au joueur
 procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 
+// Procédure pour donner un objet au joueur
+procedure ajouterObjetJoueur(positionObjet, quantite : integer);
+
+// Procédure pour retirer un objet au joueur
+procedure retirerObjetJoueur(positionObjet, quantite : integer);
+
 // Procédure pour mettre une arme dans l'inventaire du personnage
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 
@@ -64,13 +70,6 @@ procedure modifierVieJoueur (nouvelleVie:integer);
 
 // Procédure pour ajouter de l'argent au joueur
 procedure ajouterArgentJoueur(quantite : integer);
-
-
-
-
-
-
-
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
@@ -142,6 +141,26 @@ end;
 procedure ajouterItemJoueur(positionItem, nombreItem : integer);
 begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] + nombreItem;
+end;
+
+// Procédure pour donner un objet au joueur
+procedure ajouterObjetJoueur(positionObjet, quantite : integer);
+begin
+  joueur.objetsPossedes[positionObjet] := joueur.objetsPossedes[positionObjet] + quantite;
+end;
+
+// Procédure pour retirer un objet au joueur
+procedure retirerObjetJoueur(positionObjet, quantite : integer);
+begin
+  joueur.objetsPossedes[positionObjet] := joueur.objetsPossedes[positionObjet] - quantite;
+end;
+
+// Procédure pour vider l'inventaire d'objets du joueur
+procedure viderInventaireObjetsJoueur();
+begin
+  joueur.objetsPossedes[0] := 0;
+  joueur.objetsPossedes[1] := 0;
+  joueur.objetsPossedes[2] := 0;
 end;
 
 // Procédure pour retirer de l'argent au joueur
