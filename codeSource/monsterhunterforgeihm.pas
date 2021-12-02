@@ -13,7 +13,7 @@ function choixItemForgeIHM() : string;
 procedure forgeIHM();
 // Afficher une arme en particulier
 
-procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean;numeroArme : integer; derniereLigne : boolean);
+procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean;numeroArme : integer);
 // Afficher une arme en particulier
 procedure afficherArmureForgeIHM(armure : typeArmure; craftable : boolean;numeroArmure : integer);
 
@@ -100,6 +100,8 @@ begin
   deplacerCurseurXY(78,6); write('Valeur defense');
   // Entête du taux d'esquive
   deplacerCurseurXY(95,6); write('Taux d''esquive');
+
+  deplacerCurseurXY(100, 28);
 end;
 
 // Afficher une armure en particulier
@@ -120,11 +122,11 @@ begin
   deplacerCurseurXY(97,numeroArmure +7); write(armure.tauxEsquive:6:2);
 
   couleurTexte(white);
-  deplacerCurseurXY(99,28);
+  deplacerCurseurXY(100, 28);
 end;
 
 // Afficher une arme en particulier
-procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean;numeroArme : integer; derniereLigne : boolean);
+procedure afficherArmeForgeIHM(arme : typeArme; craftable : boolean;numeroArme : integer);
 begin
   if craftable then couleurTexte(green);
   // Affichage du numéro
@@ -145,7 +147,7 @@ begin
 
   couleurTexte(white);
 
-  if derniereLigne then deplacerCurseurXY(100, 28);
+  deplacerCurseurXY(100, 28);
 end;
 
 // Affiche l'entête des colonnes pour la forge des armes
@@ -161,6 +163,8 @@ begin
   deplacerCurseurXY(78,6); write('Élément');
   // Entête de la valeur d'attaque
   deplacerCurseurXY(95,6); write('Valeur d''attaque');
+
+  deplacerCurseurXY(100, 28);
 end;
 
 // Affiche l'interface de la forge en général

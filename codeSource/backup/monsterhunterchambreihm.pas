@@ -19,6 +19,8 @@ procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; dernier
 procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
 // IHM de la malle des armes
 procedure malleIHM();
+// Affiche l'entête des colonnes pour la malle
+procedure enteteMalleIHM();
 // Menu de sélection pour savoir quelle armure on veut afficher
 function selectionArmureArmoireIHM() : string;
 
@@ -84,26 +86,45 @@ end;
 procedure malleIHM();
 begin
   effacerEcran();
-  deplacerCurseurXY(5,1); write('Malle à armes : sélectionnez un numéro pour porter l''arme');
+  cadrePrincipal('Malle à armes');
   deplacerCurseurXY(5,28); write('0/ Retourner à la chambre');
   deplacerCurseurXY(5,29); write('Votre choix : ');
+end;
+
+// Affiche l'entête des colonnes pour la malle
+procedure enteteMalleIHM();
+begin
+  // Entête du numéro
+  deplacerCurseurXY(13,6);write('Numéro');
+  // Entête du nom
+  deplacerCurseurXY(30,6); write('Nom');
+  // Entête du type d'arme
+  deplacerCurseurXY(62,6); write('Type');
+  // Entête de l'élément de l'arme
+  deplacerCurseurXY(78,6); write('Élément');
+  // Entête de la valeur d'attaque
+  deplacerCurseurXY(95,6); write('Bonus d''attaque');
+
+  deplacerCurseurXY(100, 28);
 end;
 
 // Affichage d'une seule arme dans la malle
 procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
 begin
   // Affichage du numéro
-  deplacerCurseurXY(5,numeroArme+5);
+  deplacerCurseurXY(15,numeroArme+7);
   write(numeroArme);
   // Affichage du nom
-  deplacerCurseurXY(15,numeroArme+5);
+  deplacerCurseurXY(30,numeroArme+7);
   write(arme.nom);
   // Affichage du type d'arme
-  deplacerCurseurXY(55,numeroArme +5); write(arme.arme);
+  deplacerCurseurXY(62,numeroArme +7); write(arme.arme);
   // Affichage de l'élément de l'arme
-  deplacerCurseurXY(70,numeroArme +5); write(arme.element);
-  // Affichage du taux d'attaque de l'arme en vert si c'est supérieur à l'arme que l'on porte et en rouge sinon
-  deplacerCurseurXY(85,numeroArme +5);
+  deplacerCurseurXY(78,numeroArme +7); write(arme.element);
+
+
+  // Affichage du bonus d'attaque en vert ou en rouge
+  deplacerCurseurXY(99,numeroArme +7);
   if (arme.valeurAttaque > getJoueur.armePortee.valeurAttaque) then
   begin
        couleurTexte(Green);
@@ -117,7 +138,9 @@ begin
   else
       write('+ 0');
   couleurTexte(White);
-  if derniereLigne then deplacerCurseurXY(18,29);
+
+  deplacerCurseurXY(100, 28);
+
 end;
 
 // ----------------------------------------------------- CHAMBRE ------------------------------------------------------
@@ -217,7 +240,7 @@ begin
 
 
   deplacerCurseurXY(7,28); write(' 0/ Retourner à la ville   1/ Ouvrir la malle  2/ Ouvrir l''armoire ');
-  deplacerCurseurXY(92,28); write(' Votre choix :   '); deplacerCurseurXY(106,28);
+  deplacerCurseurXY(91,28); write(' Votre choix :   '); deplacerCurseurXY(106,28);
   readln(chambreIHM);
 end;
 

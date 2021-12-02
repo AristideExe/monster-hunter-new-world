@@ -96,6 +96,10 @@ var
   positionArmeChoisie : integer;
 begin
   malleIHM();
+  enteteMalleIHM();
+
+
+
   // AFFICHAGE DES ARMES POSSEDEES
   compteurArme := 1;
   // On affiche toutes les armes sauf celles dont le nom est 'NULL'

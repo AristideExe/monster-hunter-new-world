@@ -96,6 +96,10 @@ var
   positionArmeChoisie : integer;
 begin
   malleIHM();
+  enteteMalleArmeIHM();
+
+
+
   // AFFICHAGE DES ARMES POSSEDEES
   compteurArme := 1;
   // On affiche toutes les armes sauf celles dont le nom est 'NULL'
@@ -144,10 +148,7 @@ var
   i : integer;
   choix : string;
 begin
-  chambreIHM();
-
-
-  readln(choix);
+  choix := chambreIHM();
   if choix = '0' then ville()
   else if choix = '1' then malle()
   else if choix = '2' then selectionArmureArmoire()

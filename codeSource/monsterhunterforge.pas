@@ -217,7 +217,7 @@ begin
     // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
     if not armePossedee then
     begin
-      afficherArmeForgeIHM(arme,peutCrafterArme(i),compteurArme, i = length(craftsArmesDisponibles) -1);
+      afficherArmeForgeIHM(arme,peutCrafterArme(i),compteurArme);
       compteurArme := compteurArme +1;
     end
   end;
