@@ -436,7 +436,11 @@ var
 begin
      message1 := 'Vous avez fuis devant l''adversité :';
      message2 := 'Votre récupération vous a coûté 100 simonnaie';
+<<<<<<< HEAD
      message3 := 'Appuyez sur entrée pour continuer';
+=======
+     message3 := 'Appuyez sur entree pour continuer';
+>>>>>>> 1a19f8c3dfbc4628efa4ccfb97d72e06db8768e8
 
      //Grand cadre du bas
      cadreCombatIHM('Fuite');
@@ -466,7 +470,7 @@ begin
      dessinCouleurSansEspaces('dessins/GameOver.txt',40,23);
 
      //Dire que le sitems sont perdus
-     deplacerCurseurXY(70 - round(length(message1)/2),32); write(message1);
+     deplacerCurseurXY(70 - round(length(message1)/2),30); write(message1);
 
      //On afiche le lore
      deplacerCurseurXY(7,32); write(message2);
