@@ -8,7 +8,8 @@
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="6" Y="7"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="95" Y="9"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -127,10 +128,9 @@
         <Filename Value="monsterhunterchambreihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterChambreIHM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="74"/>
-        <CursorPos X="110" Y="98"/>
+        <TopLine Value="25"/>
+        <CursorPos X="42" Y="49"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit15>
@@ -144,7 +144,7 @@
         <UsageCount Value="56"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="7" HistoryIndex="6">
+    <JumpHistory Count="8" HistoryIndex="7">
       <Position1>
         <Filename Value="monsterhunterchambreihm.pas"/>
         <Caret Line="101" Column="30" TopLine="71"/>
@@ -173,6 +173,10 @@
         <Filename Value="monsterhunterchambre.pas"/>
         <Caret Line="40" Column="70" TopLine="19"/>
       </Position7>
+      <Position8>
+        <Filename Value="monsterhunterchambreihm.pas"/>
+        <Caret Line="111" Column="41" TopLine="72"/>
+      </Position8>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

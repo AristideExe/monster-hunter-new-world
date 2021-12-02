@@ -40,16 +40,22 @@ var
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
 // Fonction qui retourne le joueur
 function getJoueur() : typePersonnage;
+
 // Initialisation des stats du personnage à sa création
 procedure initialisationPersonnage();
+
 // Procédure pour retirer des items de craft de l'inventaire du joueur
 procedure retirerItemJoueur(positionItem, nombreItem : integer);
+
 // Procédure pour donner des items au joueur
 procedure ajouterItemJoueur(positionItem, nombreItem : integer);
+
 // Procédure pour mettre une arme dans l'inventaire du personnage
 procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
+
 // Procédure pour mettre une armure dans l'inventaire du personnage
 procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
+
 // Procédure pour retirer de l'argent au joueur
 procedure retirerArgentJoueur(quantite : integer);
 
