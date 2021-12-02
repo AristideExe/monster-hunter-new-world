@@ -67,7 +67,7 @@ begin
   remplirCraftArmuresDisponibles('fabrication/craftArmures.csv');
   remplirItemsDeCraftDisponibles('fabrication/itemsDeCraft.csv');
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
-  procedure affichageLogo();
+  affichageLogo();
   menu();
 end;
 

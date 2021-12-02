@@ -13,10 +13,12 @@ uses
 function chambreIHM() : string;
 // IHM de l'armoire à armures
 procedure armoireIHM();
+// Affiche l'entête des colonnes pour les armures
+procedure enteteArmoireIHM();
 // Affichage d'une seule armure dans l'armoire
-procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
+procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer);
 // Affichage d'une seule arme dans la malle
-procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
+procedure afficherArmeIHM(arme : typeArme; numeroArme : integer);
 // IHM de la malle des armes
 procedure malleIHM();
 // Affiche l'entête des colonnes pour la malle
@@ -29,56 +31,89 @@ implementation
 
 // ----------------------------------------------------- ARMOIRE ------------------------------------------------------
 // Menu de sélection pour savoir quelle armure on veut afficher
+// A modifier
 function selectionArmureArmoireIHM() : string;
 begin
   effacerEcran();
-  deplacerCurseurXY(20,1); write('Armoire : choix de l''objet à afficher');
+  cadrePrincipal('Sélectionnez l''armure que vous souhaitez voir');
   deplacerCurseurXY(50,11); write('1/ Afficher les casques');
   deplacerCurseurXY(50,12); write('2/ Afficher les plastrons');
   deplacerCurseurXY(50,13); write('3/ Afficher les jambières');
   deplacerCurseurXY(50,14); write('4/ Afficher les bottes');
   deplacerCurseurXY(50,15); write('5/ Afficher les gants');
-  deplacerCurseurXY(20,28); write('0/ Retourner à la chambre');
-  deplacerCurseurXY(20,29); write('Votre choix : ');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la chambre ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   '); deplacerCurseurXY(100, 28);
   readln(selectionArmureArmoireIHM);
 end;
+
+
+// Affiche l'entête des colonnes pour les armures
+procedure enteteArmoireIHM();
+begin
+  // Entête du numéro
+  deplacerCurseurXY(13,6);write('Numéro');
+  // Entête du nom
+  deplacerCurseurXY(30,6); write('Nom');
+  // Entête de l'élément de l'arme
+  deplacerCurseurXY(62,6); write('Élément');
+  // Entête de la valeur d'attaque
+  deplacerCurseurXY(78,6); write('Bonus defense');
+  // Entête du taux d'esquive
+  deplacerCurseurXY(95,6); write('Taux d''esquive');
+
+  deplacerCurseurXY(100, 28);
+end;
+
 
 // IHM de l'armoire à armures
 procedure armoireIHM();
 begin
   effacerEcran();
-  deplacerCurseurXY(5,1); write('Armoire à armure : sélectionnez un numéro pour porter l''armure');
-  deplacerCurseurXY(5,28); write('0/ Retourner au menu de sélection des objets');
-  deplacerCurseurXY(5,29); write('Votre choix : ');
+  cadrePrincipal('Armoire à armures');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la chambre ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 
 // Affichage d'une seule armure dans l'armoire
-procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
+procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer);
 begin
   // Affichage du numéro
-  deplacerCurseurXY(5,numeroArmure+5);
+  deplacerCurseurXY(15,numeroArmure+7);
   write(numeroArmure);
   // Affichage du nom
-  deplacerCurseurXY(15,numeroArmure+5);
+  deplacerCurseurXY(30,numeroArmure+7);
   write(armure.nom);
   // Affichage de l'élément de l'arme
-  deplacerCurseurXY(70,numeroArmure +5); write(armure.element);
-  // Affichage du taux d'attaque de l'arme en vert si c'est supérieur à l'arme que l'on porte et en rouge sinon
-  //deplacerCurseurXY(85,numeroArmure +5);
-  //if (armure.valeurDefense > getJoueur.armuresPortees) then
-  //begin
-  //     couleurTexte(Green);
-  //     write('+', (arme.valeurAttaque - getJoueur.armePortee.valeurAttaque):6:2);
-  //end
-  //else if (arme.valeurAttaque < getJoueur.armePortee.valeurAttaque) then
-  //begin
-  //     couleurTexte(Red);
-  //     write('-',(getJoueur.armePortee.valeurAttaque - arme.valeurAttaque):6:2);
-  //end
-  //else
-  //    write('+ 0');
-  //couleurTexte(White);
-  //if derniereLigne then deplacerCurseurXY(18,29);
+  deplacerCurseurXY(62,numeroArmure +7); write(armure.element);
+  // Affichage du bonus de defense en rouge ou en vert
+  deplacerCurseurXY(81,numeroArmure +7);
+  if (armure.valeurDefense > getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense) then
+  begin
+       couleurTexte(Green);
+       write('+', (armure.valeurDefense - getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense):6:2);
+  end
+  else if (getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense > armure.valeurDefense) then
+  begin
+       couleurTexte(Red);
+       write('+', (getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense - armure.valeurDefense):6:2);
+  end
+  else write ('+ 0.00');
+  // Affichage du bonus d'esquive en rouge ou en vert
+  deplacerCurseurXY(97,numeroArmure +7);
+  if (armure.tauxEsquive > getJoueur.armurePortee[ord(armure.pieceArmure)].tauxEsquive) then
+  begin
+       couleurTexte(Green);
+       write('+', (armure.tauxEsquive - getJoueur.armurePortee[ord(armure.pieceArmure)].tauxEsquive):6:2);
+  end
+  else if (getJoueur.armurePortee[ord(armure.pieceArmure)].tauxEsquive > armure.tauxEsquive) then
+  begin
+       couleurTexte(Red);
+       write('+', (getJoueur.armurePortee[ord(armure.pieceArmure)].tauxEsquive - armure.tauxEsquive):6:2);
+  end
+  else write ('+ 0.00');
+
+  couleurTexte(white);
+  deplacerCurseurXY(100, 28);
 end;
 
 // ----------------------------------------------------- MALLE --------------------------------------------------------
@@ -87,7 +122,7 @@ procedure malleIHM();
 begin
   effacerEcran();
   cadrePrincipal('Malle à armes');
-  deplacerCurseurXY(10,28); write(' 0/ Retourner au menu de sélection de la forge ');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la chambre ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 
@@ -109,7 +144,7 @@ begin
 end;
 
 // Affichage d'une seule arme dans la malle
-procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
+procedure afficherArmeIHM(arme : typeArme; numeroArme : integer);
 begin
   // Affichage du numéro
   deplacerCurseurXY(15,numeroArme+7);
