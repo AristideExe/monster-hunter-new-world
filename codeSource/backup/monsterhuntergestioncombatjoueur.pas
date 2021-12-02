@@ -133,10 +133,17 @@ begin
       begin
 
         //On fait perdre l'inventaire du joueur
+<<<<<<< HEAD
+        //for item := 0 to
+=======
         for item := 0 to
+>>>>>>> 1a19f8c3dfbc4628efa4ccfb97d72e06db8768e8
 
         //On remet les pv du joueur au max
         modifierVieJoueur(100);
+
+        //On affiche le game over
+
 
         //On retourne en ville
         ville();

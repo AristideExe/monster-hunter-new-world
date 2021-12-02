@@ -50,6 +50,9 @@ procedure fuiteImpossibleIHM ();
 //procédure qui indique que le joueur fuis
 procedure fuiteDuCombatIHM ();
 
+//procedure qui annonce la perte des items a cause de la mort
+procedure messageMortJoueurIHM ();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
@@ -336,7 +339,7 @@ begin
      effacerEcran();
      changerTailleConsole(140,41);
 
-     //Ton décor
+     dessinCouleurSansEspaces('dessins/Difficulte2/plaine.txt',1,1);
 
      spawnMonstreIHM();
 end;
@@ -392,7 +395,7 @@ begin
 
      //Indiaction avant de retourner en ville
      deplacerCurseurXY(70-(length('Appyez sur entree pour retourner en ville') div 2),34);
-     Write('Appuyez sur entree pour retourner en ville');
+     Write('Appuyez sur entrée pour retourner en ville');
 
      //On attends qu'il appuie sur entree
      readln;
@@ -412,7 +415,7 @@ var
 begin
      message1 := 'Vous êtes trop pauvre pour demander une extraction';
      message2 := 'Le coût d''une extraction est : 100 simonnaie or vous en avez ' + IntToStr(getJoueur().argent);
-     message3 := 'Appuyez sur entree pour continuer';
+     message3 := 'Appuyez sur entrée pour continuer';
 
      //Grand cadre du bas
      cadreCombatIHM('Fuite');
@@ -433,7 +436,11 @@ var
 begin
      message1 := 'Vous avez fuis devant l''adversité :';
      message2 := 'Votre récupération vous a coûté 100 simonnaie';
+<<<<<<< HEAD
+     message3 := 'Appuyez sur entrée pour continuer';
+=======
      message3 := 'Appuyez sur entree pour continuer';
+>>>>>>> 1a19f8c3dfbc4628efa4ccfb97d72e06db8768e8
 
      //Grand cadre du bas
      cadreCombatIHM('Fuite');
@@ -442,6 +449,36 @@ begin
      deplacerCurseurXY(70 - round(length(message3)/2),33); write(message3);
      readln;
 
+end;
+
+//procedure qui annonce la perte des items a cause de la mort
+procedure messageMortJoueurIHM ();
+var
+  message1: string;
+  message2: string;
+  message3: string;
+
+begin
+     message1 := 'Vous avez perdu tous les items de votre inventaire !';
+     message2 := 'Mr Cou Long, vous trouvant presque inannimé au sol lors d''une éxpédition, décide de vous ramener à la ville et de vous soigner';
+     message3 := 'Appuyez sur entrée pour continuer';
+
+     //Dessin du cadre
+     cadreCombatIHM('Game Over');
+
+     //Dessin game over
+     dessinCouleurSansEspaces('dessins/GameOver.txt',40,23);
+
+     //Dire que le sitems sont perdus
+     deplacerCurseurXY(70 - round(length(message1)/2),30); write(message1);
+
+     //On afiche le lore
+     deplacerCurseurXY(7,32); write(message2);
+
+     //On affiche qu'il faut appuyer sur entree
+     deplacerCurseurXY(70 - round(length(message3)/2),36); write(message3);
+
+     readln;
 end;
 
 end.

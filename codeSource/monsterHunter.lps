@@ -35,6 +35,7 @@
         <Filename Value="monsterhunterjoueur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterJoueur"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="71" Y="9"/>
         <UsageCount Value="36"/>
@@ -44,9 +45,8 @@
         <Filename Value="monsterhuntermenu.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterMenu"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="132" Y="8"/>
+        <CursorPos X="53" Y="30"/>
         <UsageCount Value="36"/>
         <Loaded Value="True"/>
       </Unit5>

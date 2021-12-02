@@ -138,6 +138,9 @@ begin
         //On remet les pv du joueur au max
         modifierVieJoueur(100);
 
+        //On affiche le game over
+        messageMortJoueurIHM();
+
         //On retourne en ville
         ville();
 
