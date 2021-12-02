@@ -65,8 +65,9 @@ begin
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
   remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
   remplirCraftArmuresDisponibles('fabrication/craftArmures.csv');
-  remplirItemsDeCraftDisponibles('fabrication/craftArmures.csv');
+  remplirItemsDeCraftDisponibles('fabrication/itemsDeCraft.csv');
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
+  procedure affichageLogo();
   menu();
 end;
 

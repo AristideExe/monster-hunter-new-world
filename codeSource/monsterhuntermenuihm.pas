@@ -24,10 +24,35 @@ procedure creditsIHM();
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 procedure afficherPersonnageIHM(sexe : string);
 procedure demanderSexeIHM (var sexe : string);
+procedure affichageLogo();
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
+
+procedure affichageLogo();
+var
+  i : integer;
+  titre : string;
+begin
+     changerTailleConsole(120,30);
+
+     // Affichage du logo
+     for i:=1 to 13 do
+     begin
+       dessiner('dessins/logo/'+intToStr(i)+'.txt',40,9);
+       attendre(150);
+     end;
+
+     // Affichage du sous-titre
+     titre := 'New world';
+     for i:=0 to length(titre) do
+     begin
+       deplacerCurseurXY(i+56,17); write(titre[i]);
+       attendre(100);
+     end;
+     attendre(600);
+end;
 
 {Affiche le menu de lancement de jeu et renvoie le choix de l'utilisateur
 Choix numéro 1 : nouvelle partie
@@ -36,12 +61,11 @@ Choix numéro 3 : Afficher les crédits
 Choix numéro 4 : Quitter}
 function menuIHM() : string;
 begin
-     changerTailleConsole(120,30);
      effacerEcran();
      dessinerCadreXY(10,1,110,28,simple,White,Black);
      //dessinerCadreXY(35,8,85,6,double,White,Black);
      //deplacerCurseurXY(40,7);write ('Bienvenue sur Monster Hunter : New World');
-     dessiner('dessins/logo.txt',40,3);
+     dessiner('dessins/logo/logo.txt',40,3);
      deplacerCurseurXY(50,14);write ('1) Nouvelle partie');
      deplacerCurseurXY(50,16);write ('2) Charger une partie');
      deplacerCurseurXY(50,18);write ('3) Afficher les crédits');
