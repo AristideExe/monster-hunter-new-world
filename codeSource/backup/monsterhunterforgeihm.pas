@@ -83,35 +83,7 @@ begin
   end;
 
 
-
-
-
   deplacerCurseurXY(42,19);write('Appuyez sur entrée pour continuer ');
-
-  if (getJoueur.itemsPossedes[craft.Item1] < craft.quantiteItem1) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem1 - getJoueur.itemsPossedes[craft.quantiteItem1]) + 'x ' + itemsDeCraftsDisponibles[craft.item1].nom ;
-  if (craft.item2 <> -1 ) and (getJoueur.itemsPossedes[craft.Item2] < craft.quantiteItem2) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem2 - getJoueur.itemsPossedes[craft.quantiteItem2]) + 'x ' + itemsDeCraftsDisponibles[craft.item2].nom ;
-  if (craft.item3 <> -1 ) and (getJoueur.itemsPossedes[craft.Item3] < craft.quantiteItem3) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem3 - getJoueur.itemsPossedes[craft.quantiteItem3]) + 'x ' + itemsDeCraftsDisponibles[craft.item3].nom ;
-  if (craft.item4 <> -1) and (getJoueur.itemsPossedes[craft.Item4] < craft.quantiteItem4) then itemsManquants := itemsManquants + ', ' + intToStr(craft.quantiteItem4 - getJoueur.itemsPossedes[craft.quantiteItem4]) + 'x ' + itemsDeCraftsDisponibles[craft.item4].nom ;
-  // On retire la première virgule
-  itemsManquants := itemsManquants.substring(1);
-
-  dessinerCadreXY(20,12,100,18,double,White,Black);
-  deplacerCurseurXY(44,13);write('Vous ne pouvez pas forger ceci');
-  // Si les items qui manques tiennent sur une ligne alors on laisse sur une ligne
-  //if length(itemsManquants)< 50 then
-  //begin
-    deplacerCurseurXY(50-(length(itemsManquants) div 2),14);write('Il vous manque : ',itemsManquants);
-  //end
-  // Sinon on affiche sur deux lignes en reprenant la liste d'items
-  //else
-  //begin
-  //  listeItemsManquants := itemsManquants.split(',');
-  //  // On affiche les deux premiers sur une ligne puis les 3 suivants sur la deuxieme ligne
-  //  deplacerCurseurXY(10-(length(listeItemsManquants[0]) + length(listeItemsManquants[1]),14);
-  //  write ('Il vous manque : ', listeItemsManquants[0] ,', ', listeItemsManquants[1],',');
-  //end;
-  deplacerCurseurXY(42,17);write('Appuyez sur entrée pour continuer ');
-
   readln;
 end;
 
@@ -119,33 +91,33 @@ end;
 procedure enteteForgeArmureIHM();
 begin
   // Entête du numéro
-  deplacerCurseurXY(5,4);write('Numéro');
+  deplacerCurseurXY(13,6);write('Numéro');
   // Entête du nom
-  deplacerCurseurXY(20,4); write('Nom');
-  // Entête du type d'arme
-  deplacerCurseurXY(62,4); write('Type');
+  deplacerCurseurXY(30,6); write('Nom');
   // Entête de l'élément de l'arme
-  deplacerCurseurXY(78,4); write('Élément');
+  deplacerCurseurXY(62,6); write('Élément');
   // Entête de la valeur d'attaque
-  deplacerCurseurXY(100,4); write('Valeur d''attaque');
+  deplacerCurseurXY(78,6); write('Valeur defense');
+  // Entête du taux d'esquive
+  deplacerCurseurXY(95,6); write('Taux d''esquive');
 end;
 
-// Afficher une arme en particulier
+// Afficher une armure en particulier
 procedure afficherArmureForgeIHM(armure : typeArmure; craftable : boolean;numeroArmure : integer);
 begin
   if craftable then couleurTexte(green);
   // Affichage du numéro
-  deplacerCurseurXY(5,numeroArmure+5);
+  deplacerCurseurXY(15,numeroArmure+7);
   write(numeroArmure);
   // Affichage du nom
-  deplacerCurseurXY(20,numeroArmure+5);
+  deplacerCurseurXY(30,numeroArmure+7);
   write(armure.nom);
   // Affichage du type d'arme
-  //deplacerCurseurXY(62,numeroArmure +5); write(armure.arme);
+  deplacerCurseurXY(81,numeroArmure +7); write(armure.valeurDefense:6:2);
   // Affichage de l'élément de l'arme
-  deplacerCurseurXY(78,numeroArmure +5); write(armure.element);
+  deplacerCurseurXY(62,numeroArmure +7); write(armure.element);
   // Affichage du taux d'attaque de l'arme
-  //deplacerCurseurXY(100,numeroArmure +5); write(armure.valeurAttaque:6:2);
+  deplacerCurseurXY(97,numeroArmure +7); write(armure.tauxEsquive:6:2);
 
   couleurTexte(white);
 end;
@@ -224,7 +196,7 @@ begin
   deplacerCurseurXY(85,23); write('6/ Afficher les gants');
 
 
-  deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
+  deplacerCurseurXY(20,28); write(' 0/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
   deplacerCurseurXY(100,28);
 
