@@ -66,13 +66,6 @@ procedure modifierVieJoueur (nouvelleVie:integer);
 procedure ajouterArgentJoueur(quantite : integer);
 
 
-
-
-
-
-
-
-
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterMenuIHM,monsterHunterVille;

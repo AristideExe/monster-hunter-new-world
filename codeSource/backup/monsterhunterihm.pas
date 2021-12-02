@@ -45,10 +45,8 @@ Choix numéro 4 : manger à la cantine
 Choix numéro 5 : choisir un combat
 }
 function villeIHM() : string;
-var
-  y,i : integer;
 begin
-     changerTailleConsole();
+     changerTailleConsole(120,30);
      effacerEcran();
      // Chambre du personage
      //dessinerCadreXY(10,16,29,22,simple,White,Black);
@@ -81,55 +79,13 @@ begin
      dessiner('dessins/maisonCantine.txt',88,18);
      deplacerCurseurXY(95,27);write('4/ Cantine');
 
-
      //Bateau d'exploration
-     deplacerCurseurXY(61,1);write(')');
-     deplacerCurseurXY(60,1);write('|');
-     deplacerCurseurXY(57,2);write('______');
-     deplacerCurseurXY(60,2);write('|');
-     couleurTexte(Blue);
-     deplacerCurseurXY(35,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
-     couleurTexte(White);
-     deplacerCurseurXY(57,3);write('\____/');
-     couleurTexte(Blue);
-     deplacerCurseurXY(63,3);write('~~~~~~~~~~~~~~~~~~~~~~~~');
-     deplacerCurseurXY(32,4);write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-     couleurTexte(White);
-     deplacerCurseurXY(57,5);write('5/Expedition');
+     dessinCouleurSansEspaces('dessins/bateau.txt',34,0);
+     deplacerCurseurXY(55,5);write('5/Expedition');
 
 
-     // Insertion d'une proposition
-     dessinerCadreXY(50,25,70,27,simple,White,Black);
-
-     //route Nord
-
-     //route centrale
-
-     ColorierZone(Green,Cyan, 41,89,10);
-     //Route Sud
-     ColorierZone(Green,Cyan, 30,84,20);
-     //Route Ouest
-      y:=11;
-      for i:=1 to 9 do
-      begin;
-            ColorierZone(Green,Cyan, 46,47,y);
-            y:=y+1
-      end;
-     //Route Est
-     y:=11;
-     for i:=1 to 9 do
-     begin;
-           ColorierZone(Green,Cyan, 75,76,y);
-           y:=y+1
-     end;
-
-     //arbre
-     deplacerCurseurXY(61,11);write ('/\');
-     deplacerCurseurXY(60,12);write ('/__\');
-     deplacerCurseurXY(59,13);write ('/ __ \');
-     deplacerCurseurXY(58,14);write ('/__--__\');
-     deplacerCurseurXY(61,15);write ('||');
-     deplacerCurseurXY(61,16);write ('||');
+     //Arbre d village
+     dessinCouleurSansEspaces('dessins/Arbre.txt',47,9);
 
 
 
@@ -140,17 +96,6 @@ begin
 
      readln(villeIHM);
 end;
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Bateau exploration

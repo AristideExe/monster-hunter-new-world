@@ -121,9 +121,6 @@ begin
 end;
 
 
-
-
-
 // --------------------------------------------- FONCTIONS POUR MODIFIER LE JOUEUR -----------------------------------------
 // Procédure pour retirer des items de craft de l'inventaire du joueur
 procedure retirerItemJoueur(positionItem, nombreItem : integer);

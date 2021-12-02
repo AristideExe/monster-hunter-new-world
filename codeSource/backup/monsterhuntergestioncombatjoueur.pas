@@ -29,6 +29,9 @@ uses
    //procedure qui vérifie la mort du monstre
    procedure estMortJoueur ();
 
+   //Procedure qui fait fuir le joueur
+   procedure fuiteJoueur ();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 
 implementation
@@ -113,18 +116,30 @@ begin
 
 end;
 
+//Procedure qui fait fuir le joueur
+procedure fuiteJoueur ();
+begin
+    retirerArgentJoueur(100);
+end;
+
 //procedure qui vérifie la mort du monstre
 procedure estMortJoueur ();
+var
+  item:integer;
 begin
 
     //Si il est mort
     if getJoueur().vie = 0 then
       begin
-        //On donne les loots
+
         //On fait perdre l'inventaire du joueur
+        //for item := 0 to
 
         //On remet les pv du joueur au max
         modifierVieJoueur(100);
+
+        //On affiche le game over
+
 
         //On retourne en ville
         ville();

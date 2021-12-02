@@ -86,9 +86,9 @@ var
 begin
   Randomize;
 
-  quantiteLoot1 := Random(getMonstreCombat.loot[0].quantiteMaximum + 1) + getMonstreCombat.loot[0].quantiteMinimum;      //Donne un montant d'un item entre une quantité min et une quantité max
-  quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum + 1) + getMonstreCombat.loot[1].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
-  quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum + 1) + getMonstreCombat.loot[2].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
+  quantiteLoot1 := Random(getMonstreCombat.loot[0].quantiteMaximum) + getMonstreCombat.loot[0].quantiteMinimum;      //Donne un montant d'un item entre une quantité min et une quantité max
+  quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum) + getMonstreCombat.loot[1].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
+  quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum) + getMonstreCombat.loot[2].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
 
   //On donne le loot au joueur
   ajouterItemJoueur(getMonstreCombat.loot[0].numeroLoot,quantiteLoot1);
