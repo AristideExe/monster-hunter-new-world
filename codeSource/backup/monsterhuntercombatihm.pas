@@ -32,6 +32,8 @@ procedure cadreCombatIHM(mot: string);
 //procedure qui affiche les loots du monstre vaincu
 procedure lootMonstreMortIHM (quantite:typeLootMonstre);
 
+
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
@@ -68,6 +70,7 @@ begin
      deplacerCurseurXY(39,24);write ('Votre choix : ');
 
      readln(menuChoixCombatIHM);
+
 end;
 
 //-------------------------------------------------Interface combat-------------------------------------------------
@@ -368,7 +371,7 @@ begin
      deplacerCurseurXY(70-(length(IntToStr(quantite[1]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[1].numeroLoot].nom) div 2),28);
      write(IntToStr(quantite[1]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[1].numeroLoot].nom);
      deplacerCurseurXY(70-(length(IntToStr(quantite[2]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[2].numeroLoot].nom) div 2),29);
-     write(IntToStr(quantite[2]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[0].numeroLoot].nom);
+     write(IntToStr(quantite[2]) + ' ' + itemsDeCraftsDisponibles[getMonstreCombat.loot[2].numeroLoot].nom);
 
      //Indiaction avant de retourner en ville
      deplacerCurseurXY(70-(length('Appyez sur entree pour retourner en ville') div 2),34);

@@ -52,7 +52,8 @@ procedure donnerArmeJoueur(positionArme : integer;arme : typeArme);
 procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
 // Procédure pour retirer de l'argent au joueur
 procedure retirerArgentJoueur(quantite : integer);
-
+//Procedure qui modifie les pv du joueur
+procedure modifierVieJoueur (nouvelleVie:integer);
 
 
 
@@ -92,7 +93,7 @@ begin
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
 
   // On lui donne une épe de base pour commencer le jeu
-  joueur.armePortee := armesDisponibles[3];
+  joueur.armePortee := armesDisponibles[0];
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
@@ -149,6 +150,11 @@ begin
   joueur.armuresPossedees[positionArmure] := armure;
 end;
 
+//Procedure qui modifie les pv du joueur
+procedure modifierVieJoueur (nouvelleVie:integer);
+begin
+  joueur.vie := nouvelleVie;
+end;
 
 // --------------------------------------------- FONCTIONS DE RENVOI -----------------------------------------
 // Renvoie le joueur

@@ -32,6 +32,12 @@ procedure cadreCombatIHM(mot: string);
 //procedure qui affiche les loots du monstre vaincu
 procedure lootMonstreMortIHM (quantite:typeLootMonstre);
 
+//Procédure qui affiche les stats du monstre
+procedure afficherStatsMonstreIHM();
+
+//Procédure qui affiche les stats du Joueur
+procedure afficherStatsJoueurIHM();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
@@ -68,6 +74,7 @@ begin
      deplacerCurseurXY(39,24);write ('Votre choix : ');
 
      readln(menuChoixCombatIHM);
+
 end;
 
 //-------------------------------------------------Interface combat-------------------------------------------------

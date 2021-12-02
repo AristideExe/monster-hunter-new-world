@@ -36,7 +36,6 @@ Choix numéro 3 : Afficher les crédits
 Choix numéro 4 : Quitter}
 function menuIHM() : string;
 begin
-     changerTailleConsole(120,30);
      effacerEcran();
      dessinerCadreXY(10,1,110,28,simple,White,Black);
      //dessinerCadreXY(35,8,85,6,double,White,Black);

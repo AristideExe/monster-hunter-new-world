@@ -35,11 +35,17 @@ uses
   //Procedure qui donne les loots une fois le monstre tué
   function lootMortMonstre ():typeLootMonstre;
 
+  //Fonction qui renvoie des dégats selon si l'attaque est spéciale ou normale
+  function aleaTypeAttaqueMonstre():integer;
+
+  //procedure qui vérifie la mort du monstre
+  procedure estMortMonstre ();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 
 uses
-  monsterHunterGestionCombatJoueur, monsterHunterCombatIHM;
+  monsterHunterGestionCombatJoueur, monsterHunterCombatIHM, monsterHunterCombat;
 
 //Fonction qui renvoie le monstre généré
 function getMonstreCombat():typeMonstre;
@@ -80,9 +86,9 @@ var
 begin
   Randomize;
 
-  quantiteLoot1 := Random(getMonstreCombat.loot[0].quantiteMaximum) + getMonstreCombat.loot[0].quantiteMinimum;      //Donne un montant d'un item entre une quantité min et une quantité max
-  quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum) + getMonstreCombat.loot[1].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
-  quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum) + getMonstreCombat.loot[2].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
+  quantiteLoot1 := Random(getMonstreCombat.loot[0].quantiteMaximum + 1) + getMonstreCombat.loot[0].quantiteMinimum;      //Donne un montant d'un item entre une quantité min et une quantité max
+  quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum + 1) + getMonstreCombat.loot[1].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
+  quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum + 1) + getMonstreCombat.loot[2].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
 
   //On donne le loot au joueur
   ajouterItemJoueur(getMonstreCombat.loot[0].numeroLoot,quantiteLoot1);
@@ -120,6 +126,39 @@ end;
 procedure initialisationCombatMonstre(difficulte : integer);
 begin
   generationMonstre(difficulte);
+end;
+
+//Fonction qui renvoie des dégats selon si l'attaque est spéciale ou normale
+function aleaTypeAttaqueMonstre():integer;
+var
+   choixRandom : integer;          //Variable qui donne le choix random
+begin
+    Randomize;
+
+    //Variable qui effectue le choix random
+    choixRandom:= random(101);
+
+    //80% de chances que ce soit une attaque normale
+    if choixRandom < 80 then aleaTypeAttaqueMonstre := getMonstreCombat().dmgAttaque
+
+    //20% de chance que ce soit une attaque spéciale
+    else aleaTypeAttaqueMonstre := getMonstreCombat().dmgAttaqueSpe;
+
+end;
+
+//procedure qui vérifie la mort du monstre
+procedure estMortMonstre ();
+begin
+
+    //Si il est mort
+    if getMonstreCombat.vie = 0 then
+      begin
+        //On donne les loots
+        lootMonstreMortIHM(lootMortMonstre);
+
+        //On retourne en ville
+        ville();
+      end;
 end;
 
 end.
