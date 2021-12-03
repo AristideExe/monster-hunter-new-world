@@ -167,12 +167,12 @@ begin
     else if choix = '0' then
     begin
       interfaceCombatIHM();
-      choixActionJoueur();//Retour au combat
 
     end
     else choixInventaireCombat(cadreChoixActionsIHM()); //L'entree est mauvaise donc on redemande
 
-    choixActionJoueur();
+    if choix <> 'Celui ou tu utilise les bombes'
+       choixActionJoueur();
 
 end;
 

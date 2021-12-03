@@ -171,7 +171,8 @@ begin
     end
     else choixInventaireCombat(cadreChoixActionsIHM()); //L'entree est mauvaise donc on redemande
 
-    choixActionJoueur();
+    if choix <> 'Celui ou tu utilise les bombes' then
+       choixActionJoueur();
 
 end;
 
