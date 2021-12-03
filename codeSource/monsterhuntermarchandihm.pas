@@ -63,18 +63,21 @@ function marchandIHM() : string;
 begin
   effacerEcran();
   cadrePrincipal('Marchand');
+  dessinerCadreXY(84,2,116,6,double,White,Black);
 
   // Affichage de l'argent
-  deplacerCurseurXY(80, 5); write('Vous avez ', getJoueur.argent, ' Simonnaie');
+  deplacerCurseurXY(100 - round(length('Vous avez '+ IntToStr(getJoueur.argent) + ' Simonnaie')/2), 4); write('Vous avez ' + IntToStr(getJoueur.argent) + ' Simonnaie');
 
   // Affichage des options
-  deplacerCurseurXY(17,19); write('1/ Acheter des objets');
-  deplacerCurseurXY(80,19); write('2/ Acheter des composants');
-  deplacerCurseurXY(17,23); write('3/ Acheter de la nourriture');
-  deplacerCurseurXY(80,23); write('4/ Vendre des composants');
+
+  deplacerCurseurXY(70,11); write('1/ Acheter des objets');
+  deplacerCurseurXY(70,14); write('2/ Acheter des composants');
+  deplacerCurseurXY(70,17); write('3/ Acheter de la nourriture');
+  deplacerCurseurXY(70,20); write('4/ Vendre des composants');
 
   deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
+  dessinCouleurSansEspaces('dessins/StandMarchand.txt',20,7);
   deplacerCurseurXY(100,28);
   readln(marchandIHM);
 end;

@@ -44,7 +44,7 @@ end;
 procedure nePeutPasAcheterIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(42,14);write('Vous ne pouvez pas acheter cette quantité');
+  deplacerCurseurXY(40,14);write('Vous ne pouvez pas acheter cette quantité');
   deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
   readln;
 end;
@@ -62,21 +62,24 @@ end;
 function marchandIHM() : string;
 begin
   effacerEcran();
-  cadrePrincipal('Marchand');
+    cadrePrincipal('Marchand');
+    dessinerCadreXY(84,2,116,6,double,White,Black);
 
-  // Affichage de l'argent
-  deplacerCurseurXY(80, 5); write('Vous avez ', getJoueur.argent, ' Simonnaie');
+    // Affichage de l'argent
+    deplacerCurseurXY(100 - round(length('Vous avez '+ IntToStr(getJoueur.argent) + ' Simonnaie')/2), 4); write('Vous avez ' + IntToStr(getJoueur.argent) + ' Simonnaie');
 
-  // Affichage des options
-  deplacerCurseurXY(17,19); write('1/ Acheter des objets');
-  deplacerCurseurXY(80,19); write('2/ Acheter des composants');
-  deplacerCurseurXY(17,23); write('3/ Acheter de la nourriture');
-  deplacerCurseurXY(80,23); write('4/ Vendre des composants');
+    // Affichage des options
 
-  deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
-  deplacerCurseurXY(85,28); write(' Votre choix :   ');
-  deplacerCurseurXY(100,28);
-  readln(marchandIHM);
+    deplacerCurseurXY(70,11); write('1/ Acheter des objets');
+    deplacerCurseurXY(70,14); write('2/ Acheter des composants');
+    deplacerCurseurXY(70,17); write('3/ Acheter de la nourriture');
+    deplacerCurseurXY(70,20); write('4/ Vendre des composants');
+
+    deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
+    deplacerCurseurXY(85,28); write(' Votre choix :   ');
+    dessinCouleurSansEspaces('dessins/StandMarchand.txt',20,7);
+    deplacerCurseurXY(100,28);
+    readln(marchandIHM);
 end;
 
 
