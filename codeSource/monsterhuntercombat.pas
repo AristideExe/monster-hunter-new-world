@@ -147,7 +147,9 @@ end;
 //Procédure qui fait le choix de l'item dans l'inventaire
 procedure choixInventaireCombat (choix : string);
 begin
-    if choix = 'met ceque tu veux' then //Faire qqch
+    if choix = 'met ceque tu veux' then
+    //    //Le monstre attaque
+    //    attaquantCombat(2);
 
     else if choix = 'met ceque tu veux' then //Utiliser une bombe puis executer le code suivant
 
@@ -161,10 +163,11 @@ begin
     //  end;
     //
     //checkMortCombat() //On check si il y a des morts
+
     else if choix = '0' then
     begin
       interfaceCombatIHM();
-      choixActionJoueur();//Retour au combat
+
     end
     else choixInventaireCombat(cadreChoixActionsIHM()); //L'entree est mauvaise donc on redemande
 
