@@ -58,6 +58,9 @@ procedure ajouterObjetJoueur(positionObjet, quantite : integer);
 // Procédure pour retirer un objet au joueur
 procedure retirerObjetJoueur(positionObjet, quantite : integer);
 
+// Procédure pour retirer de la nourriture au joueur
+procedure retirerNourritureJoueur(positionNourriture, quantite : integer);
+
 // Procédure pour vider l'inventaire d'objets du joueur
 procedure viderInventaireObjetsJoueur();
 
@@ -75,6 +78,9 @@ procedure modifierVieJoueur (nouvelleVie:integer);
 
 // Procédure pour ajouter de l'argent au joueur
 procedure ajouterArgentJoueur(quantite : integer);
+
+// Procédure pour réinitialiser l'emoussement de l'arme portée par le jouer
+procedure reinitialiserEmoussementArmeJoueur();
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
@@ -102,8 +108,6 @@ var
 begin
   // Initialisatin de l'armure pour que toutes les valeurs soient vides
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,0,0);
-  // On lui donne une armure pour commencer le jeu
-  //modifierArmure(joueur.armurePortee[1],armuresDisponibles[1].nom,armuresDisponibles[1].pieceArmure,armuresDisponibles[1].element,armuresDisponibles[1].valeurDefense,armuresDisponibles[1].tauxEsquive);
 
   // Modification de l'inventaire d'armures pour qu'il soit vide
   for i:=0 to length(joueur.armuresPossedees)-1 do modifierArmure(joueur.armuresPossedees[i],'NULL',typePieceArmure(i mod 5),normal,0,0);
@@ -120,7 +124,7 @@ begin
 
 
   // Modification de l'inventaire de nourriture pour qu'il soit vide
-  for i:=0 to length(joueur.nourrituresPossedees)-1 do joueur.nourrituresPossedees[i] := 5;
+  for i:=0 to length(joueur.nourrituresPossedees)-1 do joueur.nourrituresPossedees[i] := 0;
 
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;
@@ -148,6 +152,18 @@ begin
   joueur.itemsPossedes[positionItem] := joueur.itemsPossedes[positionItem] + nombreItem;
 end;
 
+// Procédure pour donner de la nourriture au joueur
+procedure ajouterNourritureJoueur(positionNourriture, quantite : integer);
+begin
+  joueur.nourrituresPossedees[positionNourriture] := joueur.nourrituresPossedees[positionNourriture] + quantite;
+end;
+
+// Procédure pour retirer de la nourriture au joueur
+procedure retirerNourritureJoueur(positionNourriture, quantite : integer);
+begin
+  joueur.nourrituresPossedees[positionNourriture] := quantite - joueur.nourrituresPossedees[positionNourriture];
+end;
+
 // Procédure pour donner un objet au joueur
 procedure ajouterObjetJoueur(positionObjet, quantite : integer);
 begin
@@ -166,6 +182,12 @@ begin
   joueur.objetsPossedes[0] := 0;
   joueur.objetsPossedes[1] := 0;
   joueur.objetsPossedes[2] := 0;
+end;
+
+// Procédure pour réinitialiser l'emoussement de l'arme portée par le jouer
+procedure reinitialiserEmoussementArmeJoueur();
+begin
+  joueur.armePortee.emoussement := joueur.armePortee.emoussementDepart;
 end;
 
 // Procédure pour retirer de l'argent au joueur
