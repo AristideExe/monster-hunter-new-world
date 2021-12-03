@@ -133,7 +133,7 @@ begin
       begin
 
         //On fait perdre l'inventaire du joueur
-        //for item := 0 to
+        viderInventaireObjetsJoueur();
 
         //On remet les pv du joueur au max
         modifierVieJoueur(100);

@@ -10,7 +10,7 @@ uses
 
 // ------------------------------------------------- CONSTANTES ---------------------------------------------
 const
-  NOMBRE_ARMURES_JEU = 100;
+  NOMBRE_ARMURES_JEU = 30;
   NOMBRE_ARMES_JEU = 30;
   NOMBRE_CRAFT_ARMES_JEU = 17;
   NOMBRE_CRAFT_ARMURES_JEU = 30;
@@ -60,11 +60,7 @@ type
   end;
   typeItemDeCraft = record
              nom : string;
-<<<<<<< HEAD
              prixVente : integer;
-=======
-             , ' Simonnaie'prixVente : integer;
->>>>>>> 35570c0113c3d197b5b1a98264fb770178451af5
   end;
 
 

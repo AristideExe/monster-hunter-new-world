@@ -16,6 +16,96 @@ procedure marchand();
 implementation
 uses monsterHunterVille;
 
+// -------------------------------------------------- ACHAT OBJETS --------------------------------------------------
+procedure achatObjets();
+var
+  choix : string;
+  quantiteIsInt : boolean;
+  quantiteInt : integer;
+  i : integer;
+const
+  PRIX_BOMBE = 30;
+  PRIX_POTION = 20;
+  PRIX_PIERRE = 50;
+begin
+
+  choix := achatObjetsIHM();
+
+  if choix = '0' then marchand()
+  // Si on veut acheter des bombes
+  else if choix = '1' then
+  begin
+       quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+       while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+       // Si le joueur souhaite annuler la transaction
+       if quantiteInt = 0 then achatObjets()
+       // Sinon si la quantite est bonne on accepte la transaction
+       else if (quantiteInt * PRIX_BOMBE <= getJoueur.argent) then
+       begin
+         ajouterObjetJoueur(0, quantiteInt);
+         retirerArgentJoueur(quantiteInt * PRIX_BOMBE);
+         achatObjets();
+       end
+       // Sinon si on a pas les moyens on affiche
+       else
+       begin
+         nePeutPasAcheterIHM();
+         achatObjets();
+       end;
+  end
+  // Si on veut acheter des potions
+  else if choix = '2' then
+  begin
+       quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+       while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+       // Si le joueur souhaite annuler la transaction
+       if quantiteInt = 0 then achatObjets()
+       // Sinon si la quantite est bonne on accepte la transaction
+       else if (quantiteInt * PRIX_POTION <= getJoueur.argent) then
+       begin
+         ajouterObjetJoueur(1, quantiteInt);
+         retirerArgentJoueur(quantiteInt * PRIX_POTION);
+         achatObjets();
+       end
+       // Sinon si on a pas les moyens on affiche
+       else
+       begin
+         nePeutPasAcheterIHM();
+         achatObjets();
+       end;
+  end
+  // Si on veut acheter des pierres
+  else if choix = '3' then
+  begin
+       quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+       while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+       // Si le joueur souhaite annuler la transaction
+       if quantiteInt = 0 then achatObjets()
+       // Sinon si la quantite est bonne on accepte la transaction
+       else if (quantiteInt * PRIX_PIERRE <= getJoueur.argent) then
+       begin
+         ajouterObjetJoueur(2, quantiteInt);
+         retirerArgentJoueur(quantiteInt * PRIX_PIERRE);
+         achatObjets();
+       end
+       // Sinon si on a pas les moyens on affiche
+       else
+       begin
+         nePeutPasAcheterIHM();
+         achatObjets();
+       end;
+  end
+
+
+
+  // Si le joueur a fait un mauvais choix
+  else achatObjets();
+end;
+
+
+
+
+
 
 // ------------------------------------------------- ACHAT COMPOSANTS -----------------------------------------------
 procedure achatComposants();
@@ -150,7 +240,7 @@ begin
       begin
           retirerItemJoueur(positionComposantChoisi, quantiteInt);
           ajouterArgentJoueur(quantiteInt * itemsDeCraftsDisponibles[positionComposantChoisi].prixVente);
-          venduComposantsIHM(itemsDeCraftsDisponibles[positionComposantChoisi], quantite);
+          venduComposantsIHM(itemsDeCraftsDisponibles[positionComposantChoisi], quantiteInt);
           venteComposants();
       end
       // Si le joueur ne met pas une quantité valide

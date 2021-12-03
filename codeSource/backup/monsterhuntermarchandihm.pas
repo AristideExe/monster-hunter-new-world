@@ -11,6 +11,8 @@ uses
 // Affiche l'interface du marchand
 function marchandIHM() : string;
 // IHM de l'achat des composants
+function achatObjetsIHM() : string;
+// IHM de l'achat des composants
 function achatComposantsIHM() : string;
 // IHM qui s'affiche lorsque le joueur essaye d'acheter quelque chose sans en avoir les moyens
 procedure nePeutPasAcheterIHM();
@@ -42,7 +44,7 @@ end;
 procedure nePeutPasAcheterIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(40,14);write('Vous ne pouvez pas acheter ceci');
+  deplacerCurseurXY(42,14);write('Vous ne pouvez pas acheter cette quantité');
   deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
   readln;
 end;
@@ -77,6 +79,54 @@ begin
   readln(marchandIHM);
 end;
 
+
+// -------------------------------------------------- ACHAT D'OBJETS --------------------------------------------------
+// IHM de l'achat des composants
+function achatObjetsIHM() : string;
+var
+  i : integer;
+begin
+  effacerEcran();
+  cadrePrincipal('Achat d''objets (Vous avez ' + intToStr(getJoueur.argent) + ' Simonnaie)');
+
+  // Entête
+  deplacerCurseurXY(10,5);write('Numéro');
+  deplacerCurseurXY(25,5); write('Nom');
+  deplacerCurseurXY(48,5); write('Prix d''achat');
+  deplacerCurseurXY(80,5); write('Quantité dans l''inventaire');
+
+  // Affichage des bombes
+  deplacerCurseurXY(10,7);write('1');
+  deplacerCurseurXY(25,7); write('Bombes');
+  deplacerCurseurXY(48,7); write('30 Simonnaie');
+  deplacerCurseurXY(80,7); write(getJoueur.objetsPossedes[0] + getJoueur.objetsPortes[0]);
+
+  // Affichage des potions de soin
+  deplacerCurseurXY(10,8);write('2');
+  deplacerCurseurXY(25,8); write('Potion de soin');
+  deplacerCurseurXY(48,8); write('20 Simonnaie');
+  deplacerCurseurXY(80,8); write(getJoueur.objetsPossedes[1] + getJoueur.objetsPortes[1]);
+
+  // Affichage des pierres ponces
+  deplacerCurseurXY(10,9);write('3');
+  deplacerCurseurXY(25,9); write('Pierre ponce');
+  deplacerCurseurXY(48,9); write('50 Simonnaie');
+  deplacerCurseurXY(80,9); write(getJoueur.objetsPossedes[2] + getJoueur.objetsPortes[2]);
+
+  // Affichage des choix
+  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   '); deplacerCurseurXY(100,28);
+
+  readln(achatObjetsIHM);
+end;
+
+
+
+
+
+
+
+// ------------------------------------------------- ACHAT DE COMPOSANTS -----------------------------------------------
 // IHM de l'achat des composants
 function achatComposantsIHM() : string;
 var
@@ -153,6 +203,8 @@ begin
   deplacerCurseurXY(60,6); write('Prix de vente');
   // Entete de la quantité possédée
   deplacerCurseurXY(85,6); write('Quantité possédée');
+
+  deplacerCurseurXY(100,28);
 end;
 
 // Affichage d'un composant dans la vente

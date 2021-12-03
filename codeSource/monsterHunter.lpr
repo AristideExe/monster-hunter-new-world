@@ -7,3 +7,4 @@ uses
 begin
   initialisationJeu();
 end.
+
