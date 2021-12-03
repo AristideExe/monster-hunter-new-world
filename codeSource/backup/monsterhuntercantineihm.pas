@@ -7,21 +7,21 @@ unit monsterHunterCantineIHM;
 interface
 
 uses
-  Classes, SysUtils,monsterHunterCantine;
+  Classes, SysUtils,GestionEcran,monsterHunterCantine, monsterHunterJoueur;
 
 // Affiche le contour de la cantine
 procedure cantineIHM();
 // Affiche l'entête des colonnes pour la cantine
 procedure enteteCantineIHM();
 // Afficher une nourriture en particulier
-procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; numeroNourriture : integer);
+procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 
 // Afficher une nourriture en particulier
-procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; numeroNourriture : integer);
+procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
 begin
   // Affichage du numéro
   deplacerCurseurXY(15,numeroNourriture+7);
@@ -34,7 +34,7 @@ begin
   // Affichage du bonus de vie
   deplacerCurseurXY(78,numeroNourriture +7); write(nourriture.bonusVie);
   // Affichage de l'élément de l'arme
-  deplacerCurseurXY(100,numeroNourriture +7); write(nourriture.bonusVitesse);
+  deplacerCurseurXY(100,numeroNourriture +7); write(nourriture.bonusVitesse);write(' ',getJoueur.nourrituresPossedees[positionNourriture]);
 
 
 
@@ -65,7 +65,7 @@ procedure cantineIHM();
 begin
   effacerEcran();
   CadrePrincipal('Cantine : sélectionnez un numéro pour manger');
-  deplacerCurseurXY(10,28); write(' 0/ Retourner au menu de sélection de la forge ');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 

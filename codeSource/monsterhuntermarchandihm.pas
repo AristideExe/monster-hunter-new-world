@@ -6,7 +6,7 @@ unit monsterHunterMarchandIHM;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, GestionEcran, monsterHunterJoueur, monsterHunterArmesEtArmures;
+  Classes, SysUtils, GestionEcran, monsterHunterJoueur, monsterHunterArmesEtArmures, monsterHunterCantine;
 
 // Affiche l'interface du marchand
 function marchandIHM() : string;
@@ -26,6 +26,12 @@ procedure enteteVenteComposantsIHM();
 procedure afficherComposantIHM(compteurComposant, positionItem : integer);
 // IHM qui s'affiche lorsqu'on a vendu des composants
 procedure venduComposantsIHM(item : typeItemDeCraft; quantite : integer);
+// IHM de l'achat de nourriture
+procedure achatNourritureIHM();
+// Entete des nourritures
+procedure enteteAchatNourritureIHM();
+// Affiche une seule nourriture
+procedure afficherNourritureIHM(nourriture : typeNourriture; numeroNourriture : integer);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -123,6 +129,53 @@ begin
   readln(achatObjetsIHM);
 end;
 
+
+
+// -------------------------------------------------- ACHAT DE NOURRITURE --------------------------------------------------
+// IHM de l'achat de nourriture
+procedure achatNourritureIHM();
+begin
+  effacerEcran();
+  CadrePrincipal('Achat de nourriture (Vous avez ' + intToStr(getJoueur.argent) + ' Simonnaie)');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+end;
+
+// Entete des nourritures
+procedure enteteAchatNourritureIHM();
+begin
+  // Entête du numéro
+  deplacerCurseurXY(13,6);write('Numéro');
+  // Entête du nom
+  deplacerCurseurXY(30,6); write('Nom');
+  // Entête du prix
+  deplacerCurseurXY(62,6); write('Prix');
+  // Entête de bonus de vie
+  deplacerCurseurXY(78,6); write('Bonus de vie');
+  // Entête de bonus de vitesse
+  deplacerCurseurXY(95,6); write('Bonus de vitesse');
+
+  deplacerCurseurXY(100, 28);
+end;
+
+// Affiche une seule nourriture
+procedure afficherNourritureIHM(nourriture : typeNourriture; numeroNourriture : integer);
+begin
+  // Affichage du numéro
+  deplacerCurseurXY(15,numeroNourriture+7);
+  write(numeroNourriture);
+  // Affichage du nom
+  deplacerCurseurXY(30,numeroNourriture+7);
+  write(nourriture.nom);
+  // Affichage du prix
+  deplacerCurseurXY(62,numeroNourriture +7); write(nourriture.prixAchat);
+  // Affichage du bonus de vie
+  deplacerCurseurXY(78,numeroNourriture +7); write(nourriture.bonusVie);
+  // Affichage de l'élément de l'arme
+  deplacerCurseurXY(100,numeroNourriture +7); write(nourriture.bonusVitesse);
+
+  deplacerCurseurXY(100, 28);
+end;
 
 
 

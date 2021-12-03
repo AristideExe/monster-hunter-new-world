@@ -39,8 +39,7 @@ var
   choix : string;
   compteurNourriture : integer;
   nourriture : typeNourriture;
-  nourriturePossedee : boolean;
-  i, j : integer;
+  i : integer;
 begin
   cantineIHM();
   enteteCantineIHM();
@@ -49,16 +48,10 @@ begin
   compteurNourriture := 1;
   for i:=0 to length(nourrituresDisponibles) -1 do
   begin
-    // On récupère l'item auquel le craft fait référence
-    nourriture := nourrituresDisponibles[i];
-    // On vérifie si l'item est déjà dans l'inventaire ou non
-    nourriturePossedee := false;
-    for j:=0 to length(nourrituresDisponibles) -1 do
-      if (getJoueur.nourrituresPossedees[j] > 0) then nourriturePossedee := true;
     // Si le joueur possède au moins un exemplaire
-    if nourriturePossedee then
+    if (getJoueur.nourrituresPossedees[i] > 0) then
     begin
-      afficherNourritureCantineIHM(nourriture,compteurNourriture);
+      afficherNourritureCantineIHM(nourrituresDisponibles[i],i,compteurNourriture);
       compteurNourriture := compteurNourriture +1;
     end
   end;
