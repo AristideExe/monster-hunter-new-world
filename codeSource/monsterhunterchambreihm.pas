@@ -32,9 +32,39 @@ implementation
 // ----------------------------------------------------- DORMIR ------------------------------------------------------
 // Affichage lorsque l'on dort
 procedure dormirIHM();
+var
+  i,j, k : integer;
 begin
   effacerEcran();
-  write('tu dors mon reuf');
+  dessinCouleurSansEspaces('dessins/chambre.txt',0,0);
+  dessinCouleurSansEspaces('dessins/fenetre.txt',5,2);
+  // Remplissage du ciel
+  dessinerCadreXY(18,4,36,16,simple,Cyan,Cyan);
+  dessinerCadreXY(40,4,58,16,simple,Cyan,Cyan);
+  attendre(3000);
+
+  // Animation du soleil
+  i := 60;
+  j := 11;
+  while i > 0 do
+  begin
+    // Remplissage du ciel
+    dessinerCadreXY(18,4,36,16,simple,Cyan,Cyan);
+    dessinerCadreXY(40,4,58,16,simple,Cyan,Cyan);
+    // Affichage du soleil
+    dessinCouleurSansEspaces('dessins/soleil.txt',i,j);
+    couleurFond(Black);
+    dessinCouleurSansEspaces('dessins/fenetre.txt',5,2);
+
+    i:= i -9;
+    j:= j-1;
+    attendre(600);
+
+  end;
+  deplacerCurseurXY(77,6); write('Vous vous sentez revigoré');
+  deplacerCurseurXY(74,9); write('Appuyez sur entrée pour continuer ');
+
+
 end;
 
 
