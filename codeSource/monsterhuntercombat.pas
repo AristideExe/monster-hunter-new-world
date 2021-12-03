@@ -56,6 +56,7 @@ begin
 
     //On inflige les dégats au monstre
     degatsCombatMonstre(degats); //On inflige des dégats équivalents a l'attaque de l'arme
+
     afficherStatsMonstreIHM();
   end
 

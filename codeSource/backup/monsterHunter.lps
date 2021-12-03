@@ -155,7 +155,6 @@
       <Unit18>
         <Filename Value="monsterhuntergestioncombatjoueur.pas"/>
         <UnitName Value="monsterHunterGestionCombatJoueur"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <TopLine Value="124"/>
         <CursorPos X="96" Y="138"/>
@@ -165,9 +164,10 @@
       <Unit19>
         <Filename Value="monsterhuntergestioncombatmonstre.pas"/>
         <UnitName Value="monsterHunterGestionCombatMonstre"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="91"/>
-        <CursorPos X="30" Y="107"/>
+        <TopLine Value="73"/>
+        <CursorPos X="67" Y="89"/>
         <UsageCount Value="18"/>
         <Loaded Value="True"/>
       </Unit19>
