@@ -26,7 +26,7 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <Units Count="19">
+    <Units Count="18">
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -114,11 +114,6 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterCantineIHM"/>
       </Unit17>
-      <Unit18>
-        <Filename Value="monsterhuntertestsunitaires.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="monsterHunterTestsUnitaires"/>
-      </Unit18>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
