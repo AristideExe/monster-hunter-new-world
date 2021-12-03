@@ -86,9 +86,14 @@ var
 begin
   Randomize;
 
-  quantiteLoot1 := Random(getMonstreCombat.loot[0].quantiteMaximum ) + getMonstreCombat.loot[0].quantiteMinimum;      //Donne un montant d'un item entre une quantité min et une quantité max
-  quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum ) + getMonstreCombat.loot[1].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
-  quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum ) + getMonstreCombat.loot[2].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
+  if (getMonstreCombat.loot[0].quantiteMinimum = 0) then  quantiteLoot1 := Random(getMonstreCombat.loot[0].quantiteMaximum + 90) + getMonstreCombat.loot[0].quantiteMinimum      //Donne un montant d'un item entre une quantité min et une quantité max  (gère le bug des loots avec 1 de loot minimum)
+  else  quantiteLoot1 := Random(getMonstreCombat.loot[0].quantiteMaximum) + getMonstreCombat.loot[0].quantiteMinimum;      //Donne un montant d'un item entre une quantité min et une quantité max
+
+  if (getMonstreCombat.loot[1].quantiteMaximum = 0) then quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum + 90) + getMonstreCombat.loot[1].quantiteMinimum      //Donne un montant d'un autre item entre une quantité min et une quantité max
+  else quantiteLoot2 := Random(getMonstreCombat.loot[1].quantiteMaximum) + getMonstreCombat.loot[1].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
+
+  if (getMonstreCombat.loot[2].quantiteMaximum = 0) then quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum + 90) + getMonstreCombat.loot[2].quantiteMinimum      //Donne un montant d'un autre item entre une quantité min et une quantité max
+  else quantiteLoot3 := Random(getMonstreCombat.loot[2].quantiteMaximum) + getMonstreCombat.loot[2].quantiteMinimum;      //Donne un montant d'un autre item entre une quantité min et une quantité max
 
   //On donne le loot au joueur
   ajouterItemJoueur(getMonstreCombat.loot[0].numeroLoot,quantiteLoot1);

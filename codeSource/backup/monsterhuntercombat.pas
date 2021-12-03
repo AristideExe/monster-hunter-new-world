@@ -52,7 +52,7 @@ begin
   begin
 
     //On stoque la valeur d'attaque dans une variable
-    degats := round(getJoueur().armePortee.valeurAttaque);
+    degats := round(getJoueur().armePortee.valeurAttaque * calculEmoussementArmeJoueur());
 
     //On inflige les dégats au monstre
     degatsCombatMonstre(degats); //On inflige des dégats équivalents a l'attaque de l'arme
@@ -96,8 +96,8 @@ begin
       if getMonstreCombat().vie <> 0 then
       begin
 
-           //Le monstre attaque
-           attaquantCombat(2);
+        //Le monstre attaque
+        attaquantCombat(2);
 
       end;
 
@@ -114,14 +114,10 @@ begin
       if getJoueur().vie <> 0 then
       begin
 
-           //Le monstre attaque
-           attaquantCombat(2);
+        //Le joueur attaque
+        attaquantCombat(1);
 
       end;
-
-      //Le joueur attaque
-      attaquantCombat(1);
-
 
     end;
 

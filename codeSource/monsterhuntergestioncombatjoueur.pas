@@ -32,6 +32,9 @@ uses
    //Procedure qui fait fuir le joueur
    procedure fuiteJoueur ();
 
+   //Fonction qui calcule les buffs/debuffs liés a l'émoussement de l'arme
+   function calculEmoussementArmeJoueur ():real;
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 
 implementation
@@ -69,7 +72,7 @@ begin
   totalDefense := totalDefense + getJoueur.armurePortee[4].valeurDefense;
 
   //On renvoie un pourcentage de réduction
-  reductionDmgArmure := totalDefense / maxDef;
+  reductionDmgArmure := 0.6 - (1 - (totalDefense / maxDef));
 end;
 
 //Fonction qui renvoie le taux d'esquive d'un joueur en fonction de son armure
@@ -105,7 +108,10 @@ begin
   if random(101) > tauxEsquive() then
   begin
     //On mesure les dégats en fonction de la réduction de dégats
-    dmg := round(aleaTypeAttaqueMonstre() * (1 - reductionDmgArmure()));
+    dmg := round(aleaTypeAttaqueMonstre() * (reductionDmgArmure * (1 - (reductionDmgArmure)) ));
+
+    if dmg = 0 then
+       dmg := 1;
 
   end
 
@@ -113,6 +119,24 @@ begin
   else dmg := 0;
 
   calculDmgJoueur := dmg
+
+end;
+
+//Fonction qui calcule les buffs/debuffs liés a l'émoussement de l'arme
+function calculEmoussementArmeJoueur ():real;
+var
+  emoussementCourant : integer;
+  emoussementMax : integer;
+
+begin
+  emoussementCourant := getJoueur().armePortee.emoussement;
+  emoussementMax:= getJoueur().armePortee.emoussementDepart;
+
+  if ((emoussementCourant/emoussementMax) > 0.90) then calculEmoussementArmeJoueur := 1.1
+  else if ((emoussementCourant/emoussementMax) > 0.75) then calculEmoussementArmeJoueur := 1.05
+  else if ((emoussementCourant/emoussementMax) > 0.25) then calculEmoussementArmeJoueur := 1
+  else if ((emoussementCourant/emoussementMax) > 0.10) then calculEmoussementArmeJoueur := 0.95
+  else if ((emoussementCourant/emoussementMax) > 1) then calculEmoussementArmeJoueur := 0.90;
 
 end;
 
