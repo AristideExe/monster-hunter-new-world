@@ -58,6 +58,9 @@ procedure ajouterObjetJoueur(positionObjet, quantite : integer);
 // Procédure pour retirer un objet au joueur
 procedure retirerObjetJoueur(positionObjet, quantite : integer);
 
+// Procédure pour donner de la nourriture au joueur
+procedure ajouterNourritureJoueur(positionNourriture, quantite : integer);
+
 // Procédure pour retirer de la nourriture au joueur
 procedure retirerNourritureJoueur(positionNourriture, quantite : integer);
 
@@ -182,6 +185,12 @@ begin
   joueur.objetsPossedes[0] := 0;
   joueur.objetsPossedes[1] := 0;
   joueur.objetsPossedes[2] := 0;
+end;
+
+// Remet la vie du joueur à 100
+procedure reinitialiserVieJoueur();
+begin
+  joueur.vie := 100;
 end;
 
 // Procédure pour réinitialiser l'emoussement de l'arme portée par le jouer

@@ -18,6 +18,23 @@ procedure selectionArmureArmoire();
 implementation
 uses monsterHunterVille, monsterHunterJoueur;
 
+
+
+
+// ----------------------------------------------------- DORMIR ------------------------------------------------------
+procedure dormir();
+begin
+  dormirIHM();
+  reinitialiserVieJoueur();
+  readln;
+
+end;
+
+
+
+
+
+
 // ----------------------------------------------------- ARMOIRE ------------------------------------------------------
 procedure armoire(pieceArmure : typePieceArmure);
 var
@@ -96,7 +113,7 @@ var
   positionArmeChoisie : integer;
 begin
   malleIHM();
-  enteteMalleArmeIHM();
+  enteteMalleIHM();
 
 
 
@@ -152,6 +169,7 @@ begin
   if choix = '0' then ville()
   else if choix = '1' then malle()
   else if choix = '2' then selectionArmureArmoire()
+  else if choix = '3' then dormir()
   else chambre();
 end;
 

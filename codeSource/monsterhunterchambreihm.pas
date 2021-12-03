@@ -11,6 +11,8 @@ uses
 
 // IHM de la chambre
 function chambreIHM() : string;
+// Affichage lorsque l'on dort
+procedure dormirIHM();
 // IHM de l'armoire à armures
 procedure armoireIHM();
 // Affichage d'une seule armure dans l'armoire
@@ -26,6 +28,18 @@ function selectionArmureArmoireIHM() : string;
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
+
+// ----------------------------------------------------- DORMIR ------------------------------------------------------
+// Affichage lorsque l'on dort
+procedure dormirIHM();
+begin
+  effacerEcran();
+  write('tu dors mon reuf');
+end;
+
+
+
+
 
 // ----------------------------------------------------- ARMOIRE ------------------------------------------------------
 // Menu de sélection pour savoir quelle armure on veut afficher
@@ -239,7 +253,7 @@ begin
   end;
 
 
-  deplacerCurseurXY(7,28); write(' 0/ Retourner à la ville   1/ Ouvrir la malle  2/ Ouvrir l''armoire ');
+  deplacerCurseurXY(7,28); write(' 0/ Retourner à la ville  1/ Malle  2/ Armoire  3/ Se reposer ');
   deplacerCurseurXY(91,28); write(' Votre choix :   '); deplacerCurseurXY(106,28);
   readln(chambreIHM);
 end;
