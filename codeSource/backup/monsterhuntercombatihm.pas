@@ -172,7 +172,7 @@ begin
      couleurFond(Black);          //On réinitialise les paramètres de couleur
 
      deplacerCurseurXY(115,35);
-     write('hp : ' + IntToStr(round(getJoueur().vie) + getJoueur().buffVie) + ' / ' + IntToStr(pvMax + getJoueur().buffVie) + '  ' + IntToStr(getJoueur().buffVie));
+     write('hp : ' + IntToStr(round(getJoueur().vie) + getJoueur().buffVie) + ' / ' + IntToStr(pvMax + getJoueur().buffVie) + '  ');
 
 end;
 
@@ -513,6 +513,12 @@ begin
      deplacerCurseurXY(70 - round(length(message3)/2),36); write(message3);
 
      readln;
+end;
+
+//Procedure d'affichage de l'inventaire
+procedure affichageInventaireCombatIHM ();
+begin
+     cadreCombatIHM('Inventaire');
 end;
 
 end.

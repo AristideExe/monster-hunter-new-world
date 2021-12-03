@@ -56,6 +56,9 @@ procedure messageMortJoueurIHM ();
 //Procedure qui affiche le statut de l'émoussement
 procedure afficherEmoussementIHM();
 
+//Procedure d'affichage de l'inventaire
+procedure affichageInventaireCombatIHM ();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
@@ -513,6 +516,12 @@ begin
      deplacerCurseurXY(70 - round(length(message3)/2),36); write(message3);
 
      readln;
+end;
+
+//Procedure d'affichage de l'inventaire
+procedure affichageInventaireCombatIHM ();
+begin
+     cadreCombatIHM('Inventaire');
 end;
 
 end.

@@ -35,6 +35,15 @@ uses
    //Fonction qui calcule les buffs/debuffs liés a l'émoussement de l'arme
    function calculEmoussementArmeJoueur ():real;
 
+   //Procedure d'utilisation d'une potion de soin
+   procedure utilisationPotionSoin ();
+
+   //Procedure d'utilisation de pierre ponce
+   procedure utilisationPierrePonce ();
+
+   //Procedurre d'utilisation de bombe
+   procedure utilisationBombeJoueur ();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 
 implementation
@@ -42,7 +51,7 @@ implementation
 //Constantes
 const
   maxDef = 1650;
-  dmgBombe =  50;
+  dmgBombe =  60;
 
 
 //Fonction qui gère la précision en fonction de l'arme
@@ -99,7 +108,7 @@ begin
   buffPV := getJoueur().buffVie;
   dmgVie := dmg - buffPV;
 
-  if dmgVie < 0 then;
+  if dmgVie < 0 then dmgVie:= 0;
 
   //On soustrait la vie au buff si il en à un
   soustraireBuffJoueur(dmg,0);
@@ -145,9 +154,11 @@ var
   emoussementMax : integer;
 
 begin
+  //On lis l'émoussement max et actuel
   emoussementCourant := getJoueur().armePortee.emoussement;
   emoussementMax:= getJoueur().armePortee.emoussementDepart;
 
+  //On check l'état de l'émoussement et on applique le buff/debuff
   if ((emoussementCourant/emoussementMax) > 0.90) then calculEmoussementArmeJoueur := 1.1
   else if ((emoussementCourant/emoussementMax) > 0.75) then calculEmoussementArmeJoueur := 1.05
   else if ((emoussementCourant/emoussementMax) > 0.25) then calculEmoussementArmeJoueur := 1
@@ -162,10 +173,27 @@ begin
     retirerArgentJoueur(100);
 end;
 
+//Procedurre d'utilisation de bombe
+procedure utilisationBombeJoueur ();
+begin
+  degatsCombatMonstre(dmgBombe);
+end;
+
+//Procedure d'utilisation de pierre ponce
+procedure utilisationPierrePonce ();
+begin
+  reinitialiserEmoussementArmeJoueur();
+end;
+
+//Procedure d'utilisation d'une potion de soin
+procedure utilisationPotionSoin ();
+begin
+    if (getJoueur().vie + 50) > 100 then reinitialiserVieJoueur()
+    else modifierVieJoueur(getJoueur().vie + 50);
+end;
+
 //procedure qui vérifie la mort du monstre
 procedure estMortJoueur ();
-var
-  item:integer;
 begin
 
     //Si il est mort
@@ -177,6 +205,8 @@ begin
 
         //On remet les pv du joueur au max
         modifierVieJoueur(100);
+
+        //Le joueur perd ses buffs
 
         //On affiche le game over
         messageMortJoueurIHM();

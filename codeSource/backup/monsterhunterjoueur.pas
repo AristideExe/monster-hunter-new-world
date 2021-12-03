@@ -85,6 +85,9 @@ procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
 // Procédure pour retirer de l'argent au joueur
 procedure retirerArgentJoueur(quantite : integer);
 
+// Remet la vie du joueur à 100
+procedure reinitialiserVieJoueur();
+
 //Procedure qui modifie les pv du joueur
 procedure modifierVieJoueur (nouvelleVie:integer);
 
@@ -218,6 +221,12 @@ begin
   joueur.objetsPossedes[0] := 0;
   joueur.objetsPossedes[1] := 0;
   joueur.objetsPossedes[2] := 0;
+end;
+
+// Remet la vie du joueur à 100
+procedure reinitialiserVieJoueur();
+begin
+  joueur.vie := 100;
 end;
 
 // Procédure pour réinitialiser l'emoussement de l'arme portée par le jouer

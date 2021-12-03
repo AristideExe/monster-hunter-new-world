@@ -123,6 +123,8 @@ begin
 
     else monstreCombat.vie:= getMonstreCombat.vie - degats;      //On inflige les dégats de l'arme au monstre
 
+    baisserEmoussementArme(1); //On réduit la jauge d'émoussement de l'arme
+
   end;
 
 end;
@@ -160,6 +162,9 @@ begin
       begin
         //On donne les loots
         lootMonstreMortIHM(lootMortMonstre);
+
+        //Le Joueur perd ses buffs
+        reinitialiseBuffJoueur();;
 
         //On retourne en ville
         ville();
