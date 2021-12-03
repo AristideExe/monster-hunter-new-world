@@ -40,6 +40,9 @@ var
 
 
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
+// Menu de création de personnage
+procedure creationPersonnage();
+
 // Fonction qui retourne le joueur
 function getJoueur() : typePersonnage;
 
@@ -75,6 +78,9 @@ procedure donnerArmureJoueur(positionArmure : integer;armure : typeArmure);
 
 // Procédure pour retirer de l'argent au joueur
 procedure retirerArgentJoueur(quantite : integer);
+
+// Remet la vie du joueur à 100
+procedure reinitialiserVieJoueur();
 
 //Procedure qui modifie les pv du joueur
 procedure modifierVieJoueur (nouvelleVie:integer);
@@ -128,17 +134,6 @@ begin
 
   // Modification de l'inventaire de nourriture pour qu'il soit vide
   for i:=0 to length(joueur.nourrituresPossedees)-1 do joueur.nourrituresPossedees[i] := 0;
-
-  //fixe la vitesse du joueur à 100
-  joueur.vitesse:=100;
-
-  //fixe les pv du joueur à 100
-  joueur.vie:=100;
-
-  //Fixe l'argent du joueur à 100 Simonnaie
-  joueur.argent:=100;
-
-  creationPersonnage();
 end;
 
 

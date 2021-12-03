@@ -5,7 +5,7 @@ unit monsterHunterMenu;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils,monsterHunterMenuIHM,monsterHunterJoueur, monsterHunterArmesEtArmures,monsterHunterMonstre;
+  Classes, SysUtils,monsterHunterMenuIHM,monsterHunterJoueur, monsterHunterArmesEtArmures,monsterHunterMonstre,monsterHunterCantine;
 
 
 // ------------------------------------------------- PROCEDURES ---------------------------------------------
@@ -48,7 +48,7 @@ var
   choix: string;
 begin
   choix := menuIHM();
-  if (choix = '1') then initialisationPersonnage()
+  if (choix = '1') then creationPersonnage();()
   else if (choix = '2') then choixSauvegarde()
   else if (choix = '3') then credits()
   else if (choix = '4') then quitter()
@@ -61,6 +61,7 @@ end;
 procedure initialisationJeu();
 begin
   Randomize;
+  initialisationPersonnage();
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
   remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
