@@ -6,7 +6,7 @@ unit monsterHunterJoueur;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterArmesEtArmures;
+  Classes, SysUtils, monsterHunterArmesEtArmures, monsterHunterCantine;
 
 // ------------------------------------------------- TYPES -----------------------------------------------
 type
@@ -28,6 +28,8 @@ type
     // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
     objetsPossedes : array[0..2] of integer;
     objetsPortes : array[0..2] of integer;
+    // La quantité de chaque nourriture que possède le joueur
+    nourrituresPossedees: array[0..NOMBRE_NOURRITURES_JEU-1] of integer;
   end;
 
 
@@ -115,7 +117,10 @@ begin
 
   // Modification de l'inventaire d'items pour avoir aucun item
   for k:=0 to length(joueur.itemsPossedes)- 1 do joueur.itemsPossedes[k] := 0;
-  // Remplissage pour tester les crafts
+
+
+  // Modification de l'inventaire de nourriture pour qu'il soit vide
+  for i:=0 to length(joueur.nourrituresPossedees)-1 do joueur.nourrituresPossedees[i] := 5;
 
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;
@@ -128,9 +133,6 @@ begin
 
   creationPersonnage();
 end;
-
-
-
 
 
 // --------------------------------------------- FONCTIONS POUR MODIFIER LE JOUEUR -----------------------------------------
