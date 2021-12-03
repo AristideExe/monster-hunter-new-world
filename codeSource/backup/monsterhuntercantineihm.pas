@@ -34,7 +34,7 @@ begin
   // Affichage du bonus de vie
   deplacerCurseurXY(78,numeroNourriture +7); write(nourriture.bonusVie);
   // Affichage de l'élément de l'arme
-  deplacerCurseurXY(100,numeroNourriture +7); write(nourriture.bonusVitesse);write(' ',getJoueur.nourrituresPossedees[positionNourriture]);
+  deplacerCurseurXY(100,numeroNourriture +7); write(nourriture.bonusVitesse);
 
 
 
@@ -45,15 +45,19 @@ end;
 procedure enteteCantineIHM();
 begin
   // Entête du numéro
-  deplacerCurseurXY(13,6);write('Numéro');
+  deplacerCurseurXY(11,6);write('Numéro');
   // Entête du nom
-  deplacerCurseurXY(30,6); write('Nom');
+  deplacerCurseurXY(23,6); write('Nom');
   // Entête du prix
-  deplacerCurseurXY(62,6); write('Prix');
+  deplacerCurseurXY(50,6); write('Prix');
   // Entête de bonus de vie
-  deplacerCurseurXY(78,6); write('Bonus de vie');
+  deplacerCurseurXY(63,5); write('Bonus de');
+  deplacerCurseurXY(64,6); write('vie');
   // Entête de bonus de vitesse
-  deplacerCurseurXY(95,6); write('Bonus de vitesse');
+  deplacerCurseurXY(77,5); write('Bonus  de');
+  deplacerCurseurXY(78,6); write('vitesse');
+  // Entete de la quantité possédée
+  deplacerCurseurXY(95,6); write('Quantité possédée');
 
   deplacerCurseurXY(100, 28);
 end;

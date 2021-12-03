@@ -24,36 +24,40 @@ implementation
 procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
 begin
   // Affichage du numéro
-  deplacerCurseurXY(15,numeroNourriture+7);
+  deplacerCurseurXY(11,numeroNourriture+7);
   write(numeroNourriture);
   // Affichage du nom
-  deplacerCurseurXY(30,numeroNourriture+7);
+  deplacerCurseurXY(23,numeroNourriture+7);
   write(nourriture.nom);
   // Affichage du prix
-  deplacerCurseurXY(62,numeroNourriture +7); write(nourriture.prixAchat);
+  deplacerCurseurXY(50,numeroNourriture +7); write(nourriture.prixAchat);
   // Affichage du bonus de vie
-  deplacerCurseurXY(78,numeroNourriture +7); write(nourriture.bonusVie);
+  deplacerCurseurXY(63,numeroNourriture +7); write(nourriture.bonusVie);
   // Affichage de l'élément de l'arme
-  deplacerCurseurXY(100,numeroNourriture +7); write(nourriture.bonusVitesse);
+  deplacerCurseurXY(77,numeroNourriture +7); write(nourriture.bonusVitesse);
+  // Affichage de la quantité possédée
+  deplacerCurseurXY(95,numeroNourriture +7); write(getJoueur.nourrituresPossedees[positionNourriture]);
 
-
-
-  deplacerCurseurXY(100, 28);
+  deplacerCurseurXY(100, 28);;
 end;
 
 // Affiche l'entête des colonnes pour la cantine
 procedure enteteCantineIHM();
 begin
   // Entête du numéro
-  deplacerCurseurXY(13,6);write('Numéro');
+  deplacerCurseurXY(11,6);write('Numéro');
   // Entête du nom
-  deplacerCurseurXY(30,6); write('Nom');
+  deplacerCurseurXY(23,6); write('Nom');
   // Entête du prix
-  deplacerCurseurXY(62,6); write('Prix');
+  deplacerCurseurXY(50,6); write('Prix');
   // Entête de bonus de vie
-  deplacerCurseurXY(78,6); write('Bonus de vie');
+  deplacerCurseurXY(63,5); write('Bonus de');
+  deplacerCurseurXY(64,6); write('vie');
   // Entête de bonus de vitesse
-  deplacerCurseurXY(95,6); write('Bonus de vitesse');
+  deplacerCurseurXY(77,5); write('Bonus  de');
+  deplacerCurseurXY(78,6); write('vitesse');
+  // Entete de la quantité possédée
+  deplacerCurseurXY(95,6); write('Quantité possédée');
 
   deplacerCurseurXY(100, 28);
 end;
