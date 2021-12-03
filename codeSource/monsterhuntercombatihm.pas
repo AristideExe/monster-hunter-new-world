@@ -53,6 +53,9 @@ procedure fuiteDuCombatIHM ();
 //procedure qui annonce la perte des items a cause de la mort
 procedure messageMortJoueurIHM ();
 
+//Procedure qui affiche le statut de l'émoussement
+procedure afficherEmoussementIHM();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
@@ -138,36 +141,70 @@ end;
 //Procédure qui affiche les stats du Joueur
 procedure afficherStatsJoueurIHM();
 var
-  couleurVie : Byte;
-  ratioPV : Real;
-  pvMax : integer;
+  couleurVie : Byte;   //Couleur de la barre de vie
+  ratioPV : Real;      //Ratio pv/pvmax
+  pvMax : integer;     //PV max du joueur
+  ratioPVBuff: real;   //Donne le ratio entre les pv + le buff pv / pvmax
 
 begin
      if round(getJoueur().vie) > 100 then pvMax := 150
      else pvMax:=100;
 
-     ratioPV:= round(getJoueur().vie)  / pvMax;                      //On initialise la ratio PV courants/pv Max
+     ratioPVBuff := round(getJoueur().vie + getJoueur().buffVie)  / pvMax;
+     ratioPV:= round(getJoueur().vie) / pvMax;                      //On initialise la ratio PV courants/pv Max
 
      //On change la couleur de la barre de vie en fonction des pv restants
-     if ratioPV > 1 then couleurVie:= Blue                    //couleur bleu (si le joueur a un buff pv)
-     else if ratioPV >= 0.75 then couleurVie:= Green          //Couleur vert
-     else if ratioPV >= 0.5 then couleurVie := LightGreen     //Couleur vert clair
-     else if ratioPV >= 0.25 then couleurVie:= Yellow         //Couleur Jaune
-     else if ratioPV >= 0 then couleurVie:= red;              //Couleur rouge
+     if ratioPVBuff > 1 then couleurVie:= Blue                    //couleur bleu (si le joueur a un buff pv)
+     else if ratioPVBuff >= 0.75 then couleurVie:= Green          //Couleur vert
+     else if ratioPVBuff >= 0.5 then couleurVie := LightGreen     //Couleur vert clair
+     else if ratioPVBuff >= 0.25 then couleurVie:= Yellow         //Couleur Jaune
+     else if ratioPVBuff >= 0 then couleurVie:= red;              //Couleur rouge
 
      //Indicateurs d'une barre de vie pleine
      couleurTexte(DarkGray);
      deplacerCurseurXY(71,35); write('▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒');
 
      //On regarde le ratio de pv pour gérer la barre de vie
-     if (ratioPV > 0) and (ratioPV <= 1) then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie)      //Barre de vie du Joeur
-     else if ratioPV > 1 then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie);                       //Barre de vie du Joeur si il possède un buff d pv
+     if (ratioPVBuff > 0) and (ratioPVBuff <= 1) then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie)      //Barre de vie du Joeur
+     else if ratioPVBuff > 1 then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie);                       //Barre de vie du Joeur si il possède un buff d pv
 
      couleurTexte(White);         //On réinitialise les paramètres de couleur
      couleurFond(Black);          //On réinitialise les paramètres de couleur
 
-     deplacerCurseurXY(115,35);                                       //115,26
-     write('hp : ' + IntToStr(round(getJoueur().vie)) + ' / ' + IntToStr(pvMax) + '  ');
+     deplacerCurseurXY(115,35);
+     write('hp : ' + IntToStr(round(getJoueur().vie) + getJoueur().buffVie) + ' / ' + IntToStr(pvMax + getJoueur().buffVie) + '  ');
+
+end;
+
+//Procedure qui affiche le statut de l'émoussement
+procedure afficherEmoussementIHM();
+var
+  ratioEmoussement : real;
+  emoussementCourant : integer;
+  emoussementMax : integer;
+
+begin
+     //On donne le ratio d'émoussement a partie de l'émoussement max et courant
+     emoussementCourant := getJoueur.armePortee.emoussement;
+     emoussementMax := getJoueur.armePortee.emoussementDepart;
+     ratioEmoussement := emoussementCourant/emoussementMax;
+
+
+     //Check de quelle couleur mettre la barre en fonction de l'émoussement
+     if ratioEmoussement > 0.90 then couleurTexte(LightBlue)
+     else if ratioEmoussement > 0.75 then couleurTexte(Green)
+     else if ratioEmoussement > 0.25 then couleurTexte(LightGreen)
+     else if emoussementCourant > 1 then couleurTexte(Yellow)
+     else couleurTexte(Red);
+
+     //Barre d'émoussement
+     deplacerCurseurXY(71,37); write('▒▒▒▒');
+
+     couleurTexte(White);
+
+     //Afficher affiche combien il reste l'émoussement
+     deplacerCurseurXY(78,37);
+     write('Emoussement : ' + IntToStr(emoussementCourant) + ' / ' + IntToStr(emoussementMax) + '     ');
 
 end;
 
@@ -261,6 +298,7 @@ begin
      actionCombatIHM('ACTIONS');
      infoMonstreIHM(getMonstreCombat().nom);
      infoJoueurIHM(getJoueur().nom);
+     afficherEmoussementIHM();
      versusIHM();
 end;
 

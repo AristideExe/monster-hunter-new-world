@@ -56,7 +56,8 @@ begin
 
     //On inflige les dégats au monstre
     degatsCombatMonstre(degats); //On inflige des dégats équivalents a l'attaque de l'arme
-
+    baisserEmoussementArme(1); //On réduit la jauge d'émoussement de l'arme
+    afficherEmoussementIHM();
     afficherStatsMonstreIHM();
   end
 
@@ -87,7 +88,7 @@ procedure choixAttaquantCombat();
 begin
 
     //Si le joueur est plus rapide il commence a attaquer
-    if (getJoueur().vitesse >= getMonstreCombat().vitesse) then
+    if ((getJoueur().vitesse + getJoueur().vitesse) >= getMonstreCombat().vitesse) then
     begin
 
       //Le joueur attaque

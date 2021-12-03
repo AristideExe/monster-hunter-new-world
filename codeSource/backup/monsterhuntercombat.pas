@@ -56,6 +56,8 @@ begin
 
     //On inflige les dégats au monstre
     degatsCombatMonstre(degats); //On inflige des dégats équivalents a l'attaque de l'arme
+    baisserEmoussementArme(1); //On réduit la jauge d'émoussement de l'arme
+    afficherEmoussementIHM();
     afficherStatsMonstreIHM();
   end
 

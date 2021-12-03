@@ -72,7 +72,7 @@ begin
   totalDefense := totalDefense + getJoueur.armurePortee[4].valeurDefense;
 
   //On renvoie un pourcentage de réduction
-  reductionDmgArmure := 0.6 - (1 - (totalDefense / maxDef));
+  reductionDmgArmure := 0.6*(totalDefense / maxDef);
 end;
 
 //Fonction qui renvoie le taux d'esquive d'un joueur en fonction de son armure
@@ -90,9 +90,23 @@ end;
 
 //procedure qui inflige des dégats au joueur
 procedure degatsCombatJoueur(dmg : integer);
+var
+  buffPV : integer;
+  dmgVie : integer;
+  //dmgBuff : integer;
+
 begin
+  buffPV := getJoueur().buffVie;
+  dmgVie := dmg - buffPV;
+
+  if dmgVie < 0 then dmgVie:= 0;
+
+  //On soustrait la vie au buff si il en à un
+  soustraireBuffJoueur(dmg,0);
+
+  //On inflige le reste des dégats aux pv du joueur
   if dmg > getJoueur().vie then modifierVieJoueur(0)
-  else modifierVieJoueur(getJoueur().vie - dmg);
+  else modifierVieJoueur(getJoueur().vie - dmgVie);
 
 end;
 
@@ -100,6 +114,7 @@ end;
 function calculDmgJoueur ():integer;
 var
   dmg : integer;
+  ajoutReduction : real;
 
 begin
   Randomize;
@@ -107,8 +122,9 @@ begin
   //On regarde si le joueur esquive ici il n'esquive pas
   if random(101) > tauxEsquive() then
   begin
+    ajoutReduction:= 1 - reductionDmgArmure;
     //On mesure les dégats en fonction de la réduction de dégats
-    dmg := round(aleaTypeAttaqueMonstre() * (reductionDmgArmure * (1 - (reductionDmgArmure)) ));
+    dmg := round(aleaTypeAttaqueMonstre() * ajoutReduction);
 
     if dmg = 0 then
        dmg := 1;
@@ -135,8 +151,8 @@ begin
   if ((emoussementCourant/emoussementMax) > 0.90) then calculEmoussementArmeJoueur := 1.1
   else if ((emoussementCourant/emoussementMax) > 0.75) then calculEmoussementArmeJoueur := 1.05
   else if ((emoussementCourant/emoussementMax) > 0.25) then calculEmoussementArmeJoueur := 1
-  else if ((emoussementCourant/emoussementMax) > 0.10) then calculEmoussementArmeJoueur := 0.95
-  else if ((emoussementCourant/emoussementMax) > 1) then calculEmoussementArmeJoueur := 0.90;
+  else if (emoussementCourant > 1) then calculEmoussementArmeJoueur := 0.95
+  else calculEmoussementArmeJoueur := 0.90;
 
 end;
 

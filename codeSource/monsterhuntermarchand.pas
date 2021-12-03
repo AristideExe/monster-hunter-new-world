@@ -126,7 +126,7 @@ begin
   for i:=0 to length(nourrituresDisponibles)-1 do
   begin
     // On affiche toutes les nourritures disponibles
-    afficherNourritureIHM(nourrituresDisponibles[i], compteurNourriture);
+    afficherNourritureIHM(nourrituresDisponibles[i],i, compteurNourriture);
     compteurNourriture := compteurNourriture + 1;
   end;
 

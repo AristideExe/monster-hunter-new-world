@@ -151,7 +151,7 @@ begin
       // Si le joueur achete au dessus de ses moyens
       else if (quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat <= getJoueur.argent) then
       begin
-          ajouterNourritureJoueur(positionNourriture, quantiteInt);
+          ajouterNourritureJoueur(positionNourritureChoisie, quantiteInt);
           retirerArgentJoueur(quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat);
           achatNourriture();
       end
