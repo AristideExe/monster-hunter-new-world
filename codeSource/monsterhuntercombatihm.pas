@@ -53,6 +53,12 @@ procedure fuiteDuCombatIHM ();
 //procedure qui annonce la perte des items a cause de la mort
 procedure messageMortJoueurIHM ();
 
+//Procedure qui affiche le statut de l'émoussement
+procedure afficherEmoussementIHM();
+
+//Procedure d'affichage de l'inventaire
+procedure affichageInventaireCombatIHM ();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
@@ -138,36 +144,70 @@ end;
 //Procédure qui affiche les stats du Joueur
 procedure afficherStatsJoueurIHM();
 var
-  couleurVie : Byte;
-  ratioPV : Real;
-  pvMax : integer;
+  couleurVie : Byte;   //Couleur de la barre de vie
+  ratioPV : Real;      //Ratio pv/pvmax
+  pvMax : integer;     //PV max du joueur
+  ratioPVBuff: real;   //Donne le ratio entre les pv + le buff pv / pvmax
 
 begin
      if round(getJoueur().vie) > 100 then pvMax := 150
      else pvMax:=100;
 
-     ratioPV:= round(getJoueur().vie)  / pvMax;                      //On initialise la ratio PV courants/pv Max
+     ratioPVBuff := round(getJoueur().vie + getJoueur().buffVie)  / pvMax;
+     ratioPV:= round(getJoueur().vie) / pvMax;                      //On initialise la ratio PV courants/pv Max
 
      //On change la couleur de la barre de vie en fonction des pv restants
-     if ratioPV > 1 then couleurVie:= Blue                    //couleur bleu (si le joueur a un buff pv)
-     else if ratioPV >= 0.75 then couleurVie:= Green          //Couleur vert
-     else if ratioPV >= 0.5 then couleurVie := LightGreen     //Couleur vert clair
-     else if ratioPV >= 0.25 then couleurVie:= Yellow         //Couleur Jaune
-     else if ratioPV >= 0 then couleurVie:= red;              //Couleur rouge
+     if ratioPVBuff > 1 then couleurVie:= Blue                    //couleur bleu (si le joueur a un buff pv)
+     else if ratioPVBuff >= 0.75 then couleurVie:= Green          //Couleur vert
+     else if ratioPVBuff >= 0.5 then couleurVie := LightGreen     //Couleur vert clair
+     else if ratioPVBuff >= 0.25 then couleurVie:= Yellow         //Couleur Jaune
+     else if ratioPVBuff >= 0 then couleurVie:= red;              //Couleur rouge
 
      //Indicateurs d'une barre de vie pleine
      couleurTexte(DarkGray);
      deplacerCurseurXY(71,35); write('▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒');
 
      //On regarde le ratio de pv pour gérer la barre de vie
-     if (ratioPV > 0) and (ratioPV <= 1) then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie)      //Barre de vie du Joeur
-     else if ratioPV > 1 then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie);                       //Barre de vie du Joeur si il possède un buff d pv
+     if (ratioPVBuff > 0) and (ratioPVBuff <= 1) then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie)      //Barre de vie du Joeur
+     else if ratioPVBuff > 1 then dessinerCadreXY(71,35,round(71+40*(ratioPV)),35,simple,couleurVie,couleurVie);                       //Barre de vie du Joeur si il possède un buff d pv
 
      couleurTexte(White);         //On réinitialise les paramètres de couleur
      couleurFond(Black);          //On réinitialise les paramètres de couleur
 
-     deplacerCurseurXY(115,35);                                       //115,26
-     write('hp : ' + IntToStr(round(getJoueur().vie)) + ' / ' + IntToStr(pvMax) + '  ');
+     deplacerCurseurXY(115,35);
+     write('hp : ' + IntToStr(round(getJoueur().vie) + getJoueur().buffVie) + ' / ' + IntToStr(pvMax + getJoueur().buffVie) + '  ');
+
+end;
+
+//Procedure qui affiche le statut de l'émoussement
+procedure afficherEmoussementIHM();
+var
+  ratioEmoussement : real;
+  emoussementCourant : integer;
+  emoussementMax : integer;
+
+begin
+     //On donne le ratio d'émoussement a partie de l'émoussement max et courant
+     emoussementCourant := getJoueur.armePortee.emoussement;
+     emoussementMax := getJoueur.armePortee.emoussementDepart;
+     ratioEmoussement := emoussementCourant/emoussementMax;
+
+
+     //Check de quelle couleur mettre la barre en fonction de l'émoussement
+     if ratioEmoussement > 0.90 then couleurTexte(LightBlue)
+     else if ratioEmoussement > 0.75 then couleurTexte(Green)
+     else if ratioEmoussement > 0.25 then couleurTexte(LightGreen)
+     else if emoussementCourant > 1 then couleurTexte(Yellow)
+     else couleurTexte(Red);
+
+     //Barre d'émoussement
+     deplacerCurseurXY(71,37); write('▒▒▒▒');
+
+     couleurTexte(White);
+
+     //Afficher affiche combien il reste l'émoussement
+     deplacerCurseurXY(78,37);
+     write('Emoussement : ' + IntToStr(emoussementCourant) + ' / ' + IntToStr(emoussementMax) + '     ');
 
 end;
 
@@ -261,6 +301,7 @@ begin
      actionCombatIHM('ACTIONS');
      infoMonstreIHM(getMonstreCombat().nom);
      infoJoueurIHM(getJoueur().nom);
+     afficherEmoussementIHM();
      versusIHM();
 end;
 
@@ -475,6 +516,44 @@ begin
      deplacerCurseurXY(70 - round(length(message3)/2),36); write(message3);
 
      readln;
+end;
+
+//Procedure d'affichage de l'inventaire
+procedure affichageInventaireCombatIHM ();
+begin
+     cadreCombatIHM('Inventaire');
+     if (getJoueur.objetsPossedes[0] + getJoueur.objetsPossedes[1] + getJoueur.objetsPossedes[2]) > 0 then
+     begin
+        // Entête
+       deplacerCurseurXY(10,23);write('Numéro');
+       deplacerCurseurXY(25,23); write('Nom');
+       deplacerCurseurXY(48,23); write('Action');
+       deplacerCurseurXY(100,23); write('Quantité dans l''inventaire');
+
+       // Affichage des bombes
+       deplacerCurseurXY(10,25);write('1');
+       deplacerCurseurXY(25,25); write('Bombes');
+       deplacerCurseurXY(48,25); write('60 dégats au monstre');
+       deplacerCurseurXY(100,25); write(getJoueur.objetsPossedes[0] + getJoueur.objetsPortes[0]);
+
+       // Affichage des potions de soin
+       deplacerCurseurXY(10,26);write('2');
+       deplacerCurseurXY(25,26); write('Potion de soin');
+       deplacerCurseurXY(48,26); write('Régénération de 50 points de vie');
+       deplacerCurseurXY(100,26); write(getJoueur.objetsPossedes[1] + getJoueur.objetsPortes[1]);
+
+       // Affichage des pierres ponces
+       deplacerCurseurXY(10,27);write('3');
+       deplacerCurseurXY(25,27); write('Pierre ponce');
+       deplacerCurseurXY(48,27); write('Retire l''émoussement de l''arme');
+       deplacerCurseurXY(100,27); write(getJoueur.objetsPossedes[2] + getJoueur.objetsPortes[2]);
+     end
+     else
+     begin
+       deplacerCurseurXY(10,23);write('Vous ne possédez aucun objet');
+     end;
+
+     deplacerCurseurXY(10,35); write('0/ Retour au combat');
 end;
 
 end.

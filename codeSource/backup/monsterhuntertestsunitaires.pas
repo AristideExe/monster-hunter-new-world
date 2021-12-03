@@ -55,8 +55,8 @@ begin
   begin
     if getJoueur.armesPossedees[i].nom <> 'NULL' then estVide := false;
     if getJoueur.armesPossedees[i].element <> normal then estVide := false;
-    if getJoueur.armesPossedees[i].emoussementDepart <> 0 then estVide := false;
-    if getJoueur.armesPossedees[i].emoussement <> 0 then estVide := false;
+    if getJoueur.armesPossedees[i].emoussementDepart <> -1 then estVide := false;
+    if getJoueur.armesPossedees[i].emoussement <> -1 then estVide := false;
     if getJoueur.armesPossedees[i].valeurAttaque <> 0 then estVide := false;
   end;
   testIsEqual(estVide);

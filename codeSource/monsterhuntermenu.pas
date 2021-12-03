@@ -61,7 +61,6 @@ end;
 procedure initialisationJeu();
 begin
   Randomize;
-  initialisationPersonnage();
   remplirArmuresDisponibles('nomsStatsObjets/armures.csv');
   remplirArmesDisponibles('nomsStatsObjets/armes.csv');
   remplirCraftArmesDisponibles('fabrication/craftArmes.csv');
@@ -69,6 +68,8 @@ begin
   remplirItemsDeCraftDisponibles('fabrication/itemsDeCraft.csv');
   remplirNourrituresDisponibles('nomsStatsObjets/nourritures.csv');
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
+
+  initialisationPersonnage();
   affichageLogo();
   menu();
 end;

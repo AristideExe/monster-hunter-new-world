@@ -5,7 +5,7 @@ uses
   monsterHunterMenu, monsterHunterTestsUnitaires;
 
 begin
-  //initialisationJeu();
-  test();
+  initialisationJeu();
+  //test();
 end.
 

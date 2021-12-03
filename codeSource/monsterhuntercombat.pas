@@ -52,10 +52,11 @@ begin
   begin
 
     //On stoque la valeur d'attaque dans une variable
-    degats := round(getJoueur().armePortee.valeurAttaque);
+    degats := round(getJoueur().armePortee.valeurAttaque * calculEmoussementArmeJoueur);
 
     //On inflige les dégats au monstre
     degatsCombatMonstre(degats); //On inflige des dégats équivalents a l'attaque de l'arme
+    afficherEmoussementIHM();
     afficherStatsMonstreIHM();
   end
 
@@ -86,7 +87,7 @@ procedure choixAttaquantCombat();
 begin
 
     //Si le joueur est plus rapide il commence a attaquer
-    if (getJoueur().vitesse >= getMonstreCombat().vitesse) then
+    if ((getJoueur().vitesse + getJoueur().vitesse) >= getMonstreCombat().vitesse) then
     begin
 
       //Le joueur attaque
@@ -143,12 +144,60 @@ begin
     end;
 end;
 
+//Procédure qui fait le choix de l'item dans l'inventaire
+procedure choixInventaireCombat (choix : string);
+begin
+    if choix = 'met ceque tu veux' then
+    //    //Le monstre attaque
+    //    attaquantCombat(2);
+
+    else if choix = 'met ceque tu veux' then //Utiliser une bombe puis executer le code suivant
+
+    //  //On vérifie que le monstre n'est pas mort
+    //  if getMonstreCombat().vie <> 0 then
+    //  begin
+    //
+    //    //Le monstre attaque
+    //    attaquantCombat(2);
+    //
+    //  end;
+    //
+    //checkMortCombat() //On check si il y a des morts
+
+    else if choix = '0' then
+    begin
+      interfaceCombatIHM();
+
+    end
+    else choixInventaireCombat(cadreChoixActionsIHM()); //L'entree est mauvaise donc on redemande
+
+    if choix <> 'Celui ou tu utilise les bombes' then
+       choixActionJoueur();
+
+end;
+
+//Procedure qui execute l'action ouvrir l'inventaire
+procedure inventaireCombat ();
+begin
+
+    affichageInventaireCombatIHM();
+    choixInventaireCombat(cadreChoixActionsIHM());
+    //La fonction cadreChoixActionsIHM(); cree une case choix et permet de lire un choix dans l'encadré (donc elle retourne l'entree utilisateur)
+    //La fonction permet aussi et surtout de ne pas avoir a recharger la page entière (seul le cadre de choix est modifié)
+
+end;
+
 //Procedure qui execute l'action fuir/attaquer ou ouvrir l'inventaire
 procedure choixCombatJoueur(choix:string);
 begin
   if choix = '1' then
   begin
      choixAttaquantCombat();
+  end
+
+  else if choix = '2' then
+  begin
+     inventaireCombat();
   end
 
   else if choix = '3' then
