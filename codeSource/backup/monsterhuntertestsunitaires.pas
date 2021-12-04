@@ -20,19 +20,25 @@ begin
   newTestsSeries('Initialisation du joueur');
   initialisationPersonnage();
 
+  // On vérifie que le joueur à 100 pv au début
   newTest('Initialisation du joueur','Valeur de vie à 100');
   testIsEqual(getJoueur.vie, 100);
 
+  // On vérifie que le joueur à 100 de vitesse au début
   newTest('Initialisation du joueur','Valeur de vitesse à 100');
   testIsEqual(getJoueur.vitesse, 100);
 
+  // On vérifie que le joueur à 100 simonnaie au début
   newTest('Initialisation du joueur','Argent à 100');
   testIsEqual(getJoueur.argent, 100);
 
+  // On vérifie que l'inventaire d'armures du joueur est vide
   newTest('Initialisation du joueur', 'Inventaire d''armures vides');
   estVide := true;
+  // On parcours l'inventaire d'armures
   for i:=0 to NOMBRE_ARMURES_JEU-1 do
   begin
+    // Si le nom = 'Null' et que l'élément = normal et que la valeur de defense = 0 et que le taux d'esquive = 0 alors le slot d'armure est vide
     if getJoueur.armuresPossedees[i].nom <> 'NULL' then estVide := false;
     if getJoueur.armuresPossedees[i].element <> normal then estVide := false;
     if getJoueur.armuresPossedees[i].valeurDefense <> 0 then estVide := false;
@@ -40,8 +46,10 @@ begin
   end;
   testIsEqual(estVide);
 
+  // On vérifie que le joueur ne porte pas d'armes
   newTest('Initialisation du joueur', 'Inventaire d''armures portées vide');
   estVide := true;
+  // On regarde les armures portées une par une
   for i:=0 to 4 do
   begin
     if getJoueur.armurePortee[i].nom <> 'NULL' then estVide := false;
@@ -51,6 +59,8 @@ begin
   end;
   testIsEqual(estVide);
 
+
+  // On vérifie que l'inventaire d'arme soit vide
   newTest('Initialisation du joueur', 'Inventaire d''armes vides');
   estVide := true;
   for i:=0 to NOMBRE_ARMES_JEU-1 do
@@ -307,6 +317,8 @@ begin
     utilisationPotionSoin();
 
     TestItem := True;
+
+    //On regarde que la vie est bien remontée de 50
     if (getJoueur.vie <> (100 - 75 + 50)) then TestItem := False;
 
     testIsEqual(TestItem);
