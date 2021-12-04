@@ -137,6 +137,10 @@ function cantineIHM() : string;
 begin
   effacerEcran();
   cadrePrincipal('Cantine');
+
+  dessinCouleurSansEspaces('dessins/cuisto.txt',50,4);
+
+
   deplacerCurseurXY(15,15); write('1/ Manger');
   deplacerCurseurXY(15,17); write('2/ Acheter de la nourriture');
 
