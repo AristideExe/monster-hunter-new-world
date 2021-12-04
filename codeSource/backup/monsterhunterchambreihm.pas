@@ -13,22 +13,29 @@ uses
 function chambreIHM() : string;
 // Affichage lorsque l'on dort
 procedure dormirIHM();
+
 // IHM de l'armoire à armures
 procedure armoireIHM();
+// Menu de sélection pour savoir quelle armure on veut afficher
+function selectionArmureArmoireIHM() : string;
+// Affiche un message si le joueur ne possède aucune armure
+procedure aucuneArmurePossedeeIHM();
 // Affiche l'entete pour les armures dans l'armoire
 procedure enteteArmoireIHM();
 // Affichage d'une seule armure dans l'armoire
-procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
+procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer);
+
 // Affiche les objets possédés
 function objetsIHM() : string;
-// Affichage d'une seule arme dans la malle
-procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
+
 // IHM de la malle des armes
 procedure malleIHM();
+// Affiche un message si le joueur ne possède aucune arme
+procedure aucuneArmePossedeeIHM();
 // Affiche l'entête des colonnes pour la malle
 procedure enteteMalleIHM();
-// Menu de sélection pour savoir quelle armure on veut afficher
-function selectionArmureArmoireIHM() : string;
+// Affichage d'une seule arme dans la malle
+procedure afficherArmeIHM(arme : typeArme; numeroArme : integer);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -112,6 +119,10 @@ end;
 
 
 
+
+
+
+
 // ----------------------------------------------------- ARMOIRE ------------------------------------------------------
 // Menu de sélection pour savoir quelle armure on veut afficher
 function selectionArmureArmoireIHM() : string;
@@ -120,7 +131,7 @@ begin
 
   CadrePrincipal('Armoire');
 
-  dessinCouleurSansEspaces('dessins/armoire.txt',8,7);
+  dessinCouleurSansEspaces('dessins/armoire.txt',8,8);
 
   dessinerCadreXY(42,8,112,15,simple,White,Black);
   dessinerCadreXY(42,15,112,23,simple,White,Black);
@@ -154,6 +165,15 @@ begin
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 
+// Affiche un message si le joueur ne possède aucune armure
+procedure aucuneArmurePossedeeIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(39,14);write('Vous ne possédez aucune armure de ce type');
+  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir à la chambre ');
+  readln;
+end;
+
 // Affiche l'entete pour les armures dans l'armoire
 procedure enteteArmoireIHM();
 begin
@@ -172,7 +192,7 @@ begin
 end;
 
 // Affichage d'une seule armure dans l'armoire
-procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
+procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer);
 begin
   // Affichage du numéro
   deplacerCurseurXY(15,numeroArmure+7);
@@ -231,6 +251,15 @@ begin
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 
+// Affiche un message si le joueur ne possède aucune arme
+procedure aucuneArmePossedeeIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(46,14);write('Vous ne possédez aucune arme');
+  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir à la chambre ');
+  readln;
+end;
+
 // Affiche l'entête des colonnes pour la malle
 procedure enteteMalleIHM();
 begin
@@ -249,7 +278,7 @@ begin
 end;
 
 // Affichage d'une seule arme dans la malle
-procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
+procedure afficherArmeIHM(arme : typeArme; numeroArme : integer);
 begin
   // Affichage du numéro
   deplacerCurseurXY(15,numeroArme+7);
