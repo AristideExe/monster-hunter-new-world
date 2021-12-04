@@ -37,7 +37,7 @@ implementation
 procedure afficherMessageCraftIHM(nomObjet : string);
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(32,14);write('Félicitations, vous avez fabriqué ', nomObjet);
+  deplacerCurseurXY(42- (length(nomObjet) div 2),14);write('Félicitations, vous avez fabriqué ', nomObjet);
   deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
 end;
 
@@ -118,7 +118,7 @@ begin
   deplacerCurseurXY(62,numeroArmure +7); write(armure.element);
   // Affichage de la valeur de défense de l'armure
   deplacerCurseurXY(81,numeroArmure +7); write(armure.valeurDefense:6:2);
-  // Affichage du taux d'attaque de l'armure
+  // Affichage du taux d'esquive de l'armure
   deplacerCurseurXY(97,numeroArmure +7); write(armure.tauxEsquive:6:2);
 
   couleurTexte(white);
