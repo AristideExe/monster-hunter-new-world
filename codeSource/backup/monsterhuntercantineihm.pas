@@ -18,6 +18,8 @@ procedure afficherNourritureIHM(nourriture : typeNourriture ; positionNourriture
 procedure nePeutPasMangerIHM();
 procedure mangerNourritureIHM(nourriture:typeNourriture);
 procedure achatNourritureIHM();
+// Affiche un message si le joueur ne possède aucune nourriture
+procedure aucuneNourriturePossedeeIHM();
 // Affiche le contour de l'endroit pour manger
 procedure mangerIHM();
 // Demande la quantité que souhaite acheter le joueur
