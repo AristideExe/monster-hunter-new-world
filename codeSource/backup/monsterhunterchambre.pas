@@ -53,7 +53,7 @@ var
   positionArmureChoisie : integer;
 begin
   armoireIHM();
-  enteteArmoireIHM
+  enteteArmoireIHM();
 
   // AFFICHAGE DES ARMURES POSSEDEES
   compteurArmure := 1;
@@ -62,9 +62,16 @@ begin
   begin
     if (getJoueur.armuresPossedees[i].nom <> 'NULL') and (getJoueur.armuresPossedees[i].pieceArmure = pieceArmure) then
     begin
-      afficherArmureIHM(getJoueur.armuresPossedees[i], compteurArmure, i = length(getJoueur.armuresPossedees) -1);
+      afficherArmureIHM(getJoueur.armuresPossedees[i], compteurArmure);
       compteurArmure := compteurArmure + 1;
     end;
+  end;
+
+  // Si le joueur ne possède aucune armure
+  if compteurArmure = 1 then
+  begin
+    aucuneArmurePossedeeIHM();
+    chambre();
   end;
 
   // Ecriture du choix par le joueur
@@ -137,6 +144,13 @@ begin
       afficherArmeIHM(getJoueur.armesPossedees[i], compteurArme, i = length(getJoueur.armesPossedees) -1);
       compteurArme := compteurArme + 1;
     end;
+  end;
+
+  // Si le joueur ne possède aucune arme
+  if compteurArme = 1 then
+  begin
+    aucuneArmePossedeeIHM();
+    chambre();
   end;
 
   // Ecriture du choix par le joueur
