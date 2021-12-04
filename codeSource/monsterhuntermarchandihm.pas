@@ -108,19 +108,19 @@ begin
   deplacerCurseurXY(10,7);write('1');
   deplacerCurseurXY(25,7); write('Bombes');
   deplacerCurseurXY(48,7); write('30 Simonnaie');
-  deplacerCurseurXY(80,7); write(getJoueur.objetsPossedes[0] + getJoueur.objetsPortes[0]);
+  deplacerCurseurXY(80,7); write(getJoueur.objetsPossedes[0]);
 
   // Affichage des potions de soin
   deplacerCurseurXY(10,8);write('2');
   deplacerCurseurXY(25,8); write('Potion de soin');
   deplacerCurseurXY(48,8); write('20 Simonnaie');
-  deplacerCurseurXY(80,8); write(getJoueur.objetsPossedes[1] + getJoueur.objetsPortes[1]);
+  deplacerCurseurXY(80,8); write(getJoueur.objetsPossedes[1]);
 
   // Affichage des pierres ponces
   deplacerCurseurXY(10,9);write('3');
   deplacerCurseurXY(25,9); write('Pierre ponce');
   deplacerCurseurXY(48,9); write('50 Simonnaie');
-  deplacerCurseurXY(80,9); write(getJoueur.objetsPossedes[2] + getJoueur.objetsPortes[2]);
+  deplacerCurseurXY(80,9); write(getJoueur.objetsPossedes[2]);
 
   // Affichage des choix
   deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');

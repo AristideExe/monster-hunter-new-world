@@ -534,19 +534,19 @@ begin
        deplacerCurseurXY(10,25);write('1');
        deplacerCurseurXY(25,25); write('Bombes');
        deplacerCurseurXY(48,25); write('60 dégats au monstre');
-       deplacerCurseurXY(100,25); write(getJoueur.objetsPossedes[0] + getJoueur.objetsPortes[0]);
+       deplacerCurseurXY(100,25); write(getJoueur.objetsPossedes[0]);
 
        // Affichage des potions de soin
        deplacerCurseurXY(10,26);write('2');
        deplacerCurseurXY(25,26); write('Potion de soin');
        deplacerCurseurXY(48,26); write('Régénération de 50 points de vie');
-       deplacerCurseurXY(100,26); write(getJoueur.objetsPossedes[1] + getJoueur.objetsPortes[1]);
+       deplacerCurseurXY(100,26); write(getJoueur.objetsPossedes[1]);
 
        // Affichage des pierres ponces
        deplacerCurseurXY(10,27);write('3');
        deplacerCurseurXY(25,27); write('Pierre ponce');
        deplacerCurseurXY(48,27); write('Retire l''émoussement de l''arme');
-       deplacerCurseurXY(100,27); write(getJoueur.objetsPossedes[2] + getJoueur.objetsPortes[2]);
+       deplacerCurseurXY(100,27); write(getJoueur.objetsPossedes[2]);
      end
      else
      begin

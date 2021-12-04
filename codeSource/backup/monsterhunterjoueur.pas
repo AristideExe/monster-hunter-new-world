@@ -122,10 +122,6 @@ uses monsterHunterMenuIHM,monsterHunterVille;
 procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
-
-  while (joueur.sexe <> 'M') and (joueur.sexe <> 'F') do
-        demanderSexeIHM(joueur.sexe);
-
   afficherPersonnageIHM(joueur.sexe);
   ville();
 end;
@@ -161,7 +157,6 @@ begin
 
   // On lui donne une épe de base pour commencer le jeu
   joueur.armePortee := armesDisponibles[0];
-  joueur.armePortee := armesDisponibles[7];
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide

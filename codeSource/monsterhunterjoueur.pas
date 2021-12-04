@@ -30,7 +30,7 @@ type
 
     // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
     objetsPossedes : array[0..2] of integer;
-    objetsPortes : array[0..2] of integer;
+    //objetsPortes : array[0..2] of integer;
 
     // La quantité de chaque nourriture que possède le joueur
     nourrituresPossedees: array[0..NOMBRE_NOURRITURES_JEU-1] of integer;
@@ -122,10 +122,6 @@ uses monsterHunterMenuIHM,monsterHunterVille;
 procedure creationPersonnage();
 begin
   creationPersonnageIHM(joueur.nom, joueur.taille, joueur.sexe);
-
-  while (joueur.sexe <> 'M') and (joueur.sexe <> 'F') do
-        demanderSexeIHM(joueur.sexe);
-
   afficherPersonnageIHM(joueur.sexe);
   ville();
 end;
