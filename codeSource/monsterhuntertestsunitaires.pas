@@ -76,11 +76,13 @@ begin
     //On initialise les monstres
     initialisationMonstres('attributsMonstres/monstresAttributs.csv');
 
+    //--------------------------------------------- Test 1 ---------------------------------------------
+
     newTest('Initialisation des monstres', 'Points de vie des Monstres');
     TestAtribut := True;
 
     //On parcours les monstres et on test
-    for i := 0 to length(getMonstres()) do
+    for i := 0 to length(getMonstres())-1 do
     begin
         //On test que les monstres ont des points de vie
         if (getMonstres[i].vie) <= 0 then TestAtribut:= False;
@@ -88,18 +90,46 @@ begin
 
     testIsEqual(TestAtribut);
 
+    //--------------------------------------------- Test 2 ---------------------------------------------
+
     newTest('Initialisation des monstres', 'Degats des Monstres');
     TestAtribut := True;
 
     //On parcours les monstres et on test
-    for i := 0 to length(getMonstres()) do
+    for i := 0 to length(getMonstres())-1 do
     begin
         //On test que les monstres font des dégats
         if ((getMonstres[i].dmgAttaque) <= 0) and ((getMonstres[i].dmgAttaqueSpe) <= 0) then TestAtribut:= False;
     end;
+    testIsEqual(TestAtribut);
+
+    //--------------------------------------------- Test 3 ---------------------------------------------
+
+    newTest('Initialisation des monstres', 'Vitesse des Monstres');
+    TestAtribut := True;
+
+    //On parcours les monstres et on test
+    for i := 0 to length(getMonstres())-1 do
+    begin
+        //On test que les monstres ont une vitesse
+        if ((getMonstres[i].vitesse) <= 0) then TestAtribut:= False;
+    end;
 
     testIsEqual(TestAtribut);
 
+    //--------------------------------------------- Test 4 ---------------------------------------------
+
+    newTest('Initialisation des monstres', 'Esquive des Monstres');
+    TestAtribut := True;
+
+    //On parcours les monstres et on test
+    for i := 0 to length(getMonstres())-1 do
+    begin
+        //On test que les monstres ont de l'esquive
+        if ((getMonstres[i].esquive) <= 0) then TestAtribut:= False;
+    end;
+
+    testIsEqual(TestAtribut);
 end;
 
 //Tets unitaires de l'initialisation des monstres dans le combat en fonction de la difficulte
