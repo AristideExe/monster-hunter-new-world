@@ -6,5 +6,6 @@ uses
 
 begin
   //initialisationJeu();
+  test();
 end.
 

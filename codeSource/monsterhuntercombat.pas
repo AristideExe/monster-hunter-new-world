@@ -148,7 +148,7 @@ end;
 procedure choixInventaireCombat (choix : string);
 begin
 
-    if ((choix = '1') and (getJoueur().objetsPortes[0] > 0)) then
+    if ((choix = '1') and (getJoueur().objetsPossedes[0] > 0)) then
     begin
          utilisationBombeJoueur(); //Utiliser une bombe puis executer le code suivant
          interfaceCombatIHM();
@@ -167,7 +167,7 @@ begin
     end
 
     //On utilise une potion de soin
-    else if (choix = '2') and (getJoueur().objetsPortes[1] > 0) then
+    else if (choix = '2') and (getJoueur().objetsPossedes[1] > 0) then
     begin
         utilisationPotionSoin();
         interfaceCombatIHM();
@@ -178,7 +178,7 @@ begin
     end
 
     //On utilise la pierre ponce
-    else if ((choix = '3') and (getJoueur().objetsPortes[2] > 0)) then
+    else if ((choix = '3') and (getJoueur().objetsPossedes[2] > 0)) then
     begin
          utilisationPierrePonce();
          interfaceCombatIHM();
@@ -195,7 +195,7 @@ begin
 
     //si une action est effectuée on relance le combat
     if (choix = '0') or (choix = '2') or (choix = '3') then
-       choixActionJoueur();
+       checkMortCombat();
 
 end;
 

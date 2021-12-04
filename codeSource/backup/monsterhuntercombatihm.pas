@@ -56,6 +56,9 @@ procedure messageMortJoueurIHM ();
 //Procedure qui affiche le statut de l'émoussement
 procedure afficherEmoussementIHM();
 
+//Procedure d'affichage de l'inventaire
+procedure affichageInventaireCombatIHM ();
+
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 uses monsterHunterCombat,  monsterHunterGestionCombatJoueur;
@@ -519,6 +522,38 @@ end;
 procedure affichageInventaireCombatIHM ();
 begin
      cadreCombatIHM('Inventaire');
+     if (getJoueur.objetsPossedes[0] + getJoueur.objetsPossedes[1] + getJoueur.objetsPossedes[2]) > 0 then
+     begin
+        // Entête
+       deplacerCurseurXY(10,23);write('Numéro');
+       deplacerCurseurXY(25,23); write('Nom');
+       deplacerCurseurXY(48,23); write('Action');
+       deplacerCurseurXY(100,23); write('Quantité dans l''inventaire');
+
+       // Affichage des bombes
+       deplacerCurseurXY(10,25);write('1');
+       deplacerCurseurXY(25,25); write('Bombes');
+       deplacerCurseurXY(48,25); write('60 dégats au monstre');
+       deplacerCurseurXY(100,25); write(getJoueur.objetsPossedes[0] + getJoueur.objetsPortes[0]);
+
+       // Affichage des potions de soin
+       deplacerCurseurXY(10,26);write('2');
+       deplacerCurseurXY(25,26); write('Potion de soin');
+       deplacerCurseurXY(48,26); write('Régénération de 50 points de vie');
+       deplacerCurseurXY(100,26); write(getJoueur.objetsPossedes[1] + getJoueur.objetsPortes[1]);
+
+       // Affichage des pierres ponces
+       deplacerCurseurXY(10,27);write('3');
+       deplacerCurseurXY(25,27); write('Pierre ponce');
+       deplacerCurseurXY(48,27); write('Retire émoussement de l''arme');
+       deplacerCurseurXY(100,27); write(getJoueur.objetsPossedes[2] + getJoueur.objetsPortes[2]);
+     end
+     else
+     begin
+       deplacerCurseurXY(10,23);write('Vous ne possédez aucun objet');
+     end;
+
+     deplacerCurseurXY(10,35); write('0/ Retour au combat');
 end;
 
 end.

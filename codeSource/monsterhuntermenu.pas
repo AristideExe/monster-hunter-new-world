@@ -48,7 +48,7 @@ var
   choix: string;
 begin
   choix := menuIHM();
-  if (choix = '1') then initialisationPersonnage()
+  if (choix = '1') then creationPersonnage()
   else if (choix = '2') then choixSauvegarde()
   else if (choix = '3') then credits()
   else if (choix = '4') then quitter()
@@ -68,6 +68,8 @@ begin
   remplirItemsDeCraftDisponibles('fabrication/itemsDeCraft.csv');
   remplirNourrituresDisponibles('nomsStatsObjets/nourritures.csv');
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
+
+  initialisationPersonnage();
   affichageLogo();
   menu();
 end;

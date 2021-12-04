@@ -30,7 +30,7 @@ type
 
     // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
     objetsPossedes : array[0..2] of integer;
-    objetsPortes : array[0..2] of integer;
+    //objetsPortes : array[0..2] of integer;
 
     // La quantité de chaque nourriture que possède le joueur
     nourrituresPossedees: array[0..NOMBRE_NOURRITURES_JEU-1] of integer;
@@ -49,6 +49,9 @@ var
 
 
 // ------------------------------------------------- FONCTIONS ---------------------------------------------
+// Menu de création de personnage
+procedure creationPersonnage();
+
 // Fonction qui retourne le joueur
 function getJoueur() : typePersonnage;
 
@@ -133,6 +136,16 @@ procedure initialisationPersonnage();
 var
   i,j, k : integer;
 begin
+
+  //fixe la vitesse du joueur à 100
+  joueur.vitesse:=100;
+
+  //fixe les pv du joueur à 100
+  joueur.vie:=100;
+
+  //Fixe l'argent du joueur à 100 Simonnaie
+  joueur.argent:=100;
+
   // Initialisatin de l'armure pour que toutes les valeurs soient vides
   for i:=0 to length(joueur.armurePortee) do modifierArmure(joueur.armurePortee[i],'NULL',typePieceArmure(i),normal,0,0);
 
@@ -148,7 +161,6 @@ begin
 
   // On lui donne une épe de base pour commencer le jeu
   joueur.armePortee := armesDisponibles[0];
-  joueur.armePortee := armesDisponibles[7];
 
 
   // Modification de l'inventaire d'armes pour qu'il soit vide
@@ -161,6 +173,8 @@ begin
   // Modification de l'inventaire de nourriture pour qu'il soit vide
   for i:=0 to length(joueur.nourrituresPossedees)-1 do joueur.nourrituresPossedees[i] := 0;
 
+
+
   //fixe la vitesse du joueur à 100
   joueur.vitesse:=100;
 
@@ -171,10 +185,9 @@ begin
   joueur.argent:=100;
 
   //On initialise les buffs à 0
-  joueur.buffVie := 50;
+  joueur.buffVie := 0;
   joueur.buffVitesse := 0;
 
-  creationPersonnage();
 end;
 
 
