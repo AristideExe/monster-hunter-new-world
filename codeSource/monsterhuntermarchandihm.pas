@@ -189,8 +189,8 @@ procedure venteComposantsIHM();
 begin
   effacerEcran();
   cadrePrincipal('Vente de composants');
-  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
-  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand   -1 / Vendre tout ');
+  deplacerCurseurXY(85,28); write(' Votre choix :    ');
 end;
 
 // Affiche un message si le joueur ne possède aucun composant

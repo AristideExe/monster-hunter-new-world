@@ -177,6 +177,19 @@ end;
 
 
 // ------------------------------------------------- VENTE COMPOSANTS -----------------------------------------------
+// Procédure qui vend tous les composants de l'inventaire du joueur
+procedure vendreInventaireComposantComplet();
+var
+  i : integer;
+begin
+  for i:=0 to NOMBRE_ITEM_DE_CRAFT_JEU-1 do
+  begin
+    ajouterArgentJoueur(getJoueur.itemsPossedes[i] * itemsDeCraftsDisponibles[i].prixVente);
+    retirerItemJoueur(i, getJoueur.itemsPossedes[i]);
+  end;
+  marchand();
+end;
+
 // Procédure pour vendre ses composants
 procedure venteComposants();
 var
@@ -218,6 +231,8 @@ begin
     //REPONSE EN FONCTION DU CHOIX
     choixIsInt := TryStrToInt(choix, choixInt);
     if choix = '0' then marchand()
+    // Si on veut tout vendre
+    else if choix = '-1' then vendreInventaireComposantComplet()
 
 
     else if (choixIsInt) and (choixInt >= 1) and (choixInt < compteurComposant) then

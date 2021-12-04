@@ -189,7 +189,7 @@ procedure venteComposantsIHM();
 begin
   effacerEcran();
   cadrePrincipal('Vente de composants');
-  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand   -1 / Vendre tout ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 
@@ -198,7 +198,7 @@ procedure aucunComposantPossedeIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
   deplacerCurseurXY(43,14);write('Vous ne possédez aucun composant');
-  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir à la chambre ');
+  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir chez le marchand ');
   readln;
 end;
 
