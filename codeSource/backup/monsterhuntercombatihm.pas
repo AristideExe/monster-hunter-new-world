@@ -545,7 +545,7 @@ begin
        // Affichage des pierres ponces
        deplacerCurseurXY(10,27);write('3');
        deplacerCurseurXY(25,27); write('Pierre ponce');
-       deplacerCurseurXY(48,27); write('Retire émoussement de l''arme');
+       deplacerCurseurXY(48,27); write('Retire l''émoussement de l''arme');
        deplacerCurseurXY(100,27); write(getJoueur.objetsPossedes[2] + getJoueur.objetsPortes[2]);
      end
      else

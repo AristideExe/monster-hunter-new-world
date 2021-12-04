@@ -31,7 +31,7 @@ procedure achatNourritureIHM();
 // Entete des nourritures
 procedure enteteAchatNourritureIHM();
 // Affiche une seule nourriture
-procedure afficherNourritureIHM(nourriture : typeNourriture; numeroNourriture : integer);
+procedure afficherNourritureIHM(nourriture : typeNourriture;positionNourriture, numeroNourriture : integer);
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -108,13 +108,13 @@ begin
   deplacerCurseurXY(10,7);write('1');
   deplacerCurseurXY(25,7); write('Bombes');
   deplacerCurseurXY(48,7); write('30 Simonnaie');
-  deplacerCurseurXY(80,7); write(getJoueur.objetsPossedes[0] + getJoueur.objetsPortes[0]);
+  deplacerCurseurXY(80,7); write(getJoueur.objetsPossedes[0]);
 
   // Affichage des potions de soin
   deplacerCurseurXY(10,8);write('2');
   deplacerCurseurXY(25,8); write('Potion de soin');
   deplacerCurseurXY(48,8); write('20 Simonnaie');
-  deplacerCurseurXY(80,8); write(getJoueur.objetsPossedes[1] + getJoueur.objetsPortes[1]);
+  deplacerCurseurXY(80,8); write(getJoueur.objetsPossedes[1]);
 
   // Affichage des pierres ponces
   deplacerCurseurXY(10,9);write('3');

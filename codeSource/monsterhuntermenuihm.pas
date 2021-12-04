@@ -23,7 +23,7 @@ procedure creditsIHM();
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 procedure afficherPersonnageIHM(sexe : string);
-procedure demanderSexeIHM (var sexe : string);
+
 procedure affichageLogo();
 
 
@@ -172,19 +172,19 @@ begin
 end;
 
 //Décoration de la page de création de personnage
-procedure decorationPersoIHM(titre : string);
+procedure decorationPersoIHM();
 begin
 
      //---------Affichage cadre création du personnage---------
-      CadrePrincipal(titre);
+      CadrePrincipal('Création de personnage');
 
          //---Affichage décorations pour les questions-----
      //-----Affichage cadre pour le Nom-----
-     deplacerCurseurXY(15,6);write('______________________');
-     deplacerCurseurXY(14,7);write('/                      \');
+     deplacerCurseurXY(15,6);write('____________________________________________________');
+     deplacerCurseurXY(14,7);write('/                                                    \');
      deplacerCurseurXY(13,8);write('{');
-     deplacerCurseurXY(38,8);write('}');
-     deplacerCurseurXY(14,9);write('\______________________/');
+     deplacerCurseurXY(68,8);write('}');
+     deplacerCurseurXY(14,9);write('\____________________________________________________/');
 
      //-----Affichage cadre pour la Taille-----
      deplacerCurseurXY(15,14);write('______________________');
@@ -204,48 +204,64 @@ begin
 
 end;
 
-//Demande le sexe en fonction de la réponse précédente
-procedure demanderSexeIHM (var sexe : string);
+procedure tailleNomInvalideIHM();
 begin
-
-     //Efface l'écran et réaffiche nom et taille et la décoration mais redemande le sexe
-     effacerEcran();
-
-     decorationPersoIHM('Creation de personnage');
-
-     deplacerCurseurXY(15,8);write('Nom :',getJoueur.nom);
-
-
-     deplacerCurseurXY(15,16);write('Taille :',getJoueur.taille);
-
-
-     deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''):');
-
-     //-------Réponses aux questions-------
-     deplacerCurseurXY(33,24);write(' '); readln(sexe);
-
+     dessinerCadreXY(30,12,90,18,double,White,Black);
+     deplacerCurseurXY(42,14);write('La taille de votre nom est invalide');
+     deplacerCurseurXY(43,16);write('Appuyez sur entrée pour continuer ');
+     readln;
 end;
 
 // Affiche le menu de création de personnage
 procedure creationPersonnageIHM(var nom, taille, sexe : string);
 begin
      effacerEcran();
-     decorationPersoIHM('Creation de personnage');
+     decorationPersoIHM();
 
      //Information personnage (nom taille et sexe)
 
-     deplacerCurseurXY(15,8);write('Nom :');
+     deplacerCurseurXY(15,8);write('Nom (entre 1 et 15 caractères) :');
 
      deplacerCurseurXY(15,16);write('Taille :');
 
 
-     deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''):');
+     deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F'') : ');
 
           //-------Réponses aux questions-------
-     deplacerCurseurXY(20,8);write(' '); readln(nom);
+     deplacerCurseurXY(48,8); readln(nom);
+     // Tant que la taille du nom ne convient pas
+     while (length(nom) < 1) or (length(nom) > 15) do
+     begin
+       tailleNomInvalideIHM();
+       effacerEcran();
+       decorationPersoIHM();
+       deplacerCurseurXY(15,8);write('Nom (entre 1 et 15 caractères) :');
+       deplacerCurseurXY(15,16);write('Taille :', taille);
+
+       deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''): ');
+       deplacerCurseurXY(48,8);
+       readln(nom);
+     end;
+
      deplacerCurseurXY(23,16);write(' '); readln(taille);
+
+
+
      deplacerCurseurXY(33,24);write(' '); readln(sexe);
+     // Tant que sexe est différent de M ou F
+     while (sexe <> 'M') and (sexe <> 'F') do
+     begin
+       effacerEcran();
+       decorationPersoIHM();
+       deplacerCurseurXY(15,8);write('Nom (entre 1 et 15 caractères) :', nom);
+       deplacerCurseurXY(15,16);write('Taille :', taille);
+
+       deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''): ');
+       deplacerCurseurXY(33,24);
+       readln(sexe);
+     end;
 
 end;
+
 end.
 
