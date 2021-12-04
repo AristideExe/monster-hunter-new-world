@@ -198,7 +198,7 @@ procedure aucunComposantPossedeIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
   deplacerCurseurXY(43,14);write('Vous ne possédez aucun composant');
-  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir à la chambre ');
+  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir chez le marchand ');
   readln;
 end;
 
