@@ -128,49 +128,59 @@ begin
       compteurNourriture := compteurNourriture + 1;
     end;
   end;
-  // On récupère le choix de l'utilisateur qui peut être soit le choix d'une arme soit le choix pour retourner au menu de sélection
-  readln(choix);
 
 
-  // ACTIONS PAR RAPPORT AU CHOIX
-  choixInt := 0;
-  choixIsInt := TryStrToInt(choix, choixInt);
-  // Si on veut retourner au choix de sélection
-  if choix = '0' then
-    cantine()
-  // Si on a choisit une nourriture
-  else if (choixInt > 0) and (choixInt < compteurNourriture) then
+  // Si le joueur ne possède pas de nourriture
+  if compteurNourriture = 1 then
   begin
-    // Si les bonus sont déjà au max on autorise pas le joueur à manger
-    if (getJoueur.buffVie = 50) and (getJoueur.buffVitesse = 30) then
-    begin
-      nePeutPasMangerIHM();
-      manger();
-    end
-    else
-    begin
-      // On refait la boucle pour essayer de trouver à quelle nourriture fait référence le choix du joueur
-      compteurNourriture := 1;
-      for i := 0 to length(nourrituresDisponibles) - 1 do
-      begin
-        // Si le joueur possède au moins un exemplaire
-        if (getJoueur.nourrituresPossedees[i] > 0) then
-        begin
-          if (compteurNourriture = choixInt) then
-            positionNourritureChoisie := i;
-          compteurNourriture := compteurNourriture + 1;
-        end;
-      end;
-      nourritureChoisie := nourrituresDisponibles[positionNourritureChoisie];
-      donneBuffJoueur(nourritureChoisie.bonusVie, nourritureChoisie.bonusVitesse);
-      retirerNourritureJoueur(positionNourritureChoisie, 1);
-      mangerNourritureIHM(nourritureChoisie);
-      manger();
-    end;
+       aucuneNourriturePossedeeIHM();
+       cantine();
   end
-  // Si l'utilisateur a mis un mauvais choix
+  // Si le joueur possède au moins une nourriture
   else
-    manger();
+  begin
+    // On récupère le choix de l'utilisateur qui peut être soit le choix d'une arme soit le choix pour retourner au menu de sélection
+    readln(choix);
+    // ACTIONS PAR RAPPORT AU CHOIX
+    choixInt := 0;
+    choixIsInt := TryStrToInt(choix, choixInt);
+    // Si on veut retourner au choix de sélection
+    if choix = '0' then
+      cantine()
+    // Si on a choisit une nourriture
+    else if (choixInt > 0) and (choixInt < compteurNourriture) then
+    begin
+      // Si les bonus sont déjà au max on autorise pas le joueur à manger
+      if (getJoueur.buffVie = 50) and (getJoueur.buffVitesse = 30) then
+      begin
+        nePeutPasMangerIHM();
+        manger();
+      end
+      else
+      begin
+        // On refait la boucle pour essayer de trouver à quelle nourriture fait référence le choix du joueur
+        compteurNourriture := 1;
+        for i := 0 to length(nourrituresDisponibles) - 1 do
+        begin
+          // Si le joueur possède au moins un exemplaire
+          if (getJoueur.nourrituresPossedees[i] > 0) then
+          begin
+            if (compteurNourriture = choixInt) then
+              positionNourritureChoisie := i;
+            compteurNourriture := compteurNourriture + 1;
+          end;
+        end;
+        nourritureChoisie := nourrituresDisponibles[positionNourritureChoisie];
+        donneBuffJoueur(nourritureChoisie.bonusVie, nourritureChoisie.bonusVitesse);
+        retirerNourritureJoueur(positionNourritureChoisie, 1);
+        mangerNourritureIHM(nourritureChoisie);
+        manger();
+      end;
+    end
+    // Si l'utilisateur a mis un mauvais choix
+    else
+      manger();
+  end;
 end;
 
 // ------------------------------------------------- CANTINE -----------------------------------------------
