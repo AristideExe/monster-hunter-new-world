@@ -183,7 +183,7 @@ begin
      deplacerCurseurXY(15,6);write('____________________________________________________');
      deplacerCurseurXY(14,7);write('/                                                    \');
      deplacerCurseurXY(13,8);write('{');
-     deplacerCurseurXY(73,8);write('}');
+     deplacerCurseurXY(68,8);write('}');
      deplacerCurseurXY(14,9);write('\____________________________________________________/');
 
      //-----Affichage cadre pour la Taille-----

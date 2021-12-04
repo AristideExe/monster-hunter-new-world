@@ -253,7 +253,7 @@ begin
      begin
        effacerEcran();
        decorationPersoIHM();
-       deplacerCurseurXY(15,8);write('Nom (entre 1 et 20 caractères) :', nom);
+       deplacerCurseurXY(15,8);write('Nom (entre 1 et 15 caractères) :', nom);
        deplacerCurseurXY(15,16);write('Taille :', taille);
 
        deplacerCurseurXY(15,24);write('Sexe (''M'' ou ''F''): ');

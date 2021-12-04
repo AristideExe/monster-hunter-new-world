@@ -37,10 +37,12 @@ uses monsterHunterCantineIHM, monsterHunterVille, monsterHunterJoueur;
 procedure cantine();
 var
   choix : string;
-  compteurNourriture : integer;
+  compteurNourriture, positionNourritureChoisie : integer;
   nourriture : typeNourriture;
-  nourriturePossedee : boolean;
   i : integer;
+  choixInt : integer;
+  choixIsInt : boolean;
+  nourritureChoisie : typeNourriture;
 begin
   cantineIHM();
   enteteCantineIHM();
@@ -61,36 +63,39 @@ begin
 
 
   // ACTIONS PAR RAPPORT AU CHOIX
-  //choixInt := 0;
-  //choixIsInt := TryStrToInt(choix,choixInt);
+  choixInt := 0;
+  choixIsInt := TryStrToInt(choix,choixInt);
   // Si on veut retourner au choix de sélection
   if choix = '0' then ville()
-  //// Si on a choisit une arme
-  //else if choixIsInt and (choixInt>0) and (choixInt < compteurArme) then
-  //begin
-  //  // On essaye de trouver à quelle arme fait référence le choix en refaisant la même boucle qu'à l'affichage
-  //  compteurArme := 1;
-  //  for i:=0 to length(craftsArmesDisponibles) -1 do
-  //  begin
-  //    // On récupère l'item auquel le craft fait référence
-  //    arme := armesDisponibles[i];
-  //    // On vérifie si l'item est déjà dans l'inventaire ou non
-  //    armePossedee := false;
-  //    for j:=0 to length(craftsArmesDisponibles) -1 do
-  //      if (getJoueur.armesPossedees[j].nom = arme.nom) or (getJoueur.armePortee.nom = arme.nom) then armePossedee := true;
-  //    // Si le joueur ne possède pas l'arme alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
-  //    if not armePossedee then
-  //    begin
-  //      if compteurArme = choixInt then positionArmeChoisie := i;
-  //      compteurArme := compteurArme +1;
-  //    end
-  //  end;
-  //  // On teste si le joueur peut crafter l'arme en question, si oui, on la craft, sinon on lui renvoit le message
-  //  if peutCrafterArme(positionArmeChoisie) then forgerArme(positionArmeChoisie)
-  //  else nePeutPasForger('1',craftsArmesDisponibles[positionArmeChoisie]);
-
-
-  //end
+  // Si on a choisit une nourriture
+  else if (choixInt > 0) and (choixInt < compteurNourriture) then
+  begin
+    // Si les bonus sont déjà au max on autorise pas le joueur à manger
+    if (getJoueur.buffVie = 50) and (getJoueur.buffVitesse = 30) then
+    begin
+         nePeutPasMangerIHM();
+         cantine();
+    end;
+    else
+    begin
+    // On refait la boucle pour essayer de trouver à quelle nourriture fait référence le choix du joueur
+    compteurNourriture := 1;
+     for i:=0 to length(nourrituresDisponibles) -1 do
+     begin
+       // Si le joueur possède au moins un exemplaire
+       if (getJoueur.nourrituresPossedees[i] > 0) then
+       begin
+         if (compteurNourriture = choixInt) then positionNourritureChoisie := i;
+         compteurNourriture := compteurNourriture +1;
+       end
+     end;
+     nourritureChoisie := nourrituresDisponibles[positionNourritureChoisie];
+     donneBuffJoueur(nourritureChoisie.bonusVie,nourritureChoisie.bonusVitesse);
+     retirerNourritureJoueur(positionNourritureChoisie, 1);
+     mangerNourritureIHM(nourritureChoisie);
+     cantine();
+    end;
+  end
   // Si l'utilisateur a mis un mauvais choix
   else cantine();
 end;

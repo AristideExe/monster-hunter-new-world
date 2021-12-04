@@ -15,10 +15,29 @@ procedure cantineIHM();
 procedure enteteCantineIHM();
 // Afficher une nourriture en particulier
 procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
+procedure nePeutPasMangerIHM();
+procedure mangerNourritureIHM(nourriture:typeNourriture);
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
+
+procedure nePeutPasMangerIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(44,14);write('Vos bonus sont déjà au maximum');
+  deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
+  readln;
+end;
+
+procedure mangerNourritureIHM(nourriture:typeNourriture);
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(52 - (length(nourriture.nom) div 2),14);write('Vous avez mangé ', nourriture.nom);
+  deplacerCurseurXY(43,16);write('Appuyez sur entrée pour continuer ');
+  readln
+end;
+
 
 // Afficher une nourriture en particulier
 procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);

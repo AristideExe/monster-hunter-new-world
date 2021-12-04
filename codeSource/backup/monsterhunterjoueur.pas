@@ -30,7 +30,7 @@ type
 
     // La quantité de chaque objet que possède le joueur (0 : bombe, 1 :  potion de soin, 2 : pierre ponce)
     objetsPossedes : array[0..2] of integer;
-    objetsPortes : array[0..2] of integer;
+    //objetsPortes : array[0..2] of integer;
 
     // La quantité de chaque nourriture que possède le joueur
     nourrituresPossedees: array[0..NOMBRE_NOURRITURES_JEU-1] of integer;
@@ -209,7 +209,7 @@ end;
 // Procédure pour retirer de la nourriture au joueur
 procedure retirerNourritureJoueur(positionNourriture, quantite : integer);
 begin
-  joueur.nourrituresPossedees[positionNourriture] := quantite - joueur.nourrituresPossedees[positionNourriture];
+  joueur.nourrituresPossedees[positionNourriture] :=joueur.nourrituresPossedees[positionNourriture];
 end;
 
 // Procédure pour donner un objet au joueur
@@ -295,10 +295,10 @@ end;
 //Procedure qui donne des buffs au joueur
 procedure donneBuffJoueur (vieBuff,vitesseBuff : integer);
 begin
-
-  //Vérifie que le joueur peut prendre un buff
-  if ((joueur.buffVie + vieBuff) <= 50) then joueur.buffVie := joueur.buffVie + vieBuff;
-  if ((joueur.buffVitesse + vitesseBuff) <= 30) then joueur.buffVitesse := joueur.buffVitesse + vitesseBuff;
+  joueur.buffVie := joueur.buffVie + vieBuff;
+  if joueur.buffVie > 50 then joueur.buffVie := 50;
+  joueur.buffVitesse := joueur.buffVitesse + vitesseBuff;
+  if joueur.buffVitesse > 30 then joueur.buffVitesse := 30;
 
 end;
 
