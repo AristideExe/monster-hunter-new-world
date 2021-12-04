@@ -32,9 +32,71 @@ procedure remplirNourrituresDisponibles(fichier : string);
 implementation
 uses monsterHunterCantineIHM, monsterHunterVille, monsterHunterJoueur;
 
-// ------------------------------------------------- CANTINE -----------------------------------------------
+// -------------------------------------------------- ACHAT NOURRITURE --------------------------------------------------
+procedure achatNourriture();
+var
+  compteurNourriture : integer;
+  i :integer;
+  choix : string;
+  choixInt, quantiteInt : integer;
+  choixIsInt, quantiteIsInt : boolean;
+  positionNourritureChoisie : integer;
+begin
+  achatNourritureIHM();
+  enteteNourritureIHM();
+
+  // On initialise le compteur des nourritures en commançant à 1 (car l'affichage commence à 1)
+  compteurNourriture := 1;
+  // On parcours tout l'inventaire de composants du joueur
+  for i:=0 to length(nourrituresDisponibles)-1 do
+  begin
+    // On affiche toutes les nourritures disponibles
+    afficherNourritureIHM(nourrituresDisponibles[i],i, compteurNourriture);
+    compteurNourriture := compteurNourriture + 1;
+  end;
+
+  // Choix du joueur
+  readln(choix);
+
+  //REPONSE EN FONCTION DU CHOIX
+  choixIsInt := TryStrToInt(choix, choixInt);
+  if choix = '0' then cantine()
+
+
+  else if (choixIsInt) and (choixInt >= 1) and (choixInt < compteurNourriture) then
+  begin
+       // La position de la nourriture choisie dans le tableau est le numéro saisi par le joueur - 1
+       positionNourritureChoisie := choixInt-1;
+
+      // On demande la quantité que le joueur veut acheter
+      quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+      while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+      // Si le joueur souhaite annuler la transaction
+      if quantiteInt = 0 then achatNourriture()
+      // Si le joueur achete au dessus de ses moyens
+      else if (quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat <= getJoueur.argent) then
+      begin
+          ajouterNourritureJoueur(positionNourritureChoisie, quantiteInt);
+          retirerArgentJoueur(quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat);
+          achatNourriture();
+      end
+      // Si le joueur ne met pas une quantité valide
+      else
+      begin
+        nePeutPasAcheterIHM();
+        achatNourriture();
+      end;
+
+  end
+
+
+
+  else achatNourriture();
+end;
+
+// ------------------------------------------------- MANGER -----------------------------------------------
 // Affichage de la nourriture possédées dans la cantine
-procedure cantine();
+procedure manger();
 var
   choix : string;
   compteurNourriture, positionNourritureChoisie : integer;
@@ -44,8 +106,8 @@ var
   choixIsInt : boolean;
   nourritureChoisie : typeNourriture;
 begin
-  cantineIHM();
-  enteteCantineIHM();
+  mangerIHM();
+  enteteNourritureIHM();
 
   // On initialise le compteur des nourritures possédées en commançant à 1 (car l'affichage commence à 1)
   compteurNourriture := 1;
@@ -54,7 +116,7 @@ begin
     // Si le joueur possède au moins un exemplaire
     if (getJoueur.nourrituresPossedees[i] > 0) then
     begin
-      afficherNourritureCantineIHM(nourrituresDisponibles[i],i,compteurNourriture);
+      afficherNourritureIHM(nourrituresDisponibles[i],i,compteurNourriture);
       compteurNourriture := compteurNourriture +1;
     end
   end;
@@ -66,7 +128,7 @@ begin
   choixInt := 0;
   choixIsInt := TryStrToInt(choix,choixInt);
   // Si on veut retourner au choix de sélection
-  if choix = '0' then ville()
+  if choix = '0' then cantine()
   // Si on a choisit une nourriture
   else if (choixInt > 0) and (choixInt < compteurNourriture) then
   begin
@@ -74,8 +136,8 @@ begin
     if (getJoueur.buffVie = 50) and (getJoueur.buffVitesse = 30) then
     begin
          nePeutPasMangerIHM();
-         cantine();
-    end;
+         manger();
+    end
     else
     begin
     // On refait la boucle pour essayer de trouver à quelle nourriture fait référence le choix du joueur
@@ -93,13 +155,27 @@ begin
      donneBuffJoueur(nourritureChoisie.bonusVie,nourritureChoisie.bonusVitesse);
      retirerNourritureJoueur(positionNourritureChoisie, 1);
      mangerNourritureIHM(nourritureChoisie);
-     cantine();
+     manger();
     end;
   end
   // Si l'utilisateur a mis un mauvais choix
+  else manger();
+end;
+
+// ------------------------------------------------- CANTINE -----------------------------------------------
+// Procédure pour sélectionner si on veut manger ou acheter de la nourriture
+procedure cantine();
+var
+  choix : string;
+begin
+  choix := cantineIHM();
+  if choix = '1' then manger()
+  else if choix = '2' then achatNourriture()
   else cantine();
 end;
 
+
+// ------------------------------------------------- REMPLISSAGE DES NOURRITURES -----------------------------------------------
 // Procédure qui remplie la variable des nourritures disponibles depuis le fichier csv
 procedure remplirNourrituresDisponibles(fichier : string);
 var

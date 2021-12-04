@@ -9,18 +9,44 @@ interface
 uses
   Classes, SysUtils,GestionEcran,monsterHunterCantine, monsterHunterJoueur;
 
-// Affiche le contour de la cantine
-procedure cantineIHM();
+// Affichage pour sélectionner si on veut manger ou acheter de la nourriture
+function cantineIHM() : string;
 // Affiche l'entête des colonnes pour la cantine
-procedure enteteCantineIHM();
+procedure enteteNourritureIHM();
 // Afficher une nourriture en particulier
-procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
+procedure afficherNourritureIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
 procedure nePeutPasMangerIHM();
 procedure mangerNourritureIHM(nourriture:typeNourriture);
+procedure achatNourritureIHM();
+// Affiche le contour de l'endroit pour manger
+procedure mangerIHM();
+// Demande la quantité que souhaite acheter le joueur
+function choisirQuantiteIHM() : string;
+// IHM qui s'affiche lorsque le joueur essaye d'acheter de la nourriture sans en avoir les moyens
+procedure nePeutPasAcheterIHM();
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
+
+// Demande la quantité que souhaite acheter le joueur
+function choisirQuantiteIHM() : string;
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(49,13);write('Sélectionnez la quantité');
+  deplacerCurseurXY(48,14);write('0 / Annuler la transaction');
+  deplacerCurseurXY(55,16);write('Quantité : ');
+  readln(choisirQuantiteIHM);
+end;
+
+// IHM qui s'affiche lorsque le joueur essaye d'acheter de la nourriture sans en avoir les moyens
+procedure nePeutPasAcheterIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(40,14);write('Vous ne pouvez pas acheter cette quantité');
+  deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
+  readln;
+end;
 
 procedure nePeutPasMangerIHM();
 begin
@@ -40,7 +66,7 @@ end;
 
 
 // Afficher une nourriture en particulier
-procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
+procedure afficherNourritureIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
 begin
   // Affichage du numéro
   deplacerCurseurXY(11,numeroNourriture+7);
@@ -57,11 +83,11 @@ begin
   // Affichage de la quantité possédée
   deplacerCurseurXY(95,numeroNourriture +7); write(getJoueur.nourrituresPossedees[positionNourriture]);
 
-  deplacerCurseurXY(100, 28);;
+  deplacerCurseurXY(100, 28);
 end;
 
 // Affiche l'entête des colonnes pour la cantine
-procedure enteteCantineIHM();
+procedure enteteNourritureIHM();
 begin
   // Entête du numéro
   deplacerCurseurXY(11,6);write('Numéro');
@@ -81,10 +107,16 @@ begin
   deplacerCurseurXY(100, 28);
 end;
 
+procedure achatNourritureIHM();
+begin
+  effacerEcran();
+  CadrePrincipal('Vente : sélectionnez un numéro pour acheter');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la cantine ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+end;
 
-
-// Affiche le contour de la cantine
-procedure cantineIHM();
+// Affiche le contour de l'endroit pour manger
+procedure mangerIHM();
 begin
   effacerEcran();
   CadrePrincipal('Cantine : sélectionnez un numéro pour manger');
@@ -92,11 +124,25 @@ begin
   // Affichage des bonus
   dessinerCadreXY(43,23,77,28,double,White,Black);
   deplacerCurseurXY(46,25); write('Bonus de vie : ', getJoueur.buffVie); if getJoueur.buffVie = 50 then write(' (max)');
-  deplacerCurseurXY(45,26); write('Bonus de vitesse : ', getJoueur.buffVitesse); if getJoueur.buffVitesse = 30 then write(' (max)');
+  deplacerCurseurXY(46,26); write('Bonus de vitesse : ', getJoueur.buffVitesse); if getJoueur.buffVitesse = 30 then write(' (max)');
 
 
-  deplacerCurseurXY(10,28); write(' 0/ Retourner à la ville ');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la cantine ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
+end;
+
+// ------------------------------------------------- CABTINE -----------------------------------------------
+// Affichage pour sélectionner si on veut manger ou acheter de la nourriture
+function cantineIHM() : string;
+begin
+  effacerEcran();
+  cadrePrincipal('Cantine');
+  deplacerCurseurXY(15,15); write('1/ Manger');
+  deplacerCurseurXY(15,17); write('2/ Acheter de la nourriture');
+
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la cantine ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+  readln(cantineIHM);
 end;
 
 end.

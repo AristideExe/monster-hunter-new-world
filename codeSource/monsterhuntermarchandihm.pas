@@ -26,12 +26,7 @@ procedure enteteVenteComposantsIHM();
 procedure afficherComposantIHM(compteurComposant, positionItem : integer);
 // IHM qui s'affiche lorsqu'on a vendu des composants
 procedure venduComposantsIHM(item : typeItemDeCraft; quantite : integer);
-// IHM de l'achat de nourriture
-procedure achatNourritureIHM();
-// Entete des nourritures
-procedure enteteAchatNourritureIHM();
-// Affiche une seule nourriture
-procedure afficherNourritureIHM(nourriture : typeNourriture;positionNourriture, numeroNourriture : integer);
+
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
@@ -76,10 +71,9 @@ begin
 
   // Affichage des options
 
-  deplacerCurseurXY(70,11); write('1/ Acheter des objets');
-  deplacerCurseurXY(70,14); write('2/ Acheter des composants');
-  deplacerCurseurXY(70,17); write('3/ Acheter de la nourriture');
-  deplacerCurseurXY(70,20); write('4/ Vendre des composants');
+  deplacerCurseurXY(70,13); write('1/ Acheter des objets');
+  deplacerCurseurXY(70,16); write('2/ Acheter des composants');
+  deplacerCurseurXY(70,19); write('3/ Vendre des composants');
 
   deplacerCurseurXY(20,28); write(' O/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
@@ -126,61 +120,6 @@ begin
 
   readln(achatObjetsIHM);
 end;
-
-
-
-// -------------------------------------------------- ACHAT DE NOURRITURE --------------------------------------------------
-// IHM de l'achat de nourriture
-procedure achatNourritureIHM();
-begin
-  effacerEcran();
-  CadrePrincipal('Achat de nourriture (Vous avez ' + intToStr(getJoueur.argent) + ' Simonnaie)');
-  deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
-  deplacerCurseurXY(85,28); write(' Votre choix :   ');
-end;
-
-// Entete des nourritures
-procedure enteteAchatNourritureIHM();
-begin
-  // Entête du numéro
-  deplacerCurseurXY(11,6);write('Numéro');
-  // Entête du nom
-  deplacerCurseurXY(23,6); write('Nom');
-  // Entête du prix
-  deplacerCurseurXY(50,6); write('Prix');
-  // Entête de bonus de vie
-  deplacerCurseurXY(63,5); write('Bonus de');
-  deplacerCurseurXY(64,6); write('vie');
-  // Entête de bonus de vitesse
-  deplacerCurseurXY(77,5); write('Bonus  de');
-  deplacerCurseurXY(78,6); write('vitesse');
-  // Entete de la quantité possédée
-  deplacerCurseurXY(95,6); write('Quantité possédée');
-
-  deplacerCurseurXY(100, 28);
-end;
-
-// Affiche une seule nourriture
-procedure afficherNourritureIHM(nourriture : typeNourriture;positionNourriture, numeroNourriture : integer);
-begin
-  // Affichage du numéro
-  deplacerCurseurXY(11,numeroNourriture+7);
-  write(numeroNourriture);
-  // Affichage du nom
-  deplacerCurseurXY(23,numeroNourriture+7);
-  write(nourriture.nom);
-  // Affichage du prix
-  deplacerCurseurXY(50,numeroNourriture +7); write(nourriture.prixAchat);
-  // Affichage du bonus de vie
-  deplacerCurseurXY(63,numeroNourriture +7); write(nourriture.bonusVie);
-  // Affichage de l'élément de l'arme
-  deplacerCurseurXY(77,numeroNourriture +7); write(nourriture.bonusVitesse);
-  // Affichage de la quantité possédée
-  deplacerCurseurXY(95,numeroNourriture +7); write(getJoueur.nourrituresPossedees[positionNourriture]);
-
-  deplacerCurseurXY(100, 28);
-end;
-
 
 
 

@@ -126,7 +126,7 @@ begin
   for i:=0 to length(nourrituresDisponibles)-1 do
   begin
     // On affiche toutes les nourritures disponibles
-    afficherNourritureIHM(nourrituresDisponibles[i], compteurNourriture);
+    afficherNourritureIHM(nourrituresDisponibles[i],i, compteurNourriture);
     compteurNourriture := compteurNourriture + 1;
   end;
 
@@ -334,8 +334,7 @@ begin
   if choix = '0' then ville()
   else if choix = '1' then achatObjets()
   else if choix = '2' then achatComposants()
-  else if choix = '3' then achatNourriture()
-  else if choix = '4' then venteComposants()
+  else if choix = '3' then venteComposants()
   else marchand();
 end;
 
