@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="20">
+    <Units Count="21">
       <Unit0>
         <Filename Value="monsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -21,11 +21,10 @@
         <Filename Value="monsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="MonsterHunterIHM"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="74"/>
-        <CursorPos X="57" Y="90"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="103"/>
+        <CursorPos X="27" Y="132"/>
         <UsageCount Value="48"/>
-        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="GestionEcran.pas"/>
@@ -61,8 +60,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterVille"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="14"/>
-        <CursorPos X="11" Y="37"/>
+        <TopLine Value="11"/>
+        <CursorPos X="81" Y="27"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -160,20 +159,24 @@
         <UsageCount Value="48"/>
       </Unit18>
       <Unit19>
+        <Filename Value="monsterhuntervilleihm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MonsterHunterVilleIHM"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="58" Y="22"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit19>
+      <Unit20>
         <Filename Value="monsterhuntercombatihm.pas"/>
         <UnitName Value="monsterHunterCombatIHM"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="524"/>
         <CursorPos X="73" Y="548"/>
         <UsageCount Value="9"/>
-      </Unit19>
+      </Unit20>
     </Units>
-    <JumpHistory Count="1">
-      <Position1>
-        <Filename Value="monsterhunterihm.pas"/>
-        <Caret Line="90" Column="57" TopLine="74"/>
-      </Position1>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>

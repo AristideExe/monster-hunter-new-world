@@ -6,7 +6,7 @@ unit monsterHunterVille;
 // ============================================================================= INTERFACE ======================================================================================
 interface
 uses
-  Classes, SysUtils, monsterHunterIHM, monsterHunterMarchand, monsterHunterCantine, monsterHunterForge, monsterHunterChambre;
+  Classes, SysUtils, monsterHunterVilleIHM, monsterHunterMarchand, monsterHunterCantine, monsterHunterForge, monsterHunterChambre;
 // Ville
 procedure ville();
 
