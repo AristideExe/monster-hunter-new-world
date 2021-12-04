@@ -497,7 +497,7 @@ var
 
 begin
      message1 := 'Vous avez perdu tous les items de votre inventaire !';
-     message2 := 'Mr Cou Long, vous trouvant presque inannimé au sol lors d''une éxpédition, décide de vous ramener à la ville et de vous soigner';
+     message2 := 'Mr Cou Long, vous trouvant presque inannimé au sol lors d''une expédition, décide de vous ramener à la ville et de vous soigner';
      message3 := 'Appuyez sur entrée pour continuer';
 
      //Dessin du cadre

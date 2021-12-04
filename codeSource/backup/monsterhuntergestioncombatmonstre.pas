@@ -108,6 +108,12 @@ begin
 
 end;
 
+//Procedure qui permet de demander l'affichage du loot
+procedure demanderAffichageLootMonstre(Loots : typeLootMonstre);
+begin
+
+end;
+
 //Procédure qui met des dégats au monstre
 procedure degatsCombatMonstre(degats : integer);
 begin
@@ -164,7 +170,7 @@ begin
         lootMonstreMortIHM(lootMortMonstre);
 
         //Le Joueur perd ses buffs
-        reinitialiseBuffJoueur();
+        reinitialiseBuffJoueur();;
 
         //On retourne en ville
         ville();

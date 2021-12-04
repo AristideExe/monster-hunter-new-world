@@ -162,8 +162,8 @@ begin
   if ((emoussementCourant/emoussementMax) > 0.90) then calculEmoussementArmeJoueur := 1.1
   else if ((emoussementCourant/emoussementMax) > 0.75) then calculEmoussementArmeJoueur := 1.05
   else if ((emoussementCourant/emoussementMax) > 0.25) then calculEmoussementArmeJoueur := 1
-  else if (emoussementCourant > 1) then calculEmoussementArmeJoueur := 0.95
-  else calculEmoussementArmeJoueur := 0.90;
+  else if (emoussementCourant > 1) then calculEmoussementArmeJoueur := 0.7
+  else calculEmoussementArmeJoueur := 0.10;
 
 end;
 

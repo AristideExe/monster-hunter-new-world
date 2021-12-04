@@ -117,15 +117,31 @@ end;
 function selectionArmureArmoireIHM() : string;
 begin
   effacerEcran();
-  deplacerCurseurXY(20,1); write('Armoire : choix de l''objet à afficher');
-  deplacerCurseurXY(50,11); write('1/ Afficher les casques');
-  deplacerCurseurXY(50,12); write('2/ Afficher les plastrons');
-  deplacerCurseurXY(50,13); write('3/ Afficher les jambières');
-  deplacerCurseurXY(50,14); write('4/ Afficher les bottes');
-  deplacerCurseurXY(50,15); write('5/ Afficher les gants');
-  deplacerCurseurXY(50,16); write('6/ Afficher les objets');
-  deplacerCurseurXY(20,28); write('0/ Retourner à la chambre');
-  deplacerCurseurXY(20,29); write('Votre choix : ');
+
+  CadrePrincipal('Armoire');
+
+  dessinCouleurSansEspaces('dessins/armoire.txt',8,7);
+
+  dessinerCadreXY(42,8,112,15,simple,White,Black);
+  dessinerCadreXY(42,15,112,23,simple,White,Black);
+
+  dessinerCadreXY(46,7,73,9,simple,White,Black);
+  dessinerCadreXY(81,7,108,9,simple,White,Black);
+  dessinerCadreXY(45,14,73,16,simple,White,Black);
+  dessinerCadreXY(82,14,108,16,simple,White,Black);
+  dessinerCadreXY(46,22,71,24,simple,White,Black);
+  dessinerCadreXY(83,22,108,24,simple,White,Black);
+
+  deplacerCurseurXY(48,8); write('1/ Afficher les casques');
+  deplacerCurseurXY(83,8); write('2/ Afficher les plastrons');
+  deplacerCurseurXY(47,15); write('3/ Afficher les jambières');
+  deplacerCurseurXY(84,15); write('4/ Afficher les bottes');
+  deplacerCurseurXY(48,23); write('5/ Afficher les gants');
+  deplacerCurseurXY(85,23); write('6/ Afficher les objets');
+
+  deplacerCurseurXY(20,28); write(' 0/ Retourner à la chambre ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+  deplacerCurseurXY(100,28);
   readln(selectionArmureArmoireIHM);
 end;
 
@@ -185,7 +201,7 @@ begin
 
 
   // Affichage du taux d'esquive de l'armure de l'armure
-  //deplacerCurseurXY(97,numeroArmure +7);
+  deplacerCurseurXY(97,numeroArmure +7);
   if (armure.valeurDefense > getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense) then
   begin
        couleurTexte(Green);

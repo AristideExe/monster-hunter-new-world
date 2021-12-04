@@ -162,8 +162,8 @@ begin
   if ((emoussementCourant/emoussementMax) > 0.90) then calculEmoussementArmeJoueur := 1.1
   else if ((emoussementCourant/emoussementMax) > 0.75) then calculEmoussementArmeJoueur := 1.05
   else if ((emoussementCourant/emoussementMax) > 0.25) then calculEmoussementArmeJoueur := 1
-  else if (emoussementCourant > 1) then calculEmoussementArmeJoueur := 0.95
-  else calculEmoussementArmeJoueur := 0.90;
+  else if (emoussementCourant > 1) then calculEmoussementArmeJoueur := 0.5
+  else calculEmoussementArmeJoueur := 0.10;
 
 end;
 
@@ -177,6 +177,7 @@ end;
 procedure utilisationBombeJoueur ();
 begin
   degatsCombatMonstre(dmgBombe);
+  retirerObjetJoueur(0,1);
 end;
 
 //Procedure d'utilisation de pierre ponce

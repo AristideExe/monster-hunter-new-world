@@ -37,8 +37,10 @@ end;
 
 
 // Affiche les différentes sauvegardes
-procedure choixSauvegarde();
+procedure sauvegarde();
 begin
+  sauvegardeIHM();
+  menu();
 end;
 
 
@@ -49,7 +51,7 @@ var
 begin
   choix := menuIHM();
   if (choix = '1') then creationPersonnage()
-  else if (choix = '2') then choixSauvegarde()
+  else if (choix = '2') then sauvegarde()
   else if (choix = '3') then credits()
   else if (choix = '4') then quitter()
   else menu();

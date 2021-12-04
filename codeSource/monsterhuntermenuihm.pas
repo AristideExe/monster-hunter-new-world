@@ -18,6 +18,8 @@ Choix numéro 4 : Quitter}
 function menuIHM() : string;
 // Affiche un message lorsque l'on quitte
 procedure quitterIHM();
+// Affiche un message quand on charge la sauvegarde
+procedure sauvegardeIHM();
 // Affiche les crédits du jeu
 procedure creditsIHM();
 // Affiche le menu de création de personnage
@@ -92,8 +94,14 @@ begin
      readln();
 end;
 
-
-
+// Affiche un message quand on charge la sauvegarde
+procedure sauvegardeIHM();
+begin
+     dessinerCadreXY(30,12,90,18,double,White,Black);
+     deplacerCurseurXY(42,14);write('Disponible dans une prochaine MAJ');
+     deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
+     readln;
+end;
 
 // Affiche les crédits du jeu
 procedure creditsIHM();
