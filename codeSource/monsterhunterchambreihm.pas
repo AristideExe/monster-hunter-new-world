@@ -15,6 +15,8 @@ function chambreIHM() : string;
 procedure dormirIHM();
 // IHM de l'armoire à armures
 procedure armoireIHM();
+// Affiche l'entete pour les armures dans l'armoire
+procedure enteteArmoireIHM();
 // Affichage d'une seule armure dans l'armoire
 procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
 // Affiche les objets possédés
@@ -131,38 +133,76 @@ end;
 procedure armoireIHM();
 begin
   effacerEcran();
-  deplacerCurseurXY(5,1); write('Armoire à armure : sélectionnez un numéro pour porter l''armure');
-  deplacerCurseurXY(5,28); write('0/ Retourner au menu de sélection des objets');
-  deplacerCurseurXY(5,29); write('Votre choix : ');
+  CadrePrincipal('Armoire à armure : sélectionnez un numéro pour porter l''armure');
+  deplacerCurseurXY(10,28); write(' 0/ Retourner au menu de sélection des objets ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   ');
+end;
+
+// Affiche l'entete pour les armures dans l'armoire
+procedure enteteArmoireIHM();
+begin
+  // Entête du numéro
+  deplacerCurseurXY(13,6);write('Numéro');
+  // Entête du nom
+  deplacerCurseurXY(30,6); write('Nom');
+  // Entête de l'élément de l'arme
+  deplacerCurseurXY(62,6); write('Élément');
+  // Entête de la valeur d'attaque
+  deplacerCurseurXY(78,6); write('Valeur defense');
+  // Entête du taux d'esquive
+  deplacerCurseurXY(95,6); write('Taux d''esquive');
+
+  deplacerCurseurXY(100, 28);
 end;
 
 // Affichage d'une seule armure dans l'armoire
 procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
 begin
   // Affichage du numéro
-  deplacerCurseurXY(5,numeroArmure+5);
+  deplacerCurseurXY(15,numeroArmure+7);
   write(numeroArmure);
   // Affichage du nom
-  deplacerCurseurXY(15,numeroArmure+5);
+  deplacerCurseurXY(30,numeroArmure+7);
   write(armure.nom);
-  // Affichage de l'élément de l'arme
-  deplacerCurseurXY(70,numeroArmure +5); write(armure.element);
-  // Affichage du taux d'attaque de l'arme en vert si c'est supérieur à l'arme que l'on porte et en rouge sinon
-  //deplacerCurseurXY(85,numeroArmure +5);
-  //if (armure.valeurDefense > getJoueur.armuresPortees) then
-  //begin
-  //     couleurTexte(Green);
-  //     write('+', (arme.valeurAttaque - getJoueur.armePortee.valeurAttaque):6:2);
-  //end
-  //else if (arme.valeurAttaque < getJoueur.armePortee.valeurAttaque) then
-  //begin
-  //     couleurTexte(Red);
-  //     write('-',(getJoueur.armePortee.valeurAttaque - arme.valeurAttaque):6:2);
-  //end
-  //else
-  //    write('+ 0');
-  //couleurTexte(White);
-  //if derniereLigne then deplacerCurseurXY(18,29);
+  // Affichage de l'élément de l'armure
+  deplacerCurseurXY(62,numeroArmure +7); write(armure.element);
+
+  // Affichage du bonus de défense de défense de l'armure
+  deplacerCurseurXY(81,numeroArmure +7);
+  if (armure.valeurDefense > getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense) then
+  begin
+       couleurTexte(Green);
+       write('+', (armure.valeurDefense - getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense):6:2);
+  end
+  else if (armure.valeurDefense < getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense) then
+  begin
+       couleurTexte(Red);
+       write('-',(getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense - armure.valeurDefense):6:2);
+  end
+  else
+      write('+ 0');
+  couleurTexte(White);
+
+
+  // Affichage du taux d'esquive de l'armure de l'armure
+  deplacerCurseurXY(97,numeroArmure +7);
+  if (armure.valeurDefense > getJoueur.armurePortee[ord(armure.pieceArmure)].valeurDefense) then
+  begin
+       couleurTexte(Green);
+       write('+', (armure.tauxEsquive - getJoueur.armurePortee[ord(armure.pieceArmure)].tauxEsquive):6:2);
+  end
+  else if (armure.tauxEsquive < getJoueur.armurePortee[ord(armure.pieceArmure)].tauxEsquive) then
+  begin
+       couleurTexte(Red);
+       write('-',(getJoueur.armurePortee[ord(armure.pieceArmure)].tauxEsquive - armure.tauxEsquive):6:2);
+  end
+  else
+      write('+ 0');
+  couleurTexte(White);
+
+  couleurTexte(white);
+  deplacerCurseurXY(100, 28);
+
 end;
 
 // ----------------------------------------------------- MALLE --------------------------------------------------------
