@@ -171,7 +171,7 @@ begin
   choix := cantineIHM();
   if choix = '1' then manger()
   else if choix = '2' then achatNourriture()
-  else cantine();
+  else ville();
 end;
 
 
