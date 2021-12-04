@@ -17,6 +17,8 @@ procedure dormirIHM();
 procedure armoireIHM();
 // Affichage d'une seule armure dans l'armoire
 procedure afficherArmureIHM(armure : typeArmure; numeroArmure : integer; derniereLigne : boolean);
+// Affiche les objets possédés
+function objetsIHM() : string;
 // Affichage d'une seule arme dans la malle
 procedure afficherArmeIHM(arme : typeArme; numeroArme : integer; derniereLigne : boolean);
 // IHM de la malle des armes
@@ -68,6 +70,43 @@ begin
 end;
 
 
+// ----------------------------------------------------- OBJETS ------------------------------------------------------
+// Affiche les objets possédés
+function objetsIHM() : string;
+begin
+  effacerEcran();
+  cadrePrincipal('Vos objets');
+
+  // Entête
+  deplacerCurseurXY(10,5);write('Numéro');
+  deplacerCurseurXY(20,5); write('Nom');
+  deplacerCurseurXY(40,5); write('Action');
+  deplacerCurseurXY(80,5); write('Quantité dans l''inventaire');
+
+  // Affichage des bombes
+  deplacerCurseurXY(10,7);write('1');
+  deplacerCurseurXY(20,7); write('Bombes');
+  deplacerCurseurXY(40,7); write('60 dégats au monstre');
+  deplacerCurseurXY(80,7); write(getJoueur.objetsPossedes[0]);
+
+  // Affichage des potions de soin
+  deplacerCurseurXY(10,8);write('2');
+  deplacerCurseurXY(20,8); write('Potion de soin');
+  deplacerCurseurXY(40,8); write('Régénération de 50 points de vie');
+  deplacerCurseurXY(80,8); write(getJoueur.objetsPossedes[1]);
+
+  // Affichage des pierres ponces
+  deplacerCurseurXY(10,9);write('3');
+  deplacerCurseurXY(20,9); write('Pierre ponce');
+  deplacerCurseurXY(40,9); write('Retire l''émoussement de l''arme');
+  deplacerCurseurXY(80,9); write(getJoueur.objetsPossedes[2]);
+
+  // Affichage des choix
+  deplacerCurseurXY(10,28); write(' 0/ Retourner à la chambre ');
+  deplacerCurseurXY(85,28); write(' Votre choix :   '); deplacerCurseurXY(100,28);
+
+  readln(objetsIHM);
+end;
 
 
 
@@ -82,6 +121,7 @@ begin
   deplacerCurseurXY(50,13); write('3/ Afficher les jambières');
   deplacerCurseurXY(50,14); write('4/ Afficher les bottes');
   deplacerCurseurXY(50,15); write('5/ Afficher les gants');
+  deplacerCurseurXY(50,16); write('6/ Afficher les objets');
   deplacerCurseurXY(20,28); write('0/ Retourner à la chambre');
   deplacerCurseurXY(20,29); write('Votre choix : ');
   readln(selectionArmureArmoireIHM);

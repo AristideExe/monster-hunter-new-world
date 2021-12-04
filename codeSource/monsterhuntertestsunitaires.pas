@@ -5,7 +5,7 @@ unit monsterHunterTestsUnitaires;
 
 interface
 uses
-  Classes, SysUtils, TestUnitaire, monsterHunterJoueur, monsterHunterArmesEtArmures;
+  Classes, SysUtils, TestUnitaire, monsterHunterJoueur, monsterHunterArmesEtArmures, monsterHunterGestionCombatJoueur, monsterHunterGestionCombatMonstre, monsterHunterMonstre;
 
 // Procédure qui lance tous les tests
 procedure test();
@@ -64,11 +64,57 @@ begin
   testIsEqual(estVide);
 end;
 
+//Tests unitaires de l'initialisation des monstres
+procedure initialisationMonstre_test();
+var
+  TestAtribut : boolean;  //Variable de renvoi pour chaque test unitaire
+  i : integer; //Variable de boucle
 
+begin
+    newTestsSeries('Initialisation des monstres');
+
+    //On initialise les monstres
+    initialisationMonstres('attributsMonstres/monstresAttributs.csv');
+
+    newTest('Initialisation des monstres', 'Points de vie des Monstres');
+    TestAtribut := True;
+
+    //On parcours les monstres et on test
+    for i := 0 to length(getMonstres()) do
+    begin
+        //On test que les monstres ont des points de vie
+        if (getMonstres[i].vie) <= 0 then TestAtribut:= False;
+    end;
+
+    testIsEqual(TestAtribut);
+
+    newTest('Initialisation des monstres', 'Degats des Monstres');
+    TestAtribut := True;
+
+    //On parcours les monstres et on test
+    for i := 0 to length(getMonstres()) do
+    begin
+        //On test que les monstres font des dégats
+        if ((getMonstres[i].dmgAttaque) <= 0) and ((getMonstres[i].dmgAttaqueSpe) <= 0) then TestAtribut:= False;
+    end;
+
+    testIsEqual(TestAtribut);
+
+end;
+
+//Tets unitaires de l'initialisation des monstres dans le combat en fonction de la difficulte
+procedure initialisationMonstreCombat_test();
+begin
+
+end;
 
 procedure test();
 begin
+  //Tets unitaires de l'initialisation du joueur
   initialisationPersonnage_test();
+
+  //Tests unitaires de l'initialisation des monstres
+  initialisationMonstre_test();
 
   Summary();
   readln;

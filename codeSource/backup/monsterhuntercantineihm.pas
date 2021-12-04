@@ -15,30 +15,49 @@ procedure cantineIHM();
 procedure enteteCantineIHM();
 // Afficher une nourriture en particulier
 procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
+procedure nePeutPasMangerIHM();
+procedure mangerNourritureIHM(nourriture:typeNourriture);
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 
+procedure nePeutPasMangerIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(44,14);write('Vos bonus sont déjà au maximum');
+  deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
+  readln;
+end;
+
+procedure mangerNourritureIHM(nourriture:typeNourriture);
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(52 - (length(nourriture.nom) div 2),14);write('Vous avez mangé ', nourriture.nom);
+  deplacerCurseurXY(43,16);write('Appuyez sur entrée pour continuer ');
+  readln
+end;
+
+
 // Afficher une nourriture en particulier
 procedure afficherNourritureCantineIHM(nourriture : typeNourriture ; positionNourriture, numeroNourriture : integer);
 begin
   // Affichage du numéro
-  deplacerCurseurXY(15,numeroNourriture+7);
+  deplacerCurseurXY(11,numeroNourriture+7);
   write(numeroNourriture);
   // Affichage du nom
-  deplacerCurseurXY(30,numeroNourriture+7);
+  deplacerCurseurXY(23,numeroNourriture+7);
   write(nourriture.nom);
   // Affichage du prix
-  deplacerCurseurXY(62,numeroNourriture +7); write(nourriture.prixAchat);
+  deplacerCurseurXY(50,numeroNourriture +7); write(nourriture.prixAchat);
   // Affichage du bonus de vie
-  deplacerCurseurXY(78,numeroNourriture +7); write(nourriture.bonusVie);
+  deplacerCurseurXY(63,numeroNourriture +7); write(nourriture.bonusVie);
   // Affichage de l'élément de l'arme
-  deplacerCurseurXY(100,numeroNourriture +7); write(nourriture.bonusVitesse);
+  deplacerCurseurXY(77,numeroNourriture +7); write(nourriture.bonusVitesse);
+  // Affichage de la quantité possédée
+  deplacerCurseurXY(95,numeroNourriture +7); write(getJoueur.nourrituresPossedees[positionNourriture]);
 
-
-
-  deplacerCurseurXY(100, 28);
+  deplacerCurseurXY(100, 28);;
 end;
 
 // Affiche l'entête des colonnes pour la cantine
@@ -69,6 +88,13 @@ procedure cantineIHM();
 begin
   effacerEcran();
   CadrePrincipal('Cantine : sélectionnez un numéro pour manger');
+
+  // Affichage des bonus
+  dessinerCadreXY(43,23,77,28,double,White,Black);
+  deplacerCurseurXY(46,25); write('Bonus de vie : ', getJoueur.buffVie); if getJoueur.buffVie = 50 then write(' (max)');
+  deplacerCurseurXY(45,26); write('Bonus de vitesse : ', getJoueur.buffVitesse); if getJoueur.buffVitesse = 30 then write(' (max)');
+
+
   deplacerCurseurXY(10,28); write(' 0/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;

@@ -92,8 +92,6 @@ end;
 // -------------------------------------------------- ACHAT D'OBJETS --------------------------------------------------
 // IHM de l'achat des composants
 function achatObjetsIHM() : string;
-var
-  i : integer;
 begin
   effacerEcran();
   cadrePrincipal('Achat d''objets (Vous avez ' + intToStr(getJoueur.argent) + ' Simonnaie)');
