@@ -130,6 +130,21 @@ begin
     end;
 
     testIsEqual(TestAtribut);
+
+    //--------------------------------------------- Test 5 ---------------------------------------------
+
+    newTest('Initialisation des monstres', 'Loots des Monstres');
+    TestAtribut := True;
+
+    //On parcours les monstres et on test
+    for i := 0 to length(getMonstres())-1 do
+    begin
+        //On test que les monstres ont de l'esquive
+        if ((getMonstres[i].loot[0].quantiteMinimum) <= 0) and ((getMonstres[i].loot[1].quantiteMinimum) <= 0) and ((getMonstres[i].loot[2].quantiteMinimum) <= 0) then TestAtribut:= False;
+        if ((getMonstres[i].loot[0].quantiteMaximum) <= 0) and ((getMonstres[i].loot[0].quantiteMaximum) <= 0) and ((getMonstres[i].loot[0].quantiteMaximum) <= 0) then TestAtribut:= False;
+    end;
+
+    testIsEqual(TestAtribut);
 end;
 
 //Tets unitaires de l'initialisation des monstres dans le combat en fonction de la difficulte
