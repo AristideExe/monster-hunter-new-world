@@ -105,9 +105,9 @@
         <Filename Value="monsterhuntermenuihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterMenuIHM"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <CursorPos X="27" Y="22"/>
+        <TopLine Value="91"/>
+        <CursorPos X="70" Y="103"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit13>
@@ -124,9 +124,10 @@
         <Filename Value="monsterhunterchambreihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterChambreIHM"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <TopLine Value="119"/>
-        <CursorPos X="76" Y="140"/>
+        <CursorPos X="40" Y="123"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit15>
