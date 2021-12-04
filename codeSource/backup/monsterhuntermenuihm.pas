@@ -98,7 +98,7 @@ end;
 procedure sauvegardeIHM();
 begin
      dessinerCadreXY(30,12,90,18,double,White,Black);
-     deplacerCurseurXY(43,14);write('Disponible dans une prochaine MAJ');
+     deplacerCurseurXY(42,14);write('Disponible dans une prochaine MAJ');
      deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
      readln;
 end;
@@ -109,50 +109,20 @@ var i, n: integer;
 
 begin
      effacerEcran();
-     //---------Titre--------------------------
-     deplacerCurseurXY(1,1);write('Credits :');
+     cadrePrincipal('Crédits :');
+     deplacerCurseurXY(14,10); write('Développeurs : ');
+     deplacerCurseurXY(30,10); write('- Aristide');
+     deplacerCurseurXY(30,11); write('- Léandre');
+     deplacerCurseurXY(30,12); write('- Quentin');
+     deplacerCurseurXY(30,13); write('- Hugo');
 
-              //--------Affichage mise en page----------
-     //---Affichage ligne horizontale---
-     n:=0;
-     for i:= 0 to 119 DO
-
-         begin
-             deplacerCurseurXY(n+i,2);
-             write('_');
-         end;
-
-     //---Affichage ligne verticale---
-     n:=0;
-     for i:= 0 to 29 DO
-
-         begin
-              deplacerCurseurXY(10,n+i);
-              write('|');
-         end;
-
-     //-----------Affichage du texte pour revenir sur le menu--------------
-     deplacerCurseurXY(43,1);write ('Appuyez sur entre pour revenir au menu');
-
-     //----------Placements des developpeurs-------------
-     //----------------- QUENTIN ------------------------
-     deplacerCurseurXY(25,11);write ('=} BOUCHOT Quentin : ');
+     deplacerCurseurXY(13,16); write('Remerciements  : ');
+     deplacerCurseurXY(30,16); write('- M. Simmonet');
+     deplacerCurseurXY(30,17); write('- M. Coulon (dans le rôle de Mr. Cou-long)');
+     deplacerCurseurXY(30,18); write('- Mme Serier (pour ses crêpes)');
 
 
-     //------------------ HUGO --------------------------
-     deplacerCurseurXY(25,16);write ('=} RODRIGUES Hugo : ');
-
-
-     //----------------- ARISTIDE -----------------------
-     deplacerCurseurXY(25,21);write ('=} PRORIOL Aristide : ');
-
-
-     //----------------- LEANDRE ------------------------
-     deplacerCurseurXY(25,26);write ('=} MOREAU Leandre : ');
-
-              //------------------Remerciement----------------------
-     dessinerCadreXY(38,6,89,8,double,White,Black);
-     deplacerCurseurXY(40,7);write ('On remercie nos developpeurs pour leur travail :');
+     deplacerCurseurXY(20,28); write(' Appuyez sur entrée pour continuer   ');deplacerCurseurXY(55,28);
 end;
 
 
