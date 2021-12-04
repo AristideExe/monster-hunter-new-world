@@ -53,6 +53,8 @@ var
   positionArmureChoisie : integer;
 begin
   armoireIHM();
+  enteteArmoireIHM
+
   // AFFICHAGE DES ARMURES POSSEDEES
   compteurArmure := 1;
   // On affiche toutes les armures qui sont la bonne pièce sauf celles dont le nom est 'NULL'
@@ -104,7 +106,7 @@ begin
   // Si le joueur a choisit une pièce d'armure
   else if (choix = '1') or (choix = '2') or (choix = '3') or (choix = '4') or (choix = '5') then armoire(typePieceArmure(strToInt(choix) - 1))
   // Si le joueur veut voir ses objets
-  else if choix = '6' then objets();
+  else if choix = '6' then objets()
   // Si le joueur a fait un mauvais choix
   else selectionArmureArmoire();
 end;

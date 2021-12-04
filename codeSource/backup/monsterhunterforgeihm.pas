@@ -114,11 +114,11 @@ begin
   // Affichage du nom
   deplacerCurseurXY(30,numeroArmure+7);
   write(armure.nom);
-  // Affichage du type d'arme
-  deplacerCurseurXY(81,numeroArmure +7); write(armure.valeurDefense:6:2);
-  // Affichage de l'élément de l'arme
+  // Affichage de l'élément de l'armure
   deplacerCurseurXY(62,numeroArmure +7); write(armure.element);
-  // Affichage du taux d'attaque de l'arme
+  // Affichage de la valeur de défense de l'armure
+  deplacerCurseurXY(81,numeroArmure +7); write(armure.valeurDefense:6:2);
+  // Affichage du taux d'attaque de l'armure
   deplacerCurseurXY(97,numeroArmure +7); write(armure.tauxEsquive:6:2);
 
   couleurTexte(white);
@@ -163,6 +163,8 @@ begin
   deplacerCurseurXY(78,6); write('Élément');
   // Entête de la valeur d'attaque
   deplacerCurseurXY(95,6); write('Valeur d''attaque');
+
+  deplacerCurseurXY(100, 28);
 end;
 
 // Affiche l'interface de la forge en général

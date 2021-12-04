@@ -53,6 +53,8 @@ var
   positionArmureChoisie : integer;
 begin
   armoireIHM();
+  enteteArmoireIHM();
+
   // AFFICHAGE DES ARMURES POSSEDEES
   compteurArmure := 1;
   // On affiche toutes les armures qui sont la bonne pièce sauf celles dont le nom est 'NULL'
