@@ -135,7 +135,7 @@ begin
   begin
        aucuneNourriturePossedeeIHM();
        cantine();
-  end;
+  end
   // Si le joueur possède au moins une nourriture
   else
   begin

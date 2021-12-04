@@ -40,7 +40,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatObjets()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_BOMBE <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_BOMBE <= getJoueur.argent) then
        begin
          ajouterObjetJoueur(0, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_BOMBE);
@@ -61,7 +61,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatObjets()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_POTION <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_POTION <= getJoueur.argent) then
        begin
          ajouterObjetJoueur(1, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_POTION);
@@ -82,7 +82,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatObjets()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_PIERRE <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_PIERRE <= getJoueur.argent) then
        begin
          ajouterObjetJoueur(2, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_PIERRE);
@@ -133,7 +133,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatComposants()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_BOIS <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_BOIS <= getJoueur.argent) then
        begin
          ajouterItemJoueur(positionBois, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_BOIS);
@@ -154,7 +154,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatComposants()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_FER <= getJoueur.argent) then
+       else if (quantiteInt > 0) and ((quantiteInt * PRIX_FER <= getJoueur.argent) then
        begin
          ajouterItemJoueur(positionFer, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_FER);
@@ -256,9 +256,9 @@ begin
         // Si le joueur souhaite annuler la transaction
         if quantiteInt = 0 then venteComposants()
         // Si le joueur vend une quantité valide
-        else if quantiteInt <= getJoueur.itemsPossedes[positionComposantChoisi] then
+        else if (quantiteInt > 0) and (quantiteInt <= getJoueur.itemsPossedes[positionComposantChoisi]) then
         begin
-
+            retirerItemJoueur(positionComposantChoisi, quantiteInt);
             ajouterArgentJoueur(quantiteInt * itemsDeCraftsDisponibles[positionComposantChoisi].prixVente);
             venduComposantsIHM(itemsDeCraftsDisponibles[positionComposantChoisi], quantiteInt);
             venteComposants();

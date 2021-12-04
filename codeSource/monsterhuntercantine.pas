@@ -79,7 +79,7 @@ begin
     if quantiteInt = 0 then
       achatNourriture()
     // Si le joueur achete au dessus de ses moyens
-    else if (quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat
+    else if (quantiteInt > 0) and (quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat
       <= getJoueur.argent) then
     begin
       ajouterNourritureJoueur(positionNourritureChoisie, quantiteInt);
