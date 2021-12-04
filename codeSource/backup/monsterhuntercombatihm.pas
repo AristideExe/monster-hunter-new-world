@@ -70,19 +70,19 @@ begin
      deplacerCurseurXY(40,5);write ('Choisissez votre niveau de difficulté ! ');
 
      //Difficulté 1*
-     deplacerCurseurXY(50,10);write ('1. Difficulté * ');
+     deplacerCurseurXY(50,10);write ('1/ Difficulté * ');
 
      //Difficulté 2*
-     deplacerCurseurXY(50,12);write ('2. Difficulté * * ');
+     deplacerCurseurXY(50,12);write ('2/ Difficulté * * ');
 
      //Difficulté 3*
-     deplacerCurseurXY(50,14);write ('3. Difficulté * * * ');
+     deplacerCurseurXY(50,14);write ('3/ Difficulté * * * ');
 
      //Difficulté 4*
-     deplacerCurseurXY(50,16);write ('4. Difficulté * * * * ');
+     deplacerCurseurXY(50,16);write ('4/ Difficulté * * * * ');
 
      //Retour en ville
-     deplacerCurseurXY(50,19);write ('0. Retour en ville');
+     deplacerCurseurXY(50,19);write ('0/ Retour en ville');
 
      //Décoration dragonets du menu de choix
      couleurTexte(Red);
@@ -497,7 +497,7 @@ var
 
 begin
      message1 := 'Vous avez perdu tous les items de votre inventaire !';
-     message2 := 'Mr Cou Long, vous trouvant presque inannimé au sol lors d''une éxpédition, décide de vous ramener à la ville et de vous soigner';
+     message2 := 'Mr Cou Long, vous trouvant presque inannimé au sol lors d''une expédition, décide de vous ramener à la ville et de vous soigner';
      message3 := 'Appuyez sur entrée pour continuer';
 
      //Dessin du cadre

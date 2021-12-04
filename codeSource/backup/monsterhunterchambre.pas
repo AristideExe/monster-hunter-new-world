@@ -53,7 +53,7 @@ var
   positionArmureChoisie : integer;
 begin
   armoireIHM();
-  enteteArmoireIHM
+  enteteArmoireIHM();
 
   // AFFICHAGE DES ARMURES POSSEDEES
   compteurArmure := 1;
@@ -62,38 +62,49 @@ begin
   begin
     if (getJoueur.armuresPossedees[i].nom <> 'NULL') and (getJoueur.armuresPossedees[i].pieceArmure = pieceArmure) then
     begin
-      afficherArmureIHM(getJoueur.armuresPossedees[i], compteurArmure, i = length(getJoueur.armuresPossedees) -1);
+      afficherArmureIHM(getJoueur.armuresPossedees[i], compteurArmure);
       compteurArmure := compteurArmure + 1;
     end;
   end;
 
-  // Ecriture du choix par le joueur
-  readln(choix);
-
-  // ACTIONS PAR RAPPORT AU CHOIX
-  choixInt := 0;
-  choixIsInt := TryStrToInt(choix,choixInt);
-  // Si on veut retourner au menu de sélection
-  if choix = '0' then selectionArmureArmoire()
-  // Si on a choisit une armure
-  else if choixIsInt and (choixInt>0) and (choixInt < compteurArmure) then
+  // Si le joueur ne possède aucune armure
+  if compteurArmure = 1 then
   begin
-    // On essaye de trouver à quelle arme fait référence le choix en refaisant la même boucle qu'à l'affichage
-    compteurArmure := 1;
-    for i:=0 to length(getJoueur.armuresPossedees) - 1 do
-    begin
-      if (getJoueur.armuresPossedees[i].nom <> 'NULL') and (getJoueur.armuresPossedees[i].pieceArmure = pieceArmure) then
-      begin
-        if compteurArmure = choixInt then positionArmureChoisie := i;
-        compteurArmure := compteurArmure + 1;
-      end;
-    end;
-
-    // On échange l'arme que le joueur a choisi avec l'arme qu'il porte
-    echangerArmures(joueur.armurePortee[ord(pieceArmure)],joueur.armuresPossedees[positionArmureChoisie]);
+    aucuneArmurePossedeeIHM();
     chambre();
   end
-  else armoire(pieceArmure);
+  // Si le joueur possède au moins une armure
+  else
+  begin
+
+    // Ecriture du choix par le joueur
+    readln(choix);
+
+    // ACTIONS PAR RAPPORT AU CHOIX
+    choixInt := 0;
+    choixIsInt := TryStrToInt(choix,choixInt);
+    // Si on veut retourner au menu de sélection
+    if choix = '0' then selectionArmureArmoire()
+    // Si on a choisit une armure
+    else if choixIsInt and (choixInt>0) and (choixInt < compteurArmure) then
+    begin
+      // On essaye de trouver à quelle arme fait référence le choix en refaisant la même boucle qu'à l'affichage
+      compteurArmure := 1;
+      for i:=0 to length(getJoueur.armuresPossedees) - 1 do
+      begin
+        if (getJoueur.armuresPossedees[i].nom <> 'NULL') and (getJoueur.armuresPossedees[i].pieceArmure = pieceArmure) then
+        begin
+          if compteurArmure = choixInt then positionArmureChoisie := i;
+          compteurArmure := compteurArmure + 1;
+        end;
+      end;
+
+      // On échange l'arme que le joueur a choisi avec l'arme qu'il porte
+      echangerArmures(joueur.armurePortee[ord(pieceArmure)],joueur.armuresPossedees[positionArmureChoisie]);
+      chambre();
+    end
+    else armoire(pieceArmure);
+  end;
 end;
 
 // Permet d'afficher le menu pour sélectionner si on veut accéder aux casques, aux plastrons, aux jambieres, aux bottes ou aux gants
@@ -134,38 +145,48 @@ begin
   begin
     if getJoueur.armesPossedees[i].nom <> 'NULL' then
     begin
-      afficherArmeIHM(getJoueur.armesPossedees[i], compteurArme, i = length(getJoueur.armesPossedees) -1);
+      afficherArmeIHM(getJoueur.armesPossedees[i], compteurArme);
       compteurArme := compteurArme + 1;
     end;
   end;
 
-  // Ecriture du choix par le joueur
-  readln(choix);
-
-  // ACTIONS PAR RAPPORT AU CHOIX
-  choixInt := 0;
-  choixIsInt := TryStrToInt(choix,choixInt);
-  // Si on veut retourner à la chambre
-  if choix = '0' then chambre()
-  // Si on a choisit une arme
-  else if choixIsInt and (choixInt>0) and (choixInt < compteurArme) then
+  // Si le joueur ne possède aucune arme
+  if compteurArme = 1 then
   begin
-    // On essaye de trouver à quelle arme fait référence le choix en refaisant la même boucle qu'à l'affichage
-    compteurArme := 1;
-    for i:=0 to length(getJoueur.armesPossedees) - 1 do
-    begin
-      if getJoueur.armesPossedees[i].nom <> 'NULL' then
-      begin
-        if compteurArme = choixInt then positionArmeChoisie := i;
-        compteurArme := compteurArme + 1;
-      end;
-    end;
-
-    // On échange l'arme que le joueur a choisi avec l'arme qu'il porte
-    echangerArmes(joueur.armePortee,joueur.armesPossedees[positionArmeChoisie]);
+    aucuneArmePossedeeIHM();
     chambre();
   end
-  else malle();
+  else
+  begin
+
+    // Ecriture du choix par le joueur
+    readln(choix);
+
+    // ACTIONS PAR RAPPORT AU CHOIX
+    choixInt := 0;
+    choixIsInt := TryStrToInt(choix,choixInt);
+    // Si on veut retourner à la chambre
+    if choix = '0' then chambre()
+    // Si on a choisit une arme
+    else if choixIsInt and (choixInt>0) and (choixInt < compteurArme) then
+    begin
+      // On essaye de trouver à quelle arme fait référence le choix en refaisant la même boucle qu'à l'affichage
+      compteurArme := 1;
+      for i:=0 to length(getJoueur.armesPossedees) - 1 do
+      begin
+        if getJoueur.armesPossedees[i].nom <> 'NULL' then
+        begin
+          if compteurArme = choixInt then positionArmeChoisie := i;
+          compteurArme := compteurArme + 1;
+        end;
+      end;
+
+      // On échange l'arme que le joueur a choisi avec l'arme qu'il porte
+      echangerArmes(joueur.armePortee,joueur.armesPossedees[positionArmeChoisie]);
+      chambre();
+    end
+    else malle();
+  end;
 end;
 
 // ----------------------------------------------------- CHAMBRE ------------------------------------------------------
