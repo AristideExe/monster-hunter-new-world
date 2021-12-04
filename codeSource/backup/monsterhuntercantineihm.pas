@@ -33,7 +33,7 @@ end;
 procedure mangerNourritureIHM(nourriture:typeNourriture);
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(53 - (length(nourriture.nom) div 2),14);write('Vous avez mangé ', nourriture.nom);
+  deplacerCurseurXY(52 - (length(nourriture.nom) div 2),14);write('Vous avez mangé ', nourriture.nom);
   deplacerCurseurXY(43,16);write('Appuyez sur entrée pour continuer ');
   readln
 end;
@@ -88,6 +88,13 @@ procedure cantineIHM();
 begin
   effacerEcran();
   CadrePrincipal('Cantine : sélectionnez un numéro pour manger');
+
+  // Affichage des bonus
+  dessinerCadreXY(43,23,77,28,double,White,Black);
+  deplacerCurseurXY(46,25); write('Bonus de vie : ', getJoueur.buffVie); if getJoueur.buffVie = 50 then write(' (max)');
+  deplacerCurseurXY(45,26); write('Bonus de vitesse : ', getJoueur.buffVitesse); if getJoueur.buffVitesse = 30 then write(' (max)');
+
+
   deplacerCurseurXY(10,28); write(' 0/ Retourner à la ville ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;

@@ -147,31 +147,54 @@ end;
 //Procédure qui fait le choix de l'item dans l'inventaire
 procedure choixInventaireCombat (choix : string);
 begin
-    if choix = 'met ceque tu veux' then
-    //    //Le monstre attaque
-    //    attaquantCombat(2);
 
-    else if choix = 'met ceque tu veux' then //Utiliser une bombe puis executer le code suivant
-
-    //  //On vérifie que le monstre n'est pas mort
-    //  if getMonstreCombat().vie <> 0 then
-    //  begin
-    //
-    //    //Le monstre attaque
-    //    attaquantCombat(2);
-    //
-    //  end;
-    //
-    //checkMortCombat() //On check si il y a des morts
-
-    else if choix = '0' then
+    if ((choix = '1') and (getJoueur().objetsPossedes[0] > 0)) then
     begin
-      interfaceCombatIHM();
+         utilisationBombeJoueur(); //Utiliser une bombe puis executer le code suivant
+         interfaceCombatIHM();
+
+         //On vérifie que le monstre n'est pas mort
+         if getMonstreCombat().vie <> 0 then
+         begin
+
+              //Le monstre attaque
+              attaquantCombat(2);
+
+         end;
+
+         checkMortCombat();
 
     end
-    else choixInventaireCombat(cadreChoixActionsIHM()); //L'entree est mauvaise donc on redemande
 
-    if choix <> 'Celui ou tu utilise les bombes'
+    //On utilise une potion de soin
+    else if (choix = '2') and (getJoueur().objetsPossedes[1] > 0) then
+    begin
+        utilisationPotionSoin();
+        interfaceCombatIHM();
+
+        //Le monstre attaque
+        attaquantCombat(2);
+
+    end
+
+    //On utilise la pierre ponce
+    else if ((choix = '3') and (getJoueur().objetsPossedes[2] > 0)) then
+    begin
+         utilisationPierrePonce();
+         interfaceCombatIHM();
+
+         //Le monstre attaque
+         attaquantCombat(2);
+    end
+
+    //On retourne au combat
+    else if choix = '0' then interfaceCombatIHM()
+
+    //L'entree est mauvaise donc on redemande
+    else choixInventaireCombat(cadreChoixActionsIHM());
+
+    //si une action est effectuée on relance le combat
+    if (choix = '0') or (choix = '2') or (choix = '3') then
        choixActionJoueur();
 
 end;
@@ -182,8 +205,6 @@ begin
 
     affichageInventaireCombatIHM();
     choixInventaireCombat(cadreChoixActionsIHM());
-    //La fonction cadreChoixActionsIHM(); cree une case choix et permet de lire un choix dans l'encadré (donc elle retourne l'entree utilisateur)
-    //La fonction permet aussi et surtout de ne pas avoir a recharger la page entière (seul le cadre de choix est modifié)
 
 end;
 

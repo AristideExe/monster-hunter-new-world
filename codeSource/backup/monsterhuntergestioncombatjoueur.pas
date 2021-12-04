@@ -183,6 +183,7 @@ end;
 procedure utilisationPierrePonce ();
 begin
   reinitialiserEmoussementArmeJoueur();
+  retirerObjetJoueur(2,1);
 end;
 
 //Procedure d'utilisation d'une potion de soin
@@ -190,6 +191,8 @@ procedure utilisationPotionSoin ();
 begin
     if (getJoueur().vie + 50) > 100 then reinitialiserVieJoueur()
     else modifierVieJoueur(getJoueur().vie + 50);
+
+    retirerObjetJoueur(1,1);
 end;
 
 //procedure qui vérifie la mort du monstre
@@ -207,6 +210,7 @@ begin
         modifierVieJoueur(100);
 
         //Le joueur perd ses buffs
+        reinitialiseBuffJoueur();
 
         //On affiche le game over
         messageMortJoueurIHM();

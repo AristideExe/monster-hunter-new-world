@@ -177,12 +177,14 @@ end;
 procedure utilisationBombeJoueur ();
 begin
   degatsCombatMonstre(dmgBombe);
+  retirerObjetJoueur(0,1);
 end;
 
 //Procedure d'utilisation de pierre ponce
 procedure utilisationPierrePonce ();
 begin
   reinitialiserEmoussementArmeJoueur();
+  retirerObjetJoueur(2,1);
 end;
 
 //Procedure d'utilisation d'une potion de soin
@@ -190,6 +192,8 @@ procedure utilisationPotionSoin ();
 begin
     if (getJoueur().vie + 50) > 100 then reinitialiserVieJoueur()
     else modifierVieJoueur(getJoueur().vie + 50);
+
+    retirerObjetJoueur(1,1);
 end;
 
 //procedure qui vérifie la mort du monstre
