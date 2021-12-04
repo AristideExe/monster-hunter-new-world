@@ -22,8 +22,10 @@ begin
 
   newTest('Initialisation du joueur','Valeur de vie à 100');
   testIsEqual(getJoueur.vie, 100);
+
   newTest('Initialisation du joueur','Valeur de vitesse à 100');
   testIsEqual(getJoueur.vitesse, 100);
+
   newTest('Initialisation du joueur','Argent à 100');
   testIsEqual(getJoueur.argent, 100);
 
