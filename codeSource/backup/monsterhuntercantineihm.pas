@@ -18,6 +18,8 @@ procedure afficherNourritureIHM(nourriture : typeNourriture ; positionNourriture
 procedure nePeutPasMangerIHM();
 procedure mangerNourritureIHM(nourriture:typeNourriture);
 procedure achatNourritureIHM();
+// Affiche un message si le joueur ne possède aucune nourriture
+procedure aucuneNourriturePossedeeIHM();
 // Affiche le contour de l'endroit pour manger
 procedure mangerIHM();
 // Demande la quantité que souhaite acheter le joueur
@@ -29,6 +31,7 @@ procedure nePeutPasAcheterIHM();
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
 
+// ------------------------------------------------- ACHETER NOURRITURE -----------------------------------------------
 // Demande la quantité que souhaite acheter le joueur
 function choisirQuantiteIHM() : string;
 begin
@@ -48,6 +51,12 @@ begin
   readln;
 end;
 
+
+
+
+
+
+// ------------------------------------------------- MANGER -----------------------------------------------
 procedure nePeutPasMangerIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
@@ -107,12 +116,23 @@ begin
   deplacerCurseurXY(100, 28);
 end;
 
+
 procedure achatNourritureIHM();
 begin
   effacerEcran();
-  CadrePrincipal('Vente : sélectionnez un numéro pour acheter');
+  CadrePrincipal('Achat : sélectionnez un numéro pour acheter');
   deplacerCurseurXY(10,28); write(' 0/ Retourner à la cantine ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
+end;
+
+
+// Affiche un message si le joueur ne possède aucune nourriture
+procedure aucuneNourriturePossedeeIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(43,14);write('Vous ne possédez aucune nourriture');
+  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir à la chambre ');
+  readln;
 end;
 
 // Affiche le contour de l'endroit pour manger
@@ -131,7 +151,10 @@ begin
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
 
-// ------------------------------------------------- CABTINE -----------------------------------------------
+
+
+
+// ------------------------------------------------- CANTINE -----------------------------------------------
 // Affichage pour sélectionner si on veut manger ou acheter de la nourriture
 function cantineIHM() : string;
 begin

@@ -37,7 +37,7 @@ implementation
 procedure afficherMessageCraftIHM(nomObjet : string);
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
-  deplacerCurseurXY(32,14);write('Félicitations, vous avez fabriqué ', nomObjet);
+  deplacerCurseurXY(43- (length(nomObjet) div 2),14);write('Félicitations, vous avez fabriqué ', nomObjet);
   deplacerCurseurXY(42,16);write('Appuyez sur entrée pour continuer ');
 end;
 

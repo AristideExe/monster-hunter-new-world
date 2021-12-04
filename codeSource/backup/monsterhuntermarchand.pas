@@ -40,7 +40,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatObjets()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_BOMBE <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_BOMBE <= getJoueur.argent) then
        begin
          ajouterObjetJoueur(0, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_BOMBE);
@@ -61,7 +61,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatObjets()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_POTION <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_POTION <= getJoueur.argent) then
        begin
          ajouterObjetJoueur(1, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_POTION);
@@ -82,7 +82,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatObjets()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_PIERRE <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_PIERRE <= getJoueur.argent) then
        begin
          ajouterObjetJoueur(2, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_PIERRE);
@@ -101,77 +101,6 @@ begin
   // Si le joueur a fait un mauvais choix
   else achatObjets();
 end;
-
-
-
-
-
-
-// -------------------------------------------------- ACHAT NOURRITURE --------------------------------------------------
-procedure achatNourriture();
-var
-  compteurNourriture : integer;
-  i :integer;
-  choix : string;
-  choixInt, quantiteInt : integer;
-  choixIsInt, quantiteIsInt : boolean;
-  positionNourritureChoisie : integer;
-begin
-  achatNourritureIHM();
-  enteteAchatNourritureIHM();
-
-  // On initialise le compteur des nourritures en commançant à 1 (car l'affichage commence à 1)
-  compteurNourriture := 1;
-  // On parcours tout l'inventaire de composants du joueur
-  for i:=0 to length(nourrituresDisponibles)-1 do
-  begin
-    // On affiche toutes les nourritures disponibles
-    afficherNourritureIHM(nourrituresDisponibles[i],i, compteurNourriture);
-    compteurNourriture := compteurNourriture + 1;
-  end;
-
-  // Choix du joueur
-  readln(choix);
-
-  //REPONSE EN FONCTION DU CHOIX
-  choixIsInt := TryStrToInt(choix, choixInt);
-  if choix = '0' then marchand()
-
-
-  else if (choixIsInt) and (choixInt >= 1) and (choixInt < compteurNourriture) then
-  begin
-       // La position de la nourriture choisie dans le tableau est le numéro saisi par le joueur - 1
-       positionNourritureChoisie := choixInt-1;
-
-      // On demande la quantité que le joueur veut acheter
-      quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
-      while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
-      // Si le joueur souhaite annuler la transaction
-      if quantiteInt = 0 then achatNourriture()
-      // Si le joueur achete au dessus de ses moyens
-      else if (quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat <= getJoueur.argent) then
-      begin
-          ajouterNourritureJoueur(positionNourritureChoisie, quantiteInt);
-          retirerArgentJoueur(quantiteInt * nourrituresDisponibles[positionNourritureChoisie].prixAchat);
-          achatNourriture();
-      end
-      // Si le joueur ne met pas une quantité valide
-      else
-      begin
-        nePeutPasAcheterIHM();
-        achatNourriture();
-      end;
-
-  end
-
-
-
-  else achatNourriture();
-end;
-
-
-
-
 
 
 // ------------------------------------------------- ACHAT COMPOSANTS -----------------------------------------------
@@ -204,7 +133,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatComposants()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_BOIS <= getJoueur.argent) then
+       else if (quantiteInt > 0) and (quantiteInt * PRIX_BOIS <= getJoueur.argent) then
        begin
          ajouterItemJoueur(positionBois, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_BOIS);
@@ -225,7 +154,7 @@ begin
        // Si le joueur souhaite annuler la transaction
        if quantiteInt = 0 then achatComposants()
        // Sinon si la quantite est bonne on accepte la transaction
-       else if (quantiteInt * PRIX_FER <= getJoueur.argent) then
+       else if (quantiteInt > 0) and ((quantiteInt * PRIX_FER <= getJoueur.argent) then
        begin
          ajouterItemJoueur(positionFer, quantiteInt);
          retirerArgentJoueur(quantiteInt * PRIX_FER);
@@ -248,6 +177,19 @@ end;
 
 
 // ------------------------------------------------- VENTE COMPOSANTS -----------------------------------------------
+// Procédure qui vend tous les composants de l'inventaire du joueur
+procedure vendreInventaireComposantComplet();
+var
+  i : integer;
+begin
+  for i:=0 to NOMBRE_ITEM_DE_CRAFT_JEU-1 do
+  begin
+    ajouterArgentJoueur(getJoueur.itemsPossedes[i] * itemsDeCraftsDisponibles[i].prixVente);
+    retirerItemJoueur(i, getJoueur.itemsPossedes[i]);
+  end;
+  marchand();
+end;
+
 // Procédure pour vendre ses composants
 procedure venteComposants();
 var
@@ -274,54 +216,66 @@ begin
     end;
   end;
 
-  // Choix du joueur
-  readln(choix);
-
-  //REPONSE EN FONCTION DU CHOIX
-  choixIsInt := TryStrToInt(choix, choixInt);
-  if choix = '0' then marchand()
-
-
-  else if (choixIsInt) and (choixInt >= 1) and (choixInt < compteurComposant) then
+  // Si le joueur ne possède aucun composant
+  if compteurComposant = 1 then
   begin
-       // On essaye de trouver à quoi le choix du joueur faisait référence en refaisant la boucle
-       compteurComposant := 1;
-      // On parcours tout l'inventaire de composants du joueur
-      for i:=0 to NOMBRE_ITEM_DE_CRAFT_JEU-1 do
-      begin
-        // Si le joueur possède au moins 1 exemplaire du composant on l'affiche
-        if (getJoueur.itemsPossedes[i] >= 1) then
-        begin
-             if (compteurComposant = choixInt) then positionComposantChoisi := i;
-             compteurComposant := compteurComposant +1;
-        end;
-      end;
-
-      // On demande la quantité que le joueur veut vendre
-      quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
-      while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
-      // Si le joueur souhaite annuler la transaction
-      if quantiteInt = 0 then venteComposants()
-      // Si le joueur vend une quantité valide
-      else if quantiteInt <= getJoueur.itemsPossedes[positionComposantChoisi] then
-      begin
-          retirerItemJoueur(positionComposantChoisi, quantiteInt);
-          ajouterArgentJoueur(quantiteInt * itemsDeCraftsDisponibles[positionComposantChoisi].prixVente);
-          venduComposantsIHM(itemsDeCraftsDisponibles[positionComposantChoisi], quantiteInt);
-          venteComposants();
-      end
-      // Si le joueur ne met pas une quantité valide
-      else
-      begin
-        nePeutPasVendreIHM();
-        venteComposants();
-      end;
-
+       aucunComposantPossedeIHM();
+       marchand();
   end
+  // Si le joueur possède au moins un composant
+  else
+    begin
+    // Choix du joueur
+    readln(choix);
+
+    //REPONSE EN FONCTION DU CHOIX
+    choixIsInt := TryStrToInt(choix, choixInt);
+    if choix = '0' then marchand()
+    // Si on veut tout vendre
+    else if choix = '-1' then vendreInventaireComposantComplet()
+
+
+    else if (choixIsInt) and (choixInt >= 1) and (choixInt < compteurComposant) then
+    begin
+         // On essaye de trouver à quoi le choix du joueur faisait référence en refaisant la boucle
+         compteurComposant := 1;
+        // On parcours tout l'inventaire de composants du joueur
+        for i:=0 to NOMBRE_ITEM_DE_CRAFT_JEU-1 do
+        begin
+          // Si le joueur possède au moins 1 exemplaire du composant on l'affiche
+          if (getJoueur.itemsPossedes[i] >= 1) then
+          begin
+               if (compteurComposant = choixInt) then positionComposantChoisi := i;
+               compteurComposant := compteurComposant +1;
+          end;
+        end;
+
+        // On demande la quantité que le joueur veut vendre
+        quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+        while not quantiteIsInt do quantiteIsInt := TryStrToInt(choisirQuantiteIHM(),quantiteInt);
+        // Si le joueur souhaite annuler la transaction
+        if quantiteInt = 0 then venteComposants()
+        // Si le joueur vend une quantité valide
+        else if (quantiteInt > 0) and (quantiteInt <= getJoueur.itemsPossedes[positionComposantChoisi]) then
+        begin
+            retirerItemJoueur(positionComposantChoisi, quantiteInt);
+            ajouterArgentJoueur(quantiteInt * itemsDeCraftsDisponibles[positionComposantChoisi].prixVente);
+            venduComposantsIHM(itemsDeCraftsDisponibles[positionComposantChoisi], quantiteInt);
+            venteComposants();
+        end
+        // Si le joueur ne met pas une quantité valide
+        else
+        begin
+          nePeutPasVendreIHM();
+          venteComposants();
+        end;
+
+    end
 
 
 
-  else venteComposants();
+    else venteComposants();
+  end;
 end;
 
 

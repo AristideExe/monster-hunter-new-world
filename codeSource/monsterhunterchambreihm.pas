@@ -378,8 +378,8 @@ begin
   else
   begin
        dessinerSansEspace('dessins/personnagesEnGrand/chevalier/jambieresChevalier.txt',56,17);
-       deplacerCurseurXY(80,19); write('Jambières : ', getJoueur.armurePortee[2].nom);
-       deplacerCurseurXY(80,18); write('Valeur de défense : ', getJoueur.armurePortee[2].valeurDefense:6:2);
+       deplacerCurseurXY(80,18); write('Jambières : ', getJoueur.armurePortee[2].nom);
+       deplacerCurseurXY(80,19); write('Valeur de défense : ', getJoueur.armurePortee[2].valeurDefense:6:2);
        deplacerCurseurXY(80,20); write('Taux d''equive : ', getJoueur.armurePortee[2].tauxEsquive:6:2);
   end;
 
