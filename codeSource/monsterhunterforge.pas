@@ -96,6 +96,9 @@ begin
     armurePossedee := false;
     for j:=0 to length(craftsArmuresDisponibles) -1 do
       if (getJoueur.armuresPossedees[j].nom = armure.nom) or (getJoueur.armuresPossedees[ord(piece)].nom = armure.nom) then armurePossedee := true;
+    // On vérifie si le joueur ne porte pas l'armure
+    if getJoueur.armurePortee[ord(armure.pieceArmure)].nom = armure.nom then armurePossedee := true;
+
     // Si le joueur ne possède pas l'arme et qu'elle correspond à la piece d'armure que l'on recherche alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
     if not (armurePossedee) and (armure.pieceArmure = piece) then
     begin
@@ -125,6 +128,9 @@ begin
       armurePossedee := false;
       for j:=0 to length(craftsArmuresDisponibles) -1 do
         if (getJoueur.armuresPossedees[j].nom = armure.nom) or (getJoueur.armuresPossedees[ord(piece)].nom = armure.nom) then armurePossedee := true;
+      // On vérifie si le joueur ne porte pas l'armure
+      if getJoueur.armurePortee[ord(armure.pieceArmure)].nom = armure.nom then armurePossedee := true;
+
       // Si le joueur ne possède pas l'arme et qu'elle correspond à la piece d'armure que l'on recherche alors on peut l'afficher après avoir vérifié si il peut le crafter ou pas
       if not (armurePossedee) and (armure.pieceArmure = piece) then
       begin
