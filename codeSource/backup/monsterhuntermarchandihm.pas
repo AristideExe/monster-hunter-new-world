@@ -93,7 +93,7 @@ end;
 // IHM de l'achat des composants
 function achatObjetsIHM() : string;
 var
-  i : integer;
+  //i : integer;
 begin
   effacerEcran();
   cadrePrincipal('Achat d''objets (Vous avez ' + intToStr(getJoueur.argent) + ' Simonnaie)');
@@ -120,7 +120,7 @@ begin
   deplacerCurseurXY(10,9);write('3');
   deplacerCurseurXY(25,9); write('Pierre ponce');
   deplacerCurseurXY(48,9); write('50 Simonnaie');
-  deplacerCurseurXY(80,9); write(getJoueur.objetsPossedes[2] + getJoueur.objetsPortes[2]);
+  deplacerCurseurXY(80,9); write(getJoueur.objetsPossedes[2]);
 
   // Affichage des choix
   deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');

@@ -31,9 +31,15 @@ begin
 end;
 
 
-
-
-
+// ----------------------------------------------------- OBJETS ------------------------------------------------------
+procedure objets();
+var
+  choix : string;
+begin
+  choix := objetsIHM();
+  if choix = '0' then chambre()
+  else objets;
+end;
 
 // ----------------------------------------------------- ARMOIRE ------------------------------------------------------
 procedure armoire(pieceArmure : typePieceArmure);
@@ -97,6 +103,8 @@ begin
   if choix = '0' then chambre()
   // Si le joueur a choisit une pièce d'armure
   else if (choix = '1') or (choix = '2') or (choix = '3') or (choix = '4') or (choix = '5') then armoire(typePieceArmure(strToInt(choix) - 1))
+  // Si le joueur veut voir ses objets
+  else if choix = '6' then objets()
   // Si le joueur a fait un mauvais choix
   else selectionArmureArmoire();
 end;
