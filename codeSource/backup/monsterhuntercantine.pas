@@ -16,7 +16,7 @@ type
   end;
 
 const
-  NOMBRE_NOURRITURES_JEU = 11;
+  NOMBRE_NOURRITURES_JEU = 10;
 
 var
   nourrituresDisponibles : array [0..NOMBRE_NOURRITURES_JEU-1] of typeNourriture;
