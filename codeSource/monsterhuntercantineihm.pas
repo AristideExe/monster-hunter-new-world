@@ -116,10 +116,11 @@ begin
   deplacerCurseurXY(100, 28);
 end;
 
+
 procedure achatNourritureIHM();
 begin
   effacerEcran();
-  CadrePrincipal('Vente : sélectionnez un numéro pour acheter');
+  CadrePrincipal('Achat : sélectionnez un numéro pour acheter');
   deplacerCurseurXY(10,28); write(' 0/ Retourner à la cantine ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
 end;
@@ -130,7 +131,7 @@ procedure aucuneNourriturePossedeeIHM();
 begin
   dessinerCadreXY(30,12,90,18,double,White,Black);
   deplacerCurseurXY(43,14);write('Vous ne possédez aucune nourriture');
-  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir à la chambre ');
+  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir à la cantine ');
   readln;
 end;
 

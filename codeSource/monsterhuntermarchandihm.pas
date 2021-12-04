@@ -21,6 +21,8 @@ procedure nePeutPasVendreIHM();
 // Demande la quantité que souhaite acheter ou vendre le joueur
 function choisirQuantiteIHM() : string;
 procedure venteComposantsIHM();
+// Affiche un message si le joueur ne possède aucun composant
+procedure aucunComposantPossedeIHM();
 procedure enteteVenteComposantsIHM();
 // Affichage d'un composant dans la vente
 procedure afficherComposantIHM(compteurComposant, positionItem : integer);
@@ -189,6 +191,15 @@ begin
   cadrePrincipal('Vente de composants');
   deplacerCurseurXY(10,28); write(' 0/ Retourner au marchand ');
   deplacerCurseurXY(85,28); write(' Votre choix :   ');
+end;
+
+// Affiche un message si le joueur ne possède aucun composant
+procedure aucunComposantPossedeIHM();
+begin
+  dessinerCadreXY(30,12,90,18,double,White,Black);
+  deplacerCurseurXY(43,14);write('Vous ne possédez aucun composant');
+  deplacerCurseurXY(38,16);write('Appuyez sur entrée pour revenir chez le marchand ');
+  readln;
 end;
 
 // Affichage de l'entête de vente de composants
