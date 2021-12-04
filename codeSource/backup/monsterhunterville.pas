@@ -34,7 +34,7 @@ begin
   else if (choix = '5') then
     choisirCombat()
   else if (choix = '6') then
-    menu()
+    menu();
   else
     ville();
 end;

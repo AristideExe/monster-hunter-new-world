@@ -21,15 +21,20 @@
         <Filename Value="monsterhunterihm.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="MonsterHunterIHM"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="74"/>
+        <CursorPos X="57" Y="95"/>
         <UsageCount Value="48"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="GestionEcran.pas"/>
         <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="292"/>
         <CursorPos X="52" Y="316"/>
         <UsageCount Value="48"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="monsterhunterjoueur.pas"/>
@@ -56,7 +61,10 @@
         <Filename Value="monsterhunterville.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterVille"/>
+        <TopLine Value="11"/>
+        <CursorPos X="11" Y="37"/>
         <UsageCount Value="48"/>
+        <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="monsterhunterchambre.pas"/>
@@ -71,12 +79,10 @@
         <Filename Value="monsterhunterforge.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="monsterHunterForge"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="113"/>
-        <CursorPos X="101" Y="130"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="125"/>
+        <CursorPos X="21" Y="104"/>
         <UsageCount Value="48"/>
-        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="monsterhuntercantine.pas"/>
@@ -162,23 +168,11 @@
         <UsageCount Value="9"/>
       </Unit19>
     </Units>
-    <JumpHistory Count="4" HistoryIndex="3">
+    <JumpHistory Count="1">
       <Position1>
-        <Filename Value="monsterhunterforge.pas"/>
-        <Caret Line="100" Column="101" TopLine="79"/>
+        <Filename Value="monsterhunterihm.pas"/>
+        <Caret Line="90" Column="57" TopLine="74"/>
       </Position1>
-      <Position2>
-        <Filename Value="monsterhunterforge.pas"/>
-        <Caret Line="130" Column="6" TopLine="111"/>
-      </Position2>
-      <Position3>
-        <Filename Value="monsterhunterforge.pas"/>
-        <Caret Line="46" Column="26" TopLine="48"/>
-      </Position3>
-      <Position4>
-        <Filename Value="monsterhunterforge.pas"/>
-        <Caret Line="47" Column="36" TopLine="32"/>
-      </Position4>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

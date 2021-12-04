@@ -81,13 +81,13 @@ begin
 
      //Bateau d'exploration
      dessinCouleurSansEspaces('dessins/bateau.txt',34,0);
-     deplacerCurseurXY(55,5);write('5/Expedition');
+     deplacerCurseurXY(55,5);write('5/ Expedition');
 
 
      //Arbre d village
      dessinCouleurSansEspaces('dessins/Arbre.txt',47,9);
 
-
+     deplacerCurseurXY(5,24);write ('6/ Revenir au menu');
 
      // Insertion d'une proposition
      dessinerCadreXY(50,25,70,27,simple,White,Black);
