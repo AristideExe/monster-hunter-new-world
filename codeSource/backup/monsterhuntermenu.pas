@@ -40,7 +40,7 @@ end;
 procedure sauvegarde();
 begin
   sauvegardeIHM();
-
+  menu();
 end;
 
 
@@ -72,6 +72,7 @@ begin
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
 
   initialisationPersonnage();
+  affichageNomStudio()
   affichageLogo();
   menu();
 end;

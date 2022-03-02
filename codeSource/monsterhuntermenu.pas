@@ -72,6 +72,7 @@ begin
   initialisationMonstres('attributsMonstres/monstresAttributs.csv');
 
   initialisationPersonnage();
+  affichageNomStudio();
   affichageLogo();
   menu();
 end;

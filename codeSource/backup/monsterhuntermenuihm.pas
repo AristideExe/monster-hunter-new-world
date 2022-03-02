@@ -27,18 +27,27 @@ procedure creationPersonnageIHM(var nom, taille, sexe : string);
 procedure afficherPersonnageIHM(sexe : string);
 
 procedure affichageLogo();
+procedure affichageNomStudio();
 
 
 // =========================================================================== IMPLEMENTATION ===================================================================================
 implementation
+
+procedure affichageNomStudio();
+begin
+     changerTailleConsole(120,30);
+     attendre(300);
+     deplacerCurseurXY(40,14);
+     write('Qrao Studio présente :');
+     attendre(2000);
+end;
 
 procedure affichageLogo();
 var
   i : integer;
   titre : string;
 begin
-     changerTailleConsole(120,30);
-
+     effacerEcran();
      // Affichage du logo
      for i:=1 to 13 do
      begin
@@ -109,7 +118,7 @@ var i, n: integer;
 
 begin
      effacerEcran();
-     cadrePrincipal('Crédits :');
+     cadrePrincipal('Crédits');
      deplacerCurseurXY(14,10); write('Développeurs : ');
      deplacerCurseurXY(30,10); write('- Aristide');
      deplacerCurseurXY(30,11); write('- Léandre');
